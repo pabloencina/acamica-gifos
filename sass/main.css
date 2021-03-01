@@ -1,0 +1,102 @@
+@media screen and (max-width: 375px) {
+  nav {
+    width: 100%;
+    height: 95px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #btn1 {
+    margin-left: 15px;
+  }
+  #btn2 {
+    margin-right: 15px;
+  }
+  #menu ul li {
+    list-style: none;
+  }
+  #menu ul li a {
+    text-decoration: none;
+  }
+  #menu {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    height: 484px;
+    background-color: #572ee5;
+  }
+  .lista a {
+    font-family: "Montserrat Alternates";
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 60px;
+    font-weight: bold;
+  }
+  .lista {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+  #menu ul {
+    margin: 0;
+    padding: 0;
+  }
+  hr {
+    color: cornflowerblue;
+    width: 50px;
+  }
+}
+
+/*Busqueda Mobile */
+#btn1 {
+  width: 90%;
+}
+
+#btn2 {
+  width: 10%;
+}
+
+#buscador1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  position: relative;
+  z-index: -1;
+}
+
+input {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 260px;
+  height: 40px;
+  border: 1px solid #572ee5;
+  border-radius: 27px;
+  position: relative;
+  top: 10px;
+}
+
+#cierre {
+  position: relative;
+  left: -30px;
+  top: 10px;
+}
+/*# sourceMappingURL=main.css.map */
