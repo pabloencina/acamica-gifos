@@ -1,7 +1,7 @@
 /*
-Error: File to import not found or unreadable: _mascotas.scss.
+Error: File to import not found or unreadable: _menu.scss.
        Load path: /home/pablo/Escritorio/Acámica/Sprint 2/proyecto 2/acamica-gifos/sass
-        on line 5 of sass/main.scss
+        on line 1 of sass/main.scss
 
 1: @import '_menu.scss';
 2: 
@@ -9,12 +9,9 @@ Error: File to import not found or unreadable: _mascotas.scss.
 4: 
 5: @import '_mascotas.scss';
 6: 
-7: @import '_gifos.scss';
-8: 
-9: @import '_footer.scss';
 
 Backtrace:
-sass/main.scss:5
+sass/main.scss:1
 /var/lib/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:67:in `rescue in import'
 /var/lib/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:44:in `import'
 /var/lib/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:28:in `imported_file'
@@ -59,4 +56,4 @@ sass/main.scss:5
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: _mascotas.scss.\A        Load path: /home/pablo/Escritorio/Acámica/Sprint 2/proyecto 2/acamica-gifos/sass\A         on line 5 of sass/main.scss\A \A 1: @import '_menu.scss';\A 2: \A 3: @import '_busqueda.scss';\A 4: \A 5: @import '_mascotas.scss';\A 6: \A 7: @import '_gifos.scss';\A 8: \A 9: @import '_footer.scss';"; }
+  content: "Error: File to import not found or unreadable: _menu.scss.\A        Load path: /home/pablo/Escritorio/Acámica/Sprint 2/proyecto 2/acamica-gifos/sass\A         on line 1 of sass/main.scss\A \A 1: @import '_menu.scss';\A 2: \A 3: @import '_busqueda.scss';\A 4: \A 5: @import '_mascotas.scss';\A 6: "; }
