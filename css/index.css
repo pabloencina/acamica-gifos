@@ -1,5 +1,5 @@
 /*
- /********BUSQUEDA Mobile*********************/
+ /********Principal Mobile*********************/
 
 @media screen and (max-width: 375px) {
     * {
@@ -19,7 +19,13 @@
         margin-right: 15px;
     }
     /***********Menú Hamburguesa******************************/
-
+    button{
+        display: none;
+        height: 5px;
+    }
+    #boton1{
+        display: block;
+    }
     #menu ul li {
         list-style: none;
     }
@@ -28,7 +34,7 @@
     }
     #menu {
         position: relative;
-        display: flex;
+        display: none;
         justify-content: center;
         width: 100%;
         height: 484px;
@@ -43,6 +49,7 @@
         font-weight: bold;
     }
     .lista {
+        
         display: flex;
         justify-content: center;
         width: 100%;
@@ -158,6 +165,12 @@
         width: 100%;
         height: 430px;
         display: flex;
+    }
+    #inspiracion{
+        display: flex;
+        width:286px ;
+        height:99px ;
+        margin-top: 120px;
     }
     #gifos {
         font-family: "Montserrat Alternates";
