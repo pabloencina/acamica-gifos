@@ -1,27 +1,23 @@
+
 let boton1 = document.getElementById('boton1')
 
 let menu = document.getElementById('menu')
 
 let btn3 = document.getElementById('btn3')
-
+/****Funcion para que aparezca el menu hamb */ 
 boton1.addEventListener('click', (event) => {
     if (menu.style.display === 'none') {
-        menu.style.display = 'block';
-        btn3.style.display = 'block'
-        boton1.style.opacity = ''
+       return menu.style.display = 'block'; 
     }else{
-        btn3.style.opacity = ''
-        menu.style.display = 'none' 
-        boton1.style.display = 'block'
-        
+       return menu.style.display = 'none' 
     }
 })
 
-btn3.addEventListener('click', (event)=>{
-    if(menu.style.display === 'block'){
-        btn3.style.display = 'block'
+btn3.addEventListener('click', (event)=> {
+    if(btn3.style.display === 'none'){
+       return btn3.style.display = 'block'
     }else{
-        btn3.style.display = 'none'
+       return menu.style.display = 'none'
     }
 })
 
