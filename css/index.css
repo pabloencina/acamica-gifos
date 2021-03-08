@@ -2,7 +2,7 @@
  /********Principal Mobile*********************/
 
 @media screen and (max-width: 375px) {
-    #menus{
+    #menus {
         display: none;
     }
     nav {
@@ -14,18 +14,24 @@
     #btn1 {
         display: flex;
         justify-content: flex-start;
+        width: 20%;
     }
     #btn2 {
         margin-right: 0.9375rem;
+        width: 80%;
+        display: flex;
+        justify-content: end;
     }
     #btn3 {
         margin-top: -0.75rem;
         display: none;
     }
-    /***********Menú Hamburguesa******************************/
-    button {
+    #btn4 {
         display: none;
-        height: 0.3125rem;
+    }
+    /***********Menú Hamburguesa******************************/
+     #but{
+        display: none;
     }
     #boton1 {
         display: block;
@@ -36,14 +42,22 @@
     #menu ul li a {
         text-decoration: none;
     }
+    #btn3 img{
+        display: block;
+    }
+    #btn4 img{
+        display: none;
+    }
     #menu {
         position: relative;
-        display: none;
+        display: flex;
         justify-content: center;
-        width: 100%;
-        height: 30.25rem;
+        width: 375px;
+        height: 484px;
         background-color: #572ee5;
-        z-index: -1;
+        background: rgba(87,46,229,0.90);
+        margin: auto;
+        padding: auto;
     }
     .lista a {
         font-family: "Montserrat Alternates";
@@ -63,18 +77,15 @@
         margin: 0;
         padding: 0;
     }
-    hr {
+    hr{
         color: cornflowerblue;
-        width: 3.125rem;
+        width: 4.125rem;
+    }
+    #menus{
+        display: none;
     }
 
-    /************Nav*********************** */
-    #btn1 {
-        width: 90%;
-    }
-    #btn2 {
-        width: 10%;
-    }
+    /************Input Mobile*********************** */
     #buscador1 {
         position: relative;
         display: flex;
@@ -155,7 +166,7 @@
         margin-top: 0.9375rem;
     }
     /***FAVORITOS Mobile*****/
-    #principal7{
+    #principal7 {
         display: none;
     }
     #contenedor2 {
@@ -164,26 +175,26 @@
         width: 100%;
         height: 150px;
     }
-    #titulo1{
+    #titulo1 {
         font-family: "Montserrat Alternates";
         font-size: 25px;
         color: #572ee5;
         text-align: center;
         line-height: 30px;
     }
-    #principal6{
+    #principal6 {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
     }
-    .fotos2{
+    .fotos2 {
         width: 156px;
         height: 120px;
         margin-top: 20px;
     }
     /*******MIS GIFOS Mobile************/
 
-    #principal8{
+    #principal8 {
         display: none;
     }
     #contenedor3 {
@@ -192,19 +203,19 @@
         width: 100%;
         height: 150px;
     }
-    #titulo2{
+    #titulo2 {
         font-family: "Montserrat Alternates";
         font-size: 25px;
         color: #572ee5;
         text-align: center;
         line-height: 30px;
     }
-    #principal9{
+    #principal9 {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
     }
-    .fotos3{
+    .fotos3 {
         width: 156px;
         height: 120px;
         margin-top: 20px;
@@ -330,6 +341,7 @@
     }
 }
 
+
 /*********************************/
 
 @media screen and (max-width: 1440px) {
@@ -340,63 +352,44 @@
         display: flex;
         background: rgba(255, 255, 255, 0.5);
     }
-    #menu {
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
-    #menu ul {
-        display: flex;
-    }
-    #menu ul li {
-        list-style: none;
-    }
-    #menu ul li a {
-        text-decoration: none;
-    }
-    .lista a {
-        font-family: "Montserrat Alternates";
-        font-size: 13px;
-        color: #572ee5;
-        text-align: center;
-        line-height: 3.75rem;
-        font-weight: bold;
-        margin: 2.5rem;
-    }
+    
+    
     #btn1 {
         display: none;
         width: 5.625rem;
         display: flex;
         align-items: center;
         margin-left: 3.125rem;
-    }
-    
-    #btn2 {
+    }ww
+    #boton1 {
         display: none;
-        width: 5.625rem;
+    }
+    #btn3 {
+        display: none;
+    }
+    #btn4 {
         display: flex;
         align-items: center;
-        margin-right: 6.25rem;
+        justify-content: flex-start;
+        width: 300px;
+        margin-left: -100px;
     }
-    #boton1{
+    #menus {
         display: none;
     }
-    #btn3{
+    button {
         display: none;
     }
-    #menus{
-        display: none;
-    }
-    
-
     /*****Ilustracion y Busqueda********/
+    #principal4 {
+        display: flex;
+        justify-content: center;
+    }
     #inspiracion {
         width: 50%;
         height: 12.5rem;
         display: flex;
         justify-content: center;
-        margin-left: 20%;
         font-family: "Montserrat Alternates";
         font-size: 1.25rem;
         color: #572ee5;
@@ -427,6 +420,10 @@
         margin-top: 1.25rem;
     }
     /*****Trending*******/
+    #principal1 {
+        display: flex;
+        flex-direction: column;
+    }
     #trending {
         font-family: "Montserrat Alternates";
         font-size: 1.125rem;
@@ -441,16 +438,106 @@
         text-align: center;
         line-height: 1.5625rem;
     }
+    /*********Mascotas*****************/
+    #principal5 {
+        display: none;
+    }
+    #mascotas {
+        font-family: "Montserrat Alternates";
+        font-size: 1.5625rem;
+        color: #572ee5;
+        text-align: center;
+        line-height: 2.5rem;
+    }
+    main {
+        position: relative;
+        z-index: -1;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .fotos {
+        width: 260px;
+        height: 200px;
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+    /***FAVORITOS Mobile*****/
+    #principal7 {
+        display: none;
+    }
+    #contenedor2 {
+        display: flex;
+        width: 100%;
+        height: 150px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #titulo1 {
+        font-family: "Montserrat Alternates";
+        font-size: 25px;
+        color: #572ee5;
+        text-align: center;
+        line-height: 30px;
+    }
+    #principal6 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .fotos2 {
+        width: 260px;
+        height: 200px;
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+    #imagen1 {
+        width: 28px;
+        height: 21px;
+    }
+    /*******MIS GIFOS Mobile************/
 
-    /****GIFOS descktop*/
+    #principal8 {
+        display: none;
+    }
+    #contenedor3 {
+        display: flex;
+        width: 100%;
+        height: 150px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #titulo2 {
+        font-family: "Montserrat Alternates";
+        font-size: 25px;
+        color: #572ee5;
+        text-align: center;
+        line-height: 30px;
+    }
+    #principal9 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .fotos3 {
+        width: 260px;
+        height: 200px;
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+
+    /****GIFOS desktop*/
     #principal4 {
         width: 100%;
-        height: 40rem;
+        height: 540px;
         background: #f3f5f8;
-        margin-top: 3.125rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
     }
     #contenedor1 {
-        margin-top: 3.125rem;
         display: block;
         align-items: center;
     }
@@ -461,7 +548,7 @@
         text-align: center;
         line-height: 1.875rem;
     }
-    #trent{
+    #trent {
         padding-top: 5rem;
     }
     #parr1 {
@@ -472,12 +559,16 @@
     }
     #scroll {
         display: flex;
-        margin-left: 0.625rem;
-        justify-content: space-between;
+        justify-content: center;
+    }
+    .img10 {
+        width: 357px;
+        height: 275px;
+        margin-left: 20px;
     }
     .gif {
-        width: 21.875rem;
-        height: 17.1875rem;
+        width: 40px;
+        margin-left: 20px;
     }
     /**** Footer Desktop*/
     footer {
@@ -502,288 +593,25 @@
         color: #000000;
         letter-spacing: 0;
         margin-left: 5rem;
-        width: 50%;
+        width: 30%;
         display: flex;
         justify-content: flex-start;
     }
     #red {
-        width: 100%;
+        width: 80%;
         display: flex;
         justify-content: flex-start;
     }
-    .redes{
+    .redes {
         margin: 0.625rem;
     }
-}
-
-@media screen and (max-width: 375px) {
-    * {
-        padding: auto;
-        margin: auto;
-    }
-    nav {
-        width: 100%;
-        height: 5.9375rem;
-        display: flex;
-        align-items: center;
-    }
-    #btn1 {
-        margin-left: 0.9375rem;
-    }
-    #btn2 {
-        margin-right: 0.9375rem;
-    }
-    #btn3{
-        margin-top: -0.75rem;
-        display: none;
-        
-    }
-    /***********Menú Hamburguesa******************************/
-    button{
-        display:none ;
-        height: 0.3125rem;
-    }
-    #boton1{
-        display: block;
-    }
-    #menu ul li {
-        list-style: none;
-    }
-    #menu ul li a {
-        text-decoration: none;
-    }
-    #menu {
-        position: relative;
-        display: none;
-        justify-content: center;
-        width: 100%;
-        height: 30.25rem;
-        background-color: #572ee5;
-        z-index: -1;
-    }
-    .lista a {
-        font-family: "Montserrat Alternates";
-        font-size: 1.25rem;
-        color: #ffffff;
-        text-align: center;
-        line-height: 3.75rem;
-        font-weight: bold;
-    }
-    .lista {
-        
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin-top: 0.625rem;
-    }
-    #menu ul {
-        margin: 0;
-        padding: 0;
-    }
-    hr {
-        color: cornflowerblue;
-        width: 3.125rem;
-    }
-
-    /************Nav*********************** */
-    #btn1 {
-        width: 90%;
-    }
-    #btn2 {
-        width: 10%;
-    }
-    #buscador1 {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        position: relative;
-        z-index: -1;
-    }
-    input {
-        position: relative;
-        align-items: center;
-        width: 16.25rem;
-        height: 2.5rem;
-        border: 1px solid #572ee5;
-        border-radius: 27px;
-        position: relative;
-        top: 0.625rem;
-    }
-    #cierre {
-        position: relative;
-        left: -1.875rem;
-        top: 0.625rem;
-    }
-    #principal1 {
-        position: relative;
-        z-index: -1;
-        width: 100%;
-        height: 9.6875rem;
-        display: inline-flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-    }
-    #trending {
-        display: flex;
-        justify-content: center;
-        height: 1.5625rem;
-        width: 14.75rem;
-        font-family: "Montserrat Alternates", sans-serif;
-        color: #572ee5;
-        font-size: 1rem;
-        text-align: center;
-        line-height: 1.5625rem;
-    }
-    #react {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        width: 14.0625rem;
-        height: 9.375rem;
-        font-family: "Montserrat Alternates", sans-serif;
-        font-size: 0.875rem;
-        color: #572ee5;
-        text-align: center;
-        line-height: 1.5625rem;
-    }
-    /**************** Imágenes********************  */
-    #mascotas {
-        font-family: "Montserrat Alternates";
-        font-size: 1.5625rem;
-        color: #572ee5;
-        text-align: center;
-        line-height: 2.5rem;
-    }
-    main {
-        position: relative;
-        z-index: -1;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-    }
-    .fotos {
-        width: 9.75rem;
-        height: 7.5rem;
-        margin-top: 0.9375rem;
-    }
-    /****************** Boton "Ver Más"****** */
-    #principal3 {
-        height: 12.5rem;
-    }
-    #boton {
-        display: flex;
-        justify-content: center;
-        width: 6.25rem;
-        height: 12.5rem;
-        background-color: white;
-        border: none;
-    }
-    /*******Trending GIFOS************** */
-    #principal4 {
-        background: #f3f5f8;
-        width: 100%;
-        height: 26.875rem;
-        display: flex;
-    }
-    #inspiracion{
-        display: flex;
-        width:17.875rem ;
-        height:6.1875rem ;
-        margin-top: 7.5rem;
-    }
-    #gifos {
-        font-family: "Montserrat Alternates";
-        font-size: 1.5625rem;
-        color: #572ee5;
-        text-align: center;
-        line-height: 1.875rem;
-    }
-    #contenedor1 {
-        width: 12.5rem;
-        height: 6.25rem;
-    }
-    #parr1 {
-        font-family: "Roboto Condensed", sans-serif;
-        font-size: 1.25rem;
-        color: #000000;
-        text-align: center;
-        line-height: 1.4375rem;
-    }
-    /*Scroll */
-    #scroll {
-        display: flex;
-        flex-wrap: nowrap;
-        position: relative;
-        left: 6.25rem;
-    }
-    #scroll img {
-        width: 15.1875rem;
-        height: 11.6875rem;
-        /*justify-content: space-evenly;*/
-        margin: 0.9375rem;
-    }
-    /**********************Footer****************/
-    footer {
-        width: 100%;
-        height: 12.25rem;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    #parr2 {
-        width: 100%;
-        justify-content: center;
-        font-family: "Roboto Condensed";
-        font-size: 1.25rem;
-        color: #000000;
-        letter-spacing: 0;
-        justify-content: center;
-    }
-    #contenedor4 {
-        display: flex;
-        justify-content: center;
+    #parrafo3{
+        width: 400px;
     }
     #parr3 {
         font-family: "Roboto Condensed";
-        font-size: 1rem;
+        font-size: 13px;
         color: #000000;
         letter-spacing: 0;
-        line-height: 1.25rem;
-        width: 14.0625rem;
-    }
-    #red {
-        display: flex;
-        justify-content: center;
-        justify-content: space-around;
-        width: 90%;
-        height: 1.5625rem;
-        background: #ffffff;
-    }
-    .redes {
-        width: 1.25rem;
-        height: 1.25rem;
-    }
-    /* ***** Ilustrcion Inicial*****/
-    #inspiracion {
-        position: relative;
-        top: -7.5rem;
-        width: 17.875rem;
-        height: 2.8125rem;
-    }
-    #inspirate {
-        font-family: "Montserrat Alternates";
-        font-size: 1.5625rem;
-        color: #572ee5;
-        text-align: center;
-        line-height: 2.0625rem;
-    }
-    #palabra {
-        color: #5ed7c6;
-    }
-    #ilustr {
-        width: 17.0625rem;
-        height: 8.125rem;
     }
 }
