@@ -1,3 +1,11 @@
+/*MODO NOCTURNO*/
+body.dark{
+    background-color: #37383C;
+}
+ h1.dark{
+    color: white;
+}
+
 /********BUSQUEDA*********************/
 
 @media screen and (max-width: 375px) {
