@@ -1,4 +1,5 @@
 /*MODO NOCTURNO*/
+/*
 body.dark{
     background-color: #37383C;
 }
@@ -165,8 +166,19 @@ body.dark{
         line-height: 25px;
     }
     /**************** Imágenes********************  */
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }/*
     #principal5 {
         display: none;
+       
+    }*/
+    #principal2{
+        display: flex;
+        align-items: flex-start;
+
     }
     #mascotas {
         font-family: "Montserrat Alternates";
@@ -175,12 +187,7 @@ body.dark{
         text-align: center;
         line-height: 40px;
     }
-    main {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-    }
-    .fotos {
+    .foto{
         width: 156px;
         height: 120px;
         margin-top: 15px;
@@ -474,9 +481,10 @@ body.dark{
         justify-content: center;
         flex-direction: column;
     }
+    /*
     #principal5 {
         display: none;
-    }
+    }*/
     #mascotas {
         font-family: "Montserrat Alternates";
         font-size: 1.5625rem;
@@ -484,7 +492,7 @@ body.dark{
         text-align: center;
         line-height: 2.5rem;
     }
-    .fotos {
+    .foto {
         width: 260px;
         height: 200px;
         margin-top: 20px;
