@@ -71,6 +71,8 @@ misgif.addEventListener('click', (event) => {
 
 let principal2 = document.getElementById('principal2')
 
+let offset = 0
+
 const api_key = 'boZGHaAmzirlZl5OiViZEx7vayQzDZoY'
 
 const url_base = 'https://api.giphy.com/v1/gifs/trending?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY&limit=12&search=mascotas'
@@ -95,7 +97,6 @@ let mostrartrending = async () => {
    } catch (error) {
    }
 }
-
 mostrartrending()
 
 /**Buscador desde la API */
@@ -105,7 +106,7 @@ let buscador1 = document.getElementById('buscador1')
 const url_base_buscador = 'https://api.giphy.com/v1/gifs/search?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY&limit=12&q='
 
 buscador1.addEventListener('keypress', async (e) => {
-
+   const urls = url_base_buscador + offset + '&q=' + e.target.value
    if (e.key === 'Enter') {
 
       principal2.innerHTML = ``
@@ -124,4 +125,39 @@ buscador1.addEventListener('keypress', async (e) => {
    
    }
 })
+
+
+
+/**Creación del carrusell */
+
+let scroll = document.getElementById('scroll')
+
+
+
+scroll.style.overflow = 'scroll'
+
+const url_BASE = 'https://api.giphy.com/v1/gifs/trending?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY&limit=12&offset=12'
+
+let mostrarscroll = async () => {
+   try {
+      let resultado = await fetch(url_base + api_key)
+
+      let json = await resultado.json()
+
+      json.data.forEach(scrolls => {
+
+         scroll.innerHTML += `
+         <div class='foto1'>
+            <img class='fotos5' src='${scrolls.images.fixed_height.url}>
+         
+            <img src='${scrolls.images.fixed_height.url}>
+         </div>
+         `
+
+      });
+   } catch (error) {
+   }
+}
+
+mostrarscroll()
 

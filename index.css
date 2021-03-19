@@ -262,7 +262,7 @@ body.dark{
     /****************** Boton "Ver Más"****** */
     #principal3 {
         height: 200px;
-        display: none;
+        /*display: none;*/
     }
     #boton {
         display: flex;
@@ -303,7 +303,7 @@ body.dark{
         display: flex;
         flex-wrap: nowrap;
         position: relative;
-        left: 100px;
+        
     }
     #scroll img {
         width: 243px;
@@ -312,7 +312,7 @@ body.dark{
         margin: 15px;
     }
     .fotos5 {
-        display: none;
+        
     }
     /**********************Footer****************/
     footer {
