@@ -47,6 +47,11 @@ body.dark{
         background-color: #572ee5;
         background: rgba(87, 46, 229, 0.9);
     }
+    #btn3{
+        
+        visibility: hidden;
+        margin-left: -15px;
+    }
     .lista a {
         font-family: "Montserrat Alternates";
         font-size: 20px;
@@ -84,9 +89,7 @@ body.dark{
         display: flex;
         justify-content: end;
     }
-    #boton2 {
-        display: none;
-    }
+    
     /********Imagen principal y Buscador**************/
     #inspiracion {
         width: 286px;

@@ -13,12 +13,29 @@ let boton1 = document.getElementById('boton1')
 
 let menu = document.getElementById('menu')
 
+let btn3 = document.getElementById('btn3')
+
 boton1.addEventListener('click', (event) => {
    if (menu.style.display === 'none') {
       menu.style.display = 'block';
+      
+     
    } else {
       menu.style.display = 'none'
+      boton1.style.display = 'block'
    }
+})
+
+btn3.addEventListener('click', ()=>{
+   if (btn3.style.visibility === 'hidden') {
+      btn3.style.visibility = 'visible'
+      boton1.style.display = 'none'
+      menu.style.display = 'block'
+   }else{
+      menu.style.display = 'none'
+      boton1.style.display = 'block'
+   }
+
 })
 
 /***CLICK en favoritos**Mobile** */
@@ -30,6 +47,8 @@ let principal7 = document.getElementById('principal7')
 let principal4 = document.getElementById('principal4')
 
 let principal1 = document.getElementById('principal1')
+
+let ilustracion = document.getElementById('ilustracion')
 
 fav.addEventListener('click', (event) => {
 
@@ -61,6 +80,8 @@ let boton = document.getElementById('boton')
 let misgif = document.getElementById('misgif')
 
 let principal8 = document.getElementById('principal8')
+
+let inspiracion1 = document.getElementById('inspiracion1')
 
 misgif.addEventListener('click', (event) => {
    principal8.style.display = 'block'
@@ -104,7 +125,6 @@ let mostrartrending = async () => {
             <img src='${trending.images.fixed_height.url}>
          </div>
          `
-
       });
    } catch (error) {
    }
@@ -122,7 +142,7 @@ buscador1.addEventListener('keypress', async (e) => {
    if (e.key === 'Enter') {
 
       principal5.style.display = 'block'
-      
+
       lupa.style.display = 'none'
       cierre.style.display = 'block'
 
@@ -146,8 +166,10 @@ buscador1.addEventListener('keypress', async (e) => {
          principal3.style.display = 'block'
          principal3.style.display = 'flex'
          principal3.style.alignItems = 'center'
+         inspiracion1.style.display = 'none'
+
       });
-   
+
    }
 })
 /******Funcionalidad Boton Ver Mas */
@@ -162,13 +184,16 @@ principal3.addEventListener('click', () => {
    mostrartrending(buscador1.value, offset);
 })
 /********Buscador CIERRE  y LUPA */
-cierre.addEventListener('click', (e) =>{
-   
+cierre.addEventListener('click', (e) => {
+
    cierre.style.display = 'none'
    lupa.style.display = 'block'
+   inspiracion1.style.display = 'block'
+   principal3.style.display = 'none'
    principal2.innerHTML = ''
    mascotas.innerHTML = ''
    buscador1.value.innerHTML = ''
+   
 })
 
 
