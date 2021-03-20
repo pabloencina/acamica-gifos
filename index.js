@@ -43,6 +43,18 @@ fav.addEventListener('click', (event) => {
    // }
 
 })
+/******************Nombre de los git desde el imput**** */
+let mascotas = document.getElementById('mascotas')
+
+let principal5 = document.getElementById('principal5')
+
+let principal3 = document.getElementById('principal3')
+
+let lupa = document.getElementById('lupa')
+
+let cierre = document.getElementById('cierre')
+
+let boton = document.getElementById('boton')
 
 /*******Click en Mis GIfos ****Mobile*** */
 
@@ -109,23 +121,55 @@ buscador1.addEventListener('keypress', async (e) => {
    const urls = url_base_buscador + offset + '&q=' + e.target.value
    if (e.key === 'Enter') {
 
+      principal5.style.display = 'block'
+      
+      lupa.style.display = 'none'
+      cierre.style.display = 'block'
+
       principal2.innerHTML = ``
       let resultado = await fetch(url_base_buscador + e.target.value)
 
       let json = await resultado.json()
       json.data.forEach(trending => {
          principal2.innerHTML += `
+
+         <h1 id='mascotas'>
          <div class='foto1'>
             <img class='foto' src='${trending.images.fixed_height.url}>
          
             <img src='${trending.images.fixed_height.url}>
          </div>
          `
+         mascotas.innerHTML = ''
+         mascotas.innerHTML = e.target.value
+
+         principal3.style.display = 'block'
+         principal3.style.display = 'flex'
+         principal3.style.alignItems = 'center'
       });
    
    }
 })
+/******Funcionalidad Boton Ver Mas */
+lupa.addEventListener('click', () => {
+   offset = 0;
+   principal2.innerHTML = '';
+   mostrartrending(buscador1.value, offset);
+});
 
+principal3.addEventListener('click', () => {
+   offset += 12;
+   mostrartrending(buscador1.value, offset);
+})
+/********Buscador CIERRE  y LUPA */
+cierre.addEventListener('click', (e) =>{
+   
+   cierre.style.display = 'none'
+   lupa.style.display = 'block'
+   principal2.innerHTML = ''
+   mascotas.innerHTML = ''
+   buscador1.value.innerHTML = ''
+})
 
 
 /**Creación del carrusell */
