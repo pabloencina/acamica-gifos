@@ -1,44 +1,14 @@
-/**MODO NOCTURNO */
-/*
-const mod = document.getElementById('mod');
 
-mod.addEventListener('click', () => {
-   document.body.classList.toggle('dark'); //toggle the HTML body the class 'dark'
-   mod.classList.toggle('active');//toggle the HTML button with the id='switch' with the class 'active'
-});
-
-
-/****Funcion para que aparezca el menu hamb */
+/******************Nombre de las variables**** */
 let boton1 = document.getElementById('boton1')
 
 let menu = document.getElementById('menu')
 
 let btn3 = document.getElementById('btn3')
 
-boton1.addEventListener('click', (event) => {
-   if (menu.style.display === 'none') {
-      menu.style.display = 'block';
-      
-     
-   } else {
-      menu.style.display = 'none'
-      boton1.style.display = 'block'
-   }
-})
+let misgif = document.getElementById('misgif')
 
-btn3.addEventListener('click', ()=>{
-   if (btn3.style.visibility === 'hidden') {
-      btn3.style.visibility = 'visible'
-      boton1.style.display = 'none'
-      menu.style.display = 'block'
-   }else{
-      menu.style.display = 'none'
-      boton1.style.display = 'block'
-   }
-
-})
-
-/***CLICK en favoritos**Mobile** */
+let principal8 = document.getElementById('principal8')
 
 let fav = document.getElementById('fav')
 
@@ -50,6 +20,63 @@ let principal1 = document.getElementById('principal1')
 
 let ilustracion = document.getElementById('ilustracion')
 
+let inspiracion1 = document.getElementById('inspiracion1')
+
+let mascotas = document.getElementById('mascotas')
+
+let principal5 = document.getElementById('principal5')
+
+let principal3 = document.getElementById('principal3')
+
+let principal2 = document.getElementById('principal2')
+
+let lupa = document.getElementById('lupa')
+
+let cierre = document.getElementById('cierre')
+
+let boton = document.getElementById('boton')
+
+let offset = 0
+
+let buscador1 = document.getElementById('buscador1')
+
+let scroll = document.getElementById('scroll')
+
+
+
+/**MODO NOCTURNO */
+/*
+const mod = document.getElementById('mod');
+
+mod.addEventListener('click', () => {
+   document.body.classList.toggle('dark'); //toggle the HTML body the class 'dark'
+   mod.classList.toggle('active');//toggle the HTML button with the id='switch' with the class 'active'
+});
+
+
+/****Funcion para que aparezca el menu hamb */
+boton1.addEventListener('click', (event) => {
+   if (menu.style.display === 'none') {
+      menu.style.display = 'block';
+
+   } else {
+      menu.style.display = 'none'
+      boton1.style.display = 'block'
+   }
+})
+btn3.addEventListener('click', () => {
+   if (btn3.style.visibility === 'hidden') {
+      btn3.style.visibility = 'visible'
+      boton1.style.display = 'none'
+      menu.style.display = 'block'
+   } else {
+      menu.style.display = 'none'
+      boton1.style.display = 'block'
+   }
+
+})
+
+/***CLICK en favoritos**Mobile** */
 fav.addEventListener('click', (event) => {
 
    menu.style.display = 'none'
@@ -60,28 +87,8 @@ fav.addEventListener('click', (event) => {
 
    principal7.style.display = 'block'
    // }
-
 })
-/******************Nombre de los git desde el imput**** */
-let mascotas = document.getElementById('mascotas')
-
-let principal5 = document.getElementById('principal5')
-
-let principal3 = document.getElementById('principal3')
-
-let lupa = document.getElementById('lupa')
-
-let cierre = document.getElementById('cierre')
-
-let boton = document.getElementById('boton')
-
 /*******Click en Mis GIfos ****Mobile*** */
-
-let misgif = document.getElementById('misgif')
-
-let principal8 = document.getElementById('principal8')
-
-let inspiracion1 = document.getElementById('inspiracion1')
 
 misgif.addEventListener('click', (event) => {
    principal8.style.display = 'block'
@@ -93,18 +100,12 @@ misgif.addEventListener('click', (event) => {
 
    principal1.style.display = 'none'
 })
-
 /**Consumir gifs desde la  API */
 'api.giphy.com/v1/gifs/trending?api_key='
 
 'api.giphy.com/v1/gifs/search'
 
 'https://api.giphy.com/v1/gifs/trending?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY&limit=25&rating=g'
-
-
-let principal2 = document.getElementById('principal2')
-
-let offset = 0
 
 const api_key = 'boZGHaAmzirlZl5OiViZEx7vayQzDZoY'
 
@@ -124,16 +125,14 @@ let mostrartrending = async () => {
          
             <img src='${trending.images.fixed_height.url}>
          </div>
+         
          `
       });
    } catch (error) {
    }
 }
 mostrartrending()
-
 /**Buscador desde la API */
-
-let buscador1 = document.getElementById('buscador1')
 
 const url_base_buscador = 'https://api.giphy.com/v1/gifs/search?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY&limit=12&q='
 
@@ -145,7 +144,7 @@ buscador1.addEventListener('keypress', async (e) => {
 
       lupa.style.display = 'none'
       cierre.style.display = 'block'
-
+      cierre.style.position = 'relative'
       principal2.innerHTML = ``
       let resultado = await fetch(url_base_buscador + e.target.value)
 
@@ -159,6 +158,20 @@ buscador1.addEventListener('keypress', async (e) => {
          
             <img src='${trending.images.fixed_height.url}>
          </div>
+
+         <div id='favcor'
+            <img class="seleccion" id="corazon"
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+
+            <img id="descarga" class="seleccion"
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
+
+            <img id="expancion" class="seleccion"
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
+
+            <img class="seleccion" id="corazon"
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+         </div>
          `
          mascotas.innerHTML = ''
          mascotas.innerHTML = e.target.value
@@ -167,9 +180,8 @@ buscador1.addEventListener('keypress', async (e) => {
          principal3.style.display = 'flex'
          principal3.style.alignItems = 'center'
          inspiracion1.style.display = 'none'
-
+         
       });
-
    }
 })
 /******Funcionalidad Boton Ver Mas */
@@ -193,15 +205,9 @@ cierre.addEventListener('click', (e) => {
    principal2.innerHTML = ''
    mascotas.innerHTML = ''
    buscador1.value.innerHTML = ''
-   
+
 })
-
-
 /**Creación del carrusell */
-
-let scroll = document.getElementById('scroll')
-
-
 
 scroll.style.overflow = 'scroll'
 
@@ -230,3 +236,8 @@ let mostrarscroll = async () => {
 
 mostrarscroll()
 
+let agrandar =document.getElementById('expancion')
+agrandar.addEventListener('click', () =>{
+   trending.images.fixed_height.url.width = '500px'
+
+})

@@ -132,9 +132,6 @@ body.dark{
         
         top: 10px;
     }
-    #cierre :hover{
-        color: cadetblue;
-    }
     #cierre {
         display: none;
         position: relative;
@@ -186,9 +183,19 @@ body.dark{
         flex-wrap: wrap;
         justify-content: space-evenly;
     }
+    
     #principal5 {
         display: none;
        
+    }
+    #favcor{
+        position: absolute;
+        margin-left: 80px;
+        display: none;
+    }
+    .seleccion{
+        margin-top: -120px;
+        
     }
     #principal2{
         display: flex;
@@ -440,6 +447,7 @@ body.dark{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        
     }
     #inspiracion {
         display: flex;
@@ -457,9 +465,9 @@ body.dark{
     #palabra {
         color: #5ed7c6;
     }
-    #cierre {
+    /*#cierre {
         visibility: hidden;
-    }
+    }*/
     #ilustracion {
         display: flex;
         justify-content: center;
@@ -469,17 +477,40 @@ body.dark{
         height: 190px;
     }
     input {
+        
+        text-align: center;
         width: 550px;
         height: 50px;
         background: #ffffff;
         border: 1px solid #572ee5;
         border-radius: 27px;
+        position: relative;
     }
-
+    #buscador1 {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    #cierre {
+        display: none;
+        position: relative;
+        left: -50px;
+        top: 3px;
+        width: 15px;
+    }
+    #lupa{
+        /*display: none;*/
+        width: 20px;
+        position: relative;
+        left: -70px;
+        top: 4px;
+    }
     /*******Trending**********/
     #principal1 {
         display: flex;
         flex-direction: column;
+        justify-content: flex-start;
+        height: 100px;
     }
     #trending {
         font-family: "Montserrat Alternates";
@@ -562,6 +593,20 @@ body.dark{
         flex-wrap: wrap;
         justify-content: center;
     }
+/*Favoritos-Descarga-Expancion**********/
+    .seleccion{
+       
+        margin-top: -100px;
+        margin-left: 5px;
+        justify-content: flex-end;
+    }
+    #favcor{
+        position: absolute;
+        display: inline-flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        margin-left: 20px;
+    }
     /******Mis Gifos DESKTOP*****************/
     #principal8 {
         display: flex;
@@ -607,6 +652,7 @@ body.dark{
         justify-content: center;
         height: 100px;
         align-items: center;
+        display: none;
     }
     #boton {
         width: 120px;
