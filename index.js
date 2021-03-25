@@ -42,17 +42,59 @@ let buscador1 = document.getElementById('buscador1')
 
 let scroll = document.getElementById('scroll')
 
+let mod = document.getElementById('mod');
 
+let dark = document.getElementsByClassName('dark')
 
-/**MODO NOCTURNO */
-/*
-const mod = document.getElementById('mod');
+let active = document.getElementsByClassName('active')
 
-mod.addEventListener('click', () => {
-   document.body.classList.toggle('dark'); //toggle the HTML body the class 'dark'
-   mod.classList.toggle('active');//toggle the HTML button with the id='switch' with the class 'active'
-});
+let blanco = document.getElementsByClassName('blanco')
 
+/**MODO NOCTURNO******************* */
+
+// function to set a given theme/color-scheme
+function setTheme(themeName) {
+   localStorage.setItem('theme', themeName);
+   document.documentElement.className = themeName;
+}// function to toggle between light and dark theme
+function toggleTheme() {
+   if (localStorage.getItem('theme') === 'theme-dark') {
+      setTheme('theme-light');
+   } else {
+      setTheme('theme-dark');
+   }
+}// Immediately invoked function to set the theme on initial load
+(function () {
+   if (localStorage.getItem('theme') === 'theme-dark') {
+      setTheme('theme-dark');
+   } else {
+      setTheme('theme-light');
+   }
+})();
+
+// function to set a given theme/color-scheme
+function setTheme(themeName) {
+   localStorage.setItem('theme', themeName);
+   document.documentElement.className = themeName;
+}
+
+// function to toggle between light and dark theme
+function toggleTheme() {
+   if (localStorage.getItem('theme') === 'theme-dark') {
+       setTheme('theme-light');
+   } else {
+       setTheme('theme-dark');
+   }
+}
+
+// Immediately invoked function to set the theme on initial load
+(function () {
+   if (localStorage.getItem('theme') === 'theme-dark') {
+       setTheme('theme-dark');
+   } else {
+       setTheme('theme-light');
+   }
+})();
 
 /****Funcion para que aparezca el menu hamb */
 boton1.addEventListener('click', (event) => {
@@ -180,7 +222,7 @@ buscador1.addEventListener('keypress', async (e) => {
          principal3.style.display = 'flex'
          principal3.style.alignItems = 'center'
          inspiracion1.style.display = 'none'
-         
+
       });
    }
 })
@@ -235,9 +277,11 @@ let mostrarscroll = async () => {
 }
 
 mostrarscroll()
-
+/*
 let agrandar =document.getElementById('expancion')
 agrandar.addEventListener('click', () =>{
    trending.images.fixed_height.url.width = '500px'
 
 })
+*/
+

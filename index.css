@@ -1,15 +1,11 @@
-/*MODO NOCTURNO*/
-/*
-body.dark{
-    background-color: #37383C;
-}
- h1.dark{
-    color: white;
-}
 
-/********BUSQUEDA*********************/
+/*
+********BUSQUEDA**********************/
 
 @media screen and (max-width: 375px) {
+    body{
+        background-color: var(--color-primary);
+    }
     /*************/
     * {
         margin: 0%;
@@ -100,7 +96,7 @@ body.dark{
     #inspirate {
         font-family: "Montserrat Alternates";
         font-size: 25px;
-        color: #572ee5;
+        color: var(--gifos);
         text-align: center;
         line-height: 33px;
     }
@@ -127,7 +123,7 @@ body.dark{
         align-items: center;
         width: 280px;
         height: 40px;
-        border: 1px solid #572ee5;
+        border: 1px solid var(--gifos);
         border-radius: 27px;
         
         top: 10px;
@@ -160,7 +156,7 @@ body.dark{
         height: 25px;
         width: 236px;
         font-family: "Montserrat Alternates", sans-serif;
-        color: #572ee5;
+        color: var(--gifos);
         font-size: 16px;
         text-align: center;
         line-height: 25px;
@@ -173,7 +169,7 @@ body.dark{
         height: 150px;
         font-family: "Montserrat Alternates", sans-serif;
         font-size: 14px;
-        color: #572ee5;
+        color: var(--gifos);
         text-align: center;
         line-height: 25px;
     }
@@ -233,7 +229,7 @@ body.dark{
     #titulo1 {
         font-family: "Montserrat Alternates";
         font-size: 25px;
-        color: #572ee5;
+        color: var(--gifos);
         text-align: center;
         line-height: 30px;
     }
@@ -267,7 +263,7 @@ body.dark{
     #titulo2 {
         font-family: "Montserrat Alternates";
         font-size: 25px;
-        color: #572ee5;
+        color: var(--gifos);
         text-align: center;
         line-height: 30px;
     }
@@ -293,13 +289,13 @@ body.dark{
     }
     #boton {
         width: 100px;
-        height: 200px;
-        background-color: white;
+        height: 100px;
+        background-color:var(--color-primary);
         border: none;
     }
     /*******Trending GIFOS************** */
     #principal12 {
-        background: #f3f5f8;
+        background: var(--color-secondary);
         width: 100%;
         height: 430px;
         display: flex;
@@ -307,7 +303,7 @@ body.dark{
     #gifos {
         font-family: "Montserrat Alternates";
         font-size: 25px;
-        color: #572ee5;
+        color: var(--gifos);
         text-align: center;
         line-height: 30px;
         margin-top: 30px;
@@ -319,7 +315,7 @@ body.dark{
     #parr1 {
         font-family: "Roboto Condensed", sans-serif;
         font-size: 20px;
-        color: #000000;
+        color: var(--font-color);
         text-align: center;
         line-height: 23px;
     }
@@ -355,7 +351,7 @@ body.dark{
         justify-content: center;
         font-family: "Roboto Condensed";
         font-size: 20px;
-        color: #000000;
+        color: var(--font-color);
         letter-spacing: 0;
         justify-content: center;
     }
@@ -366,7 +362,7 @@ body.dark{
     #parr3 {
         font-family: "Roboto Condensed";
         font-size: 16px;
-        color: #000000;
+        color: var(--font-color);
         letter-spacing: 0;
         line-height: 20px;
         width: 225px;
@@ -377,7 +373,7 @@ body.dark{
         justify-content: space-around;
         width: 90%;
         height: 25px;
-        background: #ffffff;
+        background:var(--color-primary);
     }
     .redes {
         width: 20px;
@@ -737,3 +733,19 @@ body.dark{
         margin-right: 5%;
     }
 }
+
+/******Modo Nocturno********/
+
+.theme-light {
+    --color-primary:#FFFFFF ;
+    --color-secondary: #f3f5f8;
+    --gifos: #572EE5 ;
+    --font-color: #000000;
+
+  }
+  .theme-dark {
+    --color-primary: #37383C;
+    --color-secondary: #222326;
+    --gifos: #ffffff;
+    --font-color: #ffffff;
+  }
