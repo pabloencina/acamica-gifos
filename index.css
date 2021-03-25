@@ -383,6 +383,9 @@
 /*************************************************************/
 
 @media screen and (min-width: 1440px) {
+    body{
+        background-color: var(--color-primary);
+    }
     /*******BArra de navegacion DESCKTOP*****/
     nav {
         display: flex;
@@ -418,7 +421,7 @@
     #menus ul li a {
         text-decoration: none;
         font-size: 13px;
-        color: #572ee5;
+        color: var(--gifos);
         letter-spacing: 0;
         text-align: center;
     }
@@ -450,7 +453,7 @@
         justify-content: center;
         font-family: "Montserrat Alternates";
         font-size: 1.25rem;
-        color: #572ee5;
+        color: var(--gifos);
         text-align: center;
         line-height: 3.3125rem;
     }
@@ -477,11 +480,12 @@
         text-align: center;
         width: 550px;
         height: 50px;
-        background: #ffffff;
-        border: 1px solid #572ee5;
+        background: var(--color-primary);
+        border: 1px solid var(--gifos);
         border-radius: 27px;
         position: relative;
     }
+    
     #buscador1 {
         display: flex;
         justify-content: center;
@@ -511,14 +515,14 @@
     #trending {
         font-family: "Montserrat Alternates";
         font-size: 1.125rem;
-        color: #572ee5;
+        color: var(--gifos);
         text-align: center;
         line-height: 1.5625rem;
     }
     #react {
         font-family: "Montserrat Alternates";
         font-size: 1rem;
-        color: #572ee5;
+        color: var(--gifos);
         text-align: center;
         line-height: 1.5625rem;
     }
@@ -535,7 +539,7 @@
     #mascotas {
         font-family: "Montserrat Alternates";
         font-size: 1.5625rem;
-        color: #572ee5;
+        color: var(--gifos);
         text-align: center;
         line-height: 2.5rem;
     }
@@ -574,7 +578,7 @@
     #titulo1 {
         font-family: "Montserrat Alternates";
         font-size: 25px;
-        color: #572ee5;
+        color: var(--gifos);
         text-align: center;
         line-height: 30px;
     }
@@ -623,7 +627,7 @@
     #titulo2 {
         font-family: "Montserrat Alternates";
         font-size: 25px;
-        color: #572ee5;
+        color: var(--gifos);
         text-align: center;
         line-height: 30px;
     }
@@ -655,11 +659,11 @@
         height: 50px;
     }
     #boton {
-        display: none;
+        /*display: none;*/
+        background-color: var(--color-primary);
+        border: none;
     }
-    #vermas {
-        display: none;
-    }
+    
     /******Trending Gifos DESKTOP*************/
     #principal12 {
         width: 100%;
@@ -668,19 +672,19 @@
         flex-direction: column;
         justify-content: start;
         align-items: center;
-        background: #f3f5f8;
+        background: var(--color-secondary);
     }
     #gifos {
         font-family: "Montserrat Alternates";
         font-size: 25px;
-        color: #572ee5;
+        color: var(--gifos);
         text-align: center;
         line-height: 30px;
     }
     #contenedor {
         font-family: "Montserrat Alternates";
         font-size: 18px;
-        color: #000000;
+        color: var(--font-color);
         text-align: center;
     }
     #scroll {
@@ -694,6 +698,9 @@
         height: 275px;
         margin-left: 20px;
     }
+    #parr1{
+        color: var(--font-color);
+    }
     /********Footer Desktop**************/
     footer {
         width: 100%;
@@ -706,7 +713,7 @@
     #parr2 {
         font-family: "Roboto Condensed";
         font-size: 0.8125rem;
-        color: #000000;
+        color: var(--font-color);
         letter-spacing: 0;
         width: 100%;
         display: flex;
@@ -728,7 +735,7 @@
         width: 300px;
         font-family: "Roboto Condensed";
         font-size: 13px;
-        color: #000000;
+        color: var(--font-color);
         letter-spacing: 0;
         margin-right: 5%;
     }

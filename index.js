@@ -42,13 +42,9 @@ let buscador1 = document.getElementById('buscador1')
 
 let scroll = document.getElementById('scroll')
 
-let mod = document.getElementById('mod');
+let mod = document.getElementById('mod')
 
-let dark = document.getElementsByClassName('dark')
 
-let active = document.getElementsByClassName('active')
-
-let blanco = document.getElementsByClassName('blanco')
 
 /**MODO NOCTURNO******************* */
 
@@ -60,8 +56,10 @@ function setTheme(themeName) {
 function toggleTheme() {
    if (localStorage.getItem('theme') === 'theme-dark') {
       setTheme('theme-light');
+      
    } else {
       setTheme('theme-dark');
+
    }
 }// Immediately invoked function to set the theme on initial load
 (function () {
@@ -69,6 +67,7 @@ function toggleTheme() {
       setTheme('theme-dark');
    } else {
       setTheme('theme-light');
+
    }
 })();
 
@@ -95,7 +94,14 @@ function toggleTheme() {
        setTheme('theme-light');
    }
 })();
-
+mod.addEventListener('click', ()=>{
+   if (localStorage.getItem('theme') === 'theme-dark'){
+      menu.style.display === 'none'
+   }else{
+      mod.innerHTML = 'Modo Diurno'
+      menu.style.display === 'none'
+   }
+})
 /****Funcion para que aparezca el menu hamb */
 boton1.addEventListener('click', (event) => {
    if (menu.style.display === 'none') {
