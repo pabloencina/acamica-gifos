@@ -56,7 +56,7 @@ function setTheme(themeName) {
 function toggleTheme() {
    if (localStorage.getItem('theme') === 'theme-dark') {
       setTheme('theme-light');
-      
+
    } else {
       setTheme('theme-dark');
 
@@ -80,28 +80,21 @@ function setTheme(themeName) {
 // function to toggle between light and dark theme
 function toggleTheme() {
    if (localStorage.getItem('theme') === 'theme-dark') {
-       setTheme('theme-light');
+      setTheme('theme-light');
    } else {
-       setTheme('theme-dark');
+      setTheme('theme-dark');
    }
 }
 
 // Immediately invoked function to set the theme on initial load
 (function () {
    if (localStorage.getItem('theme') === 'theme-dark') {
-       setTheme('theme-dark');
+      setTheme('theme-dark');
    } else {
-       setTheme('theme-light');
+      setTheme('theme-light');
    }
 })();
-mod.addEventListener('click', ()=>{
-   if (localStorage.getItem('theme') === 'theme-dark'){
-      menu.style.display === 'none'
-   }else{
-      mod.innerHTML = 'Modo Diurno'
-      menu.style.display === 'none'
-   }
-})
+
 /****Funcion para que aparezca el menu hamb */
 boton1.addEventListener('click', (event) => {
    if (menu.style.display === 'none') {
@@ -244,15 +237,15 @@ principal3.addEventListener('click', () => {
    mostrartrending(buscador1.value, offset);
 })
 /********Buscador CIERRE  y LUPA */
-cierre.addEventListener('click', (e) => {
+cierre.addEventListener('click', () => {
 
    cierre.style.display = 'none'
    lupa.style.display = 'block'
    inspiracion1.style.display = 'block'
    principal3.style.display = 'none'
-   principal2.innerHTML = ''
-   mascotas.innerHTML = ''
-   buscador1.value.innerHTML = ''
+   principal2.innerHTML = ' '
+   mascotas.innerHTML = ' '
+   buscador1.value.innerHTML = ' '
 
 })
 /**Creación del carrusell */
@@ -270,11 +263,26 @@ let mostrarscroll = async () => {
       json.data.forEach(scrolls => {
 
          scroll.innerHTML += `
+         
          <div class='foto1'>
             <img class='fotos5' src='${scrolls.images.fixed_height.url}>
+            <div id='favcor2'
+               <img class="seleccion2" id="corazon"
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+
+               <img id="descarga" class="seleccion2"
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
+
+               <img id="expancion" class="seleccion2"
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
+
+               <img class="seleccion2" id="corazon"
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+         </div>
          
             <img src='${scrolls.images.fixed_height.url}>
          </div>
+
          `
 
       });
