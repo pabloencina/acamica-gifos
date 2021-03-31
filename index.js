@@ -44,6 +44,12 @@ let scroll = document.getElementById('scroll')
 
 let mod = document.getElementById('mod')
 
+let btn4 = document.getElementById('btn4')
+
+let creargifos = document.getElementById('creargifos')
+
+let  ocultar_todo = document.getElementById('ocultar_todo')
+
 
 
 /**MODO NOCTURNO******************* */
@@ -266,19 +272,7 @@ let mostrarscroll = async () => {
          
          <div class='foto1'>
             <img class='fotos5' src='${scrolls.images.fixed_height.url}>
-            <div id='favcor2'
-               <img class="seleccion2" id="corazon"
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
-
-               <img id="descarga" class="seleccion2"
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
-
-               <img id="expancion" class="seleccion2"
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
-
-               <img class="seleccion2" id="corazon"
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
-         </div>
+            
          
             <img src='${scrolls.images.fixed_height.url}>
          </div>
@@ -291,11 +285,16 @@ let mostrarscroll = async () => {
 }
 
 mostrarscroll()
-/*
-let agrandar =document.getElementById('expancion')
-agrandar.addEventListener('click', () =>{
-   trending.images.fixed_height.url.width = '500px'
 
+/*Funcionalidad boton CREAR Gifs*****/
+
+btn4.addEventListener('click', (event) => {
+   if (creargifos.style.display === 'none') {
+      creargifos.style.display = 'block';
+      ocultar_todo.style.display = 'none'
+   } else {
+      ocultar_todo.style.display = 'block'
+      creargifos.style.display = 'none'
+      
+   }
 })
-*/
-
