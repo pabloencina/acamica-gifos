@@ -48,9 +48,19 @@ let btn4 = document.getElementById('btn4')
 
 let creargifos = document.getElementById('creargifos')
 
-let  ocultar_todo = document.getElementById('ocultar_todo')
+let ocultar_todo = document.getElementById('ocultar_todo')
 
+let comenzar = document.getElementById('comenzar')
 
+let finalizar = document.getElementById('finalizar')
+
+let subirgifo = document.getElementById('subirgifo')
+
+let video = document.getElementById('video')
+
+let mostrarGif = document.getElementById('mostrarGif')
+
+let grabar = document.getElementById('grabar')
 
 /**MODO NOCTURNO******************* */
 
@@ -295,6 +305,120 @@ btn4.addEventListener('click', (event) => {
    } else {
       ocultar_todo.style.display = 'block'
       creargifos.style.display = 'none'
-      
+
    }
 })
+/**Funcionalidad seccion de CREAR GIFOS***** */
+let recorder = null
+let myGifs = []
+
+
+let pathSubirGif = `https://upload.giphy.com/v1/gifs?api_key=${api_key}`
+
+window.onload = () => {
+   let gifs = JSON.parse(localStorage.getItem('myGifs'));
+   if (gifs) {
+      myGifs = gifs;
+   }
+   console.log('Mis gifs cargados');
+   console.log(myGifs);
+   download();
+}
+
+async function download() {
+   const a = document.createElement("a");
+   a.href = await descargarGif();
+   a.download = "myImage.gif";
+   document.body.appendChild(a);
+   a.click();
+   document.body.removeChild(a);
+}
+/*
+async function descargarGif() {
+   var source = 'https://api.giphy.com/v1/gifs/cRfP1TiNrxLDtRrkPl?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY';
+   let response = await fetch(source);
+   let info = await response.json();
+
+   return fetch(info.data.images.downsized_large.url).then((response) => {
+       return response.blob();
+   }).then(blob => {
+       return URL.createObjectURL(blob);
+   });
+}
+*/
+comenzar.addEventListener('click', () => {
+   begin();
+})
+
+grabar.addEventListener('click', () => {
+   record();
+})
+
+finalizar.addEventListener('click', () => {
+   recorder.stopRecording(async () => {
+      let blob = recorder.getBlob()
+      let uri = URL.createObjectURL(blob);
+      mostrarGif.src = uri;
+      let form = new FormData();
+      form.append('file', blob, 'myGif.gif');
+      createGif(form);
+   })
+})
+
+async function createGif(formData) {
+   const response = await fetch(pathSubirGif, {
+      method: 'POST',
+      body: formData
+   });
+   const result = await response.json();
+   console.log(result);
+   myGifs.push(result.data.id);
+   localStorage.setItem('myGifs', JSON.stringify(myGifs));
+   console.log(myGifs);
+}
+
+let stream
+let streamStarted = false
+
+function begin() {
+   if (streamStarted) {
+      video.play();
+      return;
+   }
+   if ('mediaDevices' in navigator && navigator.mediaDevices.getUserMedia) {
+      startStream();
+   }
+}
+
+async function startStream() {
+
+   stream = await navigator.mediaDevices.getUserMedia({
+      audio: false,
+      video: {
+         height: { max: 480 }
+      }
+   });
+   console.log('stream obtenido');
+   video.srcObject = stream;
+   streamStarted = true;
+}
+
+async function record() {
+
+   if (stream === undefined) {
+      console.log('stream is undefined')
+      return;
+   }
+
+   recorder = RecordRTC(stream, {
+      type: 'gif',
+      frameRate: 1,
+      quality: 10,
+      width: 360,
+      hidden: 240,
+      onGifRecordingStarted: function () {
+         console.log('Started');
+      }
+   })
+   recorder.startRecording();
+}

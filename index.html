@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto 2 - GIFOS</title>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+
 </head>
 
 <body>
@@ -64,6 +66,10 @@
                 </div>
 
                 <div id="cont802">
+                    <div id="mostrar_camara">
+                        <video autoplay id="video"></video>
+                    </div>
+                    <img id="mostrarGif" src="" alt="">
                     <div id="bloques">
                         <div class="cuadr" id="cuadr1"></div>
                         <div class="cuadr" id="cuadr2"></div>
@@ -72,6 +78,7 @@
                         <p id="aqui">Aqui podrás <br>
                             crear tus propios <span id="palabra-gifo">GIFOS</span>
                         </p>
+
                         <p id="crea">¡Crea tu GIFO en sólo 3 pasos! <br>
                             (sólo necesitas una cámara para grabar un video)</p>
                     </div>
@@ -80,6 +87,7 @@
                         <div class="cuadr" id="cuadr4"></div>
                     </div>
                 </div>
+
             </div>
             <div id="botones123">
                 <button class="btn123">1</button>
@@ -92,8 +100,13 @@
             <div id="linea">
                 <div id="comienzo">
                     <button id="comenzar">COMENZAR</button>
+                    <button id="grabar">GRABAR</button>
+                    <button id="finalizar">FINALIZAR</button>
+                    <button id="subirgifo">SUBIR GIFO</button>
+
                 </div>
             </div>
+
         </main>
         <main id="ocultar_todo">
             <main id="principal4">

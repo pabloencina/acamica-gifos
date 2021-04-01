@@ -373,7 +373,7 @@
         height: 20px;
     }
     /*****Creación de gifs propios************/
-    #creargifos{
+    #creargifos {
         display: none;
     }
 }
@@ -738,10 +738,10 @@
         margin-right: 5%;
     }
     /*****Creación de gifs propios************/
-    #creargifos{
+    #creargifos {
         display: none;
     }
-    
+
     #cont802 {
         width: 688px;
         height: 390px;
@@ -855,8 +855,64 @@
         background-color: transparent;
         margin: 15px;
         margin-left: 320px;
+        font-weight: bold;
     }
-
+    #finalizar {
+        width: 127px;
+        height: 50px;
+        border: 1px solid var(--gifos);
+        border-radius: 25px;
+        font-size: 13px;
+        color: var(--gifos);
+        letter-spacing: 0;
+        text-align: center;
+        background-color: transparent;
+        margin: 15px;
+        margin-left: 320px;
+        font-weight: bold;
+    }
+    #subirgifo {
+        /*display: none;*/
+        width: 127px;
+        height: 50px;
+        border: 1px solid var(--gifos);
+        border-radius: 25px;
+        font-size: 13px;
+        color: var(--gifos);
+        letter-spacing: 0;
+        text-align: center;
+        background-color: transparent;
+        margin: 15px;
+        margin-left: 320px;
+        font-weight: bold;
+    }
+    #grabar {
+        width: 127px;
+        height: 50px;
+        border: 1px solid var(--gifos);
+        border-radius: 25px;
+        font-size: 13px;
+        color: var(--gifos);
+        letter-spacing: 0;
+        text-align: center;
+        background-color: transparent;
+        margin: 15px;
+        margin-left: 320px;
+        font-weight: bold;
+    }
+    #video {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.2);
+        position: relative;
+    }
+    #mostrar_camara {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        margin: 5% auto;
+        position: relative;
+    }
     /******Modo Nocturno********/
 
     .theme-light {
