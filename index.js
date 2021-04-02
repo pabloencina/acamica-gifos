@@ -62,6 +62,21 @@ let mostrarGif = document.getElementById('mostrarGif')
 
 let grabar = document.getElementById('grabar')
 
+let cont_cuadrado = document.getElementById('cont_cuadrado')
+
+let acceso00 = document.getElementById('acceso00')
+
+let btnUno = document.getElementById('btnUno')
+
+let btnDos = document.getElementById('btnDos')
+
+let btnTres = document.getElementById('btnTres')
+let cuadr =document.getElementsByClassName('cuadr')
+
+let cont802 = document.getElementById('cont802')
+
+let repCaptura = document.getElementById('repCaptura')
+
 /**MODO NOCTURNO******************* */
 
 // function to set a given theme/color-scheme
@@ -347,7 +362,13 @@ async function descargarGif() {
 }
 */
 comenzar.addEventListener('click', () => {
+   cont_cuadrado.style.display = 'none'
+   acceso00.style.display = 'block'
+   btnUno.style.background = 'var(--gifos)'
+   btnUno.style.color = 'var(--color-primary)'
+   comenzar.style.display = 'none'
    begin();
+
 })
 
 grabar.addEventListener('click', () => {
@@ -363,6 +384,10 @@ finalizar.addEventListener('click', () => {
       form.append('file', blob, 'myGif.gif');
       createGif(form);
    })
+   video.style.display = 'none'
+   finalizar.style.display = 'none'
+   subirgifo.style.display = 'block'
+   repCaptura.style.display = 'block'
 })
 
 async function createGif(formData) {
@@ -388,6 +413,7 @@ function begin() {
    if ('mediaDevices' in navigator && navigator.mediaDevices.getUserMedia) {
       startStream();
    }
+
 }
 
 async function startStream() {
@@ -398,9 +424,22 @@ async function startStream() {
          height: { max: 480 }
       }
    });
+
    console.log('stream obtenido');
    video.srcObject = stream;
    streamStarted = true;
+   showVideo();
+}
+
+function showVideo(){
+   video.style.display = 'block'
+   acceso00.style.display = 'none'
+   btnDos.style.background = 'var(--gifos)'
+   btnDos.style.color = 'var(--color-primary)'
+   btnUno.style.background = '#ffffff'
+   btnUno.style.color = ''
+   grabar.style.display = 'block'
+   
 }
 
 async function record() {
@@ -414,11 +453,24 @@ async function record() {
       type: 'gif',
       frameRate: 1,
       quality: 10,
-      width: 360,
+      width: 480,
+      height: 320, 
       hidden: 240,
       onGifRecordingStarted: function () {
          console.log('Started');
       }
    })
+   grabar.style.display = 'none'
+   finalizar.style.display = 'block'
    recorder.startRecording();
 }
+
+repCaptura.addEventListener('click', () => {
+   cont_cuadrado.style.display = 'block'
+   comenzar.style.display = 'block'
+   repCaptura.style.display = 'none'
+   subirgifo.style.display = 'none'
+   video.style.display = 'none'
+})
+
+/***Funcionalidad de los botones de Crear GIFS PROPIOS */

@@ -790,12 +790,44 @@
         border-top: transparent;
         border-left: transparent;
     }
-    #cont-cuadrado {
+    #cont_cuadrado {
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         align-content: center;
+    }
+    #acceso00 {
+        display: none;
+    }
+    #acceso {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+    }
+    #acceso1 {
+        font-family: "Montserrat Alternates";
+        font-size: 25px;
+        color: var(--gifos);
+        text-align: center;
+        line-height: 35px;
+        font-weight: bold;
+    }
+    #acceso2 {
+        font-family: "Roboto Condensed";
+        font-size: 16px;
+        color: var(--font-color);
+        text-align: center;
+        line-height: 29px;
+    }
+    #acceso3 {
+        font-family: "Roboto Condensed";
+        font-size: 16px;
+        color: var(--font-color);
+        text-align: center;
+        line-height: 29px;
     }
     #aqui {
         font-family: "Montserrat Alternates";
@@ -833,8 +865,23 @@
         width: 100%;
         height: 100px;
     }
+    #repCaptura {
+        display: none;
+        font-family: "Montserrat Alternates";
+        font-size: 13px;
+        color: #572ee5;
+        letter-spacing: 0;
+        text-align: center;
+        font-weight: bold;
+        text-decoration-line:underline  ;
+        text-decoration-color: #50e3c2; 
+    }
+    #captura{
+        
+        width: 25%;
+    }
     #rollos img {
-        margin-left: 350px;
+        margin-left: 50px;
     }
     #linea {
         width: 766px;
@@ -858,6 +905,7 @@
         font-weight: bold;
     }
     #finalizar {
+        display: none;
         width: 127px;
         height: 50px;
         border: 1px solid var(--gifos);
@@ -872,6 +920,7 @@
         font-weight: bold;
     }
     #subirgifo {
+        display: none;
         /*display: none;*/
         width: 127px;
         height: 50px;
@@ -887,6 +936,7 @@
         font-weight: bold;
     }
     #grabar {
+        display: none;
         width: 127px;
         height: 50px;
         border: 1px solid var(--gifos);
@@ -901,18 +951,12 @@
         font-weight: bold;
     }
     #video {
-        width: 100%;
+        display: none;
+        width: 688px;
+        height: 390px;
         background: rgba(0, 0, 0, 0.2);
-        position: relative;
     }
-    #mostrar_camara {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 70%;
-        margin: 5% auto;
-        position: relative;
-    }
+
     /******Modo Nocturno********/
 
     .theme-light {
