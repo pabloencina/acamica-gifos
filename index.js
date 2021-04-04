@@ -71,14 +71,18 @@ let btnUno = document.getElementById('btnUno')
 let btnDos = document.getElementById('btnDos')
 
 let btnTres = document.getElementById('btnTres')
-let cuadr =document.getElementsByClassName('cuadr')
+let cuadr = document.getElementsByClassName('cuadr')
 
 let cont802 = document.getElementById('cont802')
 
 let repCaptura = document.getElementById('repCaptura')
 
-/**MODO NOCTURNO******************* */
+let captura = document.getElementById('captura')
 
+let icono = document.getElementById('icono')
+
+/**MODO NOCTURNO******************* */
+let iconoNoc = 'Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/logo-mobile-modo-noct.svg'
 // function to set a given theme/color-scheme
 function setTheme(themeName) {
    localStorage.setItem('theme', themeName);
@@ -87,18 +91,20 @@ function setTheme(themeName) {
 function toggleTheme() {
    if (localStorage.getItem('theme') === 'theme-dark') {
       setTheme('theme-light');
-
+       
    } else {
       setTheme('theme-dark');
+      
 
    }
 }// Immediately invoked function to set the theme on initial load
 (function () {
    if (localStorage.getItem('theme') === 'theme-dark') {
       setTheme('theme-dark');
+      
    } else {
       setTheme('theme-light');
-
+      
    }
 })();
 
@@ -112,8 +118,10 @@ function setTheme(themeName) {
 function toggleTheme() {
    if (localStorage.getItem('theme') === 'theme-dark') {
       setTheme('theme-light');
+   
    } else {
       setTheme('theme-dark');
+      
    }
 }
 
@@ -361,34 +369,45 @@ async function descargarGif() {
    });
 }
 */
-comenzar.addEventListener('click', () => {
-   cont_cuadrado.style.display = 'none'
-   acceso00.style.display = 'block'
-   btnUno.style.background = 'var(--gifos)'
-   btnUno.style.color = 'var(--color-primary)'
-   comenzar.style.display = 'none'
-   begin();
+function comenzando(params) {
 
-})
+
+   comenzar.addEventListener('click', () => {
+      cont_cuadrado.style.display = 'none'
+      acceso00.style.display = 'block'
+      btnUno.style.background = 'var(--gifos)'
+      btnUno.style.color = 'var(--color-primary)'
+      comenzar.style.display = 'none'
+      begin();
+
+   })
+}
+comenzando()
 
 grabar.addEventListener('click', () => {
    record();
 })
 
-finalizar.addEventListener('click', () => {
-   recorder.stopRecording(async () => {
-      let blob = recorder.getBlob()
-      let uri = URL.createObjectURL(blob);
-      mostrarGif.src = uri;
-      let form = new FormData();
-      form.append('file', blob, 'myGif.gif');
-      createGif(form);
+function finalizando(params) {
+
+
+   finalizar.addEventListener('click', () => {
+      recorder.stopRecording(async () => {
+         let blob = recorder.getBlob()
+         let uri = URL.createObjectURL(blob);
+         mostrarGif.src = uri;
+         let form = new FormData();
+         form.append('file', blob, 'myGif.gif');
+         createGif(form);
+      })
+      video.style.display = 'none'
+      finalizar.style.display = 'none'
+      subirgifo.style.display = 'block'
+      repCaptura.style.display = 'block'
+      btnUno.style.background = 'var(--color-primary)'
    })
-   video.style.display = 'none'
-   finalizar.style.display = 'none'
-   subirgifo.style.display = 'block'
-   repCaptura.style.display = 'block'
-})
+}
+finalizando()
 
 async function createGif(formData) {
    const response = await fetch(pathSubirGif, {
@@ -431,15 +450,14 @@ async function startStream() {
    showVideo();
 }
 
-function showVideo(){
+function showVideo() {
    video.style.display = 'block'
    acceso00.style.display = 'none'
    btnDos.style.background = 'var(--gifos)'
    btnDos.style.color = 'var(--color-primary)'
-   btnUno.style.background = '#ffffff'
+   btnUno.style.background = 'var(--color-primary)'
    btnUno.style.color = ''
    grabar.style.display = 'block'
-   
 }
 
 async function record() {
@@ -454,7 +472,7 @@ async function record() {
       frameRate: 1,
       quality: 10,
       width: 480,
-      height: 320, 
+      height: 320,
       hidden: 240,
       onGifRecordingStarted: function () {
          console.log('Started');
@@ -465,12 +483,21 @@ async function record() {
    recorder.startRecording();
 }
 
-repCaptura.addEventListener('click', () => {
-   cont_cuadrado.style.display = 'block'
-   comenzar.style.display = 'block'
-   repCaptura.style.display = 'none'
-   subirgifo.style.display = 'none'
-   video.style.display = 'none'
-})
+function capturar(params) {
 
+   captura.addEventListener('click', () => {
+
+      cont_cuadrado.style.display = 'block'
+      comenzar.style.display = 'block'
+      repCaptura.style.display = 'none'
+      subirgifo.style.display = 'none'
+      video.style.display = 'none'
+      btnDos.style.background = 'var(--color-primary)'
+      btnDos.style.color = ''
+      finalizando()
+      console.log('click')
+   })
+   
+}
+capturar()
 /***Funcionalidad de los botones de Crear GIFS PROPIOS */

@@ -39,8 +39,8 @@
         justify-content: center;
         width: 100%;
         height: 400px;
-        background-color: #572ee5;
-        background: rgba(87, 46, 229, 0.9);
+        background-color:var(--gifos2);
+        background: var(--menuHamb)
     }
     #btn3 {
         visibility: hidden;
@@ -65,7 +65,7 @@
         padding: 0;
     }
     hr {
-        color: cornflowerblue;
+        color:var(--linea);
         width: 4.125rem;
         margin-left: 50px;
     }
@@ -86,6 +86,7 @@
     #principal_crear {
         display: none;
     }
+    
     /********Imagen principal y Buscador**************/
     #inspiracion {
         width: 286px;
@@ -198,7 +199,7 @@
     #mascotas {
         font-family: "Montserrat Alternates";
         font-size: 25px;
-        color: #572ee5;
+        color: var(--gifos);
         text-align: center;
         line-height: 40px;
     }
@@ -869,19 +870,21 @@
         display: none;
         font-family: "Montserrat Alternates";
         font-size: 13px;
-        color: #572ee5;
+        color: var(--gifos);
         letter-spacing: 0;
         text-align: center;
         font-weight: bold;
         text-decoration-line:underline  ;
         text-decoration-color: #50e3c2; 
     }
+    #repCaptura a:hover{
+        color: #50e3c2;
+    }
     #captura{
-        
         width: 25%;
     }
     #rollos img {
-        margin-left: 50px;
+        margin-left: 350px;
     }
     #linea {
         width: 766px;
@@ -956,19 +959,27 @@
         height: 390px;
         background: rgba(0, 0, 0, 0.2);
     }
-
+}
     /******Modo Nocturno********/
 
     .theme-light {
         --color-primary: #ffffff;
         --color-secondary: #f3f5f8;
         --gifos: #572ee5;
+        --gifos2:#572ee5;
         --font-color: #000000;
+        --menuHamb:  rgba(87,46,229,0.90);
+        --linea: cornflowerblue;
+        --logo:
     }
     .theme-dark {
         --color-primary: #37383c;
         --color-secondary: #222326;
         --gifos: #ffffff;
+        --gifos2: #000000;
         --font-color: #ffffff;
+        --menuHamb:#000000;
+        --linea:#ffffff;
+        --logo: 
     }
-}
+
