@@ -81,23 +81,18 @@ let captura = document.getElementById('captura')
 
 let icono = document.getElementById('icono')
 
-/**MODO NOCTURNO******************* */
-let iconoNoc = 'Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/logo-mobile-modo-noct.svg'
-// function to set a given theme/color-scheme
-function setTheme(themeName) {
-   localStorage.setItem('theme', themeName);
-   document.documentElement.className = themeName;
-}// function to toggle between light and dark theme
-function toggleTheme() {
-   if (localStorage.getItem('theme') === 'theme-dark') {
-      setTheme('theme-light');
-       
-   } else {
-      setTheme('theme-dark');
-      
+let switchThemeDesktop = document.getElementById('switchThemeDesktop')
 
-   }
-}// Immediately invoked function to set the theme on initial load
+let switchThemeMob = document.getElementById('switchThemeMob')
+
+let camNoc = document.getElementById('camNoc')
+
+let peliculaNoc = document.getElementById('peliculaNoc')
+
+/**MODO NOCTURNO******************* */
+
+//// Immediately invoked function to set the theme on initial load
+/*
 (function () {
    if (localStorage.getItem('theme') === 'theme-dark') {
       setTheme('theme-dark');
@@ -107,33 +102,60 @@ function toggleTheme() {
       
    }
 })();
-
-// function to set a given theme/color-scheme
-function setTheme(themeName) {
-   localStorage.setItem('theme', themeName);
-   document.documentElement.className = themeName;
-}
+*/
 
 // function to toggle between light and dark theme
+
+switchThemeDesktop.addEventListener('click', (event) => {
+   toggleTheme()
+})
+
+switchThemeMob.addEventListener('click', (event) => {
+   toggleTheme()
+})
+
 function toggleTheme() {
+   console.log('toggleTheme')
+   console.log(localStorage.getItem('theme'))
    if (localStorage.getItem('theme') === 'theme-dark') {
-      setTheme('theme-light');
-   
-   } else {
-      setTheme('theme-dark');
       
+      icono.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/logo-desktop.svg'
+
+      boton1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/burger.svg'
+
+      btn4.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-crear-gifo.svg'
+
+      lupa.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search.svg'
+
+      camNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/camara.svg'
+
+      peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula.svg'
+     
+      console.log(icono.src)
+      setTheme('theme-light');
+   } else {
+      icono.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/logo-mobile-modo-noct.svg'
+
+      boton1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/burger-modo-noct.svg'
+
+      btn4.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-active-modo-noc.svg'
+
+      lupa.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search-mod-noc.svg'
+
+      camNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/camara-modo-noc.svg'
+
+      peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula-modo-noc.svg'
+      
+      console.log(icono.src)
+      setTheme('theme-dark'); 
    }
 }
 
-// Immediately invoked function to set the theme on initial load
-(function () {
-   if (localStorage.getItem('theme') === 'theme-dark') {
-      setTheme('theme-dark');
-   } else {
-      setTheme('theme-light');
-   }
-})();
-
+// function to set a given theme/color-scheme
+function setTheme(themeName) {
+   localStorage.setItem('theme', themeName);
+   document.documentElement.className = themeName;
+}
 /****Funcion para que aparezca el menu hamb */
 boton1.addEventListener('click', (event) => {
    if (menu.style.display === 'none') {
@@ -156,30 +178,6 @@ btn3.addEventListener('click', () => {
 
 })
 
-/***CLICK en favoritos**Mobile** */
-fav.addEventListener('click', (event) => {
-
-   menu.style.display = 'none'
-
-   principal4.style.display = 'none'
-
-   principal1.style.display = 'none'
-
-   principal7.style.display = 'block'
-   // }
-})
-/*******Click en Mis GIfos ****Mobile*** */
-
-misgif.addEventListener('click', (event) => {
-   principal8.style.display = 'block'
-
-   menu.style.display = 'none'
-
-   principal4.style.display = 'none'
-
-
-   principal1.style.display = 'none'
-})
 /**Consumir gifs desde la  API */
 'api.giphy.com/v1/gifs/trending?api_key='
 

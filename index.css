@@ -29,7 +29,7 @@
     #menu ul li {
         list-style: none;
     }
-    #menu ul li a {
+    #menu ul li p {
         text-decoration: none;
     }
     #menu {
@@ -46,7 +46,15 @@
         visibility: hidden;
         margin-left: -15px;
     }
-    .lista a {
+    .lista p {
+        font-family: "Montserrat Alternates";
+        font-size: 20px;
+        color: #ffffff;
+        text-align: center;
+        line-height: 60px;
+        font-weight: bold;
+    }
+    .lista a{
         font-family: "Montserrat Alternates";
         font-size: 20px;
         color: #ffffff;
@@ -397,7 +405,10 @@
         display: flex;
         justify-content: end;
     }
-    #menu {
+    #menu ul li  {
+        display: none;
+    }
+    hr{
         display: none;
     }
     #btn2 {
@@ -416,7 +427,8 @@
         list-style: none;
         display: flex;
     }
-    #menus ul li a {
+    
+    #menus ul li p {
         text-decoration: none;
         font-size: 13px;
         color: var(--gifos);
