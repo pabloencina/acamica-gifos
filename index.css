@@ -32,6 +32,9 @@
     #menu ul li p {
         text-decoration: none;
     }
+    #menu ul li p:hover {
+        cursor: pointer;
+    }
     #menu {
         visibility: visible;
         position: absolute;
@@ -39,8 +42,8 @@
         justify-content: center;
         width: 100%;
         height: 400px;
-        background-color:var(--gifos2);
-        background: var(--menuHamb)
+        background-color: var(--gifos2);
+        background: var(--menuHamb);
     }
     #btn3 {
         visibility: hidden;
@@ -54,7 +57,7 @@
         line-height: 60px;
         font-weight: bold;
     }
-    .lista a{
+    .lista a {
         font-family: "Montserrat Alternates";
         font-size: 20px;
         color: #ffffff;
@@ -73,7 +76,7 @@
         padding: 0;
     }
     hr {
-        color:var(--linea);
+        color: var(--linea);
         width: 4.125rem;
         margin-left: 50px;
     }
@@ -94,7 +97,7 @@
     #principal_crear {
         display: none;
     }
-    
+
     /********Imagen principal y Buscador**************/
     #inspiracion {
         width: 286px;
@@ -134,7 +137,6 @@
         height: 40px;
         border: 1px solid var(--gifos);
         border-radius: 27px;
-
         top: 10px;
     }
     #cierre {
@@ -182,7 +184,12 @@
         text-align: center;
         line-height: 25px;
     }
-    /**************** Imágenes********************  */
+    /***********Sin Busqueda/**/
+    /****************/
+    #sinBusqueda {
+        display: none;
+    }
+    /*Imágenes********************/ 
     main {
         display: flex;
         flex-wrap: wrap;
@@ -298,6 +305,9 @@
         background-color: var(--color-primary);
         border: none;
     }
+    #vermas:hover {
+        cursor: pointer;
+    }
     /*******Trending GIFOS************** */
     #principal12 {
         background: var(--color-secondary);
@@ -405,10 +415,10 @@
         display: flex;
         justify-content: end;
     }
-    #menu ul li  {
+    #menu ul li {
         display: none;
     }
-    hr{
+    hr {
         display: none;
     }
     #btn2 {
@@ -427,13 +437,16 @@
         list-style: none;
         display: flex;
     }
-    
+
     #menus ul li p {
         text-decoration: none;
         font-size: 13px;
         color: var(--gifos);
         letter-spacing: 0;
         text-align: center;
+    }
+    #menus ul li p:hover {
+        cursor: pointer;
     }
     nav #menus #clickear {
         font-family: "Montserrat Alternates";
@@ -534,6 +547,41 @@
         text-align: center;
         line-height: 1.5625rem;
     }
+    /** Sin Búsqueda**/
+    #sinBusqueda {
+        width: 100%;
+        display: none;
+    }
+    #sinBusqueda01 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #resultados2 {
+        display: flex;
+        justify-content: center;
+    }
+    #resultados {
+        width: 150px;
+        height: 150px;
+    }
+    #lorem {
+        height: 130px;
+        font-family: "Montserrat Alternates";
+        font-weight: bold;
+        font-size: 30px;
+        color: #572ee5;
+        text-align: center;
+        line-height: 30px;
+    }
+    #lorem01 {
+        font-family: "Montserrat Alternates";
+        font-weight: bold;
+        font-size: 22px;
+        color: #50e3c2;
+        text-align: center;
+        line-height: 25px;
+    }
     /****Mascotas DESKTOP********/
     #principal5 {
         display: flex;
@@ -551,11 +599,27 @@
         text-align: center;
         line-height: 2.5rem;
     }
+    .foto1{
+        position: relative;
+    }
     .foto {
         width: 260px;
         height: 200px;
         margin-top: 20px;
         margin-left: 30px;
+        z-index: 0;
+        display: block;
+    }
+    .divHover{
+        width: 260px;
+        height: 200px;
+       margin-top: -200px;
+        margin-left: 30px;
+        background-color:#572ee5;
+        opacity: 0.7;
+        position: absolute;
+        z-index: 10;
+        display: none;
     }
     #principal2 {
         display: flex;
@@ -669,6 +733,9 @@
         /*display: none;*/
         background-color: var(--color-primary);
         border: none;
+    }
+    #vermas:hover {
+        cursor: pointer;
     }
 
     /******Trending Gifos DESKTOP*************/
@@ -886,13 +953,13 @@
         letter-spacing: 0;
         text-align: center;
         font-weight: bold;
-        text-decoration-line:underline  ;
-        text-decoration-color: #50e3c2; 
+        text-decoration-line: underline;
+        text-decoration-color: #50e3c2;
     }
-    #repCaptura a:hover{
+    #repCaptura a:hover {
         color: #50e3c2;
     }
-    #captura{
+    #captura {
         width: 25%;
     }
     #rollos img {
@@ -972,26 +1039,25 @@
         background: rgba(0, 0, 0, 0.2);
     }
 }
-    /******Modo Nocturno********/
+/******Modo Nocturno********/
 
-    .theme-light {
-        --color-primary: #ffffff;
-        --color-secondary: #f3f5f8;
-        --gifos: #572ee5;
-        --gifos2:#572ee5;
-        --font-color: #000000;
-        --menuHamb:  rgba(87,46,229,0.90);
-        --linea: cornflowerblue;
-        --logo:
-    }
-    .theme-dark {
-        --color-primary: #37383c;
-        --color-secondary: #222326;
-        --gifos: #ffffff;
-        --gifos2: #000000;
-        --font-color: #ffffff;
-        --menuHamb:#000000;
-        --linea:#ffffff;
-        --logo: 
-    }
-
+.theme-light {
+    --color-primary: #ffffff;
+    --color-secondary: #f3f5f8;
+    --gifos: #572ee5;
+    --gifos2: #572ee5;
+    --font-color: #000000;
+    --menuHamb: rgba(87, 46, 229, 0.9);
+    --linea: cornflowerblue;
+    --logo: ;
+}
+.theme-dark {
+    --color-primary: #37383c;
+    --color-secondary: #222326;
+    --gifos: #ffffff;
+    --gifos2: #000000;
+    --font-color: #ffffff;
+    --menuHamb: #000000;
+    --linea: #ffffff;
+    --logo: ;
+}

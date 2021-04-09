@@ -232,9 +232,11 @@ buscador1.addEventListener('keypress', async (e) => {
 
          <h1 id='mascotas'>
          <div class='foto1'>
-            <img class='foto' src='${trending.images.fixed_height.url}>
+            <img key='${trending.id}' class='foto' src='${trending.images.fixed_height.url}>
          
             <img src='${trending.images.fixed_height.url}>
+
+            <div id='${trending.id}' class='divHover'></div>
          </div>
 
          <div id='favcor'
@@ -251,8 +253,10 @@ buscador1.addEventListener('keypress', async (e) => {
          src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
          </div>
          `
-         mascotas.innerHTML = ''
+         mascotas.innerHTML = ' '
          mascotas.innerHTML = e.target.value
+         mascotas.style.textTransform = 'capitalize'
+         
 
          principal3.style.display = 'block'
          principal3.style.display = 'flex'
@@ -260,6 +264,21 @@ buscador1.addEventListener('keypress', async (e) => {
          inspiracion1.style.display = 'none'
 
       });
+      let arrayImagenes = document.querySelectorAll('.foto')
+      arrayImagenes.forEach(imagenesGaleria => {
+         console.log(imagenesGaleria)
+         imagenesGaleria.addEventListener('mouseover', (eventoPintar)=>{
+            console.log(eventoPintar.target.getAttribute('key'))
+            let divHover = document.getElementById(eventoPintar.target.getAttribute('key'))
+            divHover.style.display ='block'
+
+            divHover.addEventListener('mouseout',()=>{
+               console.log('mouseout')
+               divHover.style.display = 'none'
+
+            })
+         })
+      })
    }
 })
 /******Funcionalidad Boton Ver Mas */
