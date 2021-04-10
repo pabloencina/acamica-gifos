@@ -38,7 +38,13 @@ let boton = document.getElementById('boton')
 
 let offset = 0
 
+let limit = 12
+
+let busquedaActual = ''
+
 let buscador1 = document.getElementById('buscador1')
+
+let buscador = document.getElementById('buscador')
 
 let scroll = document.getElementById('scroll')
 
@@ -118,7 +124,7 @@ function toggleTheme() {
    console.log('toggleTheme')
    console.log(localStorage.getItem('theme'))
    if (localStorage.getItem('theme') === 'theme-dark') {
-      
+
       icono.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/logo-desktop.svg'
 
       boton1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/burger.svg'
@@ -130,7 +136,7 @@ function toggleTheme() {
       camNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/camara.svg'
 
       peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula.svg'
-     
+
       console.log(icono.src)
       setTheme('theme-light');
    } else {
@@ -145,9 +151,9 @@ function toggleTheme() {
       camNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/camara-modo-noc.svg'
 
       peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula-modo-noc.svg'
-      
+
       console.log(icono.src)
-      setTheme('theme-dark'); 
+      setTheme('theme-dark');
    }
 }
 
@@ -187,11 +193,15 @@ btn3.addEventListener('click', () => {
 
 const api_key = 'boZGHaAmzirlZl5OiViZEx7vayQzDZoY'
 
-const url_base = 'https://api.giphy.com/v1/gifs/trending?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY&limit=12&search=mascotas'
+const url_trending = 'https://api.giphy.com/v1/gifs/trending'
+
+const url_buscador = 'https://api.giphy.com/v1/gifs/search'
 
 let mostrartrending = async () => {
    try {
-      let resultado = await fetch(url_base + api_key)
+      let resultado = await fetch(url_trending + 
+      '?api_key='+ api_key +
+      '&limit=' + limit)
 
       let json = await resultado.json()
 
@@ -203,19 +213,44 @@ let mostrartrending = async () => {
          
             <img src='${trending.images.fixed_height.url}>
          </div>
-         
          `
       });
    } catch (error) {
    }
 }
 mostrartrending()
+
+/**Mostrar los siguiente 12 *************/
+let mostrarSiguientes = async (q, offset) => {
+   try {
+      let urls = url_buscador + '?' + 'api_key=' + api_key + '&offset=' + offset + '&limit=' + limit + '&q=' + q;
+      let resultados = await fetch(urls)
+
+      let json = await resultados.json()
+/*
+      json.data.forEach(trending => {
+
+         principal2.innerHTML += `
+         <div class='foto1'>
+            <img class='foto' src='${trending.images.fixed_height.url}>
+         
+            <img src='${trending.images.fixed_height.url}>
+         </div>
+         `
+      });
+      */
+     mostrarGifs(json)
+   } catch (error) {
+   }
+}
 /**Buscador desde la API */
 
-const url_base_buscador = 'https://api.giphy.com/v1/gifs/search?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY&limit=12&q='
+buscador.addEventListener('keypress', async (e) => {
 
-buscador1.addEventListener('keypress', async (e) => {
-   const urls = url_base_buscador + offset + '&q=' + e.target.value
+   let urls = url_buscador + '?' + 'api_key=' + api_key + '&offset=' + offset + '&limit=' + limit + '&q=' + buscador.value;
+
+   console.log(urls)
+
    if (e.key === 'Enter') {
 
       principal5.style.display = 'block'
@@ -224,74 +259,95 @@ buscador1.addEventListener('keypress', async (e) => {
       cierre.style.display = 'block'
       cierre.style.position = 'relative'
       principal2.innerHTML = ``
-      let resultado = await fetch(url_base_buscador + e.target.value)
-
+      
+      let resultado = await fetch(urls)
+      
       let json = await resultado.json()
-      json.data.forEach(trending => {
-         principal2.innerHTML += `
 
-         <h1 id='mascotas'>
-         <div class='foto1'>
-            <img key='${trending.id}' class='foto' src='${trending.images.fixed_height.url}>
-         
-            <img src='${trending.images.fixed_height.url}>
+      mostrarGifs(json)
 
-            <div id='${trending.id}' class='divHover'></div>
-         </div>
-
-         <div id='favcor'
-            <img class="seleccion" id="corazon"
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
-
-            <img id="descarga" class="seleccion"
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
-
-            <img id="expancion" class="seleccion"
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
-
-            <img class="seleccion" id="corazon"
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
-         </div>
-         `
-         mascotas.innerHTML = ' '
-         mascotas.innerHTML = e.target.value
-         mascotas.style.textTransform = 'capitalize'
-         
-
-         principal3.style.display = 'block'
-         principal3.style.display = 'flex'
-         principal3.style.alignItems = 'center'
-         inspiracion1.style.display = 'none'
-
-      });
-      let arrayImagenes = document.querySelectorAll('.foto')
-      arrayImagenes.forEach(imagenesGaleria => {
-         console.log(imagenesGaleria)
-         imagenesGaleria.addEventListener('mouseover', (eventoPintar)=>{
-            console.log(eventoPintar.target.getAttribute('key'))
-            let divHover = document.getElementById(eventoPintar.target.getAttribute('key'))
-            divHover.style.display ='block'
-
-            divHover.addEventListener('mouseout',()=>{
-               console.log('mouseout')
-               divHover.style.display = 'none'
-
-            })
-         })
-      })
+      asociarHover()
+       
+      mascotas.innerHTML = ' '
+      mascotas.innerHTML = buscador.value
+      mascotas.style.textTransform = 'capitalize'
+      principal3.style.display = 'block'
+      principal3.style.display = 'flex'
+      principal3.style.alignItems = 'center'
+      inspiracion1.style.display = 'none'
    }
 })
+
+function mostrarGifs(json){
+
+   json.data.forEach(gif => {
+      principal2.innerHTML += `
+
+      <h1 id='mascotas'>
+      <div class='foto1'>
+         <img key='${gif.id}' class='foto' src='${gif.images.fixed_height.url}>
+      
+         <img src='${gif.images.fixed_height.url}>
+
+         <div id='${gif.id}' class='divHover'></div>
+      </div>
+
+      <div id='favcor'
+         <img class="seleccion" id="corazon"
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+
+         <img id="descarga" class="seleccion"
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
+
+         <img id="expancion" class="seleccion"
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
+
+         <img class="seleccion" id="corazon"
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+      </div>
+      `
+      /*
+
+*/
+   });
+}
+
+function asociarHover(){
+   let arrayImagenes = document.querySelectorAll('.foto')
+
+   arrayImagenes.forEach(gif => {
+      console.log(gif)
+      gif.addEventListener('mouseover', (eventoPintar) => {
+         console.log(eventoPintar.target.getAttribute('key'))
+         let divHover = document.getElementById(eventoPintar.target.getAttribute('key'))
+         divHover.style.display = 'block'
+
+         divHover.addEventListener('mouseout', () => {
+            console.log('mouseout')
+            divHover.style.display = 'none'
+
+         })
+      })
+   })
+
+}
 /******Funcionalidad Boton Ver Mas */
+
+
 lupa.addEventListener('click', () => {
    offset = 0;
-   principal2.innerHTML = '';
-   mostrartrending(buscador1.value, offset);
+   //principal2.innerHTML = '';
+   // FUNCION buscarGifs();
 });
 
 principal3.addEventListener('click', () => {
    offset += 12;
-   mostrartrending(buscador1.value, offset);
+   console.log('BUSCADOR 1!!!')
+   console.log(buscador.value, offset)
+   mostrarSiguientes(buscador.value, offset);
 })
+
+
 /********Buscador CIERRE  y LUPA */
 cierre.addEventListener('click', () => {
 
@@ -301,7 +357,7 @@ cierre.addEventListener('click', () => {
    principal3.style.display = 'none'
    principal2.innerHTML = ' '
    mascotas.innerHTML = ' '
-   buscador1.value.innerHTML = ' '
+   buscador.value.innerHTML = ' '
 
 })
 /**Creación del carrusell */
@@ -312,7 +368,7 @@ const url_BASE = 'https://api.giphy.com/v1/gifs/trending?api_key=boZGHaAmzirlZl5
 
 let mostrarscroll = async () => {
    try {
-      let resultado = await fetch(url_base + api_key)
+      let resultado = await fetch(url_trending + api_key)
 
       let json = await resultado.json()
 
@@ -373,7 +429,7 @@ async function download() {
    a.click();
    document.body.removeChild(a);
 }
-/*
+
 async function descargarGif() {
    var source = 'https://api.giphy.com/v1/gifs/cRfP1TiNrxLDtRrkPl?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY';
    let response = await fetch(source);
@@ -385,10 +441,8 @@ async function descargarGif() {
        return URL.createObjectURL(blob);
    });
 }
-*/
+
 function comenzando(params) {
-
-
    comenzar.addEventListener('click', () => {
       cont_cuadrado.style.display = 'none'
       acceso00.style.display = 'block'
@@ -514,7 +568,7 @@ function capturar(params) {
       finalizando()
       console.log('click')
    })
-   
+
 }
 capturar()
 /***Funcionalidad de los botones de Crear GIFS PROPIOS */
