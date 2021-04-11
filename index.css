@@ -189,7 +189,7 @@
     #sinBusqueda {
         display: none;
     }
-    /*Imágenes********************/ 
+    /*Imágenes********************/
     main {
         display: flex;
         flex-wrap: wrap;
@@ -599,7 +599,7 @@
         text-align: center;
         line-height: 2.5rem;
     }
-    .foto1{
+    .foto1 {
         position: relative;
     }
     .foto {
@@ -610,12 +610,12 @@
         z-index: 0;
         display: block;
     }
-    .divHover{
+    .divHover {
         width: 260px;
         height: 200px;
-       margin-top: -200px;
+        margin-top: -200px;
         margin-left: 30px;
-        background-color:#572ee5;
+        background-color: #572ee5;
         opacity: 0.7;
         position: absolute;
         z-index: 10;
@@ -672,11 +672,25 @@
         justify-content: flex-end;
     }
     #favcor {
+        /*display: none;*/
         position: absolute;
-        display: inline-flex;
+        
         justify-content: flex-end;
         align-items: flex-start;
-        margin-left: 20px;
+        margin-left: 140px;
+    }
+    .seleccion1 {
+        margin-top: 10px;
+        margin-left: 5px;
+        justify-content: flex-end;
+    }
+    #favcor1 {
+        position: absolute;
+        display: none;
+        justify-content: flex-end;
+        align-items: flex-start;
+        margin-left: -120px;
+       margin-bottom: 100px;
     }
     /******Mis Gifos DESKTOP*****************/
     #principal8 {
@@ -761,24 +775,45 @@
         color: var(--font-color);
         text-align: center;
     }
+
     #scroll {
+        width: 78%;
         height: 330px;
         align-items: center;
-        display: flex;
+        display: inline-flex;
         justify-content: space-between;
-    }
-    .sig img {
-        background-color: chartreuse;
     }
 
     .fotos4 {
-        width: 28%;
+        width: 350px;
         height: 275px;
         margin-left: 20px;
     }
+    .sig {
+        position: absolute;
+    }
+    #scrollLeft {
+        position: absolute;
+        height: 50px;
+        margin-right: 1200px;
+       margin-top: 230px;
+    }
+    #scrollRigth {
+        position: absolute;
+        margin-left: 1140px;
+        margin-top: 230px;
+    }
+    button {
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+        border: hidden;
+    }
     #parr1 {
         color: var(--font-color);
+        justify-content: center;
     }
+
     /********Footer Desktop**************/
     footer {
         width: 100%;

@@ -95,6 +95,10 @@ let camNoc = document.getElementById('camNoc')
 
 let peliculaNoc = document.getElementById('peliculaNoc')
 
+let scrollLeft = document.getElementById('scrollLeft')
+
+let scrollRigth = document.getElementById('scrollRigth')
+
 /**MODO NOCTURNO******************* */
 
 //// Immediately invoked function to set the theme on initial load
@@ -121,8 +125,7 @@ switchThemeMob.addEventListener('click', (event) => {
 })
 
 function toggleTheme() {
-   console.log('toggleTheme')
-   console.log(localStorage.getItem('theme'))
+
    if (localStorage.getItem('theme') === 'theme-dark') {
 
       icono.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/logo-desktop.svg'
@@ -137,7 +140,6 @@ function toggleTheme() {
 
       peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula.svg'
 
-      console.log(icono.src)
       setTheme('theme-light');
    } else {
       icono.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/logo-mobile-modo-noct.svg'
@@ -152,7 +154,6 @@ function toggleTheme() {
 
       peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula-modo-noc.svg'
 
-      console.log(icono.src)
       setTheme('theme-dark');
    }
 }
@@ -199,9 +200,7 @@ const url_buscador = 'https://api.giphy.com/v1/gifs/search'
 
 let mostrartrending = async () => {
    try {
-      let resultado = await fetch(url_trending + 
-      '?api_key='+ api_key +
-      '&limit=' + limit)
+      let resultado = await fetch(url_trending + '?api_key=' + api_key + '&limit=' + limit)
 
       let json = await resultado.json()
 
@@ -227,19 +226,19 @@ let mostrarSiguientes = async (q, offset) => {
       let resultados = await fetch(urls)
 
       let json = await resultados.json()
-/*
-      json.data.forEach(trending => {
-
-         principal2.innerHTML += `
-         <div class='foto1'>
-            <img class='foto' src='${trending.images.fixed_height.url}>
-         
-            <img src='${trending.images.fixed_height.url}>
-         </div>
-         `
-      });
-      */
-     mostrarGifs(json)
+      /*
+            json.data.forEach(trending => {
+      
+               principal2.innerHTML += `
+               <div class='foto1'>
+                  <img class='foto' src='${trending.images.fixed_height.url}>
+               
+                  <img src='${trending.images.fixed_height.url}>
+               </div>
+               `
+            });
+            */
+      mostrarGifs(json)
    } catch (error) {
    }
 }
@@ -249,8 +248,6 @@ buscador.addEventListener('keypress', async (e) => {
 
    let urls = url_buscador + '?' + 'api_key=' + api_key + '&offset=' + offset + '&limit=' + limit + '&q=' + buscador.value;
 
-   console.log(urls)
-
    if (e.key === 'Enter') {
 
       principal5.style.display = 'block'
@@ -259,16 +256,13 @@ buscador.addEventListener('keypress', async (e) => {
       cierre.style.display = 'block'
       cierre.style.position = 'relative'
       principal2.innerHTML = ``
-      
+
       let resultado = await fetch(urls)
-      
+
       let json = await resultado.json()
-
       mostrarGifs(json)
-
       asociarHover()
-       
-      mascotas.innerHTML = ' '
+      mascotas.innerHTML = ''
       mascotas.innerHTML = buscador.value
       mascotas.style.textTransform = 'capitalize'
       principal3.style.display = 'block'
@@ -278,7 +272,7 @@ buscador.addEventListener('keypress', async (e) => {
    }
 })
 
-function mostrarGifs(json){
+function mostrarGifs(json) {
 
    json.data.forEach(gif => {
       principal2.innerHTML += `
@@ -306,45 +300,38 @@ function mostrarGifs(json){
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
       </div>
       `
-      /*
 
-*/
    });
+   asociarHover()
 }
 
-function asociarHover(){
+function asociarHover() {
    let arrayImagenes = document.querySelectorAll('.foto')
 
    arrayImagenes.forEach(gif => {
-      console.log(gif)
       gif.addEventListener('mouseover', (eventoPintar) => {
-         console.log(eventoPintar.target.getAttribute('key'))
          let divHover = document.getElementById(eventoPintar.target.getAttribute('key'))
          divHover.style.display = 'block'
 
          divHover.addEventListener('mouseout', () => {
-            console.log('mouseout')
             divHover.style.display = 'none'
 
          })
       })
    })
-
 }
 /******Funcionalidad Boton Ver Mas */
-
-
 lupa.addEventListener('click', () => {
    offset = 0;
+   //mostrarscroll()
    //principal2.innerHTML = '';
    // FUNCION buscarGifs();
 });
 
 principal3.addEventListener('click', () => {
    offset += 12;
-   console.log('BUSCADOR 1!!!')
-   console.log(buscador.value, offset)
    mostrarSiguientes(buscador.value, offset);
+
 })
 
 
@@ -364,34 +351,54 @@ cierre.addEventListener('click', () => {
 
 scroll.style.overflow = 'scroll'
 
-const url_BASE = 'https://api.giphy.com/v1/gifs/trending?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY&limit=12&offset=12'
+/*const url_BASE = 'https://api.giphy.com/v1/gifs/trending?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY&limit=12&offset=12'*/
 
 let mostrarscroll = async () => {
    try {
-      let resultado = await fetch(url_trending + api_key)
+      let resultado = await fetch(url_trending + '?api_key=' + api_key + '&limit=24' + limit)
 
       let json = await resultado.json()
 
-      json.data.forEach(scrolls => {
+      json.data.forEach(gif => {
 
          scroll.innerHTML += `
          
-         <div class='foto1'>
-            <img class='fotos5' src='${scrolls.images.fixed_height.url}>
-            
-         
-            <img src='${scrolls.images.fixed_height.url}>
+         <div>
+            <img class='fotos4' src='${gif.images.fixed_height.url}>
+            <img src='${gif.images.fixed_height.url}>
+
+         <div id='favcor1'
+         <img class="seleccion1" id="corazon1"
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+
+         <img id="descarga1" class="seleccion1"
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
+
+         <img id="expancion1" class="seleccion1"
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
+
+         <img class="seleccion1" id="corazon1"
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+      </div>
          </div>
-
          `
-
+         //asociarHover()
       });
    } catch (error) {
    }
+   
 }
-
 mostrarscroll()
 
+/***Scroll*********** */
+
+scrollLeft.addEventListener('click',() =>{
+   scroll.scrollBy(-740,0)
+})
+
+scrollRigth.addEventListener('click',() =>{
+   scroll.scrollBy(740,0)
+})
 /*Funcionalidad boton CREAR Gifs*****/
 
 btn4.addEventListener('click', (event) => {
@@ -416,8 +423,6 @@ window.onload = () => {
    if (gifs) {
       myGifs = gifs;
    }
-   console.log('Mis gifs cargados');
-   console.log(myGifs);
    download();
 }
 
@@ -429,19 +434,19 @@ async function download() {
    a.click();
    document.body.removeChild(a);
 }
-
+/*
 async function descargarGif() {
    var source = 'https://api.giphy.com/v1/gifs/cRfP1TiNrxLDtRrkPl?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY';
    let response = await fetch(source);
    let info = await response.json();
 
    return fetch(info.data.images.downsized_large.url).then((response) => {
-       return response.blob();
+      return response.blob();
    }).then(blob => {
-       return URL.createObjectURL(blob);
+      return URL.createObjectURL(blob);
    });
 }
-
+*/
 function comenzando(params) {
    comenzar.addEventListener('click', () => {
       cont_cuadrado.style.display = 'none'
@@ -486,10 +491,9 @@ async function createGif(formData) {
       body: formData
    });
    const result = await response.json();
-   console.log(result);
+
    myGifs.push(result.data.id);
    localStorage.setItem('myGifs', JSON.stringify(myGifs));
-   console.log(myGifs);
 }
 
 let stream
@@ -566,9 +570,11 @@ function capturar(params) {
       btnDos.style.background = 'var(--color-primary)'
       btnDos.style.color = ''
       finalizando()
-      console.log('click')
+
    })
 
 }
 capturar()
-/***Funcionalidad de los botones de Crear GIFS PROPIOS */
+
+
+
