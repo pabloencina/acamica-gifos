@@ -248,7 +248,7 @@ buscador.addEventListener('keypress', async (e) => {
 
    let urls = url_buscador + '?' + 'api_key=' + api_key + '&offset=' + offset + '&limit=' + limit + '&q=' + buscador.value;
 
-   if (e.key === 'Enter') {
+   if (e.key === 'Enter'){
 
       principal5.style.display = 'block'
 
@@ -283,7 +283,7 @@ function mostrarGifs(json) {
       
          <img src='${gif.images.fixed_height.url}>
 
-         <div id='${gif.id}' class='divHover'></div>
+      <div id='${gif.id}' class='divHover'></div>
       </div>
 
       <div id='favcor'
@@ -331,9 +331,7 @@ lupa.addEventListener('click', () => {
 principal3.addEventListener('click', () => {
    offset += 12;
    mostrarSiguientes(buscador.value, offset);
-
 })
-
 
 /********Buscador CIERRE  y LUPA */
 cierre.addEventListener('click', () => {
@@ -363,32 +361,52 @@ let mostrarscroll = async () => {
 
          scroll.innerHTML += `
          
-         <div>
-            <img class='fotos4' src='${gif.images.fixed_height.url}>
-            <img src='${gif.images.fixed_height.url}>
+      <div class='foto1Scroll'>
+            <img key='${gif.id}' class='fotos4' src='${gif.images.fixed_height.url}>
+
+            <img  src='${gif.images.fixed_height.url}>
+
+            <div  id='${gif.id}' class='hoverScroll'></div>
 
          <div id='favcor1'
          <img class="seleccion1" id="corazon1"
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
 
          <img id="descarga1" class="seleccion1"
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
 
          <img id="expancion1" class="seleccion1"
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
 
          <img class="seleccion1" id="corazon1"
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
       </div>
          </div>
          `
-         //asociarHover()
       });
    } catch (error) {
    }
    
 }
 mostrarscroll()
+
+function asociarHoverScroll() {
+   let arrayImagenesScroll = document.querySelectorAll('.fotos4')
+
+   arrayImagenesScroll.forEach(gif1 => {
+      gif1.addEventListener('mouseover', (eventoPintarScroll) => {
+
+         let hoverScroll = document.getElementById(eventoPintarScroll.target.getAttribute('key'))
+         hoverScroll.style.display = 'block'
+         console.log('click')
+
+         hoverScroll.addEventListener('mouseout', () => {
+            console.log('click')
+            hoverScroll.style.display = 'none'
+         })
+      })
+   })
+}
 
 /***Scroll*********** */
 
@@ -415,7 +433,7 @@ btn4.addEventListener('click', (event) => {
 let recorder = null
 let myGifs = []
 
-
+/*
 let pathSubirGif = `https://upload.giphy.com/v1/gifs?api_key=${api_key}`
 
 window.onload = () => {
@@ -425,7 +443,7 @@ window.onload = () => {
    }
    download();
 }
-
+/*
 async function download() {
    const a = document.createElement("a");
    a.href = await descargarGif();
