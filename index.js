@@ -140,6 +140,34 @@ function toggleTheme() {
 
       peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula.svg'
 
+      switchThemeDesktop.innerHTML = 'Modo Nocturno'
+
+      switchThemeDesktop.style.color = 'var(--gifos)'
+
+      switchThemeDesktop.style.textDecoration = 'none'
+
+      switchThemeDesktop.style.fontSize = '13px'
+
+      switchThemeDesktop.style.letterSpacing = '0'
+
+      switchThemeDesktop.style.textAlign = 'center'
+
+      switchThemeMob.innerHTML = 'Modo Nocturno'
+
+      switchThemeMob.style.color ='white'
+
+      switchThemeMob.style.fontFamily ='Montserrat Alternates'
+
+      switchThemeMob.style.fontWeight ='bold'
+
+      switchThemeMob.style.fontSize ='20px'
+
+      switchThemeMob.style.textAlign ='center'
+
+      switchThemeMob.style.lineHeight ='60px'
+
+      menu.style.display ='none'
+
       setTheme('theme-light');
    } else {
       icono.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/logo-mobile-modo-noct.svg'
@@ -153,6 +181,12 @@ function toggleTheme() {
       camNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/camara-modo-noc.svg'
 
       peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula-modo-noc.svg'
+
+      switchThemeDesktop.innerHTML = 'Modo Diurno'
+
+      switchThemeMob.innerHTML = 'Modo Diurno'
+
+      menu.style.display ='none'
 
       setTheme('theme-dark');
    }

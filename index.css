@@ -75,10 +75,10 @@
         margin: 0;
         padding: 0;
     }
-    hr {
+    .bordeInf {
         color: var(--linea);
         width: 4.125rem;
-        margin-left: 50px;
+        margin-left: 150px;
     }
     /************Nav*********************** */
     #btn1 {
