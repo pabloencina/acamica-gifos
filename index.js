@@ -99,6 +99,9 @@ let scrollLeft = document.getElementById('scrollLeft')
 
 let scrollRigth = document.getElementById('scrollRigth')
 
+let vermas = document.getElementById('vermas')
+
+
 /**MODO NOCTURNO******************* */
 
 //// Immediately invoked function to set the theme on initial load
@@ -140,6 +143,10 @@ function toggleTheme() {
 
       peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula.svg'
 
+      vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas.svg'
+
+      cierre.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg'
+
       switchThemeDesktop.innerHTML = 'Modo Nocturno'
 
       switchThemeDesktop.style.color = 'var(--gifos)'
@@ -158,21 +165,21 @@ function toggleTheme() {
 
       switchThemeMob.style.cursor = 'pointer'
 
-      switchThemeMob.style.color ='white'
+      switchThemeMob.style.color = 'white'
 
-      switchThemeMob.style.fontFamily ='Montserrat Alternates'
+      switchThemeMob.style.fontFamily = 'Montserrat Alternates'
 
-      switchThemeMob.style.fontWeight ='bold'
+      switchThemeMob.style.fontWeight = 'bold'
 
-      switchThemeMob.style.fontSize ='20px'
+      switchThemeMob.style.fontSize = '20px'
 
-      switchThemeMob.style.textAlign ='center'
+      switchThemeMob.style.textAlign = 'center'
 
-      switchThemeMob.style.lineHeight ='60px'
+      switchThemeMob.style.lineHeight = '60px'
 
-      menu.style.display ='none'
+      menu.style.display = 'none'
 
-      
+
 
       setTheme('theme-light');
    } else {
@@ -188,27 +195,31 @@ function toggleTheme() {
 
       peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula-modo-noc.svg'
 
+      vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
+
+      cierre.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close-modo-noct.svg'
+
       switchThemeDesktop.innerHTML = 'Modo Diurno'
 
       switchThemeMob.innerHTML = 'Modo Diurno'
 
-      menu.style.display ='none'
+      menu.style.display = 'none'
 
       setTheme('theme-dark');
 
-      
+
    }
 }
 focusMethod = function getFocus() {
    switchThemeDesktop.focus();
    switchThemeMob.focus();
- }
+}
 
 // function to set a given theme/color-scheme
 function setTheme(themeName) {
    localStorage.setItem('theme', themeName);
    document.documentElement.className = themeName;
-   
+
 }
 /****Funcion para que aparezca el menu hamb */
 boton1.addEventListener('click', (event) => {
@@ -223,24 +234,51 @@ boton1.addEventListener('click', (event) => {
       lupa.style.visibility = 'visible'
       //boton1.style.visibility = 'visible'
       //btn3.style.display = 'none'
-     
-   }
-})
-   /*
-btn3.addEventListener('click', () => {
-   if (menu.style.display === 'block') {
-      btn3.style.display = 'block'
-      
-      boton1.style.display = 'none'
-      
-   } else {
-      menu.style.display = 'none'
-      boton1.style.display = 'block'
-      btn3.style.display
-       = 'none'
-   }
-})
 
+   }
+})
+/*
+btn3.addEventListener('click', () => {
+if (menu.style.display === 'block') {
+   btn3.style.display = 'block'
+   
+   boton1.style.display = 'none'
+   
+} else {
+   menu.style.display = 'none'
+   boton1.style.display = 'block'
+   btn3.style.display
+    = 'none'
+}
+})
+/***********************Autucompletado******** */
+/*
+function autocompletar(arreglo) {
+   const inputMascota = document.querySelector('#tipo-mascota')
+   let indexfocus = -1
+
+   inputMascota.addEventListener('input',function() {
+      
+      let tipoMascotas = this.value
+      if(!tipoMascotas) return false;
+//crear lista de sugerencia
+      const divList = document.createElement('div')
+      divList.setAttribute('id',this.id + '-lista-autocompletar')
+      divList.setAttribute('class','lista-autocompletar-items')
+      this.parentNode.appendChild(divList)
+
+      //validar el arreglo s el input
+      if(arreglo.length == 0) return false
+      arreglo.forEach(item =>{
+         console.log(item)
+      })
+   })
+
+   inputMascota.addEventListener('keydown', function() {
+         
+   })
+}
+autocompletar(['perro','gato','pez','conejo','paloma'])
 
 /**Consumir gifs desde la  API */
 'api.giphy.com/v1/gifs/trending?api_key='
@@ -303,31 +341,32 @@ let mostrarSiguientes = async (q, offset) => {
 
 buscador.addEventListener('keypress', async (e) => {
 
-   let urls = url_buscador + '?' + 'api_key=' + api_key + '&offset=' + offset + '&limit=' + limit + '&q=' + buscador.value;
-
-   if (e.key === 'Enter'){
-
-      principal5.style.display = 'block'
-
-      lupa.style.display = 'none'
-      cierre.style.display = 'block'
-      cierre.style.position = 'relative'
-      principal2.innerHTML = ``
-
-      let resultado = await fetch(urls)
-
-      let json = await resultado.json()
-      mostrarGifs(json)
-      asociarHover()
-      mascotas.innerHTML = ''
-      mascotas.innerHTML = buscador.value
-      mascotas.style.textTransform = 'capitalize'
-      principal3.style.display = 'block'
-      principal3.style.display = 'flex'
-      principal3.style.alignItems = 'center'
-      inspiracion1.style.display = 'none'
+   if (e.key === 'Enter') {
+      buscarGifs()
    }
 })
+
+async function buscarGifs() {
+
+   let urls = url_buscador + '?' + 'api_key=' + api_key + '&offset=' + offset + '&limit=' + limit + '&q=' + buscador.value;
+
+   principal5.style.display = 'block'
+   lupa.style.display = 'none'
+   cierre.style.display = 'block'
+   cierre.style.position = 'relative'
+   principal2.innerHTML = ``
+   let resultado = await fetch(urls)
+   let json = await resultado.json()
+   mostrarGifs(json)
+   asociarHover()
+   mascotas.innerHTML = ''
+   mascotas.innerHTML = buscador.value
+   mascotas.style.textTransform = 'capitalize'
+   principal3.style.display = 'block'
+   principal3.style.display = 'flex'
+   principal3.style.alignItems = 'center'
+   inspiracion1.style.display = 'none'
+}
 
 function mostrarGifs(json) {
 
@@ -368,22 +407,21 @@ function asociarHover() {
    arrayImagenes.forEach(gif => {
       gif.addEventListener('mouseover', (eventoPintar) => {
          let divHover = document.getElementById(eventoPintar.target.getAttribute('key'))
-         divHover.style.display = 'block'
+
+            let favcor = document.getElementById('favcor')
+
+            divHover.style.display = 'block'
+            //favcor.style.display = 'block'
 
          divHover.addEventListener('mouseout', () => {
             divHover.style.display = 'none'
-
+           // favcor.style.display = 'none'
          })
       })
    })
 }
 /******Funcionalidad Boton Ver Mas */
-lupa.addEventListener('click', () => {
-   offset = 0;
-   //mostrarscroll()
-   //principal2.innerHTML = '';
-   // FUNCION buscarGifs();
-});
+
 
 principal3.addEventListener('click', () => {
    offset += 12;
@@ -397,11 +435,15 @@ cierre.addEventListener('click', () => {
    lupa.style.display = 'block'
    inspiracion1.style.display = 'block'
    principal3.style.display = 'none'
-   principal2.innerHTML = ' '
-   mascotas.innerHTML = ' '
-   buscador.value.innerHTML = ' '
-
+   principal2.innerHTML = ''
+   mascotas.innerHTML = ''
+   buscador.value = ''
 })
+/**Lupa */
+lupa.addEventListener('click', () => {
+   buscarGifs()
+});
+
 /**Creación del carrusell */
 
 scroll.style.overflow = 'scroll'
@@ -443,15 +485,18 @@ let mostrarscroll = async () => {
       });
    } catch (error) {
    }
-   
+
 }
+
 mostrarscroll()
+asociarHoverScroll()
 
 function asociarHoverScroll() {
-   let arrayImagenesScroll = document.querySelectorAll('.fotos4')
+   let arrayImagenes = document.querySelectorAll('.fotos4')
 
-   arrayImagenesScroll.forEach(gif1 => {
-      gif1.addEventListener('mouseover', (eventoPintarScroll) => {
+   arrayImagenes.forEach(gif => {
+
+      gif.addEventListener('mouseover', (eventoPintarScroll) => {
 
          let hoverScroll = document.getElementById(eventoPintarScroll.target.getAttribute('key'))
          hoverScroll.style.display = 'block'
@@ -461,22 +506,24 @@ function asociarHoverScroll() {
             console.log('click')
             hoverScroll.style.display = 'none'
          })
+
       })
+
    })
 }
 
 /***Scroll*********** */
 
-scrollLeft.addEventListener('click',() =>{
-   scroll.scrollBy(-740,0)
+scrollLeft.addEventListener('click', () => {
+   scroll.scrollBy(-740, 0)
 })
 
-scrollRigth.addEventListener('click',() =>{
-   scroll.scrollBy(740,0)
+scrollRigth.addEventListener('click', () => {
+   scroll.scrollBy(740, 0)
 })
 /*Funcionalidad boton CREAR Gifs*****/
 
-btn4.addEventListener('click', (event) => {
+btn4.addEventListener('click', () => {
    if (creargifos.style.display === 'none') {
       creargifos.style.display = 'block';
       ocultar_todo.style.display = 'none'
