@@ -146,6 +146,8 @@ function toggleTheme() {
 
       switchThemeDesktop.style.textDecoration = 'none'
 
+      switchThemeDesktop.style.fontWeight = 'bold'
+
       switchThemeDesktop.style.fontSize = '13px'
 
       switchThemeDesktop.style.letterSpacing = '0'
@@ -153,6 +155,8 @@ function toggleTheme() {
       switchThemeDesktop.style.textAlign = 'center'
 
       switchThemeMob.innerHTML = 'Modo Nocturno'
+
+      switchThemeMob.style.cursor = 'pointer'
 
       switchThemeMob.style.color ='white'
 
@@ -167,6 +171,8 @@ function toggleTheme() {
       switchThemeMob.style.lineHeight ='60px'
 
       menu.style.display ='none'
+
+      
 
       setTheme('theme-light');
    } else {
@@ -189,35 +195,52 @@ function toggleTheme() {
       menu.style.display ='none'
 
       setTheme('theme-dark');
+
+      
    }
 }
+focusMethod = function getFocus() {
+   switchThemeDesktop.focus();
+   switchThemeMob.focus();
+ }
 
 // function to set a given theme/color-scheme
 function setTheme(themeName) {
    localStorage.setItem('theme', themeName);
    document.documentElement.className = themeName;
+   
 }
 /****Funcion para que aparezca el menu hamb */
 boton1.addEventListener('click', (event) => {
    if (menu.style.display === 'none') {
       menu.style.display = 'block';
+      lupa.style.visibility = 'hidden'
+      //btn3.style.display = 'block'
+      //boton1.style.visibility = 'hidden'
 
    } else {
       menu.style.display = 'none'
-      boton1.style.display = 'block'
+      lupa.style.visibility = 'visible'
+      //boton1.style.visibility = 'visible'
+      //btn3.style.display = 'none'
+     
    }
 })
+   /*
 btn3.addEventListener('click', () => {
-   if (btn3.style.visibility === 'hidden') {
-      btn3.style.visibility = 'visible'
+   if (menu.style.display === 'block') {
+      btn3.style.display = 'block'
+      
       boton1.style.display = 'none'
-      menu.style.display = 'block'
+      
    } else {
       menu.style.display = 'none'
       boton1.style.display = 'block'
+      btn3.style.display
+       = 'none'
    }
-
 })
+
 
 /**Consumir gifs desde la  API */
 'api.giphy.com/v1/gifs/trending?api_key='
