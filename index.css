@@ -692,7 +692,7 @@
         margin-left: 0.3125rem;
         justify-content: flex-end;
     }
-    #favcor {
+    .favcor {
         display: none;
         position: absolute;
         margin-top: -11.25rem;

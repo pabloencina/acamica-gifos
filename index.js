@@ -158,10 +158,10 @@ function toggleTheme() {
 
       vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas.svg'
       vermas.addEventListener('mouseover', () => {
-         vermas.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas-hover.svg'
+         vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas-hover.svg'
       })
       vermas.addEventListener('mouseout', () => {
-         vermas.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas.svg'
+         vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas.svg'
       })
 
       cierre.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg'
@@ -169,29 +169,29 @@ function toggleTheme() {
       siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right.svg'
 
       siguiente1.addEventListener('mouseover', () => {
-         siguiente1.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right-hover.svg'
+         siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right-hover.svg'
       })
       siguiente1.addEventListener('mouseout', () => {
-         siguiente1.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right.svg'
+         siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right.svg'
       })
       scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left.svg'
-      
+
       scrollLeftImg.addEventListener('mouseover', () => {
-         scrollLeftImg.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-hover.svg'
+         scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-hover.svg'
       })
       scrollLeftImg.addEventListener('mouseout', () => {
-         scrollLeftImg.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left.svg'
+         scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left.svg'
       })
 
       btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-crear-gifo.svg'
 
       btnCrear.addEventListener('mouseover', () => {
-         btnCrear.src ='/Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-hover.svg'
+         btnCrear.src = '/Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-hover.svg'
       })
       btnCrear.addEventListener('mouseout', () => {
-         btnCrear.src ='/Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-crear-gifo.svg'
+         btnCrear.src = '/Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-crear-gifo.svg'
       })
-      
+
       switchThemeDesktop.innerHTML = 'Modo Nocturno'
 
       switchThemeDesktop.style.color = 'var(--gifos)'
@@ -241,38 +241,38 @@ function toggleTheme() {
       vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
 
       vermas.addEventListener('mouseover', () => {
-         vermas.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+hover-modo-noc.svg'
+         vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+hover-modo-noc.svg'
       })
       vermas.addEventListener('mouseout', () => {
-         vermas.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
+         vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
       })
-      
+
 
       cierre.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close-modo-noct.svg'
 
       scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-md-noct.svg'
       scrollLeftImg.addEventListener('mouseover', () => {
-         scrollLeftImg.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-hover.svg'
+         scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-hover.svg'
       })
       scrollLeftImg.addEventListener('mouseout', () => {
-         scrollLeftImg.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-md-noct.svg'
+         scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-md-noct.svg'
       })
 
       siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-right-md-noct.svg'
       siguiente1.addEventListener('mouseover', () => {
-         siguiente1.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right-hover.svg'
+         siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right-hover.svg'
       })
       siguiente1.addEventListener('mouseout', () => {
-         siguiente1.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-right-md-noct.svg'
+         siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-right-md-noct.svg'
       })
-      
+
       btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-modo-noc.svg'
 
       btnCrear.addEventListener('mouseover', () => {
-         btnCrear.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-modo-noc.svg'
+         btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-modo-noc.svg'
       })
       btnCrear.addEventListener('mouseout', () => {
-         btnCrear.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crar-gifo-modo-noc.svg'
+         btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crar-gifo-modo-noc.svg'
       })
 
       switchThemeDesktop.innerHTML = 'Modo Diurno'
@@ -390,9 +390,11 @@ let mostrarSiguientes = async (q, offset) => {
 
 /*********sin Busqueda*********** */
 /*
-if(!buscarGifs()){
+if(buscarGifs() === null){
    sinBusqueda.style.display = 'block'
 }
+
+
 /**Buscador desde la API */
 
 buscador.addEventListener('keypress', async (e) => {
@@ -438,18 +440,19 @@ function mostrarGifs(json) {
       <div id='${gif.id}' class='divHover'></div>
       </div>
 
-      <div id='favcor'
+      <div id='favcor${gif.id}' class="favcor"
          <img class="seleccion" id="corazon"
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
 
-         <img id="descarga" class="seleccion"
+         <img id="down${gif.id}" class="seleccion"
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
 
-         <img id="expancion" class="seleccion"
+         <img id="exp${gif.id}" class="seleccion"
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
 
-         <img class="seleccion" id="corazon"
+         <img id="like${gif.id}" class="seleccion" 
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+      
       </div>
       `
 
@@ -460,18 +463,20 @@ function mostrarGifs(json) {
 function asociarHover() {
    let arrayImagenes = document.querySelectorAll('.foto')
 
+   //let favcor = document.getElementById('favcor')
    arrayImagenes.forEach(gif => {
       gif.addEventListener('mouseover', (eventoPintar) => {
          let divHover = document.getElementById(eventoPintar.target.getAttribute('key'))
+         let favcor = document.getElementById('favcor'+divHover.id)
 
-            let favcor = document.getElementById('favcor')
-
-            divHover.style.display = 'block'
-            //favcor.style.display = 'block'
+         console.log(divHover.id)
+         console.log(favcor)
+         divHover.style.display = 'block'
+         favcor.style.display = 'block'
 
          divHover.addEventListener('mouseout', () => {
             divHover.style.display = 'none'
-           // favcor.style.display = 'none'
+            favcor.style.display = 'none'
          })
       })
    })
@@ -553,10 +558,11 @@ function asociarHoverScroll() {
    arrayImagenes.forEach(gif => {
 
       gif.addEventListener('mouseover', (eventoPintarScroll) => {
-
-         let hoverScroll = document.getElementById(eventoPintarScroll.target.getAttribute('key'))
-         hoverScroll.style.display = 'block'
          console.log('click')
+         let hoverScroll = document.getElementsbyId(eventoPintarScroll.target.getAttribute('key'))
+
+         hoverScroll.style.display = 'block'
+
 
          hoverScroll.addEventListener('mouseout', () => {
             console.log('click')
@@ -757,24 +763,24 @@ capturar()
 /*************Imagenes Hover*********** */
 
 redesFace.addEventListener('mouseover', () => {
-   redesFace.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_facebook_hover.svg'
+   redesFace.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_facebook_hover.svg'
 })
 redesFace.addEventListener('mouseout', () => {
-   redesFace.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_facebook.svg'
+   redesFace.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_facebook.svg'
 })
 
 redesTw.addEventListener('mouseover', () => {
-   redesTw.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-twitter-hover.svg'
+   redesTw.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-twitter-hover.svg'
 })
 redesTw.addEventListener('mouseout', () => {
-   redesTw.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-twitter.svg'
+   redesTw.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-twitter.svg'
 })
 
 redesInsta.addEventListener('mouseover', () => {
-   redesInsta.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_instagram-hover.svg'
+   redesInsta.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_instagram-hover.svg'
 })
 redesInsta.addEventListener('mouseout', () => {
-   redesInsta.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_instagram.svg'
+   redesInsta.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_instagram.svg'
 })
 
 
