@@ -101,6 +101,19 @@ let scrollRigth = document.getElementById('scrollRigth')
 
 let vermas = document.getElementById('vermas')
 
+let redesFace = document.getElementById('redesFace')
+
+let redesTw = document.getElementById('redesTw')
+
+let redesInsta = document.getElementById('redesInsta')
+
+let siguiente1 = document.getElementById('siguiente1')
+
+let scrollLeftImg = document.getElementById('scrollLeftImg')
+
+let btnCrear = document.getElementById('btnCrear')
+
+let sinBusqueda = document.getElementById('sinBusqueda')
 
 /**MODO NOCTURNO******************* */
 
@@ -144,9 +157,41 @@ function toggleTheme() {
       peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula.svg'
 
       vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas.svg'
+      vermas.addEventListener('mouseover', () => {
+         vermas.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas-hover.svg'
+      })
+      vermas.addEventListener('mouseout', () => {
+         vermas.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas.svg'
+      })
 
       cierre.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg'
 
+      siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right.svg'
+
+      siguiente1.addEventListener('mouseover', () => {
+         siguiente1.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right-hover.svg'
+      })
+      siguiente1.addEventListener('mouseout', () => {
+         siguiente1.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right.svg'
+      })
+      scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left.svg'
+      
+      scrollLeftImg.addEventListener('mouseover', () => {
+         scrollLeftImg.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-hover.svg'
+      })
+      scrollLeftImg.addEventListener('mouseout', () => {
+         scrollLeftImg.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left.svg'
+      })
+
+      btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-crear-gifo.svg'
+
+      btnCrear.addEventListener('mouseover', () => {
+         btnCrear.src ='/Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-hover.svg'
+      })
+      btnCrear.addEventListener('mouseout', () => {
+         btnCrear.src ='/Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-crear-gifo.svg'
+      })
+      
       switchThemeDesktop.innerHTML = 'Modo Nocturno'
 
       switchThemeDesktop.style.color = 'var(--gifos)'
@@ -179,8 +224,6 @@ function toggleTheme() {
 
       menu.style.display = 'none'
 
-
-
       setTheme('theme-light');
    } else {
       icono.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/logo-mobile-modo-noct.svg'
@@ -197,7 +240,40 @@ function toggleTheme() {
 
       vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
 
+      vermas.addEventListener('mouseover', () => {
+         vermas.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+hover-modo-noc.svg'
+      })
+      vermas.addEventListener('mouseout', () => {
+         vermas.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
+      })
+      
+
       cierre.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close-modo-noct.svg'
+
+      scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-md-noct.svg'
+      scrollLeftImg.addEventListener('mouseover', () => {
+         scrollLeftImg.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-hover.svg'
+      })
+      scrollLeftImg.addEventListener('mouseout', () => {
+         scrollLeftImg.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-md-noct.svg'
+      })
+
+      siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-right-md-noct.svg'
+      siguiente1.addEventListener('mouseover', () => {
+         siguiente1.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right-hover.svg'
+      })
+      siguiente1.addEventListener('mouseout', () => {
+         siguiente1.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-right-md-noct.svg'
+      })
+      
+      btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-modo-noc.svg'
+
+      btnCrear.addEventListener('mouseover', () => {
+         btnCrear.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-modo-noc.svg'
+      })
+      btnCrear.addEventListener('mouseout', () => {
+         btnCrear.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crar-gifo-modo-noc.svg'
+      })
 
       switchThemeDesktop.innerHTML = 'Modo Diurno'
 
@@ -252,33 +328,7 @@ if (menu.style.display === 'block') {
 }
 })
 /***********************Autucompletado******** */
-/*
-function autocompletar(arreglo) {
-   const inputMascota = document.querySelector('#tipo-mascota')
-   let indexfocus = -1
 
-   inputMascota.addEventListener('input',function() {
-      
-      let tipoMascotas = this.value
-      if(!tipoMascotas) return false;
-//crear lista de sugerencia
-      const divList = document.createElement('div')
-      divList.setAttribute('id',this.id + '-lista-autocompletar')
-      divList.setAttribute('class','lista-autocompletar-items')
-      this.parentNode.appendChild(divList)
-
-      //validar el arreglo s el input
-      if(arreglo.length == 0) return false
-      arreglo.forEach(item =>{
-         console.log(item)
-      })
-   })
-
-   inputMascota.addEventListener('keydown', function() {
-         
-   })
-}
-autocompletar(['perro','gato','pez','conejo','paloma'])
 
 /**Consumir gifs desde la  API */
 'api.giphy.com/v1/gifs/trending?api_key='
@@ -336,6 +386,12 @@ let mostrarSiguientes = async (q, offset) => {
       mostrarGifs(json)
    } catch (error) {
    }
+}
+
+/*********sin Busqueda*********** */
+/*
+if(!buscarGifs()){
+   sinBusqueda.style.display = 'block'
 }
 /**Buscador desde la API */
 
@@ -698,5 +754,27 @@ function capturar(params) {
 }
 capturar()
 
+/*************Imagenes Hover*********** */
+
+redesFace.addEventListener('mouseover', () => {
+   redesFace.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_facebook_hover.svg'
+})
+redesFace.addEventListener('mouseout', () => {
+   redesFace.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_facebook.svg'
+})
+
+redesTw.addEventListener('mouseover', () => {
+   redesTw.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-twitter-hover.svg'
+})
+redesTw.addEventListener('mouseout', () => {
+   redesTw.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-twitter.svg'
+})
+
+redesInsta.addEventListener('mouseover', () => {
+   redesInsta.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_instagram-hover.svg'
+})
+redesInsta.addEventListener('mouseout', () => {
+   redesInsta.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_instagram.svg'
+})
 
 

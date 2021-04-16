@@ -520,34 +520,7 @@
     input{
         color: var(--font-color);
     }
-    .autocompletar{
-        position: relative;
-        display: inline-block;
-    }
-    .autocompletar-items{
-        color: #ccc;
-        position: absolute;
-        border: 1px solid #d4d4d4;
-        border-bottom: none;
-        z-index:99 ;
-        top: 100%;
-        left: 20px;
-        right: 0;
-        width: 93%;
-    }
-    .autocompletar-items div{
-        padding: 0%;
-        cursor: pointer;
-        background-color: #ffffff;
-        border-bottom: 1px solid #d4d4d4;
-    }
-    .autocompletar-items div:hover{
-        background-color:aquamarine ;
-    }
-    .autocompletar-active{
-        background-color: aquamarine;
-        color: #a1caff;
-    }
+    
     #buscador1 {
         display: flex;
         justify-content: center;
@@ -895,6 +868,9 @@
     }
     .redes {
         margin: 0.625rem;
+    }
+    .redes:hover{
+        color: #572ee5;
     }
     #parrafo3 {
         width: 25rem;
