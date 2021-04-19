@@ -638,7 +638,7 @@
         margin-left: 1.875rem;
         background-color: #572ee5;
         opacity: 0.7;
-        position: absolute;
+        position: relative;
         z-index: 10;
         display: none;
     }
@@ -652,10 +652,9 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+        /*display: none;*/
     }
-    #principal7 {
-        display: none;
-    }
+    
     #contenedor2 {
         display: flex;
         flex-direction: column;
@@ -695,6 +694,7 @@
     .favcor {
         display: none;
         position: absolute;
+        z-index: 10;
         margin-top: -11.25rem;
         margin-left: 8.75rem;
     }

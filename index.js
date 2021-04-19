@@ -115,6 +115,11 @@ let btnCrear = document.getElementById('btnCrear')
 
 let sinBusqueda = document.getElementById('sinBusqueda')
 
+let gifFavoritos = []
+
+let principal6 = document.getElementById('principal6')
+
+
 /**MODO NOCTURNO******************* */
 
 //// Immediately invoked function to set the theme on initial load
@@ -428,34 +433,36 @@ async function buscarGifs() {
 
 function mostrarGifs(json) {
 
-   json.data.forEach(gif => {
+   json.data.forEach(gifJson => {
       principal2.innerHTML += `
 
       <h1 id='mascotas'>
       <div class='foto1'>
-         <img key='${gif.id}' class='foto' src='${gif.images.fixed_height.url}>
+         <img key='${gifJson.id}' class='foto' src='${gifJson.images.fixed_height.url}>
       
-         <img src='${gif.images.fixed_height.url}>
+         <img src='${gifJson.images.fixed_height.url}>
 
-      <div id='${gif.id}' class='divHover'></div>
+      <div id='${gifJson.id}' class='divHover'></div>
       </div>
 
-      <div id='favcor${gif.id}' class="favcor"
+      <div id='favcor${gifJson.id}' class="favcor"
          <img class="seleccion" id="corazon"
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
 
-         <img id="down${gif.id}" class="seleccion"
+         <img id="down${gifJson.id}" class="seleccion"
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
 
-         <img id="exp${gif.id}" class="seleccion"
+         <img id="exp${gifJson.id}" class="seleccion"
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
 
-         <img id="like${gif.id}" class="seleccion" 
+         <img id="like${gifJson.id}" class="seleccion" 
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+
+      <img id="unlike${gifJson.id}" class="seleccion" 
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
       
       </div>
       `
-
    });
    asociarHover()
 }
@@ -464,25 +471,106 @@ function asociarHover() {
    let arrayImagenes = document.querySelectorAll('.foto')
 
    //let favcor = document.getElementById('favcor')
-   arrayImagenes.forEach(gif => {
-      gif.addEventListener('mouseover', (eventoPintar) => {
-         let divHover = document.getElementById(eventoPintar.target.getAttribute('key'))
-         let favcor = document.getElementById('favcor'+divHover.id)
+   arrayImagenes.forEach(gifElement => {
 
-         console.log(divHover.id)
-         console.log(favcor)
+      let gifKey = gifElement.getAttribute('key')
+      let divHover = document.getElementById(gifKey)
+      let favcor = document.getElementById('favcor' + gifKey)
+      let like = document.getElementById('like' + gifKey)
+      let unlike = document.getElementById('unlike' + gifKey)
+      let exp = document.getElementById('exp'+ gifKey)
+      let down = document.getElementById('down' + gifKey)
+
+      /*unlike.style.display = 'none'*/
+      unlike.style.background = 'white'
+      unlike.style.borderRadius = '5px'
+      unliked.style.marginLeft = '50px'
+      unlike.style.width = '30px'
+
+      gifElement.addEventListener('mouseover', (e) => {
          divHover.style.display = 'block'
          favcor.style.display = 'block'
+      })
 
-         divHover.addEventListener('mouseout', () => {
-            divHover.style.display = 'none'
-            favcor.style.display = 'none'
-         })
+      divHover.addEventListener('mouseout', () => {
+         divHover.style.display = 'none'
+         favcor.style.display = 'none'
+      })
+
+      like.addEventListener('mouseover', () => {
+         like.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-hover.svg'
+      })
+
+      like.addEventListener('mouseout', () => {
+         like.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg'
+      })
+   
+      like.addEventListener('click',() =>{
+
+        like.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg' 
+         let gifv = gifFavoritos.push(gifElement)
+         console.log(gifv)
+         mostrarFavoritos(gifv)
+      })
+
+      exp.addEventListener('mouseover', () => {
+         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg'
+      })
+      exp.addEventListener('mouseout', () => {
+         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
+      })
+
+      down.addEventListener('mouseover', () => {
+         down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
+      })
+      down.addEventListener('mouseout', () => {
+         down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
       })
    })
 }
-/******Funcionalidad Boton Ver Mas */
 
+/**
+ * muestra la lista actual de favoritos
+*/
+function mostrarFavoritos(gifv) {
+   console.log('mostrarFavoritos!!')
+   gifFavoritos.forEach(gifElement => {
+      
+      let gifKey = gifElement.getAttribute('key')
+      console.log(gifElement)
+
+      principal6.innerHTML += `
+      <div id='principal6' class='foto1'>
+         <img key='${gifKey}' class='foto' src='${'gifElement.id'}'>
+      
+         <img src='${'gifElement.id'}'>
+
+      <div id='${gifKey}' class='divHover'></div>
+      </div>
+
+      <div id='favcor${gifKey}' class="favcor"
+         <img class="seleccion" id="corazon"
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+
+         <img id="down${gifKey}" class="seleccion"
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
+
+         <img id="exp${gifKey}" class="seleccion"
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
+
+         <img id="like${gifKey}" class="seleccion" 
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+
+      <img id="unlike${gifKey}" class="seleccion" 
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
+      
+      </div>
+      `
+      console.log( principal6.innerHTML )
+   }
+   );
+}
+/******Funcionalidad Boton Ver Mas */
 
 principal3.addEventListener('click', () => {
    offset += 12;
@@ -548,7 +636,6 @@ let mostrarscroll = async () => {
    }
 
 }
-
 mostrarscroll()
 asociarHoverScroll()
 
@@ -563,12 +650,10 @@ function asociarHoverScroll() {
 
          hoverScroll.style.display = 'block'
 
-
          hoverScroll.addEventListener('mouseout', () => {
             console.log('click')
             hoverScroll.style.display = 'none'
          })
-
       })
 
    })
@@ -601,7 +686,7 @@ let myGifs = []
 
 /*
 let pathSubirGif = `https://upload.giphy.com/v1/gifs?api_key=${api_key}`
-
+ 
 window.onload = () => {
    let gifs = JSON.parse(localStorage.getItem('myGifs'));
    if (gifs) {
@@ -623,7 +708,7 @@ async function descargarGif() {
    var source = 'https://api.giphy.com/v1/gifs/cRfP1TiNrxLDtRrkPl?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY';
    let response = await fetch(source);
    let info = await response.json();
-
+ 
    return fetch(info.data.images.downsized_large.url).then((response) => {
       return response.blob();
    }).then(blob => {
@@ -783,4 +868,4 @@ redesInsta.addEventListener('mouseout', () => {
    redesInsta.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_instagram.svg'
 })
 
-
+/**botones de Favorito, like y descargas ******/
