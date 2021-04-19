@@ -421,7 +421,6 @@ async function buscarGifs() {
    let resultado = await fetch(urls)
    let json = await resultado.json()
    mostrarGifs(json)
-   asociarHover()
    mascotas.innerHTML = ''
    mascotas.innerHTML = buscador.value
    mascotas.style.textTransform = 'capitalize'
@@ -464,10 +463,17 @@ function mostrarGifs(json) {
       </div>
       `
    });
-   asociarHover()
+   asociarHoverFotos()
+   
 }
 
-function asociarHover() {
+
+function asociarHover(gifElement){
+  // if (typeof HTMLElement === 'HTMLElement')
+
+}
+
+function asociarHoverFotos() {
    let arrayImagenes = document.querySelectorAll('.foto')
 
    //let favcor = document.getElementById('favcor')
@@ -478,18 +484,24 @@ function asociarHover() {
       let favcor = document.getElementById('favcor' + gifKey)
       let like = document.getElementById('like' + gifKey)
       let unlike = document.getElementById('unlike' + gifKey)
-      let exp = document.getElementById('exp'+ gifKey)
+      let exp = document.getElementById('exp' + gifKey)
       let down = document.getElementById('down' + gifKey)
 
-      /*unlike.style.display = 'none'*/
+      console.log(gifKey)
+
+      unlike.style.display = 'none'
       unlike.style.background = 'white'
       unlike.style.borderRadius = '5px'
-      unliked.style.marginLeft = '50px'
+      unlike.style.marginLeft = '-37px'
       unlike.style.width = '30px'
 
       gifElement.addEventListener('mouseover', (e) => {
          divHover.style.display = 'block'
          favcor.style.display = 'block'
+      })
+      gifElement.addEventListener('mouseout', (e) => {
+         gifElement.style.width = '260px'
+         gifElement.style.height = '200px'
       })
 
       divHover.addEventListener('mouseout', () => {
@@ -504,10 +516,8 @@ function asociarHover() {
       like.addEventListener('mouseout', () => {
          like.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg'
       })
-   
-      like.addEventListener('click',() =>{
 
-        like.src ='./Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg' 
+      like.addEventListener('click', () => {
          let gifv = gifFavoritos.push(gifElement)
          console.log(gifv)
          mostrarFavoritos(gifv)
@@ -518,6 +528,27 @@ function asociarHover() {
       })
       exp.addEventListener('mouseout', () => {
          exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
+         
+      })
+      exp.addEventListener('click', () => {
+         if((gifElement.style.width = '260px')&&(gifElement.style.height = '200px')){
+         divHover.style.width = '350px'
+         divHover.style.marginTop = '-350px'
+         divHover.style.height = '350px'
+         divHover.style.position = 'absolute'
+         favcor.style.marginLeft = '220px'
+         favcor.style.marginTop = '-200px'
+         gifElement.style.zIndex = '1'
+         gifElement.style.width = '350px'
+         gifElement.style.height = '350px'
+         exp.style.background = 'white'
+         exp.style.borderRadius = '10px'
+      }else {
+         divHover.style.width = '260px'
+         divHover.style.height = '200px'
+         gifElement.style.width = '260px'
+         gifElement.style.height = '200px'
+      }
       })
 
       down.addEventListener('mouseover', () => {
@@ -533,17 +564,18 @@ function asociarHover() {
  * muestra la lista actual de favoritos
 */
 function mostrarFavoritos(gifv) {
+   principal6.innerHTML = ''
    console.log('mostrarFavoritos!!')
    gifFavoritos.forEach(gifElement => {
-      
+
       let gifKey = gifElement.getAttribute('key')
+      let gifSrc = gifElement.getAttribute('src')
       console.log(gifElement)
 
       principal6.innerHTML += `
       <div id='principal6' class='foto1'>
-         <img key='${gifKey}' class='foto' src='${'gifElement.id'}'>
+         <img key='${gifKey}' class='foto' src='${gifSrc}'>
       
-         <img src='${'gifElement.id'}'>
 
       <div id='${gifKey}' class='divHover'></div>
       </div>
@@ -566,9 +598,8 @@ function mostrarFavoritos(gifv) {
       
       </div>
       `
-      console.log( principal6.innerHTML )
-   }
-   );
+   })
+   
 }
 /******Funcionalidad Boton Ver Mas */
 
