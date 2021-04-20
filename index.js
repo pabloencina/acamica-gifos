@@ -16,6 +16,8 @@ let principal7 = document.getElementById('principal7')
 
 let principal4 = document.getElementById('principal4')
 
+let principal12 = document.getElementById('principal12')
+
 let principal1 = document.getElementById('principal1')
 
 let ilustracion = document.getElementById('ilustracion')
@@ -454,6 +456,9 @@ function mostrarGifs(json) {
          <img id="exp${gifJson.id}" class="seleccion"
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
 
+      <img id="exp2${gifJson.id}" class="seleccion"
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg" alt="expander">
+
          <img id="like${gifJson.id}" class="seleccion" 
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
 
@@ -464,12 +469,10 @@ function mostrarGifs(json) {
       `
    });
    asociarHoverFotos()
-   
 }
 
-
-function asociarHover(gifElement){
-  // if (typeof HTMLElement === 'HTMLElement')
+function asociarHover(gifElement) {
+   // if (typeof HTMLElement === 'HTMLElement')
 
 }
 
@@ -485,6 +488,7 @@ function asociarHoverFotos() {
       let like = document.getElementById('like' + gifKey)
       let unlike = document.getElementById('unlike' + gifKey)
       let exp = document.getElementById('exp' + gifKey)
+      let exp2 = document.getElementById('exp2' + gifKey)
       let down = document.getElementById('down' + gifKey)
 
       console.log(gifKey)
@@ -494,6 +498,10 @@ function asociarHoverFotos() {
       unlike.style.borderRadius = '5px'
       unlike.style.marginLeft = '-37px'
       unlike.style.width = '30px'
+
+      exp2.style.visibility = 'hidden'
+      exp2.style.marginLeft = '-37px'
+      exp2.style.width = '30px'
 
       gifElement.addEventListener('mouseover', (e) => {
          divHover.style.display = 'block'
@@ -528,27 +536,33 @@ function asociarHoverFotos() {
       })
       exp.addEventListener('mouseout', () => {
          exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
-         
+
       })
       exp.addEventListener('click', () => {
-         if((gifElement.style.width = '260px')&&(gifElement.style.height = '200px')){
+         favcor.style.marginTop = '-380px'
+         favcor.style.marginLeft = '50px'
+         favcor.style.display = 'inline'
          divHover.style.width = '350px'
-         divHover.style.marginTop = '-350px'
-         divHover.style.height = '350px'
-         divHover.style.position = 'absolute'
-         favcor.style.marginLeft = '220px'
-         favcor.style.marginTop = '-200px'
-         gifElement.style.zIndex = '1'
+         divHover.style.height = '300px'
+         divHover.style.top = '-100px'
          gifElement.style.width = '350px'
-         gifElement.style.height = '350px'
-         exp.style.background = 'white'
-         exp.style.borderRadius = '10px'
-      }else {
+         gifElement.style.height = '300px'
+         exp.style.visibility = 'hidden'
+         exp2.style.visibility = 'visible'
+      })
+      exp2.addEventListener('click', () => {
+         favcor.style.marginTop = '-11.25rem'
+         favcor.style.marginLeft = '8.75rem';
+         favcor.style.zIndex = '10'
+         favcor.style.display = 'inline'
          divHover.style.width = '260px'
          divHover.style.height = '200px'
+         divHover.style.top = '0px'
          gifElement.style.width = '260px'
          gifElement.style.height = '200px'
-      }
+         exp.style.visibility = 'visible'
+         exp2.style.visibility = 'hidden'
+
       })
 
       down.addEventListener('mouseover', () => {
@@ -576,10 +590,9 @@ function mostrarFavoritos(gifv) {
       <div id='principal6' class='foto1'>
          <img key='${gifKey}' class='foto' src='${gifSrc}'>
       
-
       <div id='${gifKey}' class='divHover'></div>
-      </div>
 
+      </div>
       <div id='favcor${gifKey}' class="favcor"
          <img class="seleccion" id="corazon"
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
@@ -590,17 +603,37 @@ function mostrarFavoritos(gifv) {
          <img id="exp${gifKey}" class="seleccion"
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
 
+      <img id="exp2${gifKey}" class="seleccion"
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg" alt="expander">
+
+
          <img id="like${gifKey}" class="seleccion" 
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
 
       <img id="unlike${gifKey}" class="seleccion" 
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
-      
+      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">   
       </div>
       `
    })
-   
 }
+/***********Pagina de favoritos ********/
+
+fav.addEventListener('click', (event) =>{
+   console.log('click')
+   
+   if(principal7.style.display === 'none'){
+      principal7.style.display = 'block'
+      principal4.style.display = 'none'
+      principal1.style.display = 'none'
+      principal5.style.display = 'none'
+      principal3.style.display = 'none'
+   }else{
+      principal7.style.display = 'none'
+      principal4.style.display = 'block'
+      principal1.style.display = 'block'
+      principal5.style.display = 'block'
+   }
+})
 /******Funcionalidad Boton Ver Mas */
 
 principal3.addEventListener('click', () => {
