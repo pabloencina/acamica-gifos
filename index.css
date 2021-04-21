@@ -45,11 +45,11 @@
         background-color: var(--gifos2);
         background: var(--menuHamb);
     }
-    #boton1{
-        visibility: visible;  
+    #boton1 {
+        visibility: visible;
     }
-    #boton1 :hover{
-        cursor:pointer;
+    #boton1 :hover {
+        cursor: pointer;
     }
     #btn3 {
         visibility: hidden;
@@ -210,7 +210,7 @@
         margin-left: 5rem;
         display: none;
     }
-    #favcor1{
+    #favcor1 {
         display: none;
     }
     .seleccion {
@@ -445,7 +445,6 @@
     #menus ul li {
         list-style: none;
         display: flex;
-        
     }
 
     #menus ul li p {
@@ -514,20 +513,36 @@
         height: 3.125rem;
         background: var(--color-primary);
         border: 0.0625rem solid var(--gifos);
-        border-radius: 1.6875rem;
+        color: var(--font-color);
         position: relative;
     }
-    input{
-        color: var(--font-color);
+    #contenedorAutocomp {
+        display: none;
+        width: 37.375rem;
+        height: 10.125rem;
+        background: var(--color-primary);
+        border: 0.0625rem solid var(--gifos);
+        border-top: 0;
+        border-top-left-radius:0px;
+        border-top-right-radius:0px;
+        border-bottom-right-radius: 1.6875rem;
+        border-bottom-left-radius: 1.6875rem;
+        position: absolute;
+        margin-top: 540px;
+        margin-left: -20px;
+        opacity: 0.7;
     }
-    
     #buscador1 {
         display: flex;
         justify-content: center;
         width: 100%;
     }
-    #buscador{
-        border-radius: 30px;
+    #buscador {
+        border-radius: 1.6875rem;
+        /*border-top-left-radius:1.6875rem;;
+        border-top-right-radius:1.6875rem;;
+        border-bottom-right-radius: 0rem;
+        border-bottom-left-radius: 0rem;*/
         font-size: 1.7em;
         padding: 10px 25px;
         outline: none;
@@ -547,6 +562,7 @@
         left: -4.375rem;
         top: 0.25rem;
     }
+    
     /*******Trending**********/
     #principal1 {
         display: flex;
@@ -654,7 +670,7 @@
         flex-direction: column;
         display: none;
     }
-    
+
     #contenedor2 {
         display: flex;
         flex-direction: column;
@@ -707,7 +723,7 @@
         position: absolute;
         display: none;
         margin-left: 15rem;
-       margin-top: -16.875rem;
+        margin-top: -16.875rem;
     }
     /******Mis Gifos DESKTOP*****************/
     #principal8 {
@@ -805,9 +821,9 @@
         width: 21.875rem;
         height: 17.1875rem;
         margin-left: 1.25rem;
-        z-index:0 ;
+        z-index: 0;
     }
-    .hoverScroll{
+    .hoverScroll {
         position: relative;
         margin-top: -17.375rem;
         width: 21.875rem;
@@ -815,7 +831,7 @@
         margin-left: 1.25rem;
         background-color: #572ee5;
         opacity: 0.7;
-        z-index:10 ;
+        z-index: 10;
     }
     .sig {
         position: absolute;
@@ -824,7 +840,7 @@
         position: absolute;
         height: 3.125rem;
         margin-right: 75rem;
-       margin-top: 14.375rem;
+        margin-top: 14.375rem;
     }
     #scrollRigth {
         position: absolute;
@@ -869,7 +885,7 @@
     .redes {
         margin: 0.625rem;
     }
-    .redes:hover{
+    .redes:hover {
         color: #572ee5;
     }
     #parrafo3 {

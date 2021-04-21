@@ -121,6 +121,9 @@ let gifFavoritos = []
 
 let principal6 = document.getElementById('principal6')
 
+let contenedorAutocomp = document.getElementById('contenedorAutocomp')
+
+let lupa1 = document.getElementsByClassName('.lupa1')
 
 /**MODO NOCTURNO******************* */
 
@@ -335,7 +338,9 @@ if (menu.style.display === 'block') {
 }
 })
 /***********************Autucompletado******** */
+buscador1.addEventListener('click', () => {
 
+})
 
 /**Consumir gifs desde la  API */
 'api.giphy.com/v1/gifs/trending?api_key='
@@ -407,14 +412,23 @@ if(buscarGifs() === null){
 buscador.addEventListener('keypress', async (e) => {
 
    if (e.key === 'Enter') {
+      contenedorAutocomp.style.display = 'none'
+      buscador.style.borderRadius = '1.6875rem'
+      
       buscarGifs()
+   } else {
+      contenedorAutocomp.style.display = 'block'
+      buscador.style.borderTopLeftRadius = '1.6875rem'
+      buscador.style.borderTopRightRadius = '1.6875rem'
+      buscador.style.borderBottomLeftRadius = '0rem'
+      buscador.style.borderBottomRightRadius = '0rem'
    }
 })
-
 async function buscarGifs() {
-
    let urls = url_buscador + '?' + 'api_key=' + api_key + '&offset=' + offset + '&limit=' + limit + '&q=' + buscador.value;
 
+   //buscador1.style.marginTop = '-100px'
+   //principal1.style.marginTop = '-100px'
    principal5.style.display = 'block'
    lupa.style.display = 'none'
    cierre.style.display = 'block'
@@ -618,16 +632,16 @@ function mostrarFavoritos(gifv) {
 }
 /***********Pagina de favoritos ********/
 
-fav.addEventListener('click', (event) =>{
+fav.addEventListener('click', (event) => {
    console.log('click')
-   
-   if(principal7.style.display === 'none'){
+
+   if (principal7.style.display === 'none') {
       principal7.style.display = 'block'
       principal4.style.display = 'none'
       principal1.style.display = 'none'
       principal5.style.display = 'none'
       principal3.style.display = 'none'
-   }else{
+   } else {
       principal7.style.display = 'none'
       principal4.style.display = 'block'
       principal1.style.display = 'block'
