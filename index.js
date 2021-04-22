@@ -337,10 +337,6 @@ if (menu.style.display === 'block') {
     = 'none'
 }
 })
-/***********************Autucompletado******** */
-buscador1.addEventListener('click', () => {
-
-})
 
 /**Consumir gifs desde la  API */
 'api.giphy.com/v1/gifs/trending?api_key='
@@ -376,6 +372,22 @@ let mostrartrending = async () => {
 }
 mostrartrending()
 
+
+/********AutoCompletado********* */
+let autocompletar = async () => {
+   try {
+      let resultado = await fetch(urls + '?api_key=' + api_key + '&limit=' + limit)
+
+      //let resultado = await fetch(urls)
+      let json = await resultado.json()
+
+      autocompletar(json)
+   } catch (error) {
+   }
+}
+
+
+
 /**Mostrar los siguiente 12 *************/
 let mostrarSiguientes = async (q, offset) => {
    try {
@@ -383,18 +395,7 @@ let mostrarSiguientes = async (q, offset) => {
       let resultados = await fetch(urls)
 
       let json = await resultados.json()
-      /*
-            json.data.forEach(trending => {
-      
-               principal2.innerHTML += `
-               <div class='foto1'>
-                  <img class='foto' src='${trending.images.fixed_height.url}>
-               
-                  <img src='${trending.images.fixed_height.url}>
-               </div>
-               `
-            });
-            */
+
       mostrarGifs(json)
    } catch (error) {
    }
@@ -451,6 +452,7 @@ function mostrarGifs(json) {
    json.data.forEach(gifJson => {
       principal2.innerHTML += `
 
+      
       <h1 id='mascotas'>
       <div class='foto1'>
          <img key='${gifJson.id}' class='foto' src='${gifJson.images.fixed_height.url}>
@@ -480,6 +482,7 @@ function mostrarGifs(json) {
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
       
       </div>
+      
       `
    });
    asociarHoverFotos()
