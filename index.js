@@ -125,6 +125,8 @@ let contenedorAutocomp = document.getElementById('contenedorAutocomp')
 
 let lupa1 = document.getElementsByClassName('.lupa1')
 
+let pantallaDesktop = window.matchMedia("(min-width: 1440px)")
+
 /**MODO NOCTURNO******************* */
 
 //// Immediately invoked function to set the theme on initial load
@@ -415,7 +417,7 @@ buscador.addEventListener('keypress', async (e) => {
    if (e.key === 'Enter') {
       contenedorAutocomp.style.display = 'none'
       buscador.style.borderRadius = '1.6875rem'
-      
+
       buscarGifs()
    } else {
       contenedorAutocomp.style.display = 'block'
@@ -448,11 +450,9 @@ async function buscarGifs() {
 }
 
 function mostrarGifs(json) {
-
    json.data.forEach(gifJson => {
       principal2.innerHTML += `
 
-      
       <h1 id='mascotas'>
       <div class='foto1'>
          <img key='${gifJson.id}' class='foto' src='${gifJson.images.fixed_height.url}>
@@ -508,7 +508,43 @@ function asociarHoverFotos() {
       let exp2 = document.getElementById('exp2' + gifKey)
       let down = document.getElementById('down' + gifKey)
 
-      console.log(gifKey)
+      if (pantallaDesktop.matches) {
+
+         gifElement.addEventListener('mouseover', (e) => {
+            divHover.style.display = 'block'
+            favcor.style.display = 'block'
+         })
+         gifElement.addEventListener('mouseout', (e) => {
+            gifElement.style.width = '260px'
+            gifElement.style.height = '200px'
+         })
+
+         divHover.addEventListener('mouseout', () => {
+            divHover.style.display = 'none'
+            favcor.style.display = 'none'
+         })
+      } else {
+         gifElement.addEventListener('click', () => {
+            console.log(gifElement.style.width)
+            if (gifElement.style.width == '318px') {
+               gifElement.style.width = '156px'
+               gifElement.style.height = '120px'
+               exp.style.display = 'none'
+               exp2.style.display = 'none'
+               favcor.style.display = 'block'
+               favcor.style.display = 'none'
+            } else {
+               gifElement.style.width = '318px'
+               gifElement.style.height = '245px'
+               exp.style.display = 'none'
+               exp2.style.display = 'none'
+               favcor.style.display = 'block'
+               favcor.style.marginLeft = '200px'
+               favcor.style.marginTop = '-50px'
+            }
+
+         })
+      }
 
       unlike.style.display = 'none'
       unlike.style.background = 'white'
@@ -520,19 +556,7 @@ function asociarHoverFotos() {
       exp2.style.marginLeft = '-37px'
       exp2.style.width = '30px'
 
-      gifElement.addEventListener('mouseover', (e) => {
-         divHover.style.display = 'block'
-         favcor.style.display = 'block'
-      })
-      gifElement.addEventListener('mouseout', (e) => {
-         gifElement.style.width = '260px'
-         gifElement.style.height = '200px'
-      })
 
-      divHover.addEventListener('mouseout', () => {
-         divHover.style.display = 'none'
-         favcor.style.display = 'none'
-      })
 
       like.addEventListener('mouseover', () => {
          like.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-hover.svg'
@@ -556,16 +580,23 @@ function asociarHoverFotos() {
 
       })
       exp.addEventListener('click', () => {
-         favcor.style.marginTop = '-380px'
-         favcor.style.marginLeft = '50px'
-         favcor.style.display = 'inline'
-         divHover.style.width = '350px'
-         divHover.style.height = '300px'
-         divHover.style.top = '-100px'
-         gifElement.style.width = '350px'
-         gifElement.style.height = '300px'
-         exp.style.visibility = 'hidden'
-         exp2.style.visibility = 'visible'
+         if (gifElement.style.width == '260px') {
+            favcor.style.marginTop = '-380px'
+            favcor.style.marginLeft = '50px'
+            favcor.style.display = 'inline'
+            divHover.style.width = '350px'
+            divHover.style.height = '300px'
+            divHover.style.top = '-100px'
+            gifElement.style.width = '350px'
+            gifElement.style.height = '300px'
+            exp.style.visibility = 'hidden'
+            exp2.style.visibility = 'visible'
+         }else{
+            gifElement.style.width ='260px'
+            gifElement.style.height = '200px'
+            
+         }
+
       })
       exp2.addEventListener('click', () => {
          favcor.style.marginTop = '-11.25rem'
@@ -950,3 +981,4 @@ redesInsta.addEventListener('mouseout', () => {
 })
 
 /**botones de Favorito, like y descargas ******/
+

@@ -145,6 +145,9 @@
         border-radius: 1.6875rem;
         top: 0.625rem;
     }
+    #contenedorAutocomp{
+        display: none;
+    }
     #cierre {
         display: none;
         position: relative;
@@ -203,22 +206,36 @@
     }
 
     #principal5 {
-        display: none;
-    }
-    #favcor {
-        position: absolute;
-        margin-left: 5rem;
-        display: none;
-    }
-    #favcor1 {
-        display: none;
-    }
-    .seleccion {
-        margin-top: -7.5rem;
+        display: none;   
     }
     #principal2 {
         display: flex;
-        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    
+    .seleccion {
+        margin-top: -6.25rem;
+        margin-left: 0.3125rem;
+        justify-content: flex-end;
+    }
+    .favcor {
+        display: none;
+        position: absolute;
+        z-index: 10;
+        margin-top: -100px;
+        /*margin-left: 124px;*/
+    }
+    .seleccion1 {
+        margin-top: 0.625rem;
+        margin-left: 0.3125rem;
+        justify-content: flex-end;
+    }
+    #favcor1 {
+        position: absolute;
+        display: none;
+        margin-left: 15rem;
+        margin-top: -16.875rem;
     }
     #mascotas {
         font-family: "Montserrat Alternates";
@@ -228,9 +245,10 @@
         line-height: 40px;
     }
     .foto {
-        width: 9.75rem;
-        height: 7.5rem;
+        width: 156px;
+        height: 120px;
         margin-top: 0.9375rem;
+        
     }
     /***FAVORITOS Mobile*****/
     #principal7 {
