@@ -127,6 +127,8 @@ let lupa1 = document.getElementsByClassName('.lupa1')
 
 let pantallaDesktop = window.matchMedia("(min-width: 1440px)")
 
+let react = document.getElementById('react')
+
 /**MODO NOCTURNO******************* */
 
 //// Immediately invoked function to set the theme on initial load
@@ -353,6 +355,8 @@ const url_trending = 'https://api.giphy.com/v1/gifs/trending'
 
 const url_buscador = 'https://api.giphy.com/v1/gifs/search'
 
+const url_wordTrending = 'https://api.giphy.com/v1/trending/searches'
+
 let mostrartrending = async () => {
    try {
       let resultado = await fetch(url_trending + '?api_key=' + api_key + '&limit=' + limit)
@@ -373,8 +377,34 @@ let mostrartrending = async () => {
    }
 }
 mostrartrending()
+/*******TRENDING WORD AND phrases*******/
+let mostrartrendingWord = async () => {
+   let wordsAndPhases = ''
+   console.log(url_wordTrending)
+   try {
+      let result = await fetch(url_wordTrending  + '?api_key=' + api_key)
+      console.log(result)
+      let js = await result.json()
+      console.log(js)
+      js.data.forEach(word => {
+         wordsAndPhases += word  + ' , '
 
+      });
+      
+      react.innerHTML = `<p class="blanco" id="react">${wordsAndPhases}</p>`
 
+      
+       
+   } catch (error) {
+      console.log(error)
+   }
+   
+}
+mostrartrendingWord()
+
+function capitalize(word) {
+   return word[0].toUpperCase() + word.slice(1);
+ }
 /********AutoCompletado********* */
 let autocompletar = async () => {
    try {
@@ -451,6 +481,9 @@ async function buscarGifs() {
 
 function mostrarGifs(json) {
    json.data.forEach(gifJson => {
+      console.log(gifJson)
+      console.log(gifJson.title)
+      console.log(gifJson.source)
       principal2.innerHTML += `
 
       <h1 id='mascotas'>
@@ -481,6 +514,8 @@ function mostrarGifs(json) {
       <img id="unlike${gifJson.id}" class="seleccion" 
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
       
+      <p id= "user${gifJson.source}" class= "user" </p>
+      <p id= "titles${gifJson.title}" class= "titles" </p>
       </div>
       
       `
@@ -510,20 +545,23 @@ function asociarHoverFotos() {
 
       if (pantallaDesktop.matches) {
 
+         gifElement.style.width = '260px'
+         gifElement.style.height = '200px'
+
          gifElement.addEventListener('mouseover', (e) => {
             divHover.style.display = 'block'
             favcor.style.display = 'block'
          })
          gifElement.addEventListener('mouseout', (e) => {
-            gifElement.style.width = '260px'
-            gifElement.style.height = '200px'
-         })
 
+         })
          divHover.addEventListener('mouseout', () => {
             divHover.style.display = 'none'
             favcor.style.display = 'none'
          })
+
       } else {
+
          gifElement.addEventListener('click', () => {
             console.log(gifElement.style.width)
             if (gifElement.style.width == '318px') {
@@ -542,7 +580,6 @@ function asociarHoverFotos() {
                favcor.style.marginLeft = '200px'
                favcor.style.marginTop = '-50px'
             }
-
          })
       }
 
@@ -581,6 +618,7 @@ function asociarHoverFotos() {
       })
       exp.addEventListener('click', () => {
          if (gifElement.style.width == '260px') {
+            console.log(divHover)
             favcor.style.marginTop = '-380px'
             favcor.style.marginLeft = '50px'
             favcor.style.display = 'inline'
@@ -591,10 +629,11 @@ function asociarHoverFotos() {
             gifElement.style.height = '300px'
             exp.style.visibility = 'hidden'
             exp2.style.visibility = 'visible'
-         }else{
-            gifElement.style.width ='260px'
+         } else {
+            gifElement.style.width = '260px'
             gifElement.style.height = '200px'
-            
+            favcor.style.marginTop = '-11.25rem'
+            favcor.style.marginLeft = '-8.75rem'
          }
 
       })

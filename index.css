@@ -601,6 +601,14 @@
         color: var(--gifos);
         text-align: center;
         line-height: 1.5625rem;
+        display: inline;
+    }
+    #wap{
+        display: flex;
+        justify-content: center;
+        margin-left: 280px;
+        width: 60%;
+        height: 100px;
     }
     /** Sin Búsqueda**/
     #sinBusqueda {
@@ -743,13 +751,20 @@
         margin-left: 15rem;
         margin-top: -16.875rem;
     }
+    .titles{
+        margin-top: -11.25rem;
+        margin-left: 8.75rem;
+        position: absolute;
+        font-family: "Roboto Condensed";
+        font-size: 16px;
+        color: #FFFFFF; 
+        background-color: #50e3c2; 
+    }
     /******Mis Gifos DESKTOP*****************/
     #principal8 {
         display: flex;
         justify-content: center;
         flex-direction: column;
-    }
-    #principal8 {
         display: none;
     }
     #contenedor3 {
