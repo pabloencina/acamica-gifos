@@ -129,6 +129,12 @@ let pantallaDesktop = window.matchMedia("(min-width: 1440px)")
 
 let react = document.getElementById('react')
 
+let wap = document.getElementById('wap')
+
+let gifTitle = document.querySelector('#modal h3');
+
+let gifUser = document.querySelector('#modal h4');
+
 /**MODO NOCTURNO******************* */
 
 //// Immediately invoked function to set the theme on initial load
@@ -382,29 +388,29 @@ let mostrartrendingWord = async () => {
    let wordsAndPhases = ''
    console.log(url_wordTrending)
    try {
-      let result = await fetch(url_wordTrending  + '?api_key=' + api_key)
+      let result = await fetch(url_wordTrending + '?api_key=' + api_key)
       console.log(result)
       let js = await result.json()
       console.log(js)
       js.data.forEach(word => {
-         wordsAndPhases += word  + ' , '
+         wordsAndPhases += word + ' , '
 
       });
-      
+
       react.innerHTML = `<p class="blanco" id="react">${wordsAndPhases}</p>`
 
-      
-       
+
+
    } catch (error) {
       console.log(error)
    }
-   
+
 }
 mostrartrendingWord()
 
 function capitalize(word) {
    return word[0].toUpperCase() + word.slice(1);
- }
+}
 /********AutoCompletado********* */
 let autocompletar = async () => {
    try {
@@ -447,6 +453,8 @@ buscador.addEventListener('keypress', async (e) => {
    if (e.key === 'Enter') {
       contenedorAutocomp.style.display = 'none'
       buscador.style.borderRadius = '1.6875rem'
+      /*trending.style.display = 'none'
+      wap.style.display = 'none'*/
 
       buscarGifs()
    } else {
@@ -514,9 +522,7 @@ function mostrarGifs(json) {
       <img id="unlike${gifJson.id}" class="seleccion" 
       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
       
-      <p id= "user${gifJson.source}" class= "user" </p>
-      <p id= "titles${gifJson.title}" class= "titles" </p>
-      </div>
+     
       
       `
    });
@@ -535,6 +541,7 @@ function asociarHoverFotos() {
    arrayImagenes.forEach(gifElement => {
 
       let gifKey = gifElement.getAttribute('key')
+      let gifSrc = gifElement.getAttribute('src')
       let divHover = document.getElementById(gifKey)
       let favcor = document.getElementById('favcor' + gifKey)
       let like = document.getElementById('like' + gifKey)
@@ -579,6 +586,7 @@ function asociarHoverFotos() {
                favcor.style.display = 'block'
                favcor.style.marginLeft = '200px'
                favcor.style.marginTop = '-50px'
+
             }
          })
       }
@@ -604,9 +612,24 @@ function asociarHoverFotos() {
       })
 
       like.addEventListener('click', () => {
-         let gifv = gifFavoritos.push(gifElement)
-         console.log(gifv)
-         mostrarFavoritos(gifv)
+         // Buscar el array de gifKey en el localStorage.
+         // Agregar la gifKey nueva en el array.
+         //Guardar el array acutalizado en el localStorage.
+         let keysString = localStorage.getItem('arrayK')
+         let keys
+         if (keysString == null) {
+            keys = []
+         } else {
+            keys = keysString.split(",")
+         }
+
+         keys.push(gifKey)
+         localStorage.setItem('arrayK', keys)
+
+         //Guardar el sorce del gifcon el gifkey correspondiente en el localStorage.
+         localStorage.setItem(gifKey, gifSrc)
+
+         console.log(gifKey)
       })
 
       exp.addEventListener('mouseover', () => {
@@ -664,62 +687,74 @@ function asociarHoverFotos() {
 /**
  * muestra la lista actual de favoritos
 */
-function mostrarFavoritos(gifv) {
-   principal6.innerHTML = ''
-   console.log('mostrarFavoritos!!')
-   gifFavoritos.forEach(gifElement => {
 
-      let gifKey = gifElement.getAttribute('key')
-      let gifSrc = gifElement.getAttribute('src')
-      console.log(gifElement)
+function mostrarFavoritosTest() {
+   principal6.innerHTML = '' // Limpiar la seccion para que no muestre el contenido anterior que tenia.
+   console.log('mostrarFavoritosTest!!')
+
+   let keysString = localStorage.getItem('arrayK')//busca en el localStorage un array de gifkey de los gif donde le fueron dando like.
+   let keys = keysString.split(",") // Convertir toda la cadena en arreglos de strings.
+   console.log(keys)
+
+   keys.forEach(gifKey => {// el for each recorre cada gifKey
+
+      let gifSrc = localStorage.getItem(gifKey)//con el gifkey se busca el gifsource correspondiente a ese gifkey.
+      console.log(gifSrc)
 
       principal6.innerHTML += `
-      <div id='principal6' class='foto1'>
-         <img key='${gifKey}' class='foto' src='${gifSrc}'>
-      
-      <div id='${gifKey}' class='divHover'></div>
+         <div id='principal6' class='foto1'>
+            <img key='${gifKey}' class='foto' src='${gifSrc}'>
+         
+         <div id='${gifKey}' class='divHover'></div>
+   
+         </div>
+         <div id='favcor${gifKey}' class="favcor"
+            <img class="seleccion" id="corazon"
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+   
+            <img id="down${gifKey}" class="seleccion"
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
+   
+            <img id="exp${gifKey}" class="seleccion"
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
+   
+         <img id="exp2${gifKey}" class="seleccion"
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg" alt="expander">
+   
+   
+            <img id="like${gifKey}" class="seleccion" 
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+   
+         <img id="unlike${gifKey}" class="seleccion" 
+         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">   
+         </div>
+         `
+   });
 
-      </div>
-      <div id='favcor${gifKey}' class="favcor"
-         <img class="seleccion" id="corazon"
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
-
-         <img id="down${gifKey}" class="seleccion"
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
-
-         <img id="exp${gifKey}" class="seleccion"
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
-
-      <img id="exp2${gifKey}" class="seleccion"
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg" alt="expander">
-
-
-         <img id="like${gifKey}" class="seleccion" 
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
-
-      <img id="unlike${gifKey}" class="seleccion" 
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">   
-      </div>
-      `
-   })
 }
 /***********Pagina de favoritos ********/
 
-fav.addEventListener('click', (event) => {
+fav.addEventListener('click', () => {
    console.log('click')
 
-   if (principal7.style.display === 'none') {
-      principal7.style.display = 'block'
-      principal4.style.display = 'none'
-      principal1.style.display = 'none'
-      principal5.style.display = 'none'
-      principal3.style.display = 'none'
-   } else {
+   if (principal7.style.display === 'block') {
+      console.log(principal7)
       principal7.style.display = 'none'
+      menu.style.display = 'none'
       principal4.style.display = 'block'
       principal1.style.display = 'block'
       principal5.style.display = 'block'
+   } else {
+
    }
+   menu.style.display = 'none'
+   principal4.style.display = 'none'
+   principal1.style.display = 'none'
+   principal5.style.display = 'none'
+   principal3.style.display = 'none'
+   principal7.style.display = 'block'
+   principal12.style.marginTop = '50px'
+   mostrarFavoritosTest()
 })
 /******Funcionalidad Boton Ver Mas */
 

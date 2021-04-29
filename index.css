@@ -16,6 +16,9 @@
         display: flex;
         align-items: center;
     }
+    main{
+        text-align: center;
+    }
     /***********Menú Hamburguesa******************************/
     #btn4 {
         visibility: hidden;
@@ -110,6 +113,8 @@
         height: 6.25rem;
         display: flex;
         justify-content: center;
+        align-items: center;
+        margin-left: 40px;
     }
     #inspirate {
         font-family: "Montserrat Alternates";
@@ -127,6 +132,7 @@
     #ilustracion {
         display: flex;
         justify-content: center;
+        margin-left: 40px;
         margin-top: 1.875rem;
         width: 17.0625rem;
         height: 8.125rem;
@@ -180,15 +186,21 @@
         font-size: 16px;
         text-align: center;
         line-height: 25px;
+        margin-left: 50px;
+    }
+    #wap{
+        width: 90%;
+        height: 130px;
+        margin-left: 15px;
     }
     #react {
-        display: flex;
+        display: inline;
         justify-content: center;
         align-items: flex-start;
         width: 14.0625rem;
         height: 9.375rem;
         font-family: "Montserrat Alternates", sans-serif;
-        font-size: 14px;
+        font-size: 12px;
         color: var(--gifos);
         text-align: center;
         line-height: 25px;
