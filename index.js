@@ -388,12 +388,12 @@ mostrartrending()
 /*******TRENDING WORD AND phrases*******/
 let mostrartrendingWord = async () => {
    let wordsAndPhases = ''
-   console.log(url_wordTrending)
+
    try {
       let result = await fetch(url_wordTrending + '?api_key=' + api_key)
-      console.log(result)
+
       let js = await result.json()
-      console.log(js)
+
       js.data.forEach(word => {
          wordsAndPhases += word + ' , '
 
@@ -436,7 +436,7 @@ let mostrarSiguientes = async (q, offset) => {
 
       let json = await resultados.json()
 
-      mostrarGifs(json)
+      mostrarGifsBusqueda(json)
    } catch (error) {
    }
 }
@@ -479,7 +479,7 @@ async function buscarGifs() {
    principal2.innerHTML = ``
    let resultado = await fetch(urls)
    let json = await resultado.json()
-   mostrarGifs(json)
+   mostrarGifsBusqueda(json)
    mascotas.innerHTML = ''
    mascotas.innerHTML = buscador.value
    mascotas.style.textTransform = 'capitalize'
@@ -489,58 +489,51 @@ async function buscarGifs() {
    inspiracion1.style.display = 'none'
 }
 
-function mostrarGifs(json) {
+function mostrarGifsBusqueda(json) {
    json.data.forEach(gifJson => {
       console.log(gifJson)
       console.log(gifJson.title)
       console.log(gifJson.source)
       principal2.innerHTML += `
-
-      <h1 id='mascotas'>
       <div class='foto1'>
-         <img key='${gifJson.id}' class='foto' src='${gifJson.images.fixed_height.url}>
-      
-         <img src='${gifJson.images.fixed_height.url}>
 
-      <div id='${gifJson.id}' class='divHover'></div>
+         <img key='${gifJson.id}' class='foto' src='${gifJson.images.fixed_height.url}'>
+      
+         <div id='${gifJson.id}' class='divHover'>
+      
+            <div id='favcor${gifJson.id}' class="favcor">
+               
+               <img id="down${gifJson.id}" class="seleccion"
+                  src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
+      
+               <img id="exp${gifJson.id}" class="seleccion"
+                  src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
+      
+               <img id="exp2${gifJson.id}" class="seleccion"
+                  src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg" alt="expander">
+      
+               <img id="like${gifJson.id}" class="seleccion"
+                  src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+      
+               <img id="unlike${gifJson.id}" class="seleccion"
+                  src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
+
+               <p id=giftitle${gifJson.title} class='gifTitle' >${gifJson.title}</p>
+            </div>
+         </div>
       </div>
-
-      <div id='favcor${gifJson.id}' class="favcor"
-         <img class="seleccion" id="corazon"
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
-
-         <img id="down${gifJson.id}" class="seleccion"
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
-
-         <img id="exp${gifJson.id}" class="seleccion"
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
-
-      <img id="exp2${gifJson.id}" class="seleccion"
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg" alt="expander">
-
-         <img id="like${gifJson.id}" class="seleccion" 
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
-
-      <img id="unlike${gifJson.id}" class="seleccion" 
-      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
-      
-     
-      
       `
    });
-   asociarHoverFotos()
-}
 
-function asociarHover(gifElement) {
-   // if (typeof HTMLElement === 'HTMLElement')
+   let gifsBusqueda = document.querySelectorAll('.foto')
+   asociarHoverFotos(gifsBusqueda)
 
 }
 
-function asociarHoverFotos() {
-   let arrayImagenes = document.querySelectorAll('.foto')
 
+function asociarHoverFotos(gifElements) {
    //let favcor = document.getElementById('favcor')
-   arrayImagenes.forEach(gifElement => {
+   gifElements.forEach(gifElement => {
 
       let gifKey = gifElement.getAttribute('key')
       let gifSrc = gifElement.getAttribute('src')
@@ -631,7 +624,6 @@ function asociarHoverFotos() {
          //Guardar el sorce del gifcon el gifkey correspondiente en el localStorage.
          localStorage.setItem(gifKey, gifSrc)
 
-         console.log(gifKey)
       })
 
       exp.addEventListener('mouseover', () => {
@@ -644,12 +636,12 @@ function asociarHoverFotos() {
       exp.addEventListener('click', () => {
          if (gifElement.style.width == '260px') {
             console.log(divHover)
-            favcor.style.marginTop = '-380px'
-            favcor.style.marginLeft = '50px'
+            favcor.style.marginTop = '20px'
+            favcor.style.marginLeft = '220px'
             favcor.style.display = 'inline'
             divHover.style.width = '350px'
             divHover.style.height = '300px'
-            divHover.style.top = '-100px'
+            divHover.style.top = '220px'
             gifElement.style.width = '350px'
             gifElement.style.height = '300px'
             exp.style.visibility = 'hidden'
@@ -657,19 +649,19 @@ function asociarHoverFotos() {
          } else {
             gifElement.style.width = '260px'
             gifElement.style.height = '200px'
-            favcor.style.marginTop = '-11.25rem'
-            favcor.style.marginLeft = '-8.75rem'
+            favcor.style.marginTop = '200px'
+            favcor.style.marginLeft = '-140px'
          }
 
       })
       exp2.addEventListener('click', () => {
-         favcor.style.marginTop = '-11.25rem'
-         favcor.style.marginLeft = '8.75rem';
+         favcor.style.marginTop = '20px'
+         favcor.style.marginLeft = '140px';
          favcor.style.zIndex = '10'
          favcor.style.display = 'inline'
          divHover.style.width = '260px'
          divHover.style.height = '200px'
-         divHover.style.top = '0px'
+         divHover.style.top = '220px'
          gifElement.style.width = '260px'
          gifElement.style.height = '200px'
          exp.style.visibility = 'visible'
@@ -692,48 +684,49 @@ function asociarHoverFotos() {
 
 function mostrarFavoritosTest() {
    principal6.innerHTML = '' // Limpiar la seccion para que no muestre el contenido anterior que tenia.
-   console.log('mostrarFavoritosTest!!')
 
    let keysString = localStorage.getItem('arrayK')//busca en el localStorage un array de gifkey de los gif donde le fueron dando like.
    let keys = keysString.split(",") // Convertir toda la cadena en arreglos de strings.
-   console.log(keys)
 
    keys.forEach(gifKey => {// el for each recorre cada gifKey
 
       let gifSrc = localStorage.getItem(gifKey)//con el gifkey se busca el gifsource correspondiente a ese gifkey.
-      console.log(gifSrc)
 
       principal6.innerHTML += `
-         <div id='principal6' class='foto1'>
-            <img key='${gifKey}' class='foto' src='${gifSrc}'>
-         
-         <div id='${gifKey}' class='divHover'></div>
-   
-         </div>
-         <div id='favcor${gifKey}' class="favcor"
-            <img class="seleccion" id="corazon"
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
-   
-            <img id="down${gifKey}" class="seleccion"
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
-   
-            <img id="exp${gifKey}" class="seleccion"
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
-   
-         <img id="exp2${gifKey}" class="seleccion"
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg" alt="expander">
-   
-   
-            <img id="like${gifKey}" class="seleccion" 
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
-   
-         <img id="unlike${gifKey}" class="seleccion" 
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">   
-         </div>
+      <div class='foto1'>
+          <img key='${gifKey}' class='fotoFavorito' src='${gifSrc}'>
+          <div id='${gifKey}' class='divHover'>
+      
+              <div id='favcor${gifKey}' class="favcor">
+      
+                  <img id="down${gifKey}" class="seleccion"
+                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
+      
+                  <img id="exp${gifKey}" class="seleccion"
+                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
+      
+                  <img id="exp2${gifKey}" class="seleccion"
+                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg" alt="expander">
+      
+      
+                  <img id="like${gifKey}" class="seleccion"
+                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+      
+                  <img id="unlike${gifKey}" class="seleccion"
+                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
+                      
+              </div>
+          </div>
+      </div>
          `
    });
 
+
+   let gifsFavoritos = document.querySelectorAll('.fotoFavorito')
+   asociarHoverFotos(gifsFavoritos)
+
 }
+
 /***********Pagina de favoritos ********/
 //mostrar seccion favoritos en modo mobile
 fav.addEventListener('click', () => {
@@ -849,6 +842,7 @@ let mostrarscroll = async () => {
 
 }
 mostrarscroll()
+/*
 asociarHoverScroll()
 
 function asociarHoverScroll() {
@@ -870,7 +864,7 @@ function asociarHoverScroll() {
 
    })
 }
-
+*/
 /***Scroll*********** */
 
 scrollLeft.addEventListener('click', () => {
@@ -1082,7 +1076,7 @@ redesInsta.addEventListener('mouseout', () => {
 
 /**Volver a la Pagina principal */
 
-btn1.addEventListener('click', ()=>{
+btn1.addEventListener('click', () => {
    if (principal7.style.display == 'block') {
       principal7.style.display = 'none'
       principal4.style.display = 'block'

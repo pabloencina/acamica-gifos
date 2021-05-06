@@ -16,7 +16,7 @@
         display: flex;
         align-items: center;
     }
-    main{
+    main {
         text-align: center;
     }
     /***********Menú Hamburguesa******************************/
@@ -151,7 +151,7 @@
         border-radius: 1.6875rem;
         top: 0.625rem;
     }
-    #contenedorAutocomp{
+    #contenedorAutocomp {
         display: none;
     }
     #cierre {
@@ -188,7 +188,7 @@
         line-height: 25px;
         margin-left: 50px;
     }
-    #wap{
+    #wap {
         width: 90%;
         height: 130px;
         margin-left: 15px;
@@ -218,20 +218,32 @@
     }
 
     #principal5 {
-        display: none;   
+        display: none;
     }
     #principal2 {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
     }
-    
+
     .seleccion {
         margin-top: -6.25rem;
         margin-left: 0.3125rem;
         justify-content: flex-end;
     }
+    .seleccionFavorito {
+        margin-top: -6.25rem;
+        margin-left: 0.3125rem;
+        justify-content: flex-end;
+    }
     .favcor {
+        display: none;
+        position: absolute;
+        z-index: 10;
+        margin-top: -100px;
+        /*margin-left: 124px;*/
+    }
+    .favcorFavorito {
         display: none;
         position: absolute;
         z-index: 10;
@@ -260,7 +272,11 @@
         width: 156px;
         height: 120px;
         margin-top: 0.9375rem;
-        
+    }
+    .fotoFavorito {
+        width: 156px;
+        height: 120px;
+        margin-top: 0.9375rem;
     }
     /***FAVORITOS Mobile*****/
     #principal7 {
@@ -553,8 +569,8 @@
         background: var(--color-primary);
         border: 0.0625rem solid var(--gifos);
         border-top: 0;
-        border-top-left-radius:0px;
-        border-top-right-radius:0px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
         border-bottom-right-radius: 1.6875rem;
         border-bottom-left-radius: 1.6875rem;
         position: absolute;
@@ -592,7 +608,7 @@
         left: -4.375rem;
         top: 0.25rem;
     }
-    
+
     /*******Trending**********/
     #principal1 {
         display: flex;
@@ -615,7 +631,7 @@
         line-height: 1.5625rem;
         display: inline;
     }
-    #wap{
+    #wap {
         display: flex;
         justify-content: center;
         margin-left: 280px;
@@ -685,6 +701,15 @@
         z-index: 0;
         display: block;
     }
+    .fotoFavorito {
+        width: 16.25rem;
+        height: 12.5rem;
+        margin-top: 1.25rem;
+        margin-left: 1.875rem;
+        z-index: 0;
+        display: block;
+    }
+
     .divHover {
         width: 16.25rem;
         height: 12.5rem;
@@ -692,10 +717,11 @@
         margin-left: 1.875rem;
         background-color: #572ee5;
         opacity: 0.7;
-        position: relative;
+        position: absolute;
         z-index: 10;
         display: none;
     }
+
     #principal2 {
         display: flex;
         flex-wrap: wrap;
@@ -749,9 +775,10 @@
         display: none;
         position: absolute;
         z-index: 10;
-        margin-top: -11.25rem;
+        margin-top: 1.25rem;
         margin-left: 8.75rem;
     }
+
     .seleccion1 {
         margin-top: 0.625rem;
         margin-left: 0.3125rem;
@@ -763,14 +790,25 @@
         margin-left: 15rem;
         margin-top: -16.875rem;
     }
-    .titles{
+    .titles {
         margin-top: -11.25rem;
         margin-left: 8.75rem;
         position: absolute;
         font-family: "Roboto Condensed";
         font-size: 16px;
-        color: #FFFFFF; 
-        background-color: #50e3c2; 
+        color: #ffffff;
+        background-color: #50e3c2;
+    }
+    .gifTitle {
+        margin-top: 5.25rem;
+        margin-left: -140px;
+        /*z-index: auto;*/
+        position: absolute;
+        font-family: "Montserrat Alternates";
+        font-size: 16px;
+        color: #000000;
+        font-weight: bold;
+        text-align: center;
     }
     /******Mis Gifos DESKTOP*****************/
     #principal8 {
