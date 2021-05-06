@@ -2,6 +2,8 @@
 /******************Nombre de las variables**** */
 let boton1 = document.getElementById('boton1')
 
+let btn1 = document.getElementById('btn1')
+
 let menu = document.getElementById('menu')
 
 let btn3 = document.getElementById('btn3')
@@ -733,8 +735,32 @@ function mostrarFavoritosTest() {
 
 }
 /***********Pagina de favoritos ********/
-
+//mostrar seccion favoritos en modo mobile
 fav.addEventListener('click', () => {
+   console.log('click')
+
+   if (principal7.style.display === 'block') {
+      console.log(principal7)
+      principal7.style.display = 'none'
+      menu.style.display = 'none'
+      principal4.style.display = 'block'
+      principal1.style.display = 'block'
+      principal5.style.display = 'block'
+   } else {
+
+   }
+   menu.style.display = 'none'
+   principal4.style.display = 'none'
+   principal1.style.display = 'none'
+   principal5.style.display = 'none'
+   principal3.style.display = 'none'
+   principal7.style.display = 'block'
+   principal12.style.marginTop = '50px'
+   mostrarFavoritosTest()
+})
+
+//Mostrar seccion favoritos en modo desktop
+fav1.addEventListener('click', () => {
    console.log('click')
 
    if (principal7.style.display === 'block') {
@@ -1054,5 +1080,13 @@ redesInsta.addEventListener('mouseout', () => {
    redesInsta.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_instagram.svg'
 })
 
-/**botones de Favorito, like y descargas ******/
+/**Volver a la Pagina principal */
 
+btn1.addEventListener('click', ()=>{
+   if (principal7.style.display == 'block') {
+      principal7.style.display = 'none'
+      principal4.style.display = 'block'
+      principal1.style.display = 'block'
+
+   }
+})
