@@ -137,6 +137,14 @@ let gifTitle = document.querySelector('#modal h3');
 
 let gifUser = document.querySelector('#modal h4');
 
+let seleccion23 = document.querySelector('seleccion23')
+
+let SinFavoritos = document.getElementById('SinFavoritos')
+
+let favoritoOracion = document.getElementById('favoritoOracion')
+
+let imgSinFavoritos = document.getElementById('imgSinFavoritos')
+
 /**MODO NOCTURNO******************* */
 
 //// Immediately invoked function to set the theme on initial load
@@ -503,6 +511,9 @@ function mostrarGifsBusqueda(json) {
       
             <div id='favcor${gifJson.id}' class="favcor">
                
+               <img id="down${gifJson.id}" class="seleccion23"
+                  src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg">
+
                <img id="down${gifJson.id}" class="seleccion"
                   src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
       
@@ -565,13 +576,14 @@ function asociarHoverFotos(gifElements) {
       } else {
 
          gifElement.addEventListener('click', () => {
-            console.log(gifElement.style.width)
+            
             if (gifElement.style.width == '318px') {
                gifElement.style.width = '156px'
                gifElement.style.height = '120px'
                exp.style.display = 'none'
                exp2.style.display = 'none'
                favcor.style.display = 'block'
+               console.log(favcor)
                favcor.style.display = 'none'
             } else {
                gifElement.style.width = '318px'
@@ -580,10 +592,12 @@ function asociarHoverFotos(gifElements) {
                exp2.style.display = 'none'
                favcor.style.display = 'block'
                favcor.style.marginLeft = '200px'
+               console.log(favcor)
                favcor.style.marginTop = '-50px'
 
             }
          })
+         
       }
 
       unlike.style.display = 'none'
@@ -677,7 +691,19 @@ function asociarHoverFotos(gifElements) {
       })
    })
 }
-
+/*******NO HAY FAVORITOS********** */
+/*function noHayFavoritos(){
+   if (principal6.innerHTML = '') {
+      //ocultar_todo.style.display = 'block'
+      imgSinFavoritos.style.display = 'block'
+      favoritoOracion.style.display = 'block'
+   }else{
+      //ocultar_todo.style.display = 'none'
+      imgSinFavoritos.style.display = 'none'
+      favoritoOracion.style.display = 'none'
+   }
+}
+noHayFavoritos()
 /**
  * muestra la lista actual de favoritos
 */
@@ -714,6 +740,8 @@ function mostrarFavoritosTest() {
       
                   <img id="unlike${gifKey}" class="seleccion"
                       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
+
+                      <p id=giftitle${gifKey.title} class='gifTitle' >${gifKey.title}</p>
                       
               </div>
           </div>
@@ -733,7 +761,6 @@ fav.addEventListener('click', () => {
    console.log('click')
 
    if (principal7.style.display === 'block') {
-      console.log(principal7)
       principal7.style.display = 'none'
       menu.style.display = 'none'
       principal4.style.display = 'block'

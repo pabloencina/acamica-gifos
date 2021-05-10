@@ -221,6 +221,7 @@
         display: none;
     }
     #principal2 {
+        position: relative;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
@@ -231,25 +232,14 @@
         margin-left: 0.3125rem;
         justify-content: flex-end;
     }
-    .seleccionFavorito {
-        margin-top: -6.25rem;
-        margin-left: 0.3125rem;
-        justify-content: flex-end;
-    }
     .favcor {
         display: none;
         position: absolute;
         z-index: 10;
-        margin-top: -100px;
-        /*margin-left: 124px;*/
+        margin-top: 130px;
+        margin-left: 124px;
     }
-    .favcorFavorito {
-        display: none;
-        position: absolute;
-        z-index: 10;
-        margin-top: -100px;
-        /*margin-left: 124px;*/
-    }
+
     .seleccion1 {
         margin-top: 0.625rem;
         margin-left: 0.3125rem;
@@ -268,10 +258,34 @@
         text-align: center;
         line-height: 40px;
     }
+    .gifTitle {
+        position: absolute;
+        margin-top: -40px;
+        width: 100%;
+        font-family: "Montserrat Alternates";
+        margin-left: -200px;
+        font-size: 16px;
+        color: #000000;
+        text-align: center;
+    }
+    .divHover {
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin-top: 70px;
+        z-index: 10;
+    }
     .foto {
+        position: relative;
         width: 156px;
         height: 120px;
         margin-top: 0.9375rem;
+    }
+    .seleccion23 {
+        position: absolute;
+        margin-top: -300px;
+        margin-left: 100px;
     }
     .fotoFavorito {
         width: 156px;
@@ -733,13 +747,14 @@
         justify-content: center;
         flex-direction: column;
         display: none;
+        height: 500px;
     }
 
     #contenedor2 {
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 6.25rem;
+        
         justify-content: center;
         align-items: center;
     }
@@ -764,6 +779,27 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        
+    }
+    #SinFavoritos{
+        width: 100%;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #favoritoOracion {
+        display: none;
+        font-family: "Montserrat Alternates";
+        font-weight: bold;
+        font-size: 22px;
+        color: #50e3c2;
+        text-align: center;
+        line-height: 33px;
+    }
+    #imgSinFavoritos{
+        display: none;
     }
     /*Favoritos-Descarga-Expancion**********/
     .seleccion {
@@ -801,7 +837,7 @@
     }
     .gifTitle {
         margin-top: 5.25rem;
-        margin-left: -140px;
+        margin-left: -100px;
         /*z-index: auto;*/
         position: absolute;
         font-family: "Montserrat Alternates";
