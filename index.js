@@ -511,7 +511,7 @@ function mostrarGifsBusqueda(json) {
       
             <div id='favcor${gifJson.id}' class="favcor">
                
-               <img id="down${gifJson.id}" class="seleccion23"
+               <img id="close12${gifJson.id}" class="seleccion23"
                   src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg">
 
                <img id="down${gifJson.id}" class="seleccion"
@@ -576,7 +576,7 @@ function asociarHoverFotos(gifElements) {
       } else {
 
          gifElement.addEventListener('click', () => {
-            
+
             if (gifElement.style.width == '318px') {
                gifElement.style.width = '156px'
                gifElement.style.height = '120px'
@@ -597,7 +597,7 @@ function asociarHoverFotos(gifElements) {
 
             }
          })
-         
+
       }
 
       unlike.style.display = 'none'
@@ -621,6 +621,11 @@ function asociarHoverFotos(gifElements) {
       })
 
       like.addEventListener('click', () => {
+         
+         unlike.style.display = 'block'
+         unlike.style.marginLeft = '105px'
+         unlike.style.marginTop = '-35px'
+         like.style.display = 'none'
          // Buscar el array de gifKey en el localStorage.
          // Agregar la gifKey nueva en el array.
          //Guardar el array acutalizado en el localStorage.
@@ -638,6 +643,7 @@ function asociarHoverFotos(gifElements) {
          //Guardar el sorce del gifcon el gifkey correspondiente en el localStorage.
          localStorage.setItem(gifKey, gifSrc)
 
+
       })
 
       exp.addEventListener('mouseover', () => {
@@ -651,7 +657,7 @@ function asociarHoverFotos(gifElements) {
          if (gifElement.style.width == '260px') {
             console.log(divHover)
             favcor.style.marginTop = '20px'
-            favcor.style.marginLeft = '220px'
+            favcor.style.marginLeft = '200px'
             favcor.style.display = 'inline'
             divHover.style.width = '350px'
             divHover.style.height = '300px'
@@ -670,7 +676,7 @@ function asociarHoverFotos(gifElements) {
       })
       exp2.addEventListener('click', () => {
          favcor.style.marginTop = '20px'
-         favcor.style.marginLeft = '140px';
+         favcor.style.marginLeft = '100px';
          favcor.style.zIndex = '10'
          favcor.style.display = 'inline'
          divHover.style.width = '260px'
@@ -717,6 +723,7 @@ function mostrarFavoritosTest() {
    keys.forEach(gifKey => {// el for each recorre cada gifKey
 
       let gifSrc = localStorage.getItem(gifKey)//con el gifkey se busca el gifsource correspondiente a ese gifkey.
+      
 
       principal6.innerHTML += `
       <div class='foto1'>
@@ -739,20 +746,17 @@ function mostrarFavoritosTest() {
                       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
       
                   <img id="unlike${gifKey}" class="seleccion"
-                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
-
-                      <p id=giftitle${gifKey.title} class='gifTitle' >${gifKey.title}</p>
-                      
+                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">     
               </div>
           </div>
       </div>
          `
+      
    });
-
 
    let gifsFavoritos = document.querySelectorAll('.fotoFavorito')
    asociarHoverFotos(gifsFavoritos)
-
+   
 }
 
 /***********Pagina de favoritos ********/

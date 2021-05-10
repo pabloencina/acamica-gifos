@@ -747,7 +747,7 @@
         justify-content: center;
         flex-direction: column;
         display: none;
-        height: 500px;
+        
     }
 
     #contenedor2 {
@@ -779,7 +779,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        
+        position: relative;
     }
     #SinFavoritos{
         width: 100%;
@@ -807,12 +807,16 @@
         margin-left: 0.3125rem;
         justify-content: flex-end;
     }
+    #close12{
+        display: none;
+    }
     .favcor {
+        
         display: none;
         position: absolute;
         z-index: 10;
         margin-top: 1.25rem;
-        margin-left: 8.75rem;
+        margin-left: 120px;
     }
 
     .seleccion1 {
