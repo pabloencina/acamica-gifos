@@ -599,16 +599,34 @@ function asociarHoverFotos(gifElements) {
          })
 
       }
+      //Traer el array de keys
+      //Usar el metodo includes() de la clase array para saber si el gifkey esta incluido.
+      //si esta incluido mostrar el unlike y ocultar el like. Si no ocltar el unlike y mostrar el like.
+      let keysString = localStorage.getItem('arrayK')
+      let keys = keysString.split(",")
+      console.log(keys.includes(gifKey))
 
-      unlike.style.display = 'none'
-      unlike.style.background = 'white'
-      unlike.style.borderRadius = '5px'
-      unlike.style.marginLeft = '-37px'
-      unlike.style.width = '30px'
+      if (keys.includes(gifKey)) {
+         unlike.style.display = 'block'
+         unlike.style.background = 'white'
+         unlike.style.borderRadius = '5px'
+         unlike.style.marginLeft = '-37px'
+         unlike.style.marginTop = '-35px'
+         unlike.style.width = '30px'
+         favcor.style.position = 'relative'
+         favcor.style.marginLeft = '150px'
+         like.style.display = 'none'
+         exp2.style.visibility = 'hidden'
+         exp2.style.marginLeft = '-37px'
+         exp2.style.width = '30px'
 
-      exp2.style.visibility = 'hidden'
-      exp2.style.marginLeft = '-37px'
-      exp2.style.width = '30px'
+      } else {
+         unlike.style.display = 'none'
+
+         like.style.display = 'block'
+      }
+
+
 
 
 
@@ -621,7 +639,7 @@ function asociarHoverFotos(gifElements) {
       })
 
       like.addEventListener('click', () => {
-         
+
          unlike.style.display = 'block'
          unlike.style.marginLeft = '105px'
          unlike.style.marginTop = '-35px'
@@ -710,6 +728,8 @@ function asociarHoverFotos(gifElements) {
    }
 }
 noHayFavoritos()
+
+
 /**
  * muestra la lista actual de favoritos
 */
@@ -722,8 +742,9 @@ function mostrarFavoritosTest() {
 
    keys.forEach(gifKey => {// el for each recorre cada gifKey
 
+
+
       let gifSrc = localStorage.getItem(gifKey)//con el gifkey se busca el gifsource correspondiente a ese gifkey.
-      
 
       principal6.innerHTML += `
       <div class='foto1'>
@@ -746,17 +767,17 @@ function mostrarFavoritosTest() {
                       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
       
                   <img id="unlike${gifKey}" class="seleccion"
-                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">     
+                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon"> 
               </div>
           </div>
       </div>
          `
-      
+
    });
 
    let gifsFavoritos = document.querySelectorAll('.fotoFavorito')
    asociarHoverFotos(gifsFavoritos)
-   
+
 }
 
 /***********Pagina de favoritos ********/

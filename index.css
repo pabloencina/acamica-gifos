@@ -807,11 +807,8 @@
         margin-left: 0.3125rem;
         justify-content: flex-end;
     }
-    #close12{
-        display: none;
-    }
-    .favcor {
-        
+    
+    .favcor { 
         display: none;
         position: absolute;
         z-index: 10;
