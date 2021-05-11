@@ -499,9 +499,7 @@ async function buscarGifs() {
 
 function mostrarGifsBusqueda(json) {
    json.data.forEach(gifJson => {
-      console.log(gifJson)
-      console.log(gifJson.title)
-      console.log(gifJson.source)
+
       principal2.innerHTML += `
       <div class='foto1'>
 
@@ -556,6 +554,8 @@ function asociarHoverFotos(gifElements) {
       let exp2 = document.getElementById('exp2' + gifKey)
       let down = document.getElementById('down' + gifKey)
 
+      console.log(gifKey)
+
       if (pantallaDesktop.matches) {
 
          gifElement.style.width = '260px'
@@ -583,7 +583,7 @@ function asociarHoverFotos(gifElements) {
                exp.style.display = 'none'
                exp2.style.display = 'none'
                favcor.style.display = 'block'
-               console.log(favcor)
+
                favcor.style.display = 'none'
             } else {
                gifElement.style.width = '318px'
@@ -592,43 +592,54 @@ function asociarHoverFotos(gifElements) {
                exp2.style.display = 'none'
                favcor.style.display = 'block'
                favcor.style.marginLeft = '200px'
-               console.log(favcor)
+
                favcor.style.marginTop = '-50px'
 
             }
          })
 
       }
+
       //Traer el array de keys
       //Usar el metodo includes() de la clase array para saber si el gifkey esta incluido.
       //si esta incluido mostrar el unlike y ocultar el like. Si no ocltar el unlike y mostrar el like.
       let keysString = localStorage.getItem('arrayK')
       let keys = keysString.split(",")
-      console.log(keys.includes(gifKey))
+      console.log(keys)
 
       if (keys.includes(gifKey)) {
          unlike.style.display = 'block'
-         unlike.style.background = 'white'
-         unlike.style.borderRadius = '5px'
-         unlike.style.marginLeft = '-37px'
-         unlike.style.marginTop = '-35px'
-         unlike.style.width = '30px'
-         favcor.style.position = 'relative'
-         favcor.style.marginLeft = '150px'
          like.style.display = 'none'
-         exp2.style.visibility = 'hidden'
-         exp2.style.marginLeft = '-37px'
-         exp2.style.width = '30px'
-
       } else {
          unlike.style.display = 'none'
-
          like.style.display = 'block'
       }
 
+      unlike.style.background = 'white'
+      unlike.style.borderRadius = '5px'
+      unlike.style.marginLeft = '-37px'
+      unlike.style.marginTop = '-35px'
+      unlike.style.width = '30px'
+      favcor.style.position = 'relative'
+      favcor.style.marginLeft = '150px'
+      exp2.style.visibility = 'hidden'
+      exp2.style.marginLeft = '-37px'
+      exp2.style.width = '30px'
+      like.style.marginTop = '-37px'
+      like.style.marginLeft = '-20px'
+      debugger
+      unlike.addEventListener('click', () => {
+         let keysString = localStorage.getItem('arrayK')
+         let keys = keysString.split(",")
+         keys.filter(key => {
 
+            return key !== gifKey       
+         })
 
-
+         keys.push(gifKey)
+         localStorage.setItem('arrayK', keys)
+        
+      })
 
       like.addEventListener('mouseover', () => {
          like.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-hover.svg'
@@ -673,7 +684,7 @@ function asociarHoverFotos(gifElements) {
       })
       exp.addEventListener('click', () => {
          if (gifElement.style.width == '260px') {
-            console.log(divHover)
+
             favcor.style.marginTop = '20px'
             favcor.style.marginLeft = '200px'
             favcor.style.display = 'inline'
@@ -734,15 +745,15 @@ noHayFavoritos()
  * muestra la lista actual de favoritos
 */
 
-function mostrarFavoritosTest() {
+function mostrarFavoritos() {
+
+   console.log(mostrarFavoritos)
    principal6.innerHTML = '' // Limpiar la seccion para que no muestre el contenido anterior que tenia.
 
    let keysString = localStorage.getItem('arrayK')//busca en el localStorage un array de gifkey de los gif donde le fueron dando like.
    let keys = keysString.split(",") // Convertir toda la cadena en arreglos de strings.
 
    keys.forEach(gifKey => {// el for each recorre cada gifKey
-
-
 
       let gifSrc = localStorage.getItem(gifKey)//con el gifkey se busca el gifsource correspondiente a ese gifkey.
 
@@ -776,6 +787,7 @@ function mostrarFavoritosTest() {
    });
 
    let gifsFavoritos = document.querySelectorAll('.fotoFavorito')
+   console.log(gifsFavoritos.length)
    asociarHoverFotos(gifsFavoritos)
 
 }
@@ -783,7 +795,7 @@ function mostrarFavoritosTest() {
 /***********Pagina de favoritos ********/
 //mostrar seccion favoritos en modo mobile
 fav.addEventListener('click', () => {
-   console.log('click')
+
 
    if (principal7.style.display === 'block') {
       principal7.style.display = 'none'
@@ -801,15 +813,13 @@ fav.addEventListener('click', () => {
    principal3.style.display = 'none'
    principal7.style.display = 'block'
    principal12.style.marginTop = '50px'
-   mostrarFavoritosTest()
+   mostrarFavoritos()
 })
 
 //Mostrar seccion favoritos en modo desktop
 fav1.addEventListener('click', () => {
-   console.log('click')
 
    if (principal7.style.display === 'block') {
-      console.log(principal7)
       principal7.style.display = 'none'
       menu.style.display = 'none'
       principal4.style.display = 'block'
@@ -818,6 +828,7 @@ fav1.addEventListener('click', () => {
    } else {
 
    }
+
    menu.style.display = 'none'
    principal4.style.display = 'none'
    principal1.style.display = 'none'
@@ -825,7 +836,8 @@ fav1.addEventListener('click', () => {
    principal3.style.display = 'none'
    principal7.style.display = 'block'
    principal12.style.marginTop = '50px'
-   mostrarFavoritosTest()
+
+   mostrarFavoritos()
 })
 /******Funcionalidad Boton Ver Mas */
 
