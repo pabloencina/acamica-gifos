@@ -604,7 +604,12 @@ function asociarHoverFotos(gifElements) {
       //Usar el metodo includes() de la clase array para saber si el gifkey esta incluido.
       //si esta incluido mostrar el unlike y ocultar el like. Si no ocltar el unlike y mostrar el like.
       let keysString = localStorage.getItem('arrayK')
-      let keys = keysString.split(",")
+      let keys
+      if (keysString == null || keysString == "") {
+         keys = []
+      } else {
+         keys = keysString.split(",")
+      }
       console.log(keys)
 
       if (keys.includes(gifKey)) {
@@ -627,18 +632,20 @@ function asociarHoverFotos(gifElements) {
       exp2.style.width = '30px'
       like.style.marginTop = '-37px'
       like.style.marginLeft = '-20px'
-      debugger
+
+
       unlike.addEventListener('click', () => {
+         console.log('click unlike')
          let keysString = localStorage.getItem('arrayK')
          let keys = keysString.split(",")
-         keys.filter(key => {
-
-            return key !== gifKey       
+         console.log(keys)
+         let keysFiltered = keys.filter(key => {
+            return key !== gifKey
          })
+         console.log(keysFiltered)
 
-         keys.push(gifKey)
-         localStorage.setItem('arrayK', keys)
-        
+         localStorage.setItem('arrayK', keysFiltered)
+         mostrarFavoritos()
       })
 
       like.addEventListener('mouseover', () => {
@@ -660,7 +667,7 @@ function asociarHoverFotos(gifElements) {
          //Guardar el array acutalizado en el localStorage.
          let keysString = localStorage.getItem('arrayK')
          let keys
-         if (keysString == null) {
+         if (keysString == null || keysString == "") {
             keys = []
          } else {
             keys = keysString.split(",")
@@ -751,7 +758,12 @@ function mostrarFavoritos() {
    principal6.innerHTML = '' // Limpiar la seccion para que no muestre el contenido anterior que tenia.
 
    let keysString = localStorage.getItem('arrayK')//busca en el localStorage un array de gifkey de los gif donde le fueron dando like.
-   let keys = keysString.split(",") // Convertir toda la cadena en arreglos de strings.
+   if (keysString == null || keysString == "") {
+      keys = []
+   } else {
+      keys = keysString.split(",")
+   } // Convertir toda la cadena en arreglos de strings.
+   console.log(keys)
 
    keys.forEach(gifKey => {// el for each recorre cada gifKey
 
@@ -782,7 +794,7 @@ function mostrarFavoritos() {
               </div>
           </div>
       </div>
-         `
+      `
 
    });
 
