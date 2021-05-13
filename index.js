@@ -734,16 +734,8 @@ function asociarHoverFotos(gifElements) {
    })
 }
 /*******NO HAY FAVORITOS********** */
-/*function noHayFavoritos(){
-   if (principal6.innerHTML = '') {
-      //ocultar_todo.style.display = 'block'
-      imgSinFavoritos.style.display = 'block'
-      favoritoOracion.style.display = 'block'
-   }else{
-      //ocultar_todo.style.display = 'none'
-      imgSinFavoritos.style.display = 'none'
-      favoritoOracion.style.display = 'none'
-   }
+function noHayFavoritos(){
+   
 }
 noHayFavoritos()
 
@@ -764,6 +756,17 @@ function mostrarFavoritos() {
       keys = keysString.split(",")
    } // Convertir toda la cadena en arreglos de strings.
    console.log(keys)
+
+   /***NO HAY FAVORITOS **********/
+   if  (keysString === "") {
+      
+      imgSinFavoritos.style.display = 'block'
+      favoritoOracion.style.display = 'block'
+   }else{
+      
+      imgSinFavoritos.style.display = 'none'
+      favoritoOracion.style.display = 'none'
+   }
 
    keys.forEach(gifKey => {// el for each recorre cada gifKey
 
@@ -799,7 +802,7 @@ function mostrarFavoritos() {
    });
 
    let gifsFavoritos = document.querySelectorAll('.fotoFavorito')
-   console.log(gifsFavoritos.length)
+   
    asociarHoverFotos(gifsFavoritos)
 
 }
