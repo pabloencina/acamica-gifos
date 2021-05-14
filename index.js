@@ -391,6 +391,7 @@ let mostrartrending = async () => {
       });
    } catch (error) {
    }
+   
 }
 mostrartrending()
 /*******TRENDING WORD AND phrases*******/
@@ -733,12 +734,6 @@ function asociarHoverFotos(gifElements) {
       })
    })
 }
-/*******NO HAY FAVORITOS********** */
-function noHayFavoritos(){
-   
-}
-noHayFavoritos()
-
 
 /**
  * muestra la lista actual de favoritos
@@ -758,12 +753,12 @@ function mostrarFavoritos() {
    console.log(keys)
 
    /***NO HAY FAVORITOS **********/
-   if  (keysString === "") {
-      
+   if (keysString === "") {
+
       imgSinFavoritos.style.display = 'block'
       favoritoOracion.style.display = 'block'
-   }else{
-      
+   } else {
+
       imgSinFavoritos.style.display = 'none'
       favoritoOracion.style.display = 'none'
    }
@@ -802,7 +797,7 @@ function mostrarFavoritos() {
    });
 
    let gifsFavoritos = document.querySelectorAll('.fotoFavorito')
-   
+
    asociarHoverFotos(gifsFavoritos)
 
 }
@@ -882,7 +877,7 @@ lupa.addEventListener('click', () => {
 scroll.style.overflow = 'scroll'
 
 /*const url_BASE = 'https://api.giphy.com/v1/gifs/trending?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY&limit=12&offset=12'*/
-
+/*
 let mostrarscroll = async () => {
    try {
       let resultado = await fetch(url_trending + '?api_key=' + api_key + '&limit=24' + limit)
@@ -921,6 +916,53 @@ let mostrarscroll = async () => {
 
 }
 mostrarscroll()
+*/
+
+let mostrartrendingScroll = async () => {
+
+   try {
+      let resultado = await fetch(url_trending + '?api_key=' + api_key + '&limit=' + limit)
+
+      let json = await resultado.json()
+
+      json.data.forEach(trending => { 
+      
+         console.log(trending.id)
+         scroll.innerHTML += `
+         
+      <div class='foto4'>
+         <img key=${trending.id} class='fotoTrending' src='${trending.images.fixed_height.url}'>
+     
+         <div id=${trending.id} class='divHover'>
+     
+             <div id='favcor${trending.id}' class="favcor">
+                 <img class="seleccion" id="corazon"
+                     src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+                 <img id="down${trending.id}" class="seleccion"
+                     src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
+                 <img id="exp${trending.id}" class="seleccion"
+                     src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
+                 <img id="exp2${trending.id}" class="seleccion"
+                     src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg" alt="expander">
+                 <img id="like${trending.id}" class="seleccion"
+                     src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+                 <img id="unlike${trending.id}" class="seleccion"
+                     src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
+             </div>
+         </div>
+      </div>
+         `    
+         
+      });
+
+   } catch (error) {
+      console.log('error')
+   }
+   let gifsScrolls = document.querySelectorAll('.fotoTrending')
+   asociarHoverFotos(gifsScrolls)
+   //asociarHoverFotos(trending)
+}
+mostrartrendingScroll()
 /*
 asociarHoverScroll()
 

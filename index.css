@@ -930,6 +930,7 @@
     }
 
     #scroll {
+        position: relative;
         width: 78%;
         height: 20.625rem;
         align-items: center;
@@ -937,21 +938,27 @@
         justify-content: space-between;
     }
 
-    .fotos4 {
-        width: 21.875rem;
-        height: 17.1875rem;
+    /*.foto4 {
+        width: 350px;
+        height: 275px;
         margin-left: 1.25rem;
-        z-index: 0;
+        margin-top: 0px;
+    }*/
+    .fotoTrending{
+        width: 350px;
+        height: 275px;
+        margin-left: 1.25rem;
+        margin-top: 0px;
     }
     .hoverScroll {
-        position: relative;
         margin-top: -17.375rem;
-        width: 21.875rem;
+        width: 360px;
         height: 17.1875rem;
-        margin-left: 1.25rem;
+        margin-left: 30px;
+        margin-top: 100px;
         background-color: #572ee5;
         opacity: 0.7;
-        z-index: 10;
+        
     }
     .sig {
         position: absolute;
