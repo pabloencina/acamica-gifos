@@ -938,12 +938,13 @@
         justify-content: space-between;
     }
 
-    /*.foto4 {
+    .foto4 {
         width: 350px;
         height: 275px;
         margin-left: 1.25rem;
         margin-top: 0px;
-    }*/
+    }
+    
     .fotoTrending{
         width: 350px;
         height: 275px;

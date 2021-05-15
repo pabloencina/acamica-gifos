@@ -158,8 +158,8 @@ let imgSinFavoritos = document.getElementById('imgSinFavoritos')
       
    }
 })();
-*/
 
+*/
 // function to toggle between light and dark theme
 
 switchThemeDesktop.addEventListener('click', (event) => {
@@ -876,47 +876,8 @@ lupa.addEventListener('click', () => {
 
 scroll.style.overflow = 'scroll'
 
-/*const url_BASE = 'https://api.giphy.com/v1/gifs/trending?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY&limit=12&offset=12'*/
-/*
-let mostrarscroll = async () => {
-   try {
-      let resultado = await fetch(url_trending + '?api_key=' + api_key + '&limit=24' + limit)
 
-      let json = await resultado.json()
 
-      json.data.forEach(gif => {
-
-         scroll.innerHTML += `
-         
-      <div class='foto1Scroll'>
-            <img key='${gif.id}' class='fotos4' src='${gif.images.fixed_height.url}>
-
-            <img  src='${gif.images.fixed_height.url}>
-
-            <div  id='${gif.id}' class='hoverScroll'></div>
-
-         <div id='favcor1'
-         <img class="seleccion1" id="corazon1"
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
-
-         <img id="descarga1" class="seleccion1"
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
-
-         <img id="expancion1" class="seleccion1"
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
-
-         <img class="seleccion1" id="corazon1"
-         src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
-      </div>
-         </div>
-         `
-      });
-   } catch (error) {
-   }
-
-}
-mostrarscroll()
-*/
 
 let mostrartrendingScroll = async () => {
 
@@ -963,29 +924,7 @@ let mostrartrendingScroll = async () => {
    //asociarHoverFotos(trending)
 }
 mostrartrendingScroll()
-/*
-asociarHoverScroll()
 
-function asociarHoverScroll() {
-   let arrayImagenes = document.querySelectorAll('.fotos4')
-
-   arrayImagenes.forEach(gif => {
-
-      gif.addEventListener('mouseover', (eventoPintarScroll) => {
-         console.log('click')
-         let hoverScroll = document.getElementsbyId(eventoPintarScroll.target.getAttribute('key'))
-
-         hoverScroll.style.display = 'block'
-
-         hoverScroll.addEventListener('mouseout', () => {
-            console.log('click')
-            hoverScroll.style.display = 'none'
-         })
-      })
-
-   })
-}
-*/
 /***Scroll*********** */
 
 scrollLeft.addEventListener('click', () => {
@@ -1202,6 +1141,15 @@ btn1.addEventListener('click', () => {
       principal7.style.display = 'none'
       principal4.style.display = 'block'
       principal1.style.display = 'block'
+
+   }
+})
+
+btn1.addEventListener('click', () => {
+   if (creargifos.style.display == 'block') {
+      creargifos.style.display = 'none'
+      ocultar_todo.style.display = 'block'
+      
 
    }
 })
