@@ -127,6 +127,8 @@ let contenedorAutocomp = document.getElementById('contenedorAutocomp')
 
 let lupa1 = document.getElementsByClassName('.lupa1')
 
+let fotoTrending = document.getElementsByClassName('.fotoTrending')
+
 let pantallaDesktop = window.matchMedia("(min-width: 1440px)")
 
 let react = document.getElementById('react')
@@ -559,47 +561,17 @@ function asociarHoverFotos(gifElements) {
 
       if (pantallaDesktop.matches) {
 
-         gifElement.style.width = '260px'
-         gifElement.style.height = '200px'
-
          gifElement.addEventListener('mouseover', (e) => {
             divHover.style.display = 'block'
             favcor.style.display = 'block'
          })
-         gifElement.addEventListener('mouseout', (e) => {
-
-         })
+         
          divHover.addEventListener('mouseout', () => {
             divHover.style.display = 'none'
             favcor.style.display = 'none'
          })
 
-      } else {
-
-         gifElement.addEventListener('click', () => {
-
-            if (gifElement.style.width == '318px') {
-               gifElement.style.width = '156px'
-               gifElement.style.height = '120px'
-               exp.style.display = 'none'
-               exp2.style.display = 'none'
-               favcor.style.display = 'block'
-
-               favcor.style.display = 'none'
-            } else {
-               gifElement.style.width = '318px'
-               gifElement.style.height = '245px'
-               exp.style.display = 'none'
-               exp2.style.display = 'none'
-               favcor.style.display = 'block'
-               favcor.style.marginLeft = '200px'
-
-               favcor.style.marginTop = '-50px'
-
-            }
-         })
-
-      }
+      } 
 
       //Traer el array de keys
       //Usar el metodo includes() de la clase array para saber si el gifkey esta incluido.
@@ -922,6 +894,7 @@ let mostrartrendingScroll = async () => {
    let gifsScrolls = document.querySelectorAll('.fotoTrending')
    asociarHoverFotos(gifsScrolls)
    //asociarHoverFotos(trending)
+   
 }
 mostrartrendingScroll()
 
