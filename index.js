@@ -2,6 +2,8 @@
 /******************Nombre de las variables**** */
 let boton1 = document.getElementById('boton1')
 
+let nav = document.getElementById('nav')
+
 let btn1 = document.getElementById('btn1')
 
 let menu = document.getElementById('menu')
@@ -139,13 +141,19 @@ let gifTitle = document.querySelector('#modal h3');
 
 let gifUser = document.querySelector('#modal h4');
 
-let seleccion23 = document.querySelector('seleccion23')
+let seleccion23 = document.getElementsByClassName('.seleccion23')
 
 let SinFavoritos = document.getElementById('SinFavoritos')
 
 let favoritoOracion = document.getElementById('favoritoOracion')
 
 let imgSinFavoritos = document.getElementById('imgSinFavoritos')
+
+let gifos = document.getElementById('gifos')
+
+let contenedor1 = document.getElementById('contenedor1')
+
+let cont44 = document.getElementById('cont44')
 
 /**MODO NOCTURNO******************* */
 
@@ -375,7 +383,7 @@ const url_buscador = 'https://api.giphy.com/v1/gifs/search'
 
 const url_wordTrending = 'https://api.giphy.com/v1/trending/searches'
 
-let mostrartrending = async () => {
+let mostrarTrending = async () => {
    try {
       let resultado = await fetch(url_trending + '?api_key=' + api_key + '&limit=' + limit)
 
@@ -393,9 +401,9 @@ let mostrartrending = async () => {
       });
    } catch (error) {
    }
-   
+
 }
-mostrartrending()
+mostrarTrending()
 /*******TRENDING WORD AND phrases*******/
 let mostrartrendingWord = async () => {
    let wordsAndPhases = ''
@@ -530,7 +538,7 @@ function mostrarGifsBusqueda(json) {
                <img id="unlike${gifJson.id}" class="seleccion"
                   src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
 
-               <p id=giftitle${gifJson.title} class='gifTitle' >${gifJson.title}</p>
+               <p id="giftitle${gifJson.title}" class="gifTitle">${gifJson.title}</p>
             </div>
          </div>
       </div>
@@ -538,12 +546,16 @@ function mostrarGifsBusqueda(json) {
    });
 
    let gifsBusqueda = document.querySelectorAll('.foto')
-   asociarHoverFotos(gifsBusqueda)
+   if (pantallaDesktop.matches) {
+      asociarEventosFotosDesktop(gifsBusqueda)
+   } else {
+      asociarEventosFotosMobile(gifsBusqueda)
+   }
 
 }
 
 
-function asociarHoverFotos(gifElements) {
+function asociarEventosFotosDesktop(gifElements) {
    //let favcor = document.getElementById('favcor')
    gifElements.forEach(gifElement => {
 
@@ -553,25 +565,21 @@ function asociarHoverFotos(gifElements) {
       let favcor = document.getElementById('favcor' + gifKey)
       let like = document.getElementById('like' + gifKey)
       let unlike = document.getElementById('unlike' + gifKey)
+      //let giftitle = document.getElementById('giftitle' + gifKey)
       let exp = document.getElementById('exp' + gifKey)
       let exp2 = document.getElementById('exp2' + gifKey)
       let down = document.getElementById('down' + gifKey)
 
-      console.log(gifKey)
+      gifElement.addEventListener('mouseover', () => {
+         divHover.style.display = 'block'
+         favcor.style.display = 'block'
+      })
 
-      if (pantallaDesktop.matches) {
+      divHover.addEventListener('mouseout', () => {
+         divHover.style.display = 'none'
+         favcor.style.display = 'none'
+      })
 
-         gifElement.addEventListener('mouseover', (e) => {
-            divHover.style.display = 'block'
-            favcor.style.display = 'block'
-         })
-         
-         divHover.addEventListener('mouseout', () => {
-            divHover.style.display = 'none'
-            favcor.style.display = 'none'
-         })
-
-      } 
 
       //Traer el array de keys
       //Usar el metodo includes() de la clase array para saber si el gifkey esta incluido.
@@ -707,6 +715,434 @@ function asociarHoverFotos(gifElements) {
    })
 }
 
+
+
+function asociarEventosFotosMobile(gifElements) {
+   //let favcor = document.getElementById('favcor')
+   gifElements.forEach(gifElement => {
+
+      let gifKey = gifElement.getAttribute('key')
+      let gifSrc = gifElement.getAttribute('src')
+      gifElement.setAttribute('expanded', '0')
+      let divHover = document.getElementById(gifKey)
+      let favcor = document.getElementById('favcor' + gifKey)
+      let like = document.getElementById('like' + gifKey)
+      let unlike = document.getElementById('unlike' + gifKey)
+      let close12 = document.getElementById('close12' + gifKey)
+      //let giftitle = document.getElementById('giftitle' + gifKey)
+      let exp = document.getElementById('exp' + gifKey)
+      let exp2 = document.getElementById('exp2' + gifKey)
+      let down = document.getElementById('down' + gifKey)
+
+
+      console.log(gifKey)
+
+
+      gifElement.addEventListener('click', () => {
+         //if (gifElement.style.width == '318px') {
+         if (gifElement.getAttribute('expanded') == '0') {
+            favcor.style.display = 'block'
+            favcor.style.marginTop = '-50px'
+            favcor.style.display = 'flex'
+            favcor.style.marginTop = '70px'
+            favcor.style.left = '90px'
+            close12.style.left = '-50px'
+            close12.style.top = '-40px'
+            //gifTitle.style.width = '90px'
+
+            like.style.marginTop = '-97px'
+            exp.style.display = 'none'
+            like.style.marginLeft = '10px'
+            gifElement.style.width = '318px'
+            gifElement.style.height = '245px'
+            principal4.style.display = 'none'
+            principal1.style.display = 'none'
+            nav.style.opacity = '0.09'
+            gifElement.style.position = 'relative'
+            principal12.style.display = 'none'
+            principal3.style.display = 'none'
+            mascotas.style.display = 'none'
+
+            let otrosGifs = document.querySelectorAll('.foto')
+            otrosGifs.forEach(gifElement => {
+               if (gifElement.getAttribute('key') !== gifKey) {
+                  gifElement.style.display = 'none'
+               }
+            })
+            gifElement.setAttribute('expanded', '1')
+
+         } else {
+            gifElement.style.width = '156px'
+            gifElement.style.height = '120px'
+            favcor.style.display = 'none'
+            principal4.style.display = 'block'
+            principal1.style.display = 'block'
+            nav.style.opacity = '1'
+
+            principal12.style.display = 'block'
+            principal3.style.display = 'block'
+            mascotas.style.display = 'block'
+
+            let otrosGifs = document.querySelectorAll('.foto')
+            otrosGifs.forEach(gifElement => {
+               gifElement.style.display = 'block'
+            })
+            gifElement.setAttribute('expanded', '0')
+         }
+
+      })
+
+      //Traer el array de keys
+      //Usar el metodo includes() de la clase array para saber si el gifkey esta incluido.
+      //si esta incluido mostrar el unlike y ocultar el like. Si no ocltar el unlike y mostrar el like.
+      let keysString = localStorage.getItem('arrayK')
+      let keys
+      if (keysString == null || keysString == "") {
+         keys = []
+      } else {
+         keys = keysString.split(",")
+      }
+      console.log(keys)
+
+      if (keys.includes(gifKey)) {
+         unlike.style.display = 'block'
+         like.style.display = 'none'
+      } else {
+         unlike.style.display = 'none'
+         like.style.display = 'block'
+      }
+
+      unlike.style.background = 'white'
+      unlike.style.borderRadius = '5px'
+      unlike.style.marginLeft = '-37px'
+      unlike.style.marginTop = '-35px'
+      unlike.style.width = '30px'
+      favcor.style.position = 'relative'
+      favcor.style.marginLeft = '150px'
+      exp2.style.visibility = 'hidden'
+      exp2.style.marginLeft = '-37px'
+      exp2.style.width = '30px'
+      like.style.marginTop = '-37px'
+      like.style.marginLeft = '-20px'
+
+
+      unlike.addEventListener('click', () => {
+         console.log('click unlike')
+         let keysString = localStorage.getItem('arrayK')
+         let keys = keysString.split(",")
+         console.log(keys)
+         let keysFiltered = keys.filter(key => {
+            return key !== gifKey
+         })
+         console.log(keysFiltered)
+
+         localStorage.setItem('arrayK', keysFiltered)
+         mostrarFavoritos()
+      })
+
+      like.addEventListener('mouseover', () => {
+         like.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-hover.svg'
+      })
+
+      like.addEventListener('mouseout', () => {
+         like.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg'
+      })
+
+      like.addEventListener('click', () => {
+
+         unlike.style.display = 'block'
+         unlike.style.marginLeft = '105px'
+         unlike.style.marginTop = '-35px'
+         like.style.display = 'none'
+         // Buscar el array de gifKey en el localStorage.
+         // Agregar la gifKey nueva en el array.
+         //Guardar el array acutalizado en el localStorage.
+         let keysString = localStorage.getItem('arrayK')
+         let keys
+         if (keysString == null || keysString == "") {
+            keys = []
+         } else {
+            keys = keysString.split(",")
+         }
+
+         keys.push(gifKey)
+         localStorage.setItem('arrayK', keys)
+
+         //Guardar el sorce del gifcon el gifkey correspondiente en el localStorage.
+         localStorage.setItem(gifKey, gifSrc)
+
+
+      })
+
+      exp.addEventListener('mouseover', () => {
+         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg'
+      })
+      exp.addEventListener('mouseout', () => {
+         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
+
+      })
+      exp.addEventListener('click', () => {
+         if (gifElement.style.width == '260px') {
+
+            favcor.style.marginTop = '20px'
+            favcor.style.marginLeft = '200px'
+            favcor.style.display = 'inline'
+            divHover.style.width = '350px'
+            divHover.style.height = '300px'
+            divHover.style.top = '220px'
+            gifElement.style.width = '350px'
+            gifElement.style.height = '300px'
+            exp.style.visibility = 'hidden'
+            exp2.style.visibility = 'visible'
+         } else {
+            gifElement.style.width = '260px'
+            gifElement.style.height = '200px'
+            favcor.style.marginTop = '200px'
+            favcor.style.marginLeft = '-140px'
+         }
+
+      })
+      exp2.addEventListener('click', () => {
+         favcor.style.marginTop = '20px'
+         favcor.style.marginLeft = '100px';
+         favcor.style.zIndex = '10'
+         favcor.style.display = 'inline'
+         divHover.style.width = '260px'
+         divHover.style.height = '200px'
+         divHover.style.top = '220px'
+         gifElement.style.width = '260px'
+         gifElement.style.height = '200px'
+         exp.style.visibility = 'visible'
+         exp2.style.visibility = 'hidden'
+
+      })
+
+      down.addEventListener('mouseover', () => {
+         down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
+      })
+      down.addEventListener('mouseout', () => {
+         down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
+      })
+   })
+}
+
+function asociarEventosFotosTrendingMobile(gifElements) {
+   //let favcor = document.getElementById('favcor')
+   gifElements.forEach(gifElement => {
+
+      let gifKey = gifElement.getAttribute('key')
+      let gifSrc = gifElement.getAttribute('src')
+      gifElement.setAttribute('expanded', '0')
+      let divHover = document.getElementById(gifKey)
+      let favcor = document.getElementById('favcor' + gifKey)
+      let like = document.getElementById('like' + gifKey)
+      let unlike = document.getElementById('unlike' + gifKey)
+      let close12 = document.getElementById('close12' + gifKey)
+      //let giftitle = document.getElementById('giftitle' + gifKey)
+      let exp = document.getElementById('exp' + gifKey)
+      let exp2 = document.getElementById('exp2' + gifKey)
+      let down = document.getElementById('down' + gifKey)
+
+
+      console.log(gifKey)
+
+
+      gifElement.addEventListener('click', () => {
+         //if (gifElement.style.width == '318px') {
+         if (gifElement.getAttribute('expanded') == '0') {
+            favcor.style.display = 'block'
+            favcor.style.marginTop = '-50px'
+            favcor.style.display = 'flex'
+            favcor.style.marginTop = '70px'
+            favcor.style.left = '90px'
+            close12.style.left = '-50px'
+            close12.style.top = '-40px'
+            //gifTitle.style.width = '90px'
+
+            like.style.marginTop = '-97px'
+            exp.style.display = 'none'
+            like.style.marginLeft = '10px'
+            gifElement.style.width = '318px'
+            gifElement.style.height = '245px'
+            principal4.style.display = 'none'
+            principal1.style.display = 'none'
+            nav.style.opacity = '0.09'
+            gifElement.style.position = 'relative'
+            //principal12.style.display = 'none'
+            principal3.style.display = 'none'
+            mascotas.style.display = 'none'
+
+            let otrosGifs = document.querySelectorAll('.fotoTrending')
+            otrosGifs.forEach(gifElement => {
+               if (gifElement.getAttribute('key') !== gifKey) {
+                  gifElement.style.display = 'none'
+                  principal5.style.display = 'none'
+                  gifos.style.display = 'none'
+                  contenedor1.style.display = 'none'
+                  btn3.style.display = 'none'
+                  cont44.style.opacity = '0'
+                  //favcor.style.display = 'none'
+
+               }
+            })
+            gifElement.setAttribute('expanded', '1')
+
+         } else {
+            gifElement.style.width = '243px'
+            gifElement.style.height = '187px'
+            favcor.style.display = 'block'
+            principal4.style.display = 'block'
+            principal1.style.display = 'block'
+            nav.style.opacity = '1'
+            menu.style.display = 'none'
+            contenedor1.style.display = 'none'
+            btn3.style.display = 'block'
+            cont44.style.opacity = '1'
+            principal3.style.display = 'block'
+            mascotas.style.display = 'block'
+
+            let otrosGifs = document.querySelectorAll('.fotoTrending')
+            otrosGifs.forEach(gifElement => {
+               gifElement.style.display = 'block'
+            })
+            gifElement.setAttribute('expanded', '0')
+         }
+
+      })
+
+      //Traer el array de keys
+      //Usar el metodo includes() de la clase array para saber si el gifkey esta incluido.
+      //si esta incluido mostrar el unlike y ocultar el like. Si no ocltar el unlike y mostrar el like.
+      let keysString = localStorage.getItem('arrayK')
+      let keys
+      if (keysString == null || keysString == "") {
+         keys = []
+      } else {
+         keys = keysString.split(",")
+      }
+      console.log(keys)
+
+      if (keys.includes(gifKey)) {
+         unlike.style.display = 'block'
+         like.style.display = 'none'
+      } else {
+         unlike.style.display = 'none'
+         like.style.display = 'block'
+      }
+
+      unlike.style.background = 'white'
+      unlike.style.borderRadius = '5px'
+      unlike.style.marginLeft = '-37px'
+      unlike.style.marginTop = '-35px'
+      unlike.style.width = '30px'
+      favcor.style.position = 'relative'
+      favcor.style.marginLeft = '150px'
+      exp2.style.visibility = 'hidden'
+      exp2.style.marginLeft = '-37px'
+      exp2.style.width = '30px'
+      like.style.marginTop = '-37px'
+      like.style.marginLeft = '-20px'
+
+
+      unlike.addEventListener('click', () => {
+         console.log('click unlike')
+         let keysString = localStorage.getItem('arrayK')
+         let keys = keysString.split(",")
+         console.log(keys)
+         let keysFiltered = keys.filter(key => {
+            return key !== gifKey
+         })
+         console.log(keysFiltered)
+
+         localStorage.setItem('arrayK', keysFiltered)
+         mostrarFavoritos()
+      })
+
+      like.addEventListener('mouseover', () => {
+         like.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-hover.svg'
+      })
+
+      like.addEventListener('mouseout', () => {
+         like.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg'
+      })
+
+      like.addEventListener('click', () => {
+
+         unlike.style.display = 'block'
+         unlike.style.marginLeft = '105px'
+         unlike.style.marginTop = '-35px'
+         like.style.display = 'none'
+         // Buscar el array de gifKey en el localStorage.
+         // Agregar la gifKey nueva en el array.
+         //Guardar el array acutalizado en el localStorage.
+         let keysString = localStorage.getItem('arrayK')
+         let keys
+         if (keysString == null || keysString == "") {
+            keys = []
+         } else {
+            keys = keysString.split(",")
+         }
+
+         keys.push(gifKey)
+         localStorage.setItem('arrayK', keys)
+
+         //Guardar el sorce del gifcon el gifkey correspondiente en el localStorage.
+         localStorage.setItem(gifKey, gifSrc)
+
+
+      })
+
+      exp.addEventListener('mouseover', () => {
+         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg'
+      })
+      exp.addEventListener('mouseout', () => {
+         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
+
+      })
+      exp.addEventListener('click', () => {
+         if (gifElement.style.width == '260px') {
+
+            favcor.style.marginTop = '20px'
+            favcor.style.marginLeft = '200px'
+            favcor.style.display = 'inline'
+            divHover.style.width = '350px'
+            divHover.style.height = '300px'
+            divHover.style.top = '220px'
+            gifElement.style.width = '350px'
+            gifElement.style.height = '300px'
+            exp.style.visibility = 'hidden'
+            exp2.style.visibility = 'visible'
+         } else {
+            gifElement.style.width = '260px'
+            gifElement.style.height = '200px'
+            favcor.style.marginTop = '200px'
+            favcor.style.marginLeft = '-140px'
+         }
+
+      })
+      exp2.addEventListener('click', () => {
+         favcor.style.marginTop = '20px'
+         favcor.style.marginLeft = '100px';
+         favcor.style.zIndex = '10'
+         favcor.style.display = 'inline'
+         divHover.style.width = '260px'
+         divHover.style.height = '200px'
+         divHover.style.top = '220px'
+         gifElement.style.width = '260px'
+         gifElement.style.height = '200px'
+         exp.style.visibility = 'visible'
+         exp2.style.visibility = 'hidden'
+
+      })
+
+      down.addEventListener('mouseover', () => {
+         down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
+      })
+      down.addEventListener('mouseout', () => {
+         down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
+      })
+   })
+}
 /**
  * muestra la lista actual de favoritos
 */
@@ -770,8 +1206,11 @@ function mostrarFavoritos() {
 
    let gifsFavoritos = document.querySelectorAll('.fotoFavorito')
 
-   asociarHoverFotos(gifsFavoritos)
-
+   if (pantallaDesktop.matches) {
+      asociarEventosFotosDesktop(gifsFavoritos)
+   } else {
+      asociarEventosFotosMobile(gifsFavoritos)
+   }
 }
 
 /***********Pagina de favoritos ********/
@@ -848,18 +1287,15 @@ lupa.addEventListener('click', () => {
 
 scroll.style.overflow = 'scroll'
 
-
-
-
-let mostrartrendingScroll = async () => {
+let mostrarTrendingScroll = async () => {
 
    try {
       let resultado = await fetch(url_trending + '?api_key=' + api_key + '&limit=' + limit)
 
       let json = await resultado.json()
 
-      json.data.forEach(trending => { 
-      
+      json.data.forEach(trending => {
+
          console.log(trending.id)
          scroll.innerHTML += `
          
@@ -869,6 +1305,10 @@ let mostrartrendingScroll = async () => {
          <div id=${trending.id} class='divHover'>
      
              <div id='favcor${trending.id}' class="favcor">
+
+             <img id="close12${trending.id}" class="seleccion23"
+                  src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg">
+
                  <img class="seleccion" id="corazon"
                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
                  <img id="down${trending.id}" class="seleccion"
@@ -884,19 +1324,24 @@ let mostrartrendingScroll = async () => {
              </div>
          </div>
       </div>
-         `    
-         
+         `
+
       });
 
    } catch (error) {
       console.log('error')
    }
+
    let gifsScrolls = document.querySelectorAll('.fotoTrending')
-   asociarHoverFotos(gifsScrolls)
-   //asociarHoverFotos(trending)
-   
+   if (pantallaDesktop.matches) {
+      asociarEventosFotosDesktop(gifsScrolls)
+   } else {
+      asociarEventosFotosTrendingMobile(gifsScrolls)
+   }
+
 }
-mostrartrendingScroll()
+
+mostrarTrendingScroll()
 
 /***Scroll*********** */
 
@@ -1122,7 +1567,7 @@ btn1.addEventListener('click', () => {
    if (creargifos.style.display == 'block') {
       creargifos.style.display = 'none'
       ocultar_todo.style.display = 'block'
-      
+
 
    }
 })
