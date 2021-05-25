@@ -607,12 +607,12 @@ function asociarEventosFotosDesktop(gifElements) {
       unlike.style.marginTop = '-35px'
       unlike.style.width = '30px'
       favcor.style.position = 'relative'
-      favcor.style.marginLeft = '150px'
+      favcor.style.marginLeft = '140px'
       exp2.style.visibility = 'hidden'
       exp2.style.marginLeft = '-37px'
       exp2.style.width = '30px'
       like.style.marginTop = '-37px'
-      like.style.marginLeft = '-20px'
+      like.style.marginLeft = '-37px'
 
 
       unlike.addEventListener('click', () => {
@@ -622,6 +622,7 @@ function asociarEventosFotosDesktop(gifElements) {
          console.log(keys)
          let keysFiltered = keys.filter(key => {
             return key !== gifKey
+            
          })
          console.log(keysFiltered)
 
@@ -640,9 +641,11 @@ function asociarEventosFotosDesktop(gifElements) {
       like.addEventListener('click', () => {
 
          unlike.style.display = 'block'
-         unlike.style.marginLeft = '105px'
+         unlike.style.marginLeft = '55px'
+         seleccion23.style.display = 'none'
          unlike.style.marginTop = '-35px'
          like.style.display = 'none'
+         favcor.style.marginLeft = '15px'
          // Buscar el array de gifKey en el localStorage.
          // Agregar la gifKey nueva en el array.
          //Guardar el array acutalizado en el localStorage.
@@ -741,6 +744,7 @@ function asociarEventosFotosMobile(gifElements) {
       gifElement.addEventListener('click', () => {
          //if (gifElement.style.width == '318px') {
          if (gifElement.getAttribute('expanded') == '0') {
+            console.log('hola gifPrincipal')
             favcor.style.display = 'block'
             favcor.style.marginTop = '-50px'
             favcor.style.display = 'flex'
@@ -753,12 +757,16 @@ function asociarEventosFotosMobile(gifElements) {
             like.style.marginTop = '-97px'
             exp.style.display = 'none'
             like.style.marginLeft = '10px'
+            unlike.style.marginLeft = '30px'
+            unlike.style.marginTop = '-75px'
+            cont44.style.opacity = '0'
             gifElement.style.width = '318px'
             gifElement.style.height = '245px'
             principal4.style.display = 'none'
             principal1.style.display = 'none'
             nav.style.opacity = '0.09'
             gifElement.style.position = 'relative'
+            gifElement.style.left = '20px'
             principal12.style.display = 'none'
             principal3.style.display = 'none'
             mascotas.style.display = 'none'
@@ -772,21 +780,24 @@ function asociarEventosFotosMobile(gifElements) {
             gifElement.setAttribute('expanded', '1')
 
          } else {
+            console.log('volver a la normalidad')
             gifElement.style.width = '156px'
             gifElement.style.height = '120px'
             favcor.style.display = 'none'
             principal4.style.display = 'block'
             principal1.style.display = 'block'
             nav.style.opacity = '1'
-
+            cont44.style.opacity = '1'
             principal12.style.display = 'block'
             principal3.style.display = 'block'
             mascotas.style.display = 'block'
-
+            contenedor1.style.marginLeft = '80px'
+            gifElement.style.marginLeft= '-30px'
             let otrosGifs = document.querySelectorAll('.foto')
             otrosGifs.forEach(gifElement => {
                gifElement.style.display = 'block'
             })
+            
             gifElement.setAttribute('expanded', '0')
          }
 
@@ -948,17 +959,15 @@ function asociarEventosFotosTrendingMobile(gifElements) {
 
 
       gifElement.addEventListener('click', () => {
-         //if (gifElement.style.width == '318px') {
          if (gifElement.getAttribute('expanded') == '0') {
             favcor.style.display = 'block'
-            favcor.style.marginTop = '-50px'
-            favcor.style.display = 'flex'
-            favcor.style.marginTop = '70px'
-            favcor.style.left = '90px'
+            console.log(favcor)
+            //favcor.style.marginTop = '-50px'
+            //favcor.style.display = 'flex'
+            //favcor.style.marginTop = '70px'
+            //favcor.style.left = '90px'
             close12.style.left = '-50px'
             close12.style.top = '-40px'
-            //gifTitle.style.width = '90px'
-
             like.style.marginTop = '-97px'
             exp.style.display = 'none'
             like.style.marginLeft = '10px'
@@ -967,11 +976,12 @@ function asociarEventosFotosTrendingMobile(gifElements) {
             principal4.style.display = 'none'
             principal1.style.display = 'none'
             nav.style.opacity = '0.09'
-            gifElement.style.position = 'relative'
-            //principal12.style.display = 'none'
+            gifElement.style.justifyContent = 'center'
             principal3.style.display = 'none'
             mascotas.style.display = 'none'
-
+            //cont44.style.opacity = '1'
+console.log('hola scroll')
+            //scroll Fotos
             let otrosGifs = document.querySelectorAll('.fotoTrending')
             otrosGifs.forEach(gifElement => {
                if (gifElement.getAttribute('key') !== gifKey) {
@@ -981,8 +991,7 @@ function asociarEventosFotosTrendingMobile(gifElements) {
                   contenedor1.style.display = 'none'
                   btn3.style.display = 'none'
                   cont44.style.opacity = '0'
-                  //favcor.style.display = 'none'
-
+                  favcor.style.display = 'block'   
                }
             })
             gifElement.setAttribute('expanded', '1')
@@ -990,7 +999,7 @@ function asociarEventosFotosTrendingMobile(gifElements) {
          } else {
             gifElement.style.width = '243px'
             gifElement.style.height = '187px'
-            favcor.style.display = 'block'
+            favcor.style.display = 'none'
             principal4.style.display = 'block'
             principal1.style.display = 'block'
             nav.style.opacity = '1'
@@ -1000,16 +1009,16 @@ function asociarEventosFotosTrendingMobile(gifElements) {
             cont44.style.opacity = '1'
             principal3.style.display = 'block'
             mascotas.style.display = 'block'
-
+            gifos.style.display = 'block'
+            contenedor1.style.display = 'block'
+      
             let otrosGifs = document.querySelectorAll('.fotoTrending')
             otrosGifs.forEach(gifElement => {
-               gifElement.style.display = 'block'
+               gifElement.style.display = 'block'  
             })
-            gifElement.setAttribute('expanded', '0')
+            gifElement.setAttribute('expanded', '0')  
          }
-
       })
-
       //Traer el array de keys
       //Usar el metodo includes() de la clase array para saber si el gifkey esta incluido.
       //si esta incluido mostrar el unlike y ocultar el like. Si no ocltar el unlike y mostrar el like.

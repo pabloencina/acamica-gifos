@@ -415,7 +415,6 @@
     #scroll img {
         width: 243px;
         height: 187px;
-        /*justify-content: space-evenly;*/
         margin: 0.9375rem;
     }
     .foto4 > .divHover {
@@ -426,6 +425,7 @@
     }
     .favcor{
         display: none;
+        justify-content:center ;
     }
     /**********************Footer****************/
     #cont44 {
@@ -713,11 +713,7 @@
         text-align: center;
         line-height: 2.5rem;
     }
-    .foto1 {
-        position:absolute;
-        width: 260px;
-        height: 12.5rem;
-    }
+    
     .foto {
         width: 260px;
         height: 12.5rem;
@@ -734,7 +730,7 @@
         z-index: 0;
         display: block;
     }
-/*
+
     .divHover {
         width: 16.25rem;
         height: 12.5rem;
@@ -746,7 +742,7 @@
         z-index: 10;
         display: none;
     }
-*/
+
     #principal2 {
         display: flex;
         flex-wrap: wrap;
@@ -903,6 +899,11 @@
         align-items: center;
         display: none;
     }
+    .seleccion23{
+        display: 'none';
+        position: absolute;
+        opacity: 0;
+    }
     #boton {
         width: 7.5rem;
         height: 3.125rem;
@@ -962,7 +963,8 @@
         margin-left: 20px;
         margin-top: -280px;
         background-color: #572ee5;
-        opacity: 0.7;    
+        opacity: 0.7; 
+        display: none;   
     }
     .sig {
         position: absolute;
