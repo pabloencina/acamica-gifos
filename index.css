@@ -480,7 +480,7 @@
     body {
         background-color: var(--color-primary);
     }
-    /*******BArra de navegacion DESCKTOP*****/
+    /*******Barra de navegación DESKTOP*****/
     nav {
         display: flex;
         justify-content: center;
@@ -713,7 +713,7 @@
         text-align: center;
         line-height: 2.5rem;
     }
-    
+
     .foto {
         width: 260px;
         height: 12.5rem;

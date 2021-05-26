@@ -159,7 +159,7 @@ let cont44 = document.getElementById('cont44')
 
 //// Immediately invoked function to set the theme on initial load
 /*
-(function () {
+function () {
    if (localStorage.getItem('theme') === 'theme-dark') {
       setTheme('theme-dark');
       
@@ -168,8 +168,8 @@ let cont44 = document.getElementById('cont44')
       
    }
 })();
-
 */
+
 // function to toggle between light and dark theme
 
 switchThemeDesktop.addEventListener('click', (event) => {
@@ -580,7 +580,6 @@ function asociarEventosFotosDesktop(gifElements) {
          favcor.style.display = 'none'
       })
 
-
       //Traer el array de keys
       //Usar el metodo includes() de la clase array para saber si el gifkey esta incluido.
       //si esta incluido mostrar el unlike y ocultar el like. Si no ocltar el unlike y mostrar el like.
@@ -591,7 +590,6 @@ function asociarEventosFotosDesktop(gifElements) {
       } else {
          keys = keysString.split(",")
       }
-      console.log(keys)
 
       if (keys.includes(gifKey)) {
          unlike.style.display = 'block'
@@ -614,17 +612,14 @@ function asociarEventosFotosDesktop(gifElements) {
       like.style.marginTop = '-37px'
       like.style.marginLeft = '-37px'
 
-
       unlike.addEventListener('click', () => {
-         console.log('click unlike')
+
          let keysString = localStorage.getItem('arrayK')
          let keys = keysString.split(",")
-         console.log(keys)
+
          let keysFiltered = keys.filter(key => {
             return key !== gifKey
-            
          })
-         console.log(keysFiltered)
 
          localStorage.setItem('arrayK', keysFiltered)
          mostrarFavoritos()
@@ -669,39 +664,33 @@ function asociarEventosFotosDesktop(gifElements) {
       exp.addEventListener('mouseover', () => {
          exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg'
       })
+
       exp.addEventListener('mouseout', () => {
          exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
-
       })
+
       exp.addEventListener('click', () => {
-         if (gifElement.style.width == '260px') {
-
-            favcor.style.marginTop = '20px'
-            favcor.style.marginLeft = '200px'
-            favcor.style.display = 'inline'
-            divHover.style.width = '350px'
-            divHover.style.height = '300px'
-            divHover.style.top = '220px'
-            gifElement.style.width = '350px'
-            gifElement.style.height = '300px'
-            exp.style.visibility = 'hidden'
-            exp2.style.visibility = 'visible'
-         } else {
-            gifElement.style.width = '260px'
-            gifElement.style.height = '200px'
-            favcor.style.marginTop = '200px'
-            favcor.style.marginLeft = '-140px'
-         }
-
+         favcor.style.marginTop = '20px'
+         favcor.style.marginLeft = '200px'
+         favcor.style.display = 'inline'
+         divHover.style.width = '350px'
+         divHover.style.height = '300px'
+         divHover.style.marginTop = '-300px'
+         gifElement.style.width = '350px'
+         gifElement.style.height = '300px'
+         exp.style.visibility = 'hidden'
+         exp2.style.visibility = 'visible'
       })
+
       exp2.addEventListener('click', () => {
          favcor.style.marginTop = '20px'
          favcor.style.marginLeft = '100px';
          favcor.style.zIndex = '10'
          favcor.style.display = 'inline'
+         divHover.style.marginTop = '-200px'
          divHover.style.width = '260px'
          divHover.style.height = '200px'
-         divHover.style.top = '220px'
+         //divHover.style.top = '220px'
          gifElement.style.width = '260px'
          gifElement.style.height = '200px'
          exp.style.visibility = 'visible'
@@ -712,12 +701,169 @@ function asociarEventosFotosDesktop(gifElements) {
       down.addEventListener('mouseover', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
       })
+
       down.addEventListener('mouseout', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
       })
+
    })
+
 }
 
+function asociarEventosFotosTrendingDesktop(gifElements) {
+   //let favcor = document.getElementById('favcor')
+   gifElements.forEach(gifElement => {
+
+      let gifKey = gifElement.getAttribute('key')
+      let gifSrc = gifElement.getAttribute('src')
+      let divHover = document.getElementById(gifKey)
+      let favcor = document.getElementById('favcor' + gifKey)
+      let like = document.getElementById('like' + gifKey)
+      let unlike = document.getElementById('unlike' + gifKey)
+      //let giftitle = document.getElementById('giftitle' + gifKey)
+      let exp = document.getElementById('exp' + gifKey)
+      let exp2 = document.getElementById('exp2' + gifKey)
+      let down = document.getElementById('down' + gifKey)
+
+      gifElement.addEventListener('mouseover', () => {
+         divHover.style.display = 'block'
+         favcor.style.display = 'block'
+      })
+
+      divHover.addEventListener('mouseout', () => {
+         divHover.style.display = 'none'
+         favcor.style.display = 'none'
+      })
+
+      //Traer el array de keys
+      //Usar el metodo includes() de la clase array para saber si el gifkey esta incluido.
+      //si esta incluido mostrar el unlike y ocultar el like. Si no ocltar el unlike y mostrar el like.
+      let keysString = localStorage.getItem('arrayK')
+      let keys
+      if (keysString == null || keysString == "") {
+         keys = []
+      } else {
+         keys = keysString.split(",")
+      }
+
+      if (keys.includes(gifKey)) {
+         unlike.style.display = 'block'
+         like.style.display = 'none'
+      } else {
+         unlike.style.display = 'none'
+         like.style.display = 'block'
+      }
+
+      unlike.style.background = 'white'
+      unlike.style.borderRadius = '5px'
+      unlike.style.marginLeft = '-37px'
+      unlike.style.marginTop = '-35px'
+      unlike.style.width = '30px'
+      favcor.style.position = 'relative'
+      favcor.style.marginLeft = '140px'
+      exp2.style.visibility = 'hidden'
+      exp2.style.marginLeft = '-37px'
+      exp2.style.width = '30px'
+      like.style.marginTop = '-37px'
+      like.style.marginLeft = '-37px'
+
+      unlike.addEventListener('click', () => {
+
+         let keysString = localStorage.getItem('arrayK')
+         let keys = keysString.split(",")
+
+         let keysFiltered = keys.filter(key => {
+            return key !== gifKey
+         })
+
+         localStorage.setItem('arrayK', keysFiltered)
+         mostrarFavoritos()
+      })
+
+      like.addEventListener('mouseover', () => {
+         like.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-hover.svg'
+      })
+
+      like.addEventListener('mouseout', () => {
+         like.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg'
+      })
+
+      like.addEventListener('click', () => {
+
+         unlike.style.display = 'block'
+         unlike.style.marginLeft = '55px'
+         seleccion23.style.display = 'none'
+         unlike.style.marginTop = '-35px'
+         like.style.display = 'none'
+         favcor.style.marginLeft = '15px'
+         // Buscar el array de gifKey en el localStorage.
+         // Agregar la gifKey nueva en el array.
+         //Guardar el array acutalizado en el localStorage.
+         let keysString = localStorage.getItem('arrayK')
+         let keys
+         if (keysString == null || keysString == "") {
+            keys = []
+         } else {
+            keys = keysString.split(",")
+         }
+
+         keys.push(gifKey)
+         localStorage.setItem('arrayK', keys)
+
+         //Guardar el sorce del gifcon el gifkey correspondiente en el localStorage.
+         localStorage.setItem(gifKey, gifSrc)
+
+
+      })
+
+      exp.addEventListener('mouseover', () => {
+         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg'
+      })
+
+      exp.addEventListener('mouseout', () => {
+         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
+      })
+
+      exp.addEventListener('click', () => {
+         favcor.style.marginTop = '20px'
+         favcor.style.marginLeft = '200px'
+         favcor.style.display = 'inline'
+         divHover.style.width = '350px'
+         divHover.style.height = '300px'
+         divHover.style.marginTop = '-300px'
+         gifElement.style.width = '350px'
+         gifElement.style.height = '300px'
+         exp.style.visibility = 'hidden'
+         exp2.style.visibility = 'visible'
+      })
+
+      exp2.addEventListener('click', () => {
+         favcor.style.marginTop = '20px'
+         favcor.style.marginLeft = '100px';
+         favcor.style.zIndex = '10'
+         favcor.style.display = 'inline'
+         divHover.style.marginTop = '-200px'
+         divHover.style.width = '260px'
+         divHover.style.height = '200px'
+         //divHover.style.top = '220px'
+         gifElement.style.width = '260px'
+         gifElement.style.height = '200px'
+         exp.style.visibility = 'visible'
+         exp2.style.visibility = 'hidden'
+
+      })
+
+      down.addEventListener('mouseover', () => {
+         down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
+      })
+
+      down.addEventListener('mouseout', () => {
+         down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
+      })
+
+   })
+
+}
 
 
 function asociarEventosFotosMobile(gifElements) {
@@ -738,13 +884,13 @@ function asociarEventosFotosMobile(gifElements) {
       let down = document.getElementById('down' + gifKey)
 
 
-      console.log(gifKey)
+
 
 
       gifElement.addEventListener('click', () => {
          //if (gifElement.style.width == '318px') {
          if (gifElement.getAttribute('expanded') == '0') {
-            console.log('hola gifPrincipal')
+
             favcor.style.display = 'block'
             favcor.style.marginTop = '-50px'
             favcor.style.display = 'flex'
@@ -780,7 +926,7 @@ function asociarEventosFotosMobile(gifElements) {
             gifElement.setAttribute('expanded', '1')
 
          } else {
-            console.log('volver a la normalidad')
+
             gifElement.style.width = '156px'
             gifElement.style.height = '120px'
             favcor.style.display = 'none'
@@ -792,12 +938,12 @@ function asociarEventosFotosMobile(gifElements) {
             principal3.style.display = 'block'
             mascotas.style.display = 'block'
             contenedor1.style.marginLeft = '80px'
-            gifElement.style.marginLeft= '-30px'
+            gifElement.style.marginLeft = '-30px'
             let otrosGifs = document.querySelectorAll('.foto')
             otrosGifs.forEach(gifElement => {
                gifElement.style.display = 'block'
             })
-            
+
             gifElement.setAttribute('expanded', '0')
          }
 
@@ -813,7 +959,7 @@ function asociarEventosFotosMobile(gifElements) {
       } else {
          keys = keysString.split(",")
       }
-      console.log(keys)
+
 
       if (keys.includes(gifKey)) {
          unlike.style.display = 'block'
@@ -838,14 +984,13 @@ function asociarEventosFotosMobile(gifElements) {
 
 
       unlike.addEventListener('click', () => {
-         console.log('click unlike')
+
          let keysString = localStorage.getItem('arrayK')
          let keys = keysString.split(",")
-         console.log(keys)
+
          let keysFiltered = keys.filter(key => {
             return key !== gifKey
          })
-         console.log(keysFiltered)
 
          localStorage.setItem('arrayK', keysFiltered)
          mostrarFavoritos()
@@ -892,7 +1037,7 @@ function asociarEventosFotosMobile(gifElements) {
          exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
 
       })
-      exp.addEventListener('click', () => {
+      /*exp.addEventListener('click', () => {
          if (gifElement.style.width == '260px') {
 
             favcor.style.marginTop = '20px'
@@ -927,7 +1072,7 @@ function asociarEventosFotosMobile(gifElements) {
          exp2.style.visibility = 'hidden'
 
       })
-
+*/
       down.addEventListener('mouseover', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
       })
@@ -955,13 +1100,13 @@ function asociarEventosFotosTrendingMobile(gifElements) {
       let down = document.getElementById('down' + gifKey)
 
 
-      console.log(gifKey)
+
 
 
       gifElement.addEventListener('click', () => {
          if (gifElement.getAttribute('expanded') == '0') {
             favcor.style.display = 'block'
-            console.log(favcor)
+
             //favcor.style.marginTop = '-50px'
             //favcor.style.display = 'flex'
             //favcor.style.marginTop = '70px'
@@ -980,7 +1125,7 @@ function asociarEventosFotosTrendingMobile(gifElements) {
             principal3.style.display = 'none'
             mascotas.style.display = 'none'
             //cont44.style.opacity = '1'
-console.log('hola scroll')
+
             //scroll Fotos
             let otrosGifs = document.querySelectorAll('.fotoTrending')
             otrosGifs.forEach(gifElement => {
@@ -991,7 +1136,7 @@ console.log('hola scroll')
                   contenedor1.style.display = 'none'
                   btn3.style.display = 'none'
                   cont44.style.opacity = '0'
-                  favcor.style.display = 'block'   
+                  favcor.style.display = 'block'
                }
             })
             gifElement.setAttribute('expanded', '1')
@@ -1011,12 +1156,12 @@ console.log('hola scroll')
             mascotas.style.display = 'block'
             gifos.style.display = 'block'
             contenedor1.style.display = 'block'
-      
+
             let otrosGifs = document.querySelectorAll('.fotoTrending')
             otrosGifs.forEach(gifElement => {
-               gifElement.style.display = 'block'  
+               gifElement.style.display = 'block'
             })
-            gifElement.setAttribute('expanded', '0')  
+            gifElement.setAttribute('expanded', '0')
          }
       })
       //Traer el array de keys
@@ -1029,7 +1174,7 @@ console.log('hola scroll')
       } else {
          keys = keysString.split(",")
       }
-      console.log(keys)
+
 
       if (keys.includes(gifKey)) {
          unlike.style.display = 'block'
@@ -1054,14 +1199,13 @@ console.log('hola scroll')
 
 
       unlike.addEventListener('click', () => {
-         console.log('click unlike')
+
          let keysString = localStorage.getItem('arrayK')
          let keys = keysString.split(",")
-         console.log(keys)
          let keysFiltered = keys.filter(key => {
             return key !== gifKey
          })
-         console.log(keysFiltered)
+
 
          localStorage.setItem('arrayK', keysFiltered)
          mostrarFavoritos()
@@ -1158,7 +1302,7 @@ console.log('hola scroll')
 
 function mostrarFavoritos() {
 
-   console.log(mostrarFavoritos)
+
    principal6.innerHTML = '' // Limpiar la seccion para que no muestre el contenido anterior que tenia.
 
    let keysString = localStorage.getItem('arrayK')//busca en el localStorage un array de gifkey de los gif donde le fueron dando like.
@@ -1167,7 +1311,7 @@ function mostrarFavoritos() {
    } else {
       keys = keysString.split(",")
    } // Convertir toda la cadena en arreglos de strings.
-   console.log(keys)
+
 
    /***NO HAY FAVORITOS **********/
    if (keysString === "") {
@@ -1305,7 +1449,7 @@ let mostrarTrendingScroll = async () => {
 
       json.data.forEach(trending => {
 
-         console.log(trending.id)
+
          scroll.innerHTML += `
          
       <div class='foto4'>
@@ -1318,8 +1462,7 @@ let mostrarTrendingScroll = async () => {
              <img id="close12${trending.id}" class="seleccion23"
                   src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg">
 
-                 <img class="seleccion" id="corazon"
-                     src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
+                 
                  <img id="down${trending.id}" class="seleccion"
                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
                  <img id="exp${trending.id}" class="seleccion"
@@ -1343,7 +1486,7 @@ let mostrarTrendingScroll = async () => {
 
    let gifsScrolls = document.querySelectorAll('.fotoTrending')
    if (pantallaDesktop.matches) {
-      asociarEventosFotosDesktop(gifsScrolls)
+      asociarEventosFotosTrendingDesktop(gifsScrolls)
    } else {
       asociarEventosFotosTrendingMobile(gifsScrolls)
    }
