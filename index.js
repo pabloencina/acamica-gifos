@@ -565,7 +565,7 @@ function asociarEventosFotosDesktop(gifElements) {
       let favcor = document.getElementById('favcor' + gifKey)
       let like = document.getElementById('like' + gifKey)
       let unlike = document.getElementById('unlike' + gifKey)
-      //let giftitle = document.getElementById('giftitle' + gifKey)
+      let giftitle = document.getElementById('giftitle' + gifKey)
       let exp = document.getElementById('exp' + gifKey)
       let exp2 = document.getElementById('exp2' + gifKey)
       let down = document.getElementById('down' + gifKey)
@@ -611,6 +611,7 @@ function asociarEventosFotosDesktop(gifElements) {
       exp2.style.width = '30px'
       like.style.marginTop = '-37px'
       like.style.marginLeft = '-37px'
+      giftitle.style.color = 'white'
 
       unlike.addEventListener('click', () => {
 
@@ -711,7 +712,7 @@ function asociarEventosFotosDesktop(gifElements) {
 }
 
 function asociarEventosFotosTrendingDesktop(gifElements) {
-   //let favcor = document.getElementById('favcor')
+   
    gifElements.forEach(gifElement => {
 
       let gifKey = gifElement.getAttribute('key')
@@ -720,10 +721,11 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       let favcor = document.getElementById('favcor' + gifKey)
       let like = document.getElementById('like' + gifKey)
       let unlike = document.getElementById('unlike' + gifKey)
-      //let giftitle = document.getElementById('giftitle' + gifKey)
       let exp = document.getElementById('exp' + gifKey)
       let exp2 = document.getElementById('exp2' + gifKey)
       let down = document.getElementById('down' + gifKey)
+      let close12 = document.getElementById('close12' + gifKey)
+      //let giftitle = document.getElementById('giftitle' + gifKey )
 
       gifElement.addEventListener('mouseover', () => {
          divHover.style.display = 'block'
@@ -760,12 +762,14 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       unlike.style.marginTop = '-35px'
       unlike.style.width = '30px'
       favcor.style.position = 'relative'
-      favcor.style.marginLeft = '140px'
+      favcor.style.marginLeft = '250px'
+      favcor.style.marginTop = '30px'
       exp2.style.visibility = 'hidden'
       exp2.style.marginLeft = '-37px'
       exp2.style.width = '30px'
       like.style.marginTop = '-37px'
       like.style.marginLeft = '-37px'
+      giftitle.style.color = 'white'
 
       unlike.addEventListener('click', () => {
 
@@ -791,11 +795,10 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       like.addEventListener('click', () => {
 
          unlike.style.display = 'block'
-         unlike.style.marginLeft = '55px'
-         seleccion23.style.display = 'none'
+         unlike.style.marginLeft = '-40px'
          unlike.style.marginTop = '-35px'
          like.style.display = 'none'
-         favcor.style.marginLeft = '15px'
+         favcor.style.marginLeft = '250px'
          // Buscar el array de gifKey en el localStorage.
          // Agregar la gifKey nueva en el array.
          //Guardar el array acutalizado en el localStorage.
@@ -825,33 +828,45 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       })
 
       exp.addEventListener('click', () => {
-         favcor.style.marginTop = '20px'
-         favcor.style.marginLeft = '200px'
+         favcor.style.marginTop = '300px'
+         favcor.style.marginLeft = '650px'
+         like.style.marginTop = '-75px'
          favcor.style.display = 'inline'
-         divHover.style.width = '350px'
-         divHover.style.height = '300px'
-         divHover.style.marginTop = '-300px'
-         gifElement.style.width = '350px'
-         gifElement.style.height = '300px'
-         exp.style.visibility = 'hidden'
-         exp2.style.visibility = 'visible'
+         divHover.style.width = '0px'
+         gifos.style.opacity = '0'
+         contenedor1.style.opacity = '0'
+         gifElement.style.zIndex = '1'
+         scroll.style.height = '100%'
+         gifElement.style.width = '695px'
+         gifElement.style.height = '385px'
+         exp.style.opacity = '0'
+         close12.style.display = 'block'
+         close12.style.marginLeft = '55px'
+         close12.style.marginTop = '-420px'
+         close12.style.opacity = '1'
+         close12.style.position = 'absolute'
+         unlike.style.marginTop = '-70px'
       })
-
-      exp2.addEventListener('click', () => {
-         favcor.style.marginTop = '20px'
-         favcor.style.marginLeft = '100px';
-         favcor.style.zIndex = '10'
-         favcor.style.display = 'inline'
-         divHover.style.marginTop = '-200px'
-         divHover.style.width = '260px'
-         divHover.style.height = '200px'
-         //divHover.style.top = '220px'
-         gifElement.style.width = '260px'
-         gifElement.style.height = '200px'
-         exp.style.visibility = 'visible'
-         exp2.style.visibility = 'hidden'
-
+      
+      close12.addEventListener('click',()=>{
+         gifElement.style.width='357px'
+         gifElement.style.height = '275px'
+         divHover.style.width = '357px'
+         divHover.style.height = '275px'
+         
+         close12.style.display = 'none'
+         favcor.style.marginTop = '30px'
+         favcor.style.marginLeft = '260px'
+         exp.style.marginLeft = '45px'
+         exp.style.top = '-20px'
+         exp.style.opacity = '1'
+         exp.style.position = 'relative'
+         gifos.style.opacity = '1'
+         contenedor1.style.opacity = '1'
+         unlike.style.marginTop = '-53px'
+         //scroll.style.width = '78%'
       })
+      
 
       down.addEventListener('mouseover', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
@@ -1037,42 +1052,7 @@ function asociarEventosFotosMobile(gifElements) {
          exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
 
       })
-      /*exp.addEventListener('click', () => {
-         if (gifElement.style.width == '260px') {
-
-            favcor.style.marginTop = '20px'
-            favcor.style.marginLeft = '200px'
-            favcor.style.display = 'inline'
-            divHover.style.width = '350px'
-            divHover.style.height = '300px'
-            divHover.style.top = '220px'
-            gifElement.style.width = '350px'
-            gifElement.style.height = '300px'
-            exp.style.visibility = 'hidden'
-            exp2.style.visibility = 'visible'
-         } else {
-            gifElement.style.width = '260px'
-            gifElement.style.height = '200px'
-            favcor.style.marginTop = '200px'
-            favcor.style.marginLeft = '-140px'
-         }
-
-      })
-      exp2.addEventListener('click', () => {
-         favcor.style.marginTop = '20px'
-         favcor.style.marginLeft = '100px';
-         favcor.style.zIndex = '10'
-         favcor.style.display = 'inline'
-         divHover.style.width = '260px'
-         divHover.style.height = '200px'
-         divHover.style.top = '220px'
-         gifElement.style.width = '260px'
-         gifElement.style.height = '200px'
-         exp.style.visibility = 'visible'
-         exp2.style.visibility = 'hidden'
-
-      })
-*/
+      
       down.addEventListener('mouseover', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
       })
@@ -1439,7 +1419,7 @@ lupa.addEventListener('click', () => {
 /**Creación del carrusell */
 
 scroll.style.overflow = 'scroll'
-
+scroll.style.overflow = 'hidden'
 let mostrarTrendingScroll = async () => {
 
    try {
@@ -1473,6 +1453,7 @@ let mostrarTrendingScroll = async () => {
                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
                  <img id="unlike${trending.id}" class="seleccion"
                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
+                     <p id="giftitle${trending.title}" class="gifTitle">${trending.title}</p>
              </div>
          </div>
       </div>
@@ -1498,11 +1479,11 @@ mostrarTrendingScroll()
 /***Scroll*********** */
 
 scrollLeft.addEventListener('click', () => {
-   scroll.scrollBy(-740, 0)
+   scroll.scrollBy(-380, 0)
 })
 
 scrollRigth.addEventListener('click', () => {
-   scroll.scrollBy(740, 0)
+   scroll.scrollBy(380, 0)
 })
 /*Funcionalidad boton CREAR Gifs*****/
 

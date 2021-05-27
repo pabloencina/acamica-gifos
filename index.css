@@ -944,12 +944,15 @@
     #scroll {
         position: relative;
         width: 78%;
-        height: 20.625rem;
+        height: 330px;
         align-items: center;
         display: inline-flex;
         justify-content: space-between;
+        overflow: hidden;
     }
-    
+::-webkit-scrollbar{
+    display: none;
+}
     .fotoTrending {
         width: 360px;
         height: 275px;
