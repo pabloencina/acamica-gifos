@@ -154,6 +154,7 @@ let gifos = document.getElementById('gifos')
 let contenedor1 = document.getElementById('contenedor1')
 
 let cont44 = document.getElementById('cont44')
+let contenedor2 = document.getElementById('contenedor2')
 
 /**MODO NOCTURNO******************* */
 
@@ -1428,6 +1429,9 @@ function mostrarFavoritos() {
           <div id='${gifKey}' class='divHover'>
       
               <div id='favcor${gifKey}' class="favcor">
+
+              <img id="close12${gifKey}" class="seleccion23"
+              src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg">
       
                   <img id="down${gifKey}" class="seleccion"
                       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
@@ -1444,6 +1448,8 @@ function mostrarFavoritos() {
       
                   <img id="unlike${gifKey}" class="seleccion"
                       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon"> 
+                  
+                     
               </div>
           </div>
       </div>
@@ -1455,6 +1461,7 @@ function mostrarFavoritos() {
 
    if (pantallaDesktop.matches) {
       asociarEventosFotosDesktop(gifsFavoritos)
+     
    } else {
       asociarEventosFotosMobile(gifsFavoritos)
    }
@@ -1470,7 +1477,7 @@ function asociarEventosFotosDesktop(gifsFavoritos) {
       let favcor = document.getElementById('favcor' + gifKey)
       let like = document.getElementById('like' + gifKey)
       let unlike = document.getElementById('unlike' + gifKey)
-      let giftitle = document.getElementById('giftitle' + gifKey)
+      //let giftitle = document.getElementById('giftitle' + gifKey)
       let exp = document.getElementById('exp' + gifKey)
       let close12 = document.getElementById('close12' + gifKey)
       let down = document.getElementById('down' + gifKey)
@@ -1519,10 +1526,10 @@ function asociarEventosFotosDesktop(gifsFavoritos) {
       //exp2.style.width = '30px'
       like.style.marginTop = '-35px'
       like.style.marginLeft = '-37px'
-      giftitle.style.color = 'white'
-      giftitle.style.marginLeft = '-135px'
-      giftitle.style.marginTop = '120px'
-      giftitle.style.fontSize = '14px'
+      //giftitle.style.color = 'white'
+      //giftitle.style.marginLeft = '-135px'
+      //giftitle.style.marginTop = '120px'
+      //giftitle.style.fontSize = '14px'
 
       unlike.addEventListener('click', () => {
 
@@ -1588,10 +1595,10 @@ function asociarEventosFotosDesktop(gifsFavoritos) {
          close12.style.position = 'absolute'
          close12.style.marginTop = '-530px'
          close12.style.marginLeft = '50px'
-         giftitle.style.marginTop = '-20px'
-         giftitle.style.marginLeft = '-650px'
-         giftitle.style.color = 'black'
-         giftitle.style.fontSize = '14px'
+         //giftitle.style.marginTop = '-20px'
+         //giftitle.style.marginLeft = '-650px'
+         //giftitle.style.color = 'black'
+        // giftitle.style.fontSize = '14px'
          gifElement.style.width = '695px'
          gifElement.style.height = '385px'
          exp.style.visibility = 'hidden'
@@ -1608,8 +1615,9 @@ function asociarEventosFotosDesktop(gifsFavoritos) {
          cont44.style.opacity = '0'
          principal12.style.opacity = '0'
          divHover.style.width = '0'
+         contenedor2.style.opacity = '0'
 
-         let otrosGifs = document.querySelectorAll('.foto')
+         let otrosGifs = document.querySelectorAll('.fotoFavorito')
          otrosGifs.forEach(gifElement => {
             if (gifElement.getAttribute('key') !== gifKey) {
 
@@ -1637,9 +1645,9 @@ function asociarEventosFotosDesktop(gifsFavoritos) {
          contenedor1.style.opacity = '1'
          unlike.style.marginLeft = '-37px'
          unlike.style.marginTop = '-35px'
-         giftitle.style.color = 'white'
-         giftitle.style.marginTop = '190px'
-         giftitle.style.marginLeft = '-250px'
+         //giftitle.style.color = 'white'
+         //giftitle.style.marginTop = '190px'
+        // giftitle.style.marginLeft = '-250px'
          down.style.marginTop = '-75px'
          like.style.marginTop = '-35px'
          principal1.style.opacity = '1'
@@ -1653,8 +1661,9 @@ function asociarEventosFotosDesktop(gifsFavoritos) {
          mascotas.style.opacity = '1'
          principal3.style.opacity = '1'
          principal2.style.opacity = '1'
+         contenedor2.style.opacity = '1'
 
-         let otrosGifs = document.querySelectorAll('.foto')
+         let otrosGifs = document.querySelectorAll('.fotoFavorito')
          otrosGifs.forEach(gifElement => {
             if (gifElement.getAttribute('key') !== gifKey) {
 
