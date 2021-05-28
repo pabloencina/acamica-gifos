@@ -975,12 +975,12 @@
     #scrollLeft {
         position: absolute;
         height: 3.125rem;
-        margin-right: 75rem;
+        margin-right: 1200px;
         margin-top: 14.375rem;
     }
     #scrollRigth {
         position: absolute;
-        margin-left: 71.25rem;
+        margin-left: 1140px;
         margin-top: 14.375rem;
     }
     button {

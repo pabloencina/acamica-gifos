@@ -615,6 +615,9 @@ function asociarEventosFotosDesktop(gifElements) {
       like.style.marginTop = '-35px'
       like.style.marginLeft = '-37px'
       giftitle.style.color = 'white'
+      giftitle.style.marginLeft = '-135px'
+      giftitle.style.marginTop = '120px'
+      giftitle.style.fontSize = '14px'
 
       unlike.addEventListener('click', () => {
 
@@ -680,8 +683,10 @@ function asociarEventosFotosDesktop(gifElements) {
          close12.style.position = 'absolute'
          close12.style.marginTop = '-530px'
          close12.style.marginLeft = '50px'
-         //favcor.style.display = 'inline'
-         divHover.style.width = '0px'
+         giftitle.style.marginTop = '-20px'
+         giftitle.style.marginLeft = '-650px'
+         giftitle.style.color = 'black'
+         giftitle.style.fontSize = '14px'
          gifElement.style.width = '695px'
          gifElement.style.height = '385px'
          exp.style.visibility = 'hidden'
@@ -697,6 +702,7 @@ function asociarEventosFotosDesktop(gifElements) {
          nav.style.opacity = '0'
          cont44.style.opacity = '0'
          principal12.style.opacity = '0'
+         divHover.style.width = '0'
 
          let otrosGifs = document.querySelectorAll('.foto')
          otrosGifs.forEach(gifElement => {
@@ -715,7 +721,7 @@ function asociarEventosFotosDesktop(gifElements) {
          divHover.style.width = '260px'
          divHover.style.height = '200px'
          close12.style.display = 'none'
-         favcor.style.marginTop = '35px'
+         favcor.style.marginTop = '25px'
          favcor.style.marginLeft = '150px'
          exp.style.marginLeft = '15px'
          exp.style.marginTop = '-17px'
@@ -820,6 +826,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       favcor.style.position = 'relative'
       favcor.style.marginLeft = '250px'
       favcor.style.marginTop = '30px'
+      favcor.style.position = 'relative'
       exp2.style.visibility = 'hidden'
       exp2.style.marginLeft = '-37px'
       exp2.style.width = '30px'
@@ -829,6 +836,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       giftitle.style.marginTop = '180px'
       giftitle.style.marginLeft = '-220px'
       giftitle.style.position = 'relative'
+      close12.style.display = 'none'
 
       unlike.addEventListener('click', () => {
 
@@ -905,6 +913,8 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          close12.style.marginTop = '-420px'
          close12.style.opacity = '1'
          close12.style.position = 'absolute'
+         siguiente1.style.display = 'none'
+         scrollLeftImg.style.display = 'none'
          unlike.style.marginTop = '-70px'
          giftitle.style.color = 'black'
          giftitle.style.marginLeft = '-720px'
@@ -950,6 +960,9 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          giftitle.style.marginLeft = '-250px'
          like.style.marginTop = '-55px'
          unlike.style.marginTop = '-35px'
+         siguiente1.style.display = 'block'
+         siguiente1.style.marginLeft = '60px'
+         scrollLeftImg.style.display = 'block'
 
          let otrosGifs = document.querySelectorAll('.fotoTrending')
          otrosGifs.forEach(gifElement => {
@@ -1447,6 +1460,223 @@ function mostrarFavoritos() {
    }
 }
 
+function asociarEventosFotosDesktop(gifsFavoritos) {
+   //let favcor = document.getElementById('favcor')
+   gifsFavoritos.forEach(gifElement => {
+
+      let gifKey = gifElement.getAttribute('key')
+      let gifSrc = gifElement.getAttribute('src')
+      let divHover = document.getElementById(gifKey)
+      let favcor = document.getElementById('favcor' + gifKey)
+      let like = document.getElementById('like' + gifKey)
+      let unlike = document.getElementById('unlike' + gifKey)
+      let giftitle = document.getElementById('giftitle' + gifKey)
+      let exp = document.getElementById('exp' + gifKey)
+      let close12 = document.getElementById('close12' + gifKey)
+      let down = document.getElementById('down' + gifKey)
+      let exp2 = document.getElementById('exp2' + gifKey)
+
+      gifElement.addEventListener('mouseover', () => {
+         divHover.style.display = 'block'
+         favcor.style.display = 'block'
+      })
+
+      divHover.addEventListener('mouseout', () => {
+         divHover.style.display = 'none'
+         favcor.style.display = 'none'
+      })
+
+      //Traer el array de keys
+      //Usar el metodo includes() de la clase array para saber si el gifkey esta incluido.
+      //si esta incluido mostrar el unlike y ocultar el like. Si no ocltar el unlike y mostrar el like.
+      let keysString = localStorage.getItem('arrayK')
+      let keys
+      if (keysString == null || keysString == "") {
+         keys = []
+      } else {
+         keys = keysString.split(",")
+      }
+
+      if (keys.includes(gifKey)) {
+         unlike.style.display = 'block'
+         like.style.display = 'none'
+      } else {
+         unlike.style.display = 'none'
+         like.style.display = 'block'
+      }
+
+      unlike.style.background = 'white'
+      unlike.style.borderRadius = '5px'
+      unlike.style.marginLeft = '-37px'
+      unlike.style.marginTop = '-35px'
+      unlike.style.width = '30px'
+      favcor.style.position = 'relative'
+      favcor.style.marginLeft = '140px'
+      exp2.style.visibility = 'hidden'
+      exp2.style.display = 'none'
+      close12.style.display = 'none'
+      //exp2.style.marginLeft = '-37px'
+      //exp2.style.width = '30px'
+      like.style.marginTop = '-35px'
+      like.style.marginLeft = '-37px'
+      giftitle.style.color = 'white'
+      giftitle.style.marginLeft = '-135px'
+      giftitle.style.marginTop = '120px'
+      giftitle.style.fontSize = '14px'
+
+      unlike.addEventListener('click', () => {
+
+         let keysString = localStorage.getItem('arrayK')
+         let keys = keysString.split(",")
+
+         let keysFiltered = keys.filter(key => {
+            return key !== gifKey
+         })
+
+         localStorage.setItem('arrayK', keysFiltered)
+         mostrarFavoritos()
+      })
+
+      like.addEventListener('mouseover', () => {
+         like.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-hover.svg'
+      })
+
+      like.addEventListener('mouseout', () => {
+         like.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg'
+      })
+
+      like.addEventListener('click', () => {
+
+         unlike.style.display = 'block'
+         unlike.style.marginLeft = '-35px'
+         // seleccion23.style.display = 'none'
+         unlike.style.marginTop = '-33px'
+         like.style.display = 'none'
+         favcor.style.marginLeft = '160px'
+         // Buscar el array de gifKey en el localStorage.
+         // Agregar la gifKey nueva en el array.
+         //Guardar el array acutalizado en el localStorage.
+         let keysString = localStorage.getItem('arrayK')
+         let keys
+         if (keysString == null || keysString == "") {
+            keys = []
+         } else {
+            keys = keysString.split(",")
+         }
+
+         keys.push(gifKey)
+         localStorage.setItem('arrayK', keys)
+
+         //Guardar el sorce del gifcon el gifkey correspondiente en el localStorage.
+         localStorage.setItem(gifKey, gifSrc)
+
+
+      })
+
+      exp.addEventListener('mouseover', () => {
+         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg'
+      })
+
+      exp.addEventListener('mouseout', () => {
+         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
+      })
+
+      exp.addEventListener('click', () => {
+         favcor.style.marginTop = '250px'
+         favcor.style.marginLeft = '650px'
+         close12.style.display = 'block'
+         close12.style.position = 'absolute'
+         close12.style.marginTop = '-530px'
+         close12.style.marginLeft = '50px'
+         giftitle.style.marginTop = '-20px'
+         giftitle.style.marginLeft = '-650px'
+         giftitle.style.color = 'black'
+         giftitle.style.fontSize = '14px'
+         gifElement.style.width = '695px'
+         gifElement.style.height = '385px'
+         exp.style.visibility = 'hidden'
+         like.style.marginTop = '-53px'
+         unlike.style.marginTop = '-53px'
+         down.style.marginTop = '-30px'
+         mascotas.style.opacity = '0'
+         principal3.style.opacity = '0'
+         principal1.style.opacity = '0'
+         principal4.style.opacity = '0'
+         inspiracion1.style.opacity = '0'
+         buscador1.style.opacity = '0'
+         nav.style.opacity = '0'
+         cont44.style.opacity = '0'
+         principal12.style.opacity = '0'
+         divHover.style.width = '0'
+
+         let otrosGifs = document.querySelectorAll('.foto')
+         otrosGifs.forEach(gifElement => {
+            if (gifElement.getAttribute('key') !== gifKey) {
+
+               gifElement.style.display = 'none'
+
+            }
+         })
+
+      })
+      close12.addEventListener('click', () => {
+         //gifElement.style.display = 'block'
+         gifElement.style.width = '260px'
+         gifElement.style.height = '200px'
+         divHover.style.width = '260px'
+         divHover.style.height = '200px'
+         close12.style.display = 'none'
+         favcor.style.marginTop = '25px'
+         favcor.style.marginLeft = '150px'
+         exp.style.marginLeft = '15px'
+         exp.style.marginTop = '-17px'
+         //exp.style.display = 'block'
+         exp.style.visibility = 'visible'
+         exp.style.position = 'absolute'
+         gifos.style.opacity = '1'
+         contenedor1.style.opacity = '1'
+         unlike.style.marginLeft = '-37px'
+         unlike.style.marginTop = '-35px'
+         giftitle.style.color = 'white'
+         giftitle.style.marginTop = '190px'
+         giftitle.style.marginLeft = '-250px'
+         down.style.marginTop = '-75px'
+         like.style.marginTop = '-35px'
+         principal1.style.opacity = '1'
+         principal4.style.opacity = '1'
+         inspiracion1.style.opacity = '1'
+         buscador1.style.opacity = '1'
+         nav.style.opacity = '1'
+         cont44.style.opacity = '1'
+         principal5.style.opacity = '1'
+         principal12.style.opacity = '1'
+         mascotas.style.opacity = '1'
+         principal3.style.opacity = '1'
+         principal2.style.opacity = '1'
+
+         let otrosGifs = document.querySelectorAll('.foto')
+         otrosGifs.forEach(gifElement => {
+            if (gifElement.getAttribute('key') !== gifKey) {
+
+               gifElement.style.display = 'block'
+
+            }
+         })
+      })
+
+
+
+      down.addEventListener('mouseover', () => {
+         down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
+      })
+
+      down.addEventListener('mouseout', () => {
+         down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
+      })
+
+   })
+
+}
 /***********Pagina de favoritos ********/
 //mostrar seccion favoritos en modo mobile
 fav.addEventListener('click', () => {
