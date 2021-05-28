@@ -899,11 +899,11 @@
         align-items: center;
         display: none;
     }
-    .seleccion23{
+    /*.seleccion23{
         display: 'none';
         position: absolute;
         opacity: 0;
-    }
+    }*/
     #boton {
         width: 7.5rem;
         height: 3.125rem;

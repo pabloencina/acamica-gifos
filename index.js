@@ -567,8 +567,9 @@ function asociarEventosFotosDesktop(gifElements) {
       let unlike = document.getElementById('unlike' + gifKey)
       let giftitle = document.getElementById('giftitle' + gifKey)
       let exp = document.getElementById('exp' + gifKey)
-      let exp2 = document.getElementById('exp2' + gifKey)
+      let close12 = document.getElementById('close12' + gifKey)
       let down = document.getElementById('down' + gifKey)
+      let exp2 = document.getElementById('exp2' + gifKey)
 
       gifElement.addEventListener('mouseover', () => {
          divHover.style.display = 'block'
@@ -607,9 +608,11 @@ function asociarEventosFotosDesktop(gifElements) {
       favcor.style.position = 'relative'
       favcor.style.marginLeft = '140px'
       exp2.style.visibility = 'hidden'
-      exp2.style.marginLeft = '-37px'
-      exp2.style.width = '30px'
-      like.style.marginTop = '-37px'
+      exp2.style.display = 'none'
+      close12.style.display = 'none'
+      //exp2.style.marginLeft = '-37px'
+      //exp2.style.width = '30px'
+      like.style.marginTop = '-35px'
       like.style.marginLeft = '-37px'
       giftitle.style.color = 'white'
 
@@ -637,11 +640,11 @@ function asociarEventosFotosDesktop(gifElements) {
       like.addEventListener('click', () => {
 
          unlike.style.display = 'block'
-         unlike.style.marginLeft = '55px'
-         seleccion23.style.display = 'none'
-         unlike.style.marginTop = '-35px'
+         unlike.style.marginLeft = '-35px'
+         // seleccion23.style.display = 'none'
+         unlike.style.marginTop = '-33px'
          like.style.display = 'none'
-         favcor.style.marginLeft = '15px'
+         favcor.style.marginLeft = '160px'
          // Buscar el array de gifKey en el localStorage.
          // Agregar la gifKey nueva en el array.
          //Guardar el array acutalizado en el localStorage.
@@ -671,33 +674,86 @@ function asociarEventosFotosDesktop(gifElements) {
       })
 
       exp.addEventListener('click', () => {
-         favcor.style.marginTop = '20px'
-         favcor.style.marginLeft = '200px'
-         favcor.style.display = 'inline'
-         divHover.style.width = '350px'
-         divHover.style.height = '300px'
-         divHover.style.marginTop = '-300px'
-         gifElement.style.width = '350px'
-         gifElement.style.height = '300px'
+         favcor.style.marginTop = '250px'
+         favcor.style.marginLeft = '650px'
+         close12.style.display = 'block'
+         close12.style.position = 'absolute'
+         close12.style.marginTop = '-530px'
+         close12.style.marginLeft = '50px'
+         //favcor.style.display = 'inline'
+         divHover.style.width = '0px'
+         gifElement.style.width = '695px'
+         gifElement.style.height = '385px'
          exp.style.visibility = 'hidden'
-         exp2.style.visibility = 'visible'
-      })
+         like.style.marginTop = '-53px'
+         unlike.style.marginTop = '-53px'
+         down.style.marginTop = '-30px'
+         mascotas.style.opacity = '0'
+         principal3.style.opacity = '0'
+         principal1.style.opacity = '0'
+         principal4.style.opacity = '0'
+         inspiracion1.style.opacity = '0'
+         buscador1.style.opacity = '0'
+         nav.style.opacity = '0'
+         cont44.style.opacity = '0'
+         principal12.style.opacity = '0'
 
-      exp2.addEventListener('click', () => {
-         favcor.style.marginTop = '20px'
-         favcor.style.marginLeft = '100px';
-         favcor.style.zIndex = '10'
-         favcor.style.display = 'inline'
-         divHover.style.marginTop = '-200px'
-         divHover.style.width = '260px'
-         divHover.style.height = '200px'
-         //divHover.style.top = '220px'
+         let otrosGifs = document.querySelectorAll('.foto')
+         otrosGifs.forEach(gifElement => {
+            if (gifElement.getAttribute('key') !== gifKey) {
+
+               gifElement.style.display = 'none'
+
+            }
+         })
+
+      })
+      close12.addEventListener('click', () => {
+         //gifElement.style.display = 'block'
          gifElement.style.width = '260px'
          gifElement.style.height = '200px'
+         divHover.style.width = '260px'
+         divHover.style.height = '200px'
+         close12.style.display = 'none'
+         favcor.style.marginTop = '35px'
+         favcor.style.marginLeft = '150px'
+         exp.style.marginLeft = '15px'
+         exp.style.marginTop = '-17px'
+         //exp.style.display = 'block'
          exp.style.visibility = 'visible'
-         exp2.style.visibility = 'hidden'
+         exp.style.position = 'absolute'
+         gifos.style.opacity = '1'
+         contenedor1.style.opacity = '1'
+         unlike.style.marginLeft = '-37px'
+         unlike.style.marginTop = '-35px'
+         giftitle.style.color = 'white'
+         giftitle.style.marginTop = '190px'
+         giftitle.style.marginLeft = '-250px'
+         down.style.marginTop = '-75px'
+         like.style.marginTop = '-35px'
+         principal1.style.opacity = '1'
+         principal4.style.opacity = '1'
+         inspiracion1.style.opacity = '1'
+         buscador1.style.opacity = '1'
+         nav.style.opacity = '1'
+         cont44.style.opacity = '1'
+         principal5.style.opacity = '1'
+         principal12.style.opacity = '1'
+         mascotas.style.opacity = '1'
+         principal3.style.opacity = '1'
+         principal2.style.opacity = '1'
 
+         let otrosGifs = document.querySelectorAll('.foto')
+         otrosGifs.forEach(gifElement => {
+            if (gifElement.getAttribute('key') !== gifKey) {
+
+               gifElement.style.display = 'block'
+
+            }
+         })
       })
+
+
 
       down.addEventListener('mouseover', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
