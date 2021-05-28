@@ -712,7 +712,7 @@ function asociarEventosFotosDesktop(gifElements) {
 }
 
 function asociarEventosFotosTrendingDesktop(gifElements) {
-   
+
    gifElements.forEach(gifElement => {
 
       let gifKey = gifElement.getAttribute('key')
@@ -725,7 +725,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       let exp2 = document.getElementById('exp2' + gifKey)
       let down = document.getElementById('down' + gifKey)
       let close12 = document.getElementById('close12' + gifKey)
-      let giftitle = document.getElementById('giftitle' + gifKey )
+      let giftitle = document.getElementById('giftitle' + gifKey)
 
       gifElement.addEventListener('mouseover', () => {
          divHover.style.display = 'block'
@@ -831,6 +831,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       })
 
       exp.addEventListener('click', () => {
+
          favcor.style.marginTop = '300px'
          favcor.style.marginLeft = '650px'
          like.style.marginTop = '-75px'
@@ -858,10 +859,23 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          buscador1.style.opacity = '0'
          nav.style.opacity = '0'
          cont44.style.opacity = '0'
+         principal5.style.opacity = '0'
+
+         let otrosGifs = document.querySelectorAll('.fotoTrending')
+         otrosGifs.forEach(gifElement => {
+            if (gifElement.getAttribute('key') !== gifKey) {
+
+               gifElement.style.display = 'none'
+               scroll.style.width = '55%'
+            }
+         })
+
       })
-      
-      close12.addEventListener('click',()=>{
-         gifElement.style.width='357px'
+
+
+      close12.addEventListener('click', () => {
+         //gifElement.style.display = 'block'
+         gifElement.style.width = '357px'
          gifElement.style.height = '275px'
          divHover.style.width = '357px'
          divHover.style.height = '275px'
@@ -874,14 +888,30 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          exp.style.position = 'relative'
          gifos.style.opacity = '1'
          contenedor1.style.opacity = '1'
-         unlike.style.marginTop = '-53px'
+         unlike.style.marginTop = '-73px'
          giftitle.style.color = 'white'
          giftitle.style.marginTop = '190px'
          giftitle.style.marginLeft = '-250px'
          like.style.marginTop = '-55px'
-         unlike.style.marginTop = '-20pv'
+         unlike.style.marginTop = '-35px'
+
+         let otrosGifs = document.querySelectorAll('.fotoTrending')
+         otrosGifs.forEach(gifElement => {
+            if (gifElement.getAttribute('key') !== gifKey) {
+
+               gifElement.style.display = 'block'
+               scroll.style.width = '78%'
+               principal1.style.opacity = '1'
+               principal4.style.opacity = '1'
+               inspiracion1.style.opacity = '1'
+               buscador1.style.opacity = '1'
+               nav.style.opacity = '1'
+               cont44.style.opacity = '1'
+               principal5.style.opacity = '1'
+            }
+         })
       })
-      
+
 
       down.addEventListener('mouseover', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
@@ -1067,7 +1097,7 @@ function asociarEventosFotosMobile(gifElements) {
          exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
 
       })
-      
+
       down.addEventListener('mouseover', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
       })
