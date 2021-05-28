@@ -538,7 +538,7 @@ function mostrarGifsBusqueda(json) {
                <img id="unlike${gifJson.id}" class="seleccion"
                   src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
 
-               <p id="giftitle${gifJson.title}" class="gifTitle">${gifJson.title}</p>
+               <p id="giftitle${gifJson.id}" class="gifTitle">${gifJson.title}</p>
             </div>
          </div>
       </div>
@@ -725,7 +725,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       let exp2 = document.getElementById('exp2' + gifKey)
       let down = document.getElementById('down' + gifKey)
       let close12 = document.getElementById('close12' + gifKey)
-      //let giftitle = document.getElementById('giftitle' + gifKey )
+      let giftitle = document.getElementById('giftitle' + gifKey )
 
       gifElement.addEventListener('mouseover', () => {
          divHover.style.display = 'block'
@@ -770,6 +770,9 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       like.style.marginTop = '-37px'
       like.style.marginLeft = '-37px'
       giftitle.style.color = 'white'
+      giftitle.style.marginTop = '180px'
+      giftitle.style.marginLeft = '-220px'
+      giftitle.style.position = 'relative'
 
       unlike.addEventListener('click', () => {
 
@@ -838,7 +841,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          gifElement.style.zIndex = '1'
          scroll.style.height = '100%'
          gifElement.style.width = '695px'
-         gifElement.style.height = '385px'
+         gifElement.style.height = '365px'
          exp.style.opacity = '0'
          close12.style.display = 'block'
          close12.style.marginLeft = '55px'
@@ -846,6 +849,15 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          close12.style.opacity = '1'
          close12.style.position = 'absolute'
          unlike.style.marginTop = '-70px'
+         giftitle.style.color = 'black'
+         giftitle.style.marginLeft = '-720px'
+         giftitle.style.marginTop = '-35px'
+         principal1.style.opacity = '0'
+         principal4.style.opacity = '0'
+         inspiracion1.style.opacity = '0'
+         buscador1.style.opacity = '0'
+         nav.style.opacity = '0'
+         cont44.style.opacity = '0'
       })
       
       close12.addEventListener('click',()=>{
@@ -853,7 +865,6 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          gifElement.style.height = '275px'
          divHover.style.width = '357px'
          divHover.style.height = '275px'
-         
          close12.style.display = 'none'
          favcor.style.marginTop = '30px'
          favcor.style.marginLeft = '260px'
@@ -864,7 +875,11 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          gifos.style.opacity = '1'
          contenedor1.style.opacity = '1'
          unlike.style.marginTop = '-53px'
-         //scroll.style.width = '78%'
+         giftitle.style.color = 'white'
+         giftitle.style.marginTop = '190px'
+         giftitle.style.marginLeft = '-250px'
+         like.style.marginTop = '-55px'
+         unlike.style.marginTop = '-20pv'
       })
       
 
@@ -1453,7 +1468,7 @@ let mostrarTrendingScroll = async () => {
                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
                  <img id="unlike${trending.id}" class="seleccion"
                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
-                     <p id="giftitle${trending.title}" class="gifTitle">${trending.title}</p>
+                     <p id="giftitle${trending.id}" class="gifTitle">${trending.title}</p>
              </div>
          </div>
       </div>
