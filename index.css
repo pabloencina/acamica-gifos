@@ -594,10 +594,11 @@
         color: var(--font-color);
         position: relative;
     }
-    #contenedorAutocomp {
+    #sugerencias {
         display: none;
-        width: 37.375rem;
-        height: 10.125rem;
+        width: 41.5%;
+        height: 350px;
+        z-index: 10;
         background: var(--color-primary);
         border: 0.0625rem solid var(--gifos);
         border-top: 0;
@@ -606,9 +607,23 @@
         border-bottom-right-radius: 1.6875rem;
         border-bottom-left-radius: 1.6875rem;
         position: absolute;
-        margin-top: 540px;
+        margin-top: 72px;
         margin-left: -20px;
-        opacity: 0.7;
+        opacity: 1;
+    }
+    #linea_Compl{
+        border: 1px solid var(--gifos);
+    }
+    #lupa1{
+        color: var(--color-primary);
+        position: relative;
+        left: 30px;
+        margin-top: 20px;   
+    }
+    .itemListaBuscar{
+        margin-left: 70px;
+        color: var(--font-color);
+        margin-top: -20px;
     }
     #buscador1 {
         display: flex;
@@ -625,6 +640,7 @@
         padding: 10px 25px;
         outline: none;
         width: 34.375rem;
+        
     }
     #cierre {
         display: none;

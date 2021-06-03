@@ -125,8 +125,6 @@ let gifFavoritos = []
 
 let principal6 = document.getElementById('principal6')
 
-let contenedorAutocomp = document.getElementById('contenedorAutocomp')
-
 let lupa1 = document.getElementsByClassName('.lupa1')
 
 let fotoTrending = document.getElementsByClassName('.fotoTrending')
@@ -155,6 +153,10 @@ let contenedor1 = document.getElementById('contenedor1')
 
 let cont44 = document.getElementById('cont44')
 let contenedor2 = document.getElementById('contenedor2')
+
+let contAutocompletar = document.getElementById('contAutocompletar')
+
+let itemListaBuscar = document.getElementsByClassName('.itemListaBuscar')
 
 /**MODO NOCTURNO******************* */
 
@@ -370,19 +372,13 @@ if (menu.style.display === 'block') {
 })
 
 /**Consumir gifs desde la  API */
-/*
-'api.giphy.com/v1/gifs/trending?api_key='
-
-'api.giphy.com/v1/gifs/search'
-
-'https://api.giphy.com/v1/gifs/trending?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY&limit=25&rating=g'
-*/
 
 const api_key = 'boZGHaAmzirlZl5OiViZEx7vayQzDZoY'
 const url_trending = 'https://api.giphy.com/v1/gifs/trending'
 const url_buscador = 'https://api.giphy.com/v1/gifs/search'
 const url_wordTrending = 'https://api.giphy.com/v1/trending/searches'
 const url_descarga = 'https://upload.giphy.com/v1/gifs'
+const URL_Autocompletar = "https://api.giphy.com/v1/gifs/search/tags?api_key=umCoI8QE3nt72GLxXUntliERdZW5J6z9&limit=5&q=";
 
 /*
 let mostrarTrending = async () => {
@@ -419,17 +415,13 @@ let mostrartrendingWord = async () => {
 
       js.data.forEach(word => {
          wordsAndPhases += word + ' , '
-
       });
 
       react.innerHTML = `<p class="blanco" id="react">${wordsAndPhases}</p>`
 
-
-
    } catch (error) {
       console.log(error)
    }
-
 }
 mostrartrendingWord()
 /*
@@ -437,17 +429,49 @@ function capitalize(word) {
    return word[0].toUpperCase() + word.slice(1);
 }
 /********AutoCompletado********* */
-let autocompletar = async () => {
-   try {
-      let resultado = await fetch(urls + '?api_key=' + api_key + '&limit=' + limit)
+/*function autocompletar(json) {
+   json.data.forEach(gifJson => {
 
-      //let resultado = await fetch(urls)
-      let json = await resultado.json()
+      buscador1.innerHTML += `
+     
+      `
+   });*/
 
-      autocompletar(json)
-   } catch (error) {
-   }
-}
+buscador.addEventListener('keyup', async (autocompletar) => {
+   let sugerencias = document.getElementById('sugerencias')
+   if (autocompletar.key) {
+      sugerencias.innerHTML = ""
+      
+      contadorOffset = 0;
+      buscador.style.margin = "0";
+      
+      principal1.style.display = 'none'
+      sugerencias.style.display = 'block'
+      principal12.style.marginTop = '300px'
+      
+      let resultadoBusqueda = await fetch(URL_Autocompletar + autocompletar.target.value);
+      console.log(resultadoBusqueda)
+      let json = await resultadoBusqueda.json();
+      json.data.forEach(gifJson => {
+         contadorOffset++;
+         sugerencias.innerHTML += `
+
+         <div class="linea_Compl">
+             <img id="lupa1" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search.svg">
+         </div>
+         <p class="itemListaBuscar" id="${contadorOffset}" >${gifJson.name}</p>
+           `;
+         console.log(gifJson.name)
+      });
+
+   } 
+});
+
+
+itemListaBuscar.addEventListener('click', () => {
+   console.log('hi')
+
+})
 
 /**Mostrar los siguiente 12 *************/
 let mostrarSiguientes = async (q, offset) => {
@@ -466,20 +490,48 @@ let mostrarSiguientes = async (q, offset) => {
 buscador.addEventListener('keypress', async (e) => {
 
    if (e.key === 'Enter') {
-      contenedorAutocomp.style.display = 'none'
+      
       buscador.style.borderRadius = '1.6875rem'
       /*trending.style.display = 'none'
       wap.style.display = 'none'*/
-
+      sugerencias.style.opacity = '0'
       buscarGifs()
    } else {
-      contenedorAutocomp.style.display = 'block'
+      
       buscador.style.borderTopLeftRadius = '1.6875rem'
       buscador.style.borderTopRightRadius = '1.6875rem'
       buscador.style.borderBottomLeftRadius = '0rem'
       buscador.style.borderBottomRightRadius = '0rem'
    }
 })
+
+/********Buscador CIERRE  y LUPA */
+cierre.addEventListener('click', () => {
+
+   principal1.style.display = 'block'
+   principal1.style.position = 'absolute'
+   principal1.style.marginTop = '50px'
+   trending.style.marginLeft = '60px'
+   buscador.style.marginTop = '300px'
+   lupa.style.marginTop = '300px'
+   principal4.style.marginTop = '-50px'
+   principal12.style.marginTop = '450px'
+   cierre.style.display = 'none'
+   lupa.style.display = 'block'
+   inspiracion1.style.display = 'block'
+   principal3.style.display = 'none'
+   principal5.style.marginTop = '200px'
+   principal2.innerHTML = ''
+   mascotas.innerHTML = ''
+   buscador.value = ''
+   sugerencias.style.opacity = '0'
+})
+
+/**Lupa */
+lupa.addEventListener('click', () => {
+   buscarGifs()
+});
+
 /********************* */
 async function buscarGifs() {
    let urls = url_buscador + '?' + 'api_key=' + api_key + '&offset=' + offset + '&limit=' + limit + '&q=' + buscador.value;
@@ -489,7 +541,8 @@ async function buscarGifs() {
    principal5.style.display = 'block'
    lupa.style.display = 'none'
    cierre.style.display = 'block'
-   cierre.style.position = 'relative'
+   //cierre.style.position = 'relative'
+   cierre.style.marginTop = '-10px'
    principal2.innerHTML = ``
    let resultado = await fetch(urls)
    let json = await resultado.json()
@@ -497,6 +550,8 @@ async function buscarGifs() {
    mascotas.innerHTML = ''
    mascotas.innerHTML = buscador.value
    mascotas.style.textTransform = 'capitalize'
+   mascotas.style.marginTop = '-350px'
+   buscador1.style.marginTop = '-300px'
    principal3.style.display = 'block'
    principal3.style.display = 'flex'
    principal3.style.alignItems = 'center'
@@ -658,7 +713,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
          localStorage.setItem(gifKey, gifSrc)
          let titleKey = gifKey + '.title'
          localStorage.setItem(titleKey, gifTitle.innerHTML)
-         
+
       })
 
       exp.addEventListener('mouseover', () => {
@@ -670,181 +725,181 @@ function asociarEventosFotosDesktop(gifElements, caller) {
       })
 
 
-if(caller == 'busqueda'){
-   exp.addEventListener('click', () => {
-      console.log(gifTitle)
-      favcor.style.marginTop = '250px'
-      favcor.style.marginLeft = '650px'
-      close12.style.display = 'block'
-      close12.style.position = 'absolute'
-      close12.style.marginTop = '-530px'
-      close12.style.marginLeft = '50px'
-      gifTitle.style.marginTop = '-20px'
-      gifTitle.style.marginLeft = '-650px'
-      gifTitle.style.color = 'black'
-      gifTitle.style.fontSize = '14px'
-      gifElement.style.width = '695px'
-      gifElement.style.height = '385px'
-      exp.style.visibility = 'hidden'
-      like.style.marginTop = '-53px'
-      unlike.style.marginTop = '-53px'
-      down.style.marginTop = '-30px'
-      mascotas.style.opacity = '0'
-      principal3.style.opacity = '0'
-      principal1.style.opacity = '0'
-      principal4.style.opacity = '0'
-      inspiracion1.style.opacity = '0'
-      buscador1.style.opacity = '0'
-      nav.style.opacity = '0'
-      cont44.style.opacity = '0'
-      principal12.style.opacity = '0'
-      divHover.style.width = '0'
-      contenedor2.style.opacity = '0'
+      if (caller == 'busqueda') {
+         exp.addEventListener('click', () => {
+            console.log(gifTitle)
+            favcor.style.marginTop = '250px'
+            favcor.style.marginLeft = '650px'
+            close12.style.display = 'block'
+            close12.style.position = 'absolute'
+            close12.style.marginTop = '-530px'
+            close12.style.marginLeft = '50px'
+            gifTitle.style.marginTop = '-20px'
+            gifTitle.style.marginLeft = '-650px'
+            gifTitle.style.color = 'black'
+            gifTitle.style.fontSize = '14px'
+            gifElement.style.width = '695px'
+            gifElement.style.height = '385px'
+            exp.style.visibility = 'hidden'
+            like.style.marginTop = '-53px'
+            unlike.style.marginTop = '-53px'
+            down.style.marginTop = '-30px'
+            mascotas.style.opacity = '0'
+            principal3.style.opacity = '0'
+            principal1.style.opacity = '0'
+            principal4.style.opacity = '0'
+            inspiracion1.style.opacity = '0'
+            buscador1.style.opacity = '0'
+            nav.style.opacity = '0'
+            cont44.style.opacity = '0'
+            principal12.style.opacity = '0'
+            divHover.style.width = '0'
+            contenedor2.style.opacity = '0'
 
-      let otrosGifs = document.querySelectorAll('.fotoBusqueda')
-      otrosGifs.forEach(gifElement => {
-         if (gifElement.getAttribute('key') !== gifKey) {
+            let otrosGifs = document.querySelectorAll('.fotoBusqueda')
+            otrosGifs.forEach(gifElement => {
+               if (gifElement.getAttribute('key') !== gifKey) {
 
-            gifElement.style.display = 'none'
+                  gifElement.style.display = 'none'
 
-         }
-      })
+               }
+            })
 
-   })
-   close12.addEventListener('click', () => {
-      //gifElement.style.display = 'block'
-      gifElement.style.width = '260px'
-      gifElement.style.height = '200px'
-      divHover.style.width = '260px'
-      divHover.style.height = '200px'
-      close12.style.display = 'none'
-      favcor.style.marginTop = '25px'
-      favcor.style.marginLeft = '150px'
-      exp.style.marginLeft = '15px'
-      exp.style.marginTop = '-17px'
-      //exp.style.display = 'block'
-      exp.style.visibility = 'visible'
-      exp.style.position = 'absolute'
-      gifos.style.opacity = '1'
-      contenedor1.style.opacity = '1'
-      unlike.style.marginLeft = '-37px'
-      unlike.style.marginTop = '-35px'
-      gifTitle.style.color = 'white'
-      gifTitle.style.marginLeft = '-135px'
-      gifTitle.style.marginTop = '120px'
-      down.style.marginTop = '-75px'
-      like.style.marginTop = '-35px'
-      principal1.style.opacity = '1'
-      principal4.style.opacity = '1'
-      inspiracion1.style.opacity = '1'
-      buscador1.style.opacity = '1'
-      nav.style.opacity = '1'
-      cont44.style.opacity = '1'
-      principal5.style.opacity = '1'
-      principal12.style.opacity = '1'
-      mascotas.style.opacity = '1'
-      principal3.style.opacity = '1'
-      principal2.style.opacity = '1'
-      contenedor2.style.opacity = '1'
+         })
+         close12.addEventListener('click', () => {
+            //gifElement.style.display = 'block'
+            gifElement.style.width = '260px'
+            gifElement.style.height = '200px'
+            divHover.style.width = '260px'
+            divHover.style.height = '200px'
+            close12.style.display = 'none'
+            favcor.style.marginTop = '25px'
+            favcor.style.marginLeft = '150px'
+            exp.style.marginLeft = '15px'
+            exp.style.marginTop = '-17px'
+            //exp.style.display = 'block'
+            exp.style.visibility = 'visible'
+            exp.style.position = 'absolute'
+            gifos.style.opacity = '1'
+            contenedor1.style.opacity = '1'
+            unlike.style.marginLeft = '-37px'
+            unlike.style.marginTop = '-35px'
+            gifTitle.style.color = 'white'
+            gifTitle.style.marginLeft = '-135px'
+            gifTitle.style.marginTop = '120px'
+            down.style.marginTop = '-75px'
+            like.style.marginTop = '-35px'
+            principal1.style.opacity = '1'
+            principal4.style.opacity = '1'
+            inspiracion1.style.opacity = '1'
+            buscador1.style.opacity = '1'
+            nav.style.opacity = '1'
+            cont44.style.opacity = '1'
+            principal5.style.opacity = '1'
+            principal12.style.opacity = '1'
+            mascotas.style.opacity = '1'
+            principal3.style.opacity = '1'
+            principal2.style.opacity = '1'
+            contenedor2.style.opacity = '1'
 
-      let otrosGifs = document.querySelectorAll('.fotoBusqueda')
-      otrosGifs.forEach(gifElement => {
-         if (gifElement.getAttribute('key') !== gifKey) {
+            let otrosGifs = document.querySelectorAll('.fotoBusqueda')
+            otrosGifs.forEach(gifElement => {
+               if (gifElement.getAttribute('key') !== gifKey) {
 
-            gifElement.style.display = 'block'
+                  gifElement.style.display = 'block'
 
-         }
-      })
-   })
+               }
+            })
+         })
 
-}else if(caller == 'favoritos'){
+      } else if (caller == 'favoritos') {
 
-   exp.addEventListener('click', () => {
-      favcor.style.marginTop = '250px'
-      favcor.style.marginLeft = '650px'
-      close12.style.display = 'block'
-      close12.style.position = 'absolute'
-      close12.style.marginTop = '-530px'
-      close12.style.marginLeft = '50px'
-      gifTitle.style.marginTop = '-20px'
-      gifTitle.style.marginLeft = '-650px'
-      gifTitle.style.color = 'black'
-      gifTitle.style.fontSize = '14px'
-      gifElement.style.width = '695px'
-      gifElement.style.height = '385px'
-      exp.style.visibility = 'hidden'
-      like.style.marginTop = '-53px'
-      unlike.style.marginTop = '-53px'
-      down.style.marginTop = '-30px'
-      mascotas.style.opacity = '0'
-      principal3.style.opacity = '0'
-      principal1.style.opacity = '0'
-      principal4.style.opacity = '0'
-      inspiracion1.style.opacity = '0'
-      buscador1.style.opacity = '0'
-      nav.style.opacity = '0'
-      cont44.style.opacity = '0'
-      principal12.style.opacity = '0'
-      divHover.style.width = '0'
-      contenedor2.style.opacity = '0'
+         exp.addEventListener('click', () => {
+            favcor.style.marginTop = '250px'
+            favcor.style.marginLeft = '650px'
+            close12.style.display = 'block'
+            close12.style.position = 'absolute'
+            close12.style.marginTop = '-530px'
+            close12.style.marginLeft = '50px'
+            gifTitle.style.marginTop = '-20px'
+            gifTitle.style.marginLeft = '-650px'
+            gifTitle.style.color = 'black'
+            gifTitle.style.fontSize = '14px'
+            gifElement.style.width = '695px'
+            gifElement.style.height = '385px'
+            exp.style.visibility = 'hidden'
+            like.style.marginTop = '-53px'
+            unlike.style.marginTop = '-53px'
+            down.style.marginTop = '-30px'
+            mascotas.style.opacity = '0'
+            principal3.style.opacity = '0'
+            principal1.style.opacity = '0'
+            principal4.style.opacity = '0'
+            inspiracion1.style.opacity = '0'
+            buscador1.style.opacity = '0'
+            nav.style.opacity = '0'
+            cont44.style.opacity = '0'
+            principal12.style.opacity = '0'
+            divHover.style.width = '0'
+            contenedor2.style.opacity = '0'
 
-      let otrosGifs = document.querySelectorAll('.fotoFavorito')
-      otrosGifs.forEach(gifElement => {
-         if (gifElement.getAttribute('key') !== gifKey) {
+            let otrosGifs = document.querySelectorAll('.fotoFavorito')
+            otrosGifs.forEach(gifElement => {
+               if (gifElement.getAttribute('key') !== gifKey) {
 
-            gifElement.style.display = 'none'
+                  gifElement.style.display = 'none'
 
-         }
-      })
+               }
+            })
 
-   })
-   close12.addEventListener('click', () => {
-      //gifElement.style.display = 'block'
-      gifElement.style.width = '260px'
-      gifElement.style.height = '200px'
-      divHover.style.width = '260px'
-      divHover.style.height = '200px'
-      close12.style.display = 'none'
-      favcor.style.marginTop = '25px'
-      favcor.style.marginLeft = '150px'
-      exp.style.marginLeft = '15px'
-      exp.style.marginTop = '-17px'
-      //exp.style.display = 'block'
-      exp.style.visibility = 'visible'
-      exp.style.position = 'absolute'
-      gifos.style.opacity = '1'
-      contenedor1.style.opacity = '1'
-      unlike.style.marginLeft = '-37px'
-      unlike.style.marginTop = '-35px'
-      gifTitle.style.color = 'white'
-      gifTitle.style.marginLeft = '-135px'
-      gifTitle.style.marginTop = '120px'
-      down.style.marginTop = '-75px'
-      like.style.marginTop = '-35px'
-      principal1.style.opacity = '1'
-      principal4.style.opacity = '1'
-      inspiracion1.style.opacity = '1'
-      buscador1.style.opacity = '1'
-      nav.style.opacity = '1'
-      cont44.style.opacity = '1'
-      principal5.style.opacity = '1'
-      principal12.style.opacity = '1'
-      mascotas.style.opacity = '1'
-      principal3.style.opacity = '1'
-      principal2.style.opacity = '1'
-      contenedor2.style.opacity = '1'
+         })
+         close12.addEventListener('click', () => {
+            //gifElement.style.display = 'block'
+            gifElement.style.width = '260px'
+            gifElement.style.height = '200px'
+            divHover.style.width = '260px'
+            divHover.style.height = '200px'
+            close12.style.display = 'none'
+            favcor.style.marginTop = '25px'
+            favcor.style.marginLeft = '150px'
+            exp.style.marginLeft = '15px'
+            exp.style.marginTop = '-17px'
+            //exp.style.display = 'block'
+            exp.style.visibility = 'visible'
+            exp.style.position = 'absolute'
+            gifos.style.opacity = '1'
+            contenedor1.style.opacity = '1'
+            unlike.style.marginLeft = '-37px'
+            unlike.style.marginTop = '-35px'
+            gifTitle.style.color = 'white'
+            gifTitle.style.marginLeft = '-135px'
+            gifTitle.style.marginTop = '120px'
+            down.style.marginTop = '-75px'
+            like.style.marginTop = '-35px'
+            principal1.style.opacity = '1'
+            principal4.style.opacity = '1'
+            inspiracion1.style.opacity = '1'
+            buscador1.style.opacity = '1'
+            nav.style.opacity = '1'
+            cont44.style.opacity = '1'
+            principal5.style.opacity = '1'
+            principal12.style.opacity = '1'
+            mascotas.style.opacity = '1'
+            principal3.style.opacity = '1'
+            principal2.style.opacity = '1'
+            contenedor2.style.opacity = '1'
 
-      let otrosGifs = document.querySelectorAll('.fotoFavorito')
-      otrosGifs.forEach(gifElement => {
-         if (gifElement.getAttribute('key') !== gifKey) {
+            let otrosGifs = document.querySelectorAll('.fotoFavorito')
+            otrosGifs.forEach(gifElement => {
+               if (gifElement.getAttribute('key') !== gifKey) {
 
-            gifElement.style.display = 'block'
+                  gifElement.style.display = 'block'
 
-         }
-      })
-   })
+               }
+            })
+         })
 
-}
+      }
 
 
       down.addEventListener('mouseover', () => {
@@ -1368,7 +1423,7 @@ function asociarEventosFotosTrendingMobile(gifElements) {
       gifElement.addEventListener('click', () => {
          if (gifElement.getAttribute('expanded') == '0') {
             favcor.style.display = 'block'
-console.log(close12)
+            console.log(close12)
             favcor.style.marginTop = '-50px'
             favcor.style.display = 'flex'
             favcor.style.marginTop = '70px'
@@ -1692,23 +1747,12 @@ principal3.addEventListener('click', () => {
    mostrarSiguientes(buscador.value, offset);
 })
 
-/********Buscador CIERRE  y LUPA */
-cierre.addEventListener('click', () => {
-
-   cierre.style.display = 'none'
-   lupa.style.display = 'block'
-   inspiracion1.style.display = 'block'
-   principal3.style.display = 'none'
-   principal2.innerHTML = ''
-   mascotas.innerHTML = ''
-   buscador.value = ''
-})
-/**Lupa */
-lupa.addEventListener('click', () => {
-   buscarGifs()
-});
 
 /**Creación del carrusell */
+
+
+// https://stackoverflow.com/questions/24523532/how-do-i-convert-an-image-to-a-base64-encoded-data-url-in-sails-js-or-generally
+// https://stackoverflow.com/questions/21298458/base64-encode-an-animated-gif-with-javascript
 
 scroll.style.overflow = 'scroll'
 scroll.style.overflow = 'hidden'
@@ -1724,32 +1768,32 @@ let mostrarTrendingScroll = async () => {
 
 
          scroll.innerHTML += `
+         <div class='foto4'>
+            <img key=${trending.id} class='fotoTrending' src='${trending.images.fixed_height.url}'>
          
-      <div class='foto4'>
-         <img key=${trending.id} class='fotoTrending' src='${trending.images.fixed_height.url}'>
-     
-         <div id=${trending.id} class='divHover'>
-     
-             <div id='favcor${trending.id}' class="favcor">
+            <div id=${trending.id} class='divHover'>
+         
+               <div id='favcor${trending.id}' class="favcor">
+                  <img id="close12${trending.id}" class="seleccion23"
+                     src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg">
 
-             <img id="close12${trending.id}" class="seleccion23"
-                  src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg">
-
-                 
-                 <img id="down${trending.id}" class="seleccion"
-                     src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
-                 <img id="exp${trending.id}" class="seleccion"
+                  <a id="a${trending.id}" target="_blank" href="${trending.images.original.mp4}">  
+                     <img id="down${trending.id}" class="seleccion"
+                        src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
+                  </a>
+                  <img id="exp${trending.id}" class="seleccion"
                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
-                 <img id="exp2${trending.id}" class="seleccion"
+                  <img id="exp2${trending.id}" class="seleccion"
                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg" alt="expander">
-                 <img id="like${trending.id}" class="seleccion"
+                  <img id="like${trending.id}" class="seleccion"
                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg" alt="corazon">
-                 <img id="unlike${trending.id}" class="seleccion"
+                  <img id="unlike${trending.id}" class="seleccion"
                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-active.svg" alt="corazon">
-                     <p id="gifTitle${trending.id}" class="gifTitle">${trending.title}</p>
-             </div>
+                  <p id="gifTitle${trending.id}" class="gifTitle">${trending.title}</p>
+               </div>
+
+            </div>
          </div>
-      </div>
          `
 
       });
@@ -1759,6 +1803,19 @@ let mostrarTrendingScroll = async () => {
    }
 
    let gifsScrolls = document.querySelectorAll('.fotoTrending')
+
+   // https://www.tutorialspoint.com/converting-images-to-a-base64-data-url-using-javascript
+   // https://stackoverflow.com/questions/25753754/canvas-todataurl-security-error-the-operation-is-insecure
+   /*
+      gifsScrolls.forEach(gif => {
+         gif.crossOrigin = 'anonymous'
+         gif.addEventListener('load', function (event) {
+            const dataUrl = getDataUrl(event.currentTarget);
+            console.log(dataUrl);
+         });
+      })
+   */
+
    if (pantallaDesktop.matches) {
       asociarEventosFotosTrendingDesktop(gifsScrolls)
    } else {
@@ -1766,6 +1823,21 @@ let mostrarTrendingScroll = async () => {
    }
 
 }
+/*
+
+// function to encode file data to base64 encoded string
+function getDataUrl(img) {
+   // Create canvas
+   const canvas = document.createElement('canvas');
+   const ctx = canvas.getContext('2d');
+   // Set width and height
+   //canvas.width = img.width;
+   //canvas.height = img.height;
+   // Draw the image
+   ctx.drawImage(img, 0, 0);
+   return canvas.toDataURL('image/gif');
+}
+*/
 
 mostrarTrendingScroll()
 
@@ -1997,3 +2069,4 @@ btn1.addEventListener('click', () => {
 
    }
 })
+
