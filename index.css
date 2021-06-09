@@ -201,7 +201,7 @@
         height: 130px;
         margin-left: 15px;
     }
-    #react {
+    #trendingWords {
         display: inline;
         justify-content: center;
         align-items: flex-start;
@@ -671,15 +671,22 @@
         text-align: center;
         line-height: 1.5625rem;
     }
-    #react {
+    #trendingWords {
         font-family: "Montserrat Alternates";
         font-size: 1rem;
         color: var(--gifos);
         text-align: center;
         line-height: 1.5625rem;
         display: inline;
+        
     }
     #wap {
+        font-family: "Montserrat Alternates";
+        font-size: 1rem;
+        color: var(--gifos);
+        text-align: center;
+        line-height: 1.5625rem;
+        display: inline;
         display: flex;
         justify-content: center;
         margin-left: 280px;

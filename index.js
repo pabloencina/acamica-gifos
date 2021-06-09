@@ -156,7 +156,7 @@ let contenedor2 = document.getElementById('contenedor2')
 
 let contAutocompletar = document.getElementById('contAutocompletar')
 
-let itemListaBuscar = document.getElementsByClassName('.itemListaBuscar')
+
 
 /**MODO NOCTURNO******************* */
 
@@ -175,11 +175,11 @@ function () {
 
 // function to toggle between light and dark theme
 
-switchThemeDesktop.addEventListener('click', (event) => {
+switchThemeDesktop.addEventListener('click', () => {
    toggleTheme()
 })
 
-switchThemeMob.addEventListener('click', (event) => {
+switchThemeMob.addEventListener('click', () => {
    toggleTheme()
 })
 
@@ -329,6 +329,7 @@ function toggleTheme() {
 
    }
 }
+
 focusMethod = function getFocus() {
    switchThemeDesktop.focus();
    switchThemeMob.focus();
@@ -341,7 +342,7 @@ function setTheme(themeName) {
 
 }
 /****Funcion para que aparezca el menu hamb */
-boton1.addEventListener('click', (event) => {
+boton1.addEventListener('click', () => {
    if (menu.style.display === 'none') {
       menu.style.display = 'block';
       lupa.style.visibility = 'hidden'
@@ -378,52 +379,49 @@ const url_trending = 'https://api.giphy.com/v1/gifs/trending'
 const url_buscador = 'https://api.giphy.com/v1/gifs/search'
 const url_wordTrending = 'https://api.giphy.com/v1/trending/searches'
 const url_descarga = 'https://upload.giphy.com/v1/gifs'
-const URL_Autocompletar = "https://api.giphy.com/v1/gifs/search/tags?api_key=umCoI8QE3nt72GLxXUntliERdZW5J6z9&limit=5&q=";
+const URL_Autocompletar = "https://api.giphy.com/v1/gifs/search/tags?api_key=umCoI8QE3nt72GLxXUntliERdZW5J6z9&limit=5 &q=";
 
-/*
-let mostrarTrending = async () => {
-   try {
-      let resultado = await fetch(url_trending + '?api_key=' + api_key + '&limit=' + limit)
 
-      let json = await resultado.json()
 
-      json.data.forEach(trending => {
-
-         principal2.innerHTML += `
-         <div class='foto1'>
-            <img class='foto' src='${trending.images.fixed_height.url}>
-         
-            <img src='${trending.images.fixed_height.url}>
-         </div>
-         `
-      });
-   } catch (error) {
-   }
-
-}
-mostrarTrending()
-*/
 
 /*******TRENDING WORD AND phrases*******/
-let mostrartrendingWord = async () => {
-   let wordsAndPhases = ''
+let mostrarTrendingWord = async () => {
+   let wap = document.getElementById('wap')
+   // let gifKey = gifElement.getAttribute('key')
+
 
    try {
+
       let result = await fetch(url_wordTrending + '?api_key=' + api_key)
 
       let js = await result.json()
 
       js.data.forEach(word => {
-         wordsAndPhases += word + ' , '
+         //let wordsSeparadas = word + ' , '
+         wap.innerHTML +=
+         
+            `
+         <div id= 'wordElement-${word.replaceAll(' ', '-')}'>${word}</div>
+         `
+      });
+      js.data.forEach(word => {
+         const wordElement = document.getElementById('wordElement-' + word.replaceAll(' ', '-'))
+         
+         wordElement.addEventListener('click', () => {
+            console.log(word)
+            buscador.value = word
+            buscarGifs()
+         })
+
       });
 
-      react.innerHTML = `<p class="blanco" id="react">${wordsAndPhases}</p>`
 
    } catch (error) {
       console.log(error)
    }
+
 }
-mostrartrendingWord()
+mostrarTrendingWord()
 /*
 function capitalize(word) {
    return word[0].toUpperCase() + word.slice(1);
@@ -439,39 +437,46 @@ function capitalize(word) {
 
 buscador.addEventListener('keyup', async (autocompletar) => {
    let sugerencias = document.getElementById('sugerencias')
+
    if (autocompletar.key) {
       sugerencias.innerHTML = ""
-      
-      contadorOffset = 0;
+
+      //contadorOffset = 0;
       buscador.style.margin = "0";
-      
+
       principal1.style.display = 'none'
       sugerencias.style.display = 'block'
       principal12.style.marginTop = '300px'
-      
+
       let resultadoBusqueda = await fetch(URL_Autocompletar + autocompletar.target.value);
       console.log(resultadoBusqueda)
       let json = await resultadoBusqueda.json();
       json.data.forEach(gifJson => {
-         contadorOffset++;
+         //contadorOffset++;
          sugerencias.innerHTML += `
 
          <div class="linea_Compl">
              <img id="lupa1" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search.svg">
          </div>
-         <p class="itemListaBuscar" id="${contadorOffset}" >${gifJson.name}</p>
+         <p class="itemListaBuscar" id="sugerenciaId${gifJson.name}" >${gifJson.name}</p>
            `;
-         console.log(gifJson.name)
       });
 
-   } 
+      json.data.forEach(gifJson => {
+         let itemListaBuscar = document.getElementById('sugerenciaId' + gifJson.name)
+
+         itemListaBuscar.addEventListener('click', () => {
+            console.log(gifJson.name)
+
+            buscador.innerHTML = gifJson.name
+            mascotas.innerHTML = gifJson.name
+            buscador.style.opacity = '1'
+            buscarGifs()
+
+         })
+      });
+   }
 });
-
-
-itemListaBuscar.addEventListener('click', () => {
-   console.log('hi')
-
-})
 
 /**Mostrar los siguiente 12 *************/
 let mostrarSiguientes = async (q, offset) => {
@@ -487,23 +492,25 @@ let mostrarSiguientes = async (q, offset) => {
 }
 
 /**Buscador desde la API */
-buscador.addEventListener('keypress', async (e) => {
+function buscarDesdeApi() {
+   buscador.addEventListener('keypress', async (e) => {
 
-   if (e.key === 'Enter') {
-      
-      buscador.style.borderRadius = '1.6875rem'
-      /*trending.style.display = 'none'
-      wap.style.display = 'none'*/
-      sugerencias.style.opacity = '0'
-      buscarGifs()
-   } else {
-      
-      buscador.style.borderTopLeftRadius = '1.6875rem'
-      buscador.style.borderTopRightRadius = '1.6875rem'
-      buscador.style.borderBottomLeftRadius = '0rem'
-      buscador.style.borderBottomRightRadius = '0rem'
-   }
-})
+      if (e.key === 'Enter') {
+
+         buscador.style.borderRadius = '1.6875rem'
+         /*trending.style.display = 'none'
+         wap.style.display = 'none'*/
+         sugerencias.style.opacity = '0'
+         buscarGifs()
+      } else {
+         buscador.style.borderTopLeftRadius = '1.6875rem'
+         buscador.style.borderTopRightRadius = '1.6875rem'
+         buscador.style.borderBottomLeftRadius = '0rem'
+         buscador.style.borderBottomRightRadius = '0rem'
+      }
+   })
+}
+buscarDesdeApi()
 
 /********Buscador CIERRE  y LUPA */
 cierre.addEventListener('click', () => {
@@ -524,7 +531,7 @@ cierre.addEventListener('click', () => {
    principal2.innerHTML = ''
    mascotas.innerHTML = ''
    buscador.value = ''
-   sugerencias.style.opacity = '0'
+   sugerencias.style.display = 'none'
 })
 
 /**Lupa */
@@ -556,8 +563,11 @@ async function buscarGifs() {
    principal3.style.display = 'flex'
    principal3.style.alignItems = 'center'
    inspiracion1.style.display = 'none'
+   sugerencias.style.display = 'none'
 }
+
 function mostrarGifsBusqueda(json) {
+
    json.data.forEach(gifJson => {
 
       principal2.innerHTML += `
