@@ -386,10 +386,10 @@ const URL_Autocompletar = "https://api.giphy.com/v1/gifs/search/tags?api_key=umC
 
 /*******TRENDING WORD AND phrases*******/
 let mostrarTrendingWord = async () => {
-   let wap = document.getElementById('wap')
+   const wap = document.getElementById('wap')
+   let words = document.getElementsByClassName('words')
+   
    // let gifKey = gifElement.getAttribute('key')
-
-
    try {
 
       let result = await fetch(url_wordTrending + '?api_key=' + api_key)
@@ -397,43 +397,34 @@ let mostrarTrendingWord = async () => {
       let js = await result.json()
 
       js.data.forEach(word => {
-         //let wordsSeparadas = word + ' , '
          wap.innerHTML +=
-         
             `
-         <div id= 'wordElement-${word.replaceAll(' ', '-')}'>${word}</div>
+         <div id= 'wordElement-${word.replaceAll(' ', '-')}' class='words' >${word + " , "}</div>
          `
+         
+         if(js.data == [19]) {
+            console.log(js.data[19])
+            js.data.innerHTML = "."
+         }
       });
+      
       js.data.forEach(word => {
          const wordElement = document.getElementById('wordElement-' + word.replaceAll(' ', '-'))
-         
+
          wordElement.addEventListener('click', () => {
-            console.log(word)
+
             buscador.value = word
             buscarGifs()
+            //cierre.style.marginTop = '100px'
          })
-
       });
-
-
    } catch (error) {
       console.log(error)
    }
-
+   
 }
+
 mostrarTrendingWord()
-/*
-function capitalize(word) {
-   return word[0].toUpperCase() + word.slice(1);
-}
-/********AutoCompletado********* */
-/*function autocompletar(json) {
-   json.data.forEach(gifJson => {
-
-      buscador1.innerHTML += `
-     
-      `
-   });*/
 
 buscador.addEventListener('keyup', async (autocompletar) => {
    let sugerencias = document.getElementById('sugerencias')
@@ -449,7 +440,7 @@ buscador.addEventListener('keyup', async (autocompletar) => {
       principal12.style.marginTop = '300px'
 
       let resultadoBusqueda = await fetch(URL_Autocompletar + autocompletar.target.value);
-      console.log(resultadoBusqueda)
+     
       let json = await resultadoBusqueda.json();
       json.data.forEach(gifJson => {
          //contadorOffset++;
@@ -471,6 +462,7 @@ buscador.addEventListener('keyup', async (autocompletar) => {
             buscador.innerHTML = gifJson.name
             mascotas.innerHTML = gifJson.name
             buscador.style.opacity = '1'
+            buscador.value = gifJson.name
             buscarGifs()
 
          })
@@ -498,8 +490,8 @@ function buscarDesdeApi() {
       if (e.key === 'Enter') {
 
          buscador.style.borderRadius = '1.6875rem'
-         /*trending.style.display = 'none'
-         wap.style.display = 'none'*/
+         trending.style.display = 'none'
+         wap.style.display = 'none'
          sugerencias.style.opacity = '0'
          buscarGifs()
       } else {
@@ -517,7 +509,7 @@ cierre.addEventListener('click', () => {
 
    principal1.style.display = 'block'
    principal1.style.position = 'absolute'
-   principal1.style.marginTop = '50px'
+   principal1.style.marginTop = '-10px'
    trending.style.marginLeft = '60px'
    buscador.style.marginTop = '300px'
    lupa.style.marginTop = '300px'
@@ -532,6 +524,10 @@ cierre.addEventListener('click', () => {
    mascotas.innerHTML = ''
    buscador.value = ''
    sugerencias.style.display = 'none'
+   wap.style.display = 'inline'
+   principal1.style.justifyContent = 'center'
+   wap.style.textAlign = 'center'
+   principal12.style.marginTop = '350px'
 })
 
 /**Lupa */
@@ -564,6 +560,11 @@ async function buscarGifs() {
    principal3.style.alignItems = 'center'
    inspiracion1.style.display = 'none'
    sugerencias.style.display = 'none'
+}
+
+if (buscador.value == 'null') {
+   
+   body.style.backgroundColor = 'red'
 }
 
 function mostrarGifsBusqueda(json) {
