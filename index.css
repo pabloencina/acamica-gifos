@@ -122,7 +122,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        
     }
     #inspirate {
         font-family: "Montserrat Alternates";
@@ -149,7 +148,7 @@
         justify-content: center;
         width: 100%;
     }
-    
+
     input {
         text-align: center;
         align-items: center;
@@ -158,6 +157,46 @@
         border: 1px solid var(--gifos);
         border-radius: 1.6875rem;
         top: 0.625rem;
+    }
+    #sugerencias {
+        display: none;
+        width: 74.5%;
+        height: 250px;
+        z-index: 10;
+        background: var(--color-primary);
+        border: 0.0625rem solid var(--gifos);
+        border-top: 0;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 1.6875rem;
+        border-bottom-left-radius: 1.6875rem;
+        position: absolute;
+        margin-top: 42px;
+        margin-left: -18px;
+        opacity: 1;
+    }
+
+    #lupa1 {
+        color: var(--color-primary);
+        position: relative;
+        left: -120px;
+        margin-top: 20px;
+    }
+    .itemListaBuscar {
+        cursor: pointer;
+        font-family: "Roboto Condensed";
+        margin-left: 40px;
+        color: var(--font-color);
+        margin-top: -30px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        height: 25px;
+    }
+    .itemListaBuscar:hover {
+        width: 74.5%;
+        cursor: pointer;
+        color: #5ed7c6; 
     }
     #contenedorAutocomp {
         display: none;
@@ -188,29 +227,30 @@
         display: flex;
         justify-content: center;
         height: 1.5625rem;
-        width: 14.75rem;
         font-family: "Montserrat Alternates", sans-serif;
         color: var(--gifos);
         font-size: 16px;
         text-align: center;
         line-height: 25px;
-        
     }
-    
+
     .words {
-        display: inline;   
-     }
+        display: inline;
+    }
+    .words:hover{
+        cursor: pointer;
+        color: #5ed7c6; 
+    }
     #wap {
         font-family: "Montserrat Alternates";
         font-size: 12px;
         color: var(--gifos);
         text-align: center;
         line-height: 1.5625rem;
-        display: inline;
+        display: flex;
         justify-content: center;
-        width: 90%;
-        
-        
+        width: 85%;
+        margin-left: 20px;
     }
     #trendingWords {
         display: inline;
@@ -299,13 +339,13 @@
         /*position: absolute;*/
         width: 156px;
         height: 120px;
-        margin-top: 0.9375rem;    
+        margin-top: 0.9375rem;
     }
     .fotoFavorito {
         /*position: absolute;*/
         width: 156px;
         height: 120px;
-        margin-top: 0.9375rem;    
+        margin-top: 0.9375rem;
     }
     /*
     .seleccion23 {
@@ -443,9 +483,9 @@
     .sig {
         display: none;
     }
-    .favcor{
+    .favcor {
         display: none;
-        justify-content:center ;
+        justify-content: center;
     }
     /**********************Footer****************/
     #cont44 {
@@ -622,19 +662,24 @@
         margin-left: -20px;
         opacity: 1;
     }
-    #linea_Compl{
+    #linea_Compl {
         border: 1px solid var(--gifos);
     }
-    #lupa1{
+    #lupa1 {
         color: var(--color-primary);
         position: relative;
         left: 30px;
-        margin-top: 20px;   
+        margin-top: 20px;
     }
-    .itemListaBuscar{
+    .itemListaBuscar {
         margin-left: 70px;
         color: var(--font-color);
         margin-top: -20px;
+    }
+    .itemListaBuscar:hover {
+        width: 74.5%;
+        cursor: pointer;
+        color: #5ed7c6; 
     }
     #buscador1 {
         display: flex;
@@ -651,7 +696,6 @@
         padding: 10px 25px;
         outline: none;
         width: 34.375rem;
-        
     }
     #cierre {
         display: none;
@@ -665,7 +709,7 @@
         width: 1.25rem;
         position: relative;
         left: -4.375rem;
-        top: 0.25rem;
+        top: 4px;
     }
 
     /*******Trending**********/
@@ -684,8 +728,11 @@
     }
     .words {
         display: inline;
-        
-     }
+    }
+    .words:hover{
+        cursor: pointer;
+        color: #5ed7c6; 
+    }
     #wap {
         font-family: "Montserrat Alternates";
         font-size: 1rem;
@@ -694,10 +741,8 @@
         line-height: 1.5625rem;
         display: inline;
         justify-content: center;
-        margin-left: 280px;
-        width: 60%;
-        height: 250px;
-        
+        margin-left: 300px;
+        width: 800px;
     }
     /** Sin Búsqueda**/
     #sinBusqueda {
@@ -769,7 +814,7 @@
         z-index: 0;
         display: block;
     }
-    
+
     .divHover {
         width: 16.25rem;
         height: 12.5rem;
@@ -793,14 +838,13 @@
         justify-content: center;
         flex-direction: column;
         display: none;
-        
     }
 
     #contenedor2 {
         display: flex;
         flex-direction: column;
         width: 100%;
-        
+
         justify-content: center;
         align-items: center;
     }
@@ -827,9 +871,9 @@
         justify-content: center;
         position: relative;
     }
-    #SinFavoritos{
+    #SinFavoritos {
         width: 100%;
-        
+
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -844,7 +888,7 @@
         text-align: center;
         line-height: 33px;
     }
-    #imgSinFavoritos{
+    #imgSinFavoritos {
         display: none;
     }
     /*Favoritos-Descarga-Expancion**********/
@@ -853,8 +897,8 @@
         margin-left: 0.3125rem;
         justify-content: flex-end;
     }
-    
-    .favcor { 
+
+    .favcor {
         display: none;
         position: absolute;
         z-index: 10;
@@ -989,24 +1033,24 @@
         justify-content: space-between;
         overflow: hidden;
     }
-::-webkit-scrollbar{
-    display: none;
-}
+    ::-webkit-scrollbar {
+        display: none;
+    }
     .fotoTrending {
         width: 360px;
         height: 275px;
         margin-left: 1.25rem;
-        margin-top: 0px;    
+        margin-top: 0px;
     }
-    
-     .foto4 > .divHover{
+
+    .foto4 > .divHover {
         width: 360px;
         height: 275px;
         margin-left: 20px;
         margin-top: -280px;
         background-color: #572ee5;
-        opacity: 0.7; 
-        display: none;   
+        opacity: 0.7;
+        display: none;
     }
     .sig {
         position: absolute;
@@ -1052,7 +1096,7 @@
         justify-content: flex-end;
         margin-right: 7.5rem;
     }
-    
+
     #red {
         width: 80%;
         display: flex;

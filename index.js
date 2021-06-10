@@ -125,7 +125,7 @@ let gifFavoritos = []
 
 let principal6 = document.getElementById('principal6')
 
-let lupa1 = document.getElementsByClassName('.lupa1')
+let lupa1 = document.getElementById('lupa1')
 
 let fotoTrending = document.getElementsByClassName('.fotoTrending')
 
@@ -194,6 +194,8 @@ function toggleTheme() {
       btn4.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-crear-gifo.svg'
 
       lupa.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search.svg'
+
+     //lupa1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search.svg'
 
       camNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/camara.svg'
 
@@ -276,6 +278,8 @@ function toggleTheme() {
       btn4.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-active-modo-noc.svg'
 
       lupa.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search-mod-noc.svg'
+
+      //lupa1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search-mod-noc.svg'
 
       camNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/camara-modo-noc.svg'
 
@@ -388,7 +392,7 @@ const URL_Autocompletar = "https://api.giphy.com/v1/gifs/search/tags?api_key=umC
 let mostrarTrendingWord = async () => {
    const wap = document.getElementById('wap')
    let words = document.getElementsByClassName('words')
-   
+
    // let gifKey = gifElement.getAttribute('key')
    try {
 
@@ -401,13 +405,13 @@ let mostrarTrendingWord = async () => {
             `
          <div id= 'wordElement-${word.replaceAll(' ', '-')}' class='words' >${word + " , "}</div>
          `
-         
-         if(js.data == [19]) {
+
+         if (js.data == [19]) {
             console.log(js.data[19])
             js.data.innerHTML = "."
          }
       });
-      
+
       js.data.forEach(word => {
          const wordElement = document.getElementById('wordElement-' + word.replaceAll(' ', '-'))
 
@@ -421,7 +425,7 @@ let mostrarTrendingWord = async () => {
    } catch (error) {
       console.log(error)
    }
-   
+
 }
 
 mostrarTrendingWord()
@@ -440,14 +444,14 @@ buscador.addEventListener('keyup', async (autocompletar) => {
       principal12.style.marginTop = '300px'
 
       let resultadoBusqueda = await fetch(URL_Autocompletar + autocompletar.target.value);
-     
+
       let json = await resultadoBusqueda.json();
       json.data.forEach(gifJson => {
          //contadorOffset++;
          sugerencias.innerHTML += `
 
          <div class="linea_Compl">
-             <img id="lupa1" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search.svg">
+         <img id="lupa1" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search.svg" alt="lupa">
          </div>
          <p class="itemListaBuscar" id="sugerenciaId${gifJson.name}" >${gifJson.name}</p>
            `;
@@ -458,7 +462,7 @@ buscador.addEventListener('keyup', async (autocompletar) => {
 
          itemListaBuscar.addEventListener('click', () => {
             console.log(gifJson.name)
-
+            buscador.style.borderRadius = '1.6875rem'
             buscador.innerHTML = gifJson.name
             mascotas.innerHTML = gifJson.name
             buscador.style.opacity = '1'
@@ -488,8 +492,6 @@ function buscarDesdeApi() {
    buscador.addEventListener('keypress', async (e) => {
 
       if (e.key === 'Enter') {
-
-         buscador.style.borderRadius = '1.6875rem'
          trending.style.display = 'none'
          wap.style.display = 'none'
          sugerencias.style.opacity = '0'
@@ -508,26 +510,14 @@ buscarDesdeApi()
 cierre.addEventListener('click', () => {
 
    principal1.style.display = 'block'
-   principal1.style.position = 'absolute'
-   principal1.style.marginTop = '-10px'
-   trending.style.marginLeft = '60px'
-   buscador.style.marginTop = '300px'
-   lupa.style.marginTop = '300px'
-   principal4.style.marginTop = '-50px'
-   principal12.style.marginTop = '450px'
+   principal1.style.position = 'relative'
    cierre.style.display = 'none'
    lupa.style.display = 'block'
-   inspiracion1.style.display = 'block'
    principal3.style.display = 'none'
-   principal5.style.marginTop = '200px'
    principal2.innerHTML = ''
    mascotas.innerHTML = ''
    buscador.value = ''
-   sugerencias.style.display = 'none'
-   wap.style.display = 'inline'
-   principal1.style.justifyContent = 'center'
-   wap.style.textAlign = 'center'
-   principal12.style.marginTop = '350px'
+   wap.style.display = 'block'
 })
 
 /**Lupa */
@@ -538,14 +528,12 @@ lupa.addEventListener('click', () => {
 /********************* */
 async function buscarGifs() {
    let urls = url_buscador + '?' + 'api_key=' + api_key + '&offset=' + offset + '&limit=' + limit + '&q=' + buscador.value;
-
-   //buscador1.style.marginTop = '-100px'
+   buscador.style.borderRadius = '1.6875rem'
    principal1.style.display = 'none'
    principal5.style.display = 'block'
    lupa.style.display = 'none'
    cierre.style.display = 'block'
-   //cierre.style.position = 'relative'
-   cierre.style.marginTop = '-10px'
+
    principal2.innerHTML = ``
    let resultado = await fetch(urls)
    let json = await resultado.json()
@@ -553,17 +541,16 @@ async function buscarGifs() {
    mascotas.innerHTML = ''
    mascotas.innerHTML = buscador.value
    mascotas.style.textTransform = 'capitalize'
-   mascotas.style.marginTop = '-350px'
-   buscador1.style.marginTop = '-300px'
+   principal12.style.marginTop = '-20px'
    principal3.style.display = 'block'
    principal3.style.display = 'flex'
    principal3.style.alignItems = 'center'
-   inspiracion1.style.display = 'none'
+   //inspiracion1.style.display = 'none'
    sugerencias.style.display = 'none'
 }
 
 if (buscador.value == 'null') {
-   
+
    body.style.backgroundColor = 'red'
 }
 
