@@ -156,7 +156,7 @@ let contenedor2 = document.getElementById('contenedor2')
 
 let contAutocompletar = document.getElementById('contAutocompletar')
 
-
+let parr1 = document.getElementById('parr1')
 
 /**MODO NOCTURNO******************* */
 
@@ -330,7 +330,6 @@ function toggleTheme() {
 
       setTheme('theme-dark');
 
-
    }
 }
 
@@ -446,7 +445,6 @@ buscador.addEventListener('keyup', async (autocompletar) => {
       principal1.style.display = 'none'
       sugerencias.style.display = 'block'
       principal12.style.marginTop = '300px'
-
       let resultadoBusqueda = await fetch(URL_Autocompletar + autocompletar.target.value);
 
       let json = await resultadoBusqueda.json();
@@ -471,6 +469,7 @@ buscador.addEventListener('keyup', async (autocompletar) => {
             mascotas.innerHTML = gifJson.name
             buscador.style.opacity = '1'
             buscador.value = gifJson.name
+            principal3.style.display = 'block'
             buscarGifs()
 
          })
@@ -1065,6 +1064,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          nav.style.opacity = '0'
          cont44.style.opacity = '0'
          principal5.style.opacity = '0'
+         principal7.style.display = 'none'
 
          let otrosGifs = document.querySelectorAll('.fotoTrending')
          otrosGifs.forEach(gifElement => {
@@ -1100,6 +1100,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          siguiente1.style.display = 'block'
          siguiente1.style.marginLeft = '60px'
          scrollLeftImg.style.display = 'block'
+         principal7.style.display = 'block'
 
          let otrosGifs = document.querySelectorAll('.fotoTrending')
          otrosGifs.forEach(gifElement => {
@@ -1309,7 +1310,7 @@ function asociarEventosFotosMobile(gifElements, caller) {
       like.style.marginLeft = '-20px'
 
       unlike.addEventListener('click', () => {
-console.log('unlike')
+         console.log('unlike')
          let keysString = localStorage.getItem('arrayK')
          let keys = keysString.split(",")
 
@@ -1628,11 +1629,11 @@ function mostrarFavoritos() {
    if (keysString === "") {
       imgSinFavoritos.style.display = 'block'
       favoritoOracion.style.display = 'block'
-      principal12.style.display = 'none'
+      cont44.style.marginTop = '350px'
+      //principal12.style.display = 'none'
    } else {
       imgSinFavoritos.style.display = 'none'
       favoritoOracion.style.display = 'none'
-      principal12.style.display = 'block'
    }
 
    keys.forEach(gifKey => {// el for each recorre cada gifKey
@@ -1697,7 +1698,7 @@ fav.addEventListener('click', () => {
       principal4.style.display = 'block'
       principal1.style.display = 'block'
       principal5.style.display = 'block'
-     
+
 
    }
    principal12.style.display = 'none'
@@ -2043,12 +2044,14 @@ redesInsta.addEventListener('mouseout', () => {
 /**Volver a la Pagina principal */
 
 btn1.addEventListener('click', () => {
-   if (principal7.style.display == 'block') {
+   if ((principal7.style.display == 'block')) {
       principal7.style.display = 'none'
       principal4.style.display = 'block'
       principal1.style.display = 'block'
       principal12.style.display = 'block'
-   } 
+      cont44.style.marginTop = '0px'
+      //contenedor1.style.marginLeft = '80px'
+   }
 })
 
 btn1.addEventListener('click', () => {
