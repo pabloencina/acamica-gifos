@@ -376,7 +376,6 @@ if (menu.style.display === 'block') {
 })
 
 /**Consumir gifs desde la  API */
-
 const api_key = 'boZGHaAmzirlZl5OiViZEx7vayQzDZoY'
 const url_trending = 'https://api.giphy.com/v1/gifs/trending'
 const url_buscador = 'https://api.giphy.com/v1/gifs/search'
@@ -394,7 +393,6 @@ let mostrarTrendingWord = async () => {
 
    // let gifKey = gifElement.getAttribute('key')
    try {
-
       let result = await fetch(url_wordTrending + '?api_key=' + api_key)
 
       let js = await result.json()
@@ -470,6 +468,7 @@ buscador.addEventListener('keyup', async (autocompletar) => {
             buscador.style.opacity = '1'
             buscador.value = gifJson.name
             principal3.style.display = 'block'
+            vermas.style.display = 'block'
             buscarGifs()
 
          })
@@ -844,6 +843,27 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             divHover.style.width = '0'
             contenedor2.style.opacity = '0'
 
+            unlike.addEventListener('click', () => {
+               console.log('unlike')
+      
+               let keysString = localStorage.getItem('arrayK')
+               let keys = keysString.split(",")
+      
+               let keysFiltered = keys.filter(key => {
+                  return key !== gifKey
+               })
+      
+               localStorage.setItem('arrayK', keysFiltered)
+               mostrarFavoritos()
+               imagen1.style.display = 'block'
+               principal7.style.display = 'block'
+               contenedor2.style.opacity = '1'
+               titulo1.style.display = 'block'
+               cont44.style.opacity = '1'
+               nav.style.opacity = '1'
+               principal12.style.opacity = '1'
+            })
+
             let otrosGifs = document.querySelectorAll('.fotoFavorito')
             otrosGifs.forEach(gifElement => {
                if (gifElement.getAttribute('key') !== gifKey) {
@@ -1066,12 +1086,12 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          gifTitle.style.color = 'black'
          gifTitle.style.marginLeft = '-720px'
          gifTitle.style.marginTop = '-35px'
-         
+
          siguiente1.style.display = 'none'
          scrollLeftImg.style.display = 'none'
          gifos.style.display = 'none'
          contenedor1.style.display = 'none'
-         
+
          principal1.style.display = 'none'
          principal4.style.display = 'none'
          //inspiracion1.style.opacity = '0'
@@ -1080,7 +1100,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          cont44.style.display = 'none'
          principal5.style.display = 'none'
          principal7.style.display = 'none'
-
+         
          let otrosGifs = document.querySelectorAll('.fotoTrending')
          otrosGifs.forEach(gifElement => {
             if (gifElement.getAttribute('key') !== gifKey) {
@@ -1112,7 +1132,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          like.style.marginTop = '-55px'
          unlike.style.marginTop = '-35px'
 
-        // siguiente1.style.marginLeft = '60px'
+         // siguiente1.style.marginLeft = '60px'
 
          siguiente1.style.display = 'block'
          scrollLeftImg.style.display = 'block'
@@ -1139,7 +1159,6 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          })
 
       })
-
 
       down.addEventListener('mouseover', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
@@ -1332,6 +1351,7 @@ function asociarEventosFotosMobile(gifElements, caller) {
 
       unlike.addEventListener('click', () => {
          console.log('unlike')
+
          let keysString = localStorage.getItem('arrayK')
          let keys = keysString.split(",")
 
@@ -1341,6 +1361,12 @@ function asociarEventosFotosMobile(gifElements, caller) {
 
          localStorage.setItem('arrayK', keysFiltered)
          mostrarFavoritos()
+         imagen1.style.display = 'block'
+         principal7.style.display = 'block'
+         contenedor2.style.opacity = '1'
+         titulo1.style.display = 'block'
+         cont44.style.opacity = '1'
+         nav.style.opacity = '1'
       })
 
       like.addEventListener('mouseover', () => {
@@ -1495,6 +1521,7 @@ function asociarEventosFotosTrendingMobile(gifElements) {
             gifos.style.display = 'block'
             contenedor1.style.display = 'block'
             vermas.style.display = 'none'
+            parr1.style.marginLeft = '0px'
 
             let otrosGifs = document.querySelectorAll('.fotoTrending')
             otrosGifs.forEach(gifElement => {
@@ -1536,7 +1563,7 @@ function asociarEventosFotosTrendingMobile(gifElements) {
       like.style.marginLeft = '-20px'
 
       unlike.addEventListener('click', () => {
-
+         console.log('gggggg')
          let keysString = localStorage.getItem('arrayK')
          let keys = keysString.split(",")
          let keysFiltered = keys.filter(key => {

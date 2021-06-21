@@ -372,6 +372,7 @@
         width: 1.25rem;
         height: 1.25rem;
         margin-top: -50px;
+       /* display: none;*/
     }
     #titulo1 {
         font-family: "Montserrat Alternates";
@@ -379,6 +380,7 @@
         color: var(--gifos);
         text-align: center;
         line-height: 30px;
+        /*display: none;*/
     }
     #principal6 {
         display: flex;
@@ -394,7 +396,6 @@
     #SinFavoritos {
         width: 100%;
         margin-top: 150px;
-
         display: flex;
         flex-direction: column;
         justify-content: center;
