@@ -1032,15 +1032,26 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
       })
 
-      exp.addEventListener('click', () => {
+      let principal7DisplayBeforeExpand
+      let pricipal1DisplayBeforeExpand
+      let principal4DisplayBeforeExpand
+      let navDisplayBeforeExpand
+      let cont44DisplayBeforeExpand
+      let principal5DisplayBeforeExpand
 
+      exp.addEventListener('click', () => {
+         principal7DisplayBeforeExpand = principal7.style.display
+         pricipal1DisplayBeforeExpand = principal1.style.display
+         principal4DisplayBeforeExpand = principal4.style.display
+         navDisplayBeforeExpand = nav.style.display
+         cont44DisplayBeforeExpand = cont44.style.display
+         principal5DisplayBeforeExpand = principal5.style.display
          favcor.style.marginTop = '300px'
          favcor.style.marginLeft = '650px'
          like.style.marginTop = '-75px'
          favcor.style.display = 'inline'
          divHover.style.width = '0px'
-         gifos.style.opacity = '0'
-         contenedor1.style.opacity = '0'
+
          gifElement.style.zIndex = '1'
          scroll.style.height = '100%'
          gifElement.style.width = '695px'
@@ -1051,19 +1062,23 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          close12.style.marginTop = '-420px'
          close12.style.opacity = '1'
          close12.style.position = 'absolute'
-         siguiente1.style.display = 'none'
-         scrollLeftImg.style.display = 'none'
          unlike.style.marginTop = '-70px'
          gifTitle.style.color = 'black'
          gifTitle.style.marginLeft = '-720px'
          gifTitle.style.marginTop = '-35px'
-         principal1.style.opacity = '0'
-         principal4.style.opacity = '0'
-         inspiracion1.style.opacity = '0'
-         buscador1.style.opacity = '0'
-         nav.style.opacity = '0'
-         cont44.style.opacity = '0'
-         principal5.style.opacity = '0'
+         
+         siguiente1.style.display = 'none'
+         scrollLeftImg.style.display = 'none'
+         gifos.style.display = 'none'
+         contenedor1.style.display = 'none'
+         
+         principal1.style.display = 'none'
+         principal4.style.display = 'none'
+         //inspiracion1.style.opacity = '0'
+         //buscador1.style.opacity = '0'
+         nav.style.display = 'none'
+         cont44.style.display = 'none'
+         principal5.style.display = 'none'
          principal7.style.display = 'none'
 
          let otrosGifs = document.querySelectorAll('.fotoTrending')
@@ -1076,6 +1091,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          })
 
       })
+
       close12.addEventListener('click', () => {
          //gifElement.style.display = 'block'
          gifElement.style.width = '357px'
@@ -1089,18 +1105,28 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          exp.style.top = '-20px'
          exp.style.opacity = '1'
          exp.style.position = 'relative'
-         gifos.style.opacity = '1'
-         contenedor1.style.opacity = '1'
-         unlike.style.marginTop = '-73px'
+         //unlike.style.marginTop = '-73px'
          gifTitle.style.color = 'white'
          gifTitle.style.marginTop = '190px'
          gifTitle.style.marginLeft = '-250px'
          like.style.marginTop = '-55px'
          unlike.style.marginTop = '-35px'
+
+        // siguiente1.style.marginLeft = '60px'
+
          siguiente1.style.display = 'block'
-         siguiente1.style.marginLeft = '60px'
          scrollLeftImg.style.display = 'block'
-         principal7.style.display = 'block'
+         gifos.style.display = 'block'
+         contenedor1.style.display = 'block'
+
+         principal1.style.display = pricipal1DisplayBeforeExpand
+         principal4.style.display = principal4DisplayBeforeExpand
+         //inspiracion1.style.opacity = '1'
+         //buscador1.style.opacity = '1'
+         nav.style.display = navDisplayBeforeExpand
+         cont44.style.display = cont44DisplayBeforeExpand
+         principal5.style.display = principal5DisplayBeforeExpand
+         principal7.style.display = principal7DisplayBeforeExpand
 
          let otrosGifs = document.querySelectorAll('.fotoTrending')
          otrosGifs.forEach(gifElement => {
@@ -1108,15 +1134,10 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
 
                gifElement.style.display = 'block'
                scroll.style.width = '78%'
-               principal1.style.opacity = '1'
-               principal4.style.opacity = '1'
-               inspiracion1.style.opacity = '1'
-               buscador1.style.opacity = '1'
-               nav.style.opacity = '1'
-               cont44.style.opacity = '1'
-               principal5.style.opacity = '1'
+
             }
          })
+
       })
 
 
