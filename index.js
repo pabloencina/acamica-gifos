@@ -381,9 +381,7 @@ const url_trending = 'https://api.giphy.com/v1/gifs/trending'
 const url_buscador = 'https://api.giphy.com/v1/gifs/search'
 const url_wordTrending = 'https://api.giphy.com/v1/trending/searches'
 const url_descarga = 'https://upload.giphy.com/v1/gifs'
-const URL_Autocompletar = "https://api.giphy.com/v1/gifs/search/tags?api_key=umCoI8QE3nt72GLxXUntliERdZW5J6z9&limit=5 &q=";
-
-
+const URL_Autocompletar = 'https://api.giphy.com/v1/gifs/search/tags'//?api_key=umCoI8QE3nt72GLxXUntliERdZW5J6z9&limit=5&q=';
 
 
 /*******TRENDING WORD AND phrases*******/
@@ -435,6 +433,11 @@ buscador.addEventListener('keyup', async (autocompletar) => {
    let sugerencias = document.getElementById('sugerencias')
 
    if (autocompletar.key) {
+      let limit = 5
+      let urlAutocompletar = URL_Autocompletar + '?' + 'api_key=' + api_key + '&offset=' + offset + '&limit=' + limit + '&q=' //+ q;
+      console.log(urlAutocompletar)
+
+
       sugerencias.innerHTML = ""
 
       //contadorOffset = 0;
@@ -443,7 +446,7 @@ buscador.addEventListener('keyup', async (autocompletar) => {
       principal1.style.display = 'none'
       sugerencias.style.display = 'block'
       principal12.style.marginTop = '300px'
-      let resultadoBusqueda = await fetch(URL_Autocompletar + autocompletar.target.value);
+      let resultadoBusqueda = await fetch(urlAutocompletar + autocompletar.target.value);
 
       let json = await resultadoBusqueda.json();
       json.data.forEach(gifJson => {
@@ -845,14 +848,14 @@ function asociarEventosFotosDesktop(gifElements, caller) {
 
             unlike.addEventListener('click', () => {
                console.log('unlike')
-      
+
                let keysString = localStorage.getItem('arrayK')
                let keys = keysString.split(",")
-      
+
                let keysFiltered = keys.filter(key => {
                   return key !== gifKey
                })
-      
+
                localStorage.setItem('arrayK', keysFiltered)
                mostrarFavoritos()
                imagen1.style.display = 'block'
@@ -1100,7 +1103,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          cont44.style.display = 'none'
          principal5.style.display = 'none'
          principal7.style.display = 'none'
-         
+
          let otrosGifs = document.querySelectorAll('.fotoTrending')
          otrosGifs.forEach(gifElement => {
             if (gifElement.getAttribute('key') !== gifKey) {
