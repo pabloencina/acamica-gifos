@@ -434,21 +434,19 @@ buscador.addEventListener('keyup', async (autocompletar) => {
 
    if (autocompletar.key) {
       let limit = 5
-      let urlAutocompletar = URL_Autocompletar + '?' + 'api_key=' + api_key + '&offset=' + offset + '&limit=' + limit + '&q=' //+ q;
-      console.log(urlAutocompletar)
+      let urlAutocompletar = URL_Autocompletar + '?' + 'api_key=' + api_key + '&offset=' + offset + '&limit=' + limit + '&q=' + autocompletar.target.value;
 
-
-      sugerencias.innerHTML = ""
-
-      //contadorOffset = 0;
       buscador.style.margin = "0";
 
       principal1.style.display = 'none'
       sugerencias.style.display = 'block'
       principal12.style.marginTop = '300px'
-      let resultadoBusqueda = await fetch(urlAutocompletar + autocompletar.target.value);
+      let resultadoBusqueda = await fetch(urlAutocompletar);
 
       let json = await resultadoBusqueda.json();
+
+      sugerencias.innerHTML = ""
+
       json.data.forEach(gifJson => {
          //contadorOffset++;
          sugerencias.innerHTML += `
@@ -523,6 +521,7 @@ cierre.addEventListener('click', () => {
    mascotas.innerHTML = ''
    buscador.value = ''
    wap.style.display = 'block'
+   sinBusqueda.style.display = 'none'
 })
 
 /**Lupa */
@@ -538,25 +537,28 @@ async function buscarGifs() {
    principal5.style.display = 'block'
    lupa.style.display = 'none'
    cierre.style.display = 'block'
+   sinBusqueda.style.display = 'none'
 
    principal2.innerHTML = ``
    let resultado = await fetch(urls)
    let json = await resultado.json()
-   mostrarGifsBusqueda(json)
+   
+
    mascotas.innerHTML = ''
    mascotas.innerHTML = buscador.value
    mascotas.style.textTransform = 'capitalize'
    principal12.style.marginTop = '-20px'
-   principal3.style.display = 'block'
-   principal3.style.display = 'flex'
-   principal3.style.alignItems = 'center'
+
    //inspiracion1.style.display = 'none'
    sugerencias.style.display = 'none'
-}
-
-if (buscador.value == 'null') {
-
-   body.style.backgroundColor = 'red'
+   if(json.data.length === 0){
+      sinBusqueda.style.display = 'block'
+   }else{
+      mostrarGifsBusqueda(json)
+      principal3.style.display = 'block'
+      principal3.style.display = 'flex'
+      principal3.style.alignItems = 'center'
+   }
 }
 
 function mostrarGifsBusqueda(json) {
@@ -598,7 +600,6 @@ function mostrarGifsBusqueda(json) {
    });
 
    let gifsBusqueda = document.querySelectorAll('.fotoBusqueda')
-   console.log(gifsBusqueda)
    if (pantallaDesktop.matches) {
       asociarEventosFotosDesktop(gifsBusqueda, 'busqueda')
    } else {
