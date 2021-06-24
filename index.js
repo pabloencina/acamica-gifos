@@ -135,7 +135,7 @@ let react = document.getElementById('react')
 
 let wap = document.getElementById('wap')
 
-let gifTitle = document.querySelector('#modal h3');
+//let gifTitle = document.querySelector('#modal h3');
 
 let gifUser = document.querySelector('#modal h4');
 
@@ -294,7 +294,6 @@ function toggleTheme() {
          vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
       })
 
-
       cierre.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close-modo-noct.svg'
 
       scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-md-noct.svg'
@@ -424,11 +423,9 @@ let mostrarTrendingWord = async () => {
    } catch (error) {
       console.log(error)
    }
-
 }
 
 mostrarTrendingWord()
-
 buscador.addEventListener('keyup', async (autocompletar) => {
    let sugerencias = document.getElementById('sugerencias')
 
@@ -665,7 +662,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
       close12.style.display = 'none'
       like.style.marginTop = '-35px'
       like.style.marginLeft = '-37px'
-      gifTitle.style.color = 'white'
+      //gifTitle.style.color = 'white'
       gifTitle.style.marginLeft = '-135px'
       gifTitle.style.marginTop = '120px'
       gifTitle.style.fontSize = '14px'
@@ -716,7 +713,6 @@ function asociarEventosFotosDesktop(gifElements, caller) {
          //Guardar el sorce del gifcon el gifkey correspondiente en el localStorage.
          localStorage.setItem(gifKey, gifSrc)
          let titleKey = gifKey + '.title'
-         console.log(gifTitle.innerHTML)
          localStorage.setItem(titleKey, gifTitle.innerHTML)
 
       })
@@ -741,7 +737,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             close12.style.marginLeft = '50px'
             gifTitle.style.marginTop = '-20px'
             gifTitle.style.marginLeft = '-650px'
-            gifTitle.style.color = 'black'
+            //gifTitle.style.color = 'black'
             gifTitle.style.fontSize = '14px'
             gifElement.style.width = '695px'
             gifElement.style.height = '385px'
@@ -789,7 +785,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             contenedor1.style.opacity = '1'
             unlike.style.marginLeft = '-37px'
             unlike.style.marginTop = '-35px'
-            gifTitle.style.color = 'white'
+            //gifTitle.style.color = 'white'
             gifTitle.style.marginLeft = '-135px'
             gifTitle.style.marginTop = '120px'
             down.style.marginTop = '-75px'
@@ -828,7 +824,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             close12.style.marginLeft = '50px'
             gifTitle.style.marginTop = '-20px'
             gifTitle.style.marginLeft = '-650px'
-            gifTitle.style.color = 'black'
+            //gifTitle.style.color = 'black'
             gifTitle.style.fontSize = '14px'
             gifElement.style.width = '695px'
             gifElement.style.height = '385px'
@@ -897,7 +893,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             contenedor1.style.opacity = '1'
             unlike.style.marginLeft = '-37px'
             unlike.style.marginTop = '-35px'
-            gifTitle.style.color = 'white'
+            //gifTitle.style.color = 'white'
             gifTitle.style.marginLeft = '-135px'
             gifTitle.style.marginTop = '120px'
             down.style.marginTop = '-75px'
@@ -996,7 +992,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       exp2.style.width = '30px'
       like.style.marginTop = '-37px'
       like.style.marginLeft = '-37px'
-      gifTitle.style.color = 'white'
+      //gifTitle.style.color = 'white'
       gifTitle.style.marginTop = '180px'
       gifTitle.style.marginLeft = '-220px'
       gifTitle.style.position = 'relative'
@@ -1092,7 +1088,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          close12.style.opacity = '1'
          close12.style.position = 'absolute'
          unlike.style.marginTop = '-70px'
-         gifTitle.style.color = 'black'
+         //gifTitle.style.color = 'black'
          gifTitle.style.marginLeft = '-720px'
          gifTitle.style.marginTop = '-35px'
 
@@ -1135,7 +1131,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          exp.style.opacity = '1'
          exp.style.position = 'relative'
          //unlike.style.marginTop = '-73px'
-         gifTitle.style.color = 'white'
+         //gifTitle.style.color = 'white'
          gifTitle.style.marginTop = '190px'
          gifTitle.style.marginLeft = '-250px'
          like.style.marginTop = '-55px'
@@ -1156,6 +1152,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          cont44.style.display = cont44DisplayBeforeExpand
          principal5.style.display = principal5DisplayBeforeExpand
          principal7.style.display = principal7DisplayBeforeExpand
+         principal3.style.display = 'none'
 
          let otrosGifs = document.querySelectorAll('.fotoTrending')
          otrosGifs.forEach(gifElement => {
@@ -1210,8 +1207,8 @@ function asociarEventosFotosMobile(gifElements, caller) {
                favcor.style.marginLeft = '290px'
                close12.style.marginLeft = '20px'
                close12.style.marginTop = '-780px'
-               gifTitle.style.marginLeft = '-550px'
-               gifTitle.style.marginTop = '-70px'
+               gifTitle.style.marginTop = '-80px'
+               gifTitle.style.marginLeft = '-280px'
                like.style.marginTop = '-95px'
                exp.style.display = 'none'
                like.style.marginLeft = '10px'
@@ -1273,8 +1270,8 @@ function asociarEventosFotosMobile(gifElements, caller) {
                favcor.style.marginLeft = '290px'
                close12.style.marginLeft = '20px'
                close12.style.marginTop = '-780px'
-               gifTitle.style.marginLeft = '-300px'
-               gifTitle.style.marginTop = '-60px'
+               gifTitle.style.marginLeft = '-270px'
+               gifTitle.style.marginTop = '-80px'
                like.style.marginTop = '-95px'
                exp.style.display = 'none'
                like.style.marginLeft = '10px'
@@ -1291,8 +1288,6 @@ function asociarEventosFotosMobile(gifElements, caller) {
                principal3.style.display = 'none'
                mascotas.style.display = 'none'
                contenedor2.style.opacity = '0'
-               gifTitle.style.position = 'relative'
-               gifTitle.style.marginTop = '0px'
                let otrosGifs = document.querySelectorAll('.fotoFavorito')
                otrosGifs.forEach(gifElement => {
                   if (gifElement.getAttribute('key') !== gifKey) {
