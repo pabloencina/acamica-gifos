@@ -214,6 +214,7 @@
         left: -1.875rem;
         top: 0.1875rem;
         width: 0.9375rem;
+        color: var(--gifos);
     }
     #lupa {
         /*display: none;*/
@@ -321,14 +322,15 @@
         line-height: 40px;
     }
     .gifTitle {
+        font-family: "Montserrat Alternates";
         position: absolute;
+        margin-left: -200px;
         margin-top: -40px;
         width: 100%;
-        font-family: "Montserrat Alternates";
-        margin-left: -200px;
         font-size: 12px;
-        color: #000000;
+        color: var(--font-color);
         text-align: center;
+        font-weight: bold;
     }
     /*.divHover {
         display: none;
@@ -350,12 +352,10 @@
         height: 120px;
         margin-top: 0.9375rem;
     }
-    /*
+    
     .seleccion23 {
-        position: absolute;
-        margin-top: -300px;
-        margin-left: 100px;
-    }*/
+        color: var(--gifos);
+    }
     /***FAVORITOS Mobile*****/
     #principal7 {
         display: none;
@@ -726,6 +726,7 @@
         left: -3.125rem;
         top: 0.1875rem;
         width: 0.9375rem;
+        color: var(--gifos);
     }
     #lupa {
         /*display: none;*/
@@ -956,7 +957,7 @@
         position: absolute;
         font-family: "Montserrat Alternates";
         font-size: 16px;
-        color: #000000;
+        color: var(--font-color);
         font-weight: bold;
         text-align: center;
     }

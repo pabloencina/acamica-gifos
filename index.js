@@ -542,7 +542,7 @@ async function buscarGifs() {
    principal2.innerHTML = ``
    let resultado = await fetch(urls)
    let json = await resultado.json()
-   
+
 
    mascotas.innerHTML = ''
    mascotas.innerHTML = buscador.value
@@ -551,9 +551,9 @@ async function buscarGifs() {
 
    //inspiracion1.style.display = 'none'
    sugerencias.style.display = 'none'
-   if(json.data.length === 0){
+   if (json.data.length === 0) {
       sinBusqueda.style.display = 'block'
-   }else{
+   } else {
       mostrarGifsBusqueda(json)
       principal3.style.display = 'block'
       principal3.style.display = 'flex'
@@ -618,11 +618,11 @@ function asociarEventosFotosDesktop(gifElements, caller) {
       let favcor = document.getElementById('favcor' + gifKey)
       let like = document.getElementById('like' + gifKey)
       let unlike = document.getElementById('unlike' + gifKey)
-      let gifTitle = document.getElementById('gifTitle' + gifKey)
       let exp = document.getElementById('exp' + gifKey)
       let close12 = document.getElementById('close12' + gifKey)
       let down = document.getElementById('down' + gifKey)
       let exp2 = document.getElementById('exp2' + gifKey)
+      let gifTitle = document.getElementById('gifTitle' + gifKey)
 
       gifElement.addEventListener('mouseover', () => {
          divHover.style.display = 'block'
@@ -716,6 +716,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
          //Guardar el sorce del gifcon el gifkey correspondiente en el localStorage.
          localStorage.setItem(gifKey, gifSrc)
          let titleKey = gifKey + '.title'
+         console.log(gifTitle.innerHTML)
          localStorage.setItem(titleKey, gifTitle.innerHTML)
 
       })
@@ -950,6 +951,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       let down = document.getElementById('down' + gifKey)
       let close12 = document.getElementById('close12' + gifKey)
       let gifTitle = document.getElementById('gifTitle' + gifKey)
+      console.log(gifTitle)
 
       gifElement.addEventListener('mouseover', () => {
          divHover.style.display = 'block'
@@ -1044,6 +1046,9 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
 
          //Guardar el sorce del gif con el gifkey correspondiente en el localStorage.
          localStorage.setItem(gifKey, gifSrc)
+         let titleKey = gifKey + '.title'
+         console.log(gifTitle.innerHTML)
+         localStorage.setItem(titleKey, gifTitle.innerHTML)
 
 
       })
@@ -1286,7 +1291,8 @@ function asociarEventosFotosMobile(gifElements, caller) {
                principal3.style.display = 'none'
                mascotas.style.display = 'none'
                contenedor2.style.opacity = '0'
-
+               gifTitle.style.position = 'relative'
+               gifTitle.style.marginTop = '0px'
                let otrosGifs = document.querySelectorAll('.fotoFavorito')
                otrosGifs.forEach(gifElement => {
                   if (gifElement.getAttribute('key') !== gifKey) {
@@ -1403,7 +1409,9 @@ function asociarEventosFotosMobile(gifElements, caller) {
 
          //Guardar el sorce del gifcon el gifkey correspondiente en el localStorage.
          localStorage.setItem(gifKey, gifSrc)
-
+         let titleKey = gifKey + '.title'
+         console.log(gifTitle.innerHTML)
+         localStorage.setItem(titleKey, gifTitle.innerHTML)
 
       })
 
@@ -1608,7 +1616,9 @@ function asociarEventosFotosTrendingMobile(gifElements) {
 
          //Guardar el sorce del gifcon el gifkey correspondiente en el localStorage.
          localStorage.setItem(gifKey, gifSrc)
-
+         let titleKey = gifKey + '.title'
+         console.log(gifTitle.innerHTML)
+         localStorage.setItem(titleKey, gifTitle.innerHTML)
 
       })
 
@@ -1689,11 +1699,10 @@ function mostrarFavoritos() {
    }
 
    keys.forEach(gifKey => {// el for each recorre cada gifKey
-      console.log(gifKey)
       let gifSrc = localStorage.getItem(gifKey)//con el gifkey se busca el gifsource correspondiente a ese gifkey.
       let titleKey = gifKey + '.title'
       let gifTitle = localStorage.getItem(titleKey)
-
+      localStorage.setItem(gifKey, gifSrc)
 
       principal6.innerHTML += `
       <div class='foto1'>
@@ -1726,7 +1735,7 @@ function mostrarFavoritos() {
           </div>
       </div>
       `
-
+      console.log(gifTitle)
    });
 
    let gifsFavoritos = document.querySelectorAll('.fotoFavorito')
