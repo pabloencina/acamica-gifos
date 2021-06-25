@@ -353,9 +353,9 @@
         margin-top: 0.9375rem;
     }
     
-    /*.seleccion23{
+    .seleccion23{
         color: var(--gifos);
-    }*/
+    }
     /***FAVORITOS Mobile*****/
     #principal7 {
         display: none;
@@ -1006,11 +1006,11 @@
         align-items: center;
         display: none;
     }
-    /*.seleccion23{
+    .seleccion23{
         display: 'none';
         position: absolute;
-        opacity: 0;
-    }*/
+        color: var(--gifos);
+    }
     #boton {
         width: 7.5rem;
         height: 3.125rem;
