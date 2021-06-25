@@ -693,11 +693,11 @@ function asociarEventosFotosDesktop(gifElements, caller) {
       like.addEventListener('click', () => {
 
          unlike.style.display = 'block'
-         unlike.style.marginLeft = '-35px'
+         //unlike.style.marginLeft = '-35px'
          // seleccion23.style.display = 'none'
-         unlike.style.marginTop = '-33px'
+         //unlike.style.marginTop = '-33px'
          like.style.display = 'none'
-         favcor.style.marginLeft = '160px'
+         //favcor.style.marginLeft = '160px'
          // Buscar el array de gifKey en el localStorage.
          // Agregar la gifKey nueva en el array.
          //Guardar el array acutalizado en el localStorage.
@@ -758,6 +758,16 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             principal12.style.opacity = '0'
             divHover.style.width = '0'
             contenedor2.style.opacity = '0'
+
+            gifElement.addEventListener('mouseover', () => {
+               divHover.style.display = 'block'
+               favcor.style.display = 'block'
+            })
+      
+            divHover.addEventListener('mouseout', () => {
+               divHover.style.display = 'block'
+               favcor.style.display = 'block'
+            })
 
             let otrosGifs = document.querySelectorAll('.fotoBusqueda')
             otrosGifs.forEach(gifElement => {
@@ -1149,7 +1159,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          like.style.marginTop = '-55px'
          
 
-         // siguiente1.style.marginLeft = '60px'
+         siguiente1.style.marginLeft = '60px'
 
          siguiente1.style.display = 'block'
          scrollLeftImg.style.display = 'block'

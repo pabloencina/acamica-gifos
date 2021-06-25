@@ -921,7 +921,12 @@
         margin-left: 0.3125rem;
         justify-content: flex-end;
     }
-
+    .seleccion:hover {
+        cursor: pointer;
+    }
+    .seleccion23:hover {
+        cursor: pointer;
+    }
     .favcor {
         display: none;
         position: absolute;
@@ -1132,6 +1137,7 @@
     .redes:hover {
         color: #572ee5;
     }
+    
     #parrafo3 {
         width: 25rem;
     }
