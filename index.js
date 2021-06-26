@@ -186,19 +186,14 @@ switchThemeMob.addEventListener('click', () => {
 function toggleTheme() {
 
    if (localStorage.getItem('theme') === 'theme-dark') {
+      console.log('dark')
 
       icono.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/logo-desktop.svg'
-
       boton1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/burger.svg'
-
       btn4.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-crear-gifo.svg'
-
       lupa.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search.svg'
-
       //lupa1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search.svg'
-
       camNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/camara.svg'
-
       peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula.svg'
 
       vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas.svg'
@@ -211,7 +206,6 @@ function toggleTheme() {
 
       cierre.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg'
       seleccion23.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg'
-
       siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right.svg'
 
       siguiente1.addEventListener('mouseover', () => {
@@ -239,53 +233,34 @@ function toggleTheme() {
       })
 
       switchThemeDesktop.innerHTML = 'Modo Nocturno'
-
+      switchThemeDesktop.style.cursor = 'pointer'
       switchThemeDesktop.style.color = 'var(--gifos)'
-
       switchThemeDesktop.style.textDecoration = 'none'
-
       switchThemeDesktop.style.fontWeight = 'bold'
-
       switchThemeDesktop.style.fontSize = '13px'
-
       switchThemeDesktop.style.letterSpacing = '0'
-
       switchThemeDesktop.style.textAlign = 'center'
 
       switchThemeMob.innerHTML = 'Modo Nocturno'
-
       switchThemeMob.style.cursor = 'pointer'
-
-      switchThemeMob.style.color = 'white'
-
       switchThemeMob.style.fontFamily = 'Montserrat Alternates'
-
       switchThemeMob.style.fontWeight = 'bold'
-
       switchThemeMob.style.fontSize = '20px'
-
       switchThemeMob.style.textAlign = 'center'
-
       switchThemeMob.style.lineHeight = '60px'
 
       menu.style.display = 'none'
 
       setTheme('theme-light');
    } else {
+      console.log('white')
       icono.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/logo-mobile-modo-noct.svg'
-
       boton1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/burger-modo-noct.svg'
-
       btn4.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-active-modo-noc.svg'
-
       lupa.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search-mod-noc.svg'
-
       //lupa1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search-mod-noc.svg'
-
       camNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/camara-modo-noc.svg'
-
       peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula-modo-noc.svg'
-
       vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
 
       vermas.addEventListener('mouseover', () => {
@@ -296,10 +271,10 @@ function toggleTheme() {
       })
 
       cierre.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close-modo-noct.svg'
-
       seleccion23.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close-modo-noct.svg'
-
       scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-md-noct.svg'
+      btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-modo-noc.svg'
+
       scrollLeftImg.addEventListener('mouseover', () => {
          scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-hover.svg'
       })
@@ -315,7 +290,7 @@ function toggleTheme() {
          siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-right-md-noct.svg'
       })
 
-      btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-modo-noc.svg'
+      
 
       btnCrear.addEventListener('mouseover', () => {
          btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-modo-noc.svg'
@@ -325,9 +300,10 @@ function toggleTheme() {
       })
 
       switchThemeDesktop.innerHTML = 'Modo Diurno'
+      switchThemeDesktop.style.color = 'white'
 
       switchThemeMob.innerHTML = 'Modo Diurno'
-
+      switchThemeMob.style.color = 'white'
       menu.style.display = 'none'
 
       setTheme('theme-dark');
@@ -1116,6 +1092,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          cont44.style.display = 'none'
          principal5.style.display = 'none'
          principal7.style.display = 'none'
+         principal3.style.display = 'none'
 
          gifElement.addEventListener('mouseover', () => {
             divHover.style.display = 'block'
@@ -1157,7 +1134,8 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          gifTitle.style.marginTop = '190px'
          gifTitle.style.marginLeft = '-250px'
          like.style.marginTop = '-55px'
-         
+         //scrollRigth.style.marginTop = '250px'
+         //scrollLeft.style.marginTop = '250px'
 
          siguiente1.style.marginLeft = '60px'
 
@@ -1174,7 +1152,9 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          cont44.style.display = cont44DisplayBeforeExpand
          principal5.style.display = principal5DisplayBeforeExpand
          principal7.style.display = principal7DisplayBeforeExpand
-         principal3.style.display = 'none'
+         principal3.style.display = 'block'
+         principal3.style.marginLeft = '650px'
+         
 
          let otrosGifs = document.querySelectorAll('.fotoTrending')
          otrosGifs.forEach(gifElement => {
@@ -2128,6 +2108,13 @@ btn1.addEventListener('click', () => {
       principal1.style.display = 'block'
       principal12.style.display = 'block'
       cont44.style.marginTop = '0px'
+      scroll.style.width = '78%'
+      scroll.style.marginLeft = '120px'
+      scrollLeft.style.marginLeft = '50px'
+     // scroll.style.height = '330px'
+     scrollRigth.style.marginTop = '115px'
+     scrollLeft.style.marginTop = '115px'
+      scrollRigth.style.marginLeft = '0px'
       //contenedor1.style.marginLeft = '80px'
    }
 })
