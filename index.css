@@ -47,6 +47,7 @@
         height: 25rem;
         background-color: var(--gifos2);
         background: var(--menuHamb);
+        display: none;
     }
     #boton1 {
         visibility: visible;
