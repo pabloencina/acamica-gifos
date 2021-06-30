@@ -184,10 +184,59 @@ switchThemeMob.addEventListener('click', () => {
 })
 
 function toggleTheme() {
+   if (localStorage.getItem('theme') === 'theme-light') {
+      icono.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/logo-mobile-modo-noct.svg'
+      boton1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/burger-modo-noct.svg'
+      btn4.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-active-modo-noc.svg'
+      lupa.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search-mod-noc.svg'
+      //lupa1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search-mod-noc.svg'
+      camNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/camara-modo-noc.svg'
+      peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula-modo-noc.svg'
+      vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
 
-   if (localStorage.getItem('theme') === 'theme-dark') {
-      console.log('dark')
+      vermas.addEventListener('mouseover', () => {
+         vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+hover-modo-noc.svg'
+      })
+      vermas.addEventListener('mouseout', () => {
+         vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
+      })
 
+      cierre.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close-modo-noct.svg'
+      seleccion23.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close-modo-noct.svg'
+      scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-md-noct.svg'
+      btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-modo-noc.svg'
+
+      scrollLeftImg.addEventListener('mouseover', () => {
+         scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-hover.svg'
+      })
+      scrollLeftImg.addEventListener('mouseout', () => {
+         scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-md-noct.svg'
+      })
+
+      siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-right-md-noct.svg'
+      siguiente1.addEventListener('mouseover', () => {
+         siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right-hover.svg'
+      })
+      siguiente1.addEventListener('mouseout', () => {
+         siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-right-md-noct.svg'
+      })
+
+      btnCrear.addEventListener('mouseover', () => {
+         btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-modo-noc.svg'
+      })
+      btnCrear.addEventListener('mouseout', () => {
+         btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crar-gifo-modo-noc.svg'
+      })
+
+      switchThemeDesktop.innerHTML = 'Modo Diurno'
+      switchThemeDesktop.style.color = 'white'
+
+      switchThemeMob.innerHTML = 'Modo Diurno'
+      switchThemeMob.style.color = 'white'
+      menu.style.display = 'none'
+
+      setTheme('theme-dark');
+   } else {
       icono.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/logo-desktop.svg'
       boton1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/burger.svg'
       btn4.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-crear-gifo.svg'
@@ -248,107 +297,31 @@ function toggleTheme() {
       switchThemeMob.style.fontSize = '20px'
       switchThemeMob.style.textAlign = 'center'
       switchThemeMob.style.lineHeight = '60px'
-
       menu.style.display = 'none'
 
       setTheme('theme-light');
-   } else {
-      console.log('white')
-      icono.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/logo-mobile-modo-noct.svg'
-      boton1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/burger-modo-noct.svg'
-      btn4.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-active-modo-noc.svg'
-      lupa.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search-mod-noc.svg'
-      //lupa1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search-mod-noc.svg'
-      camNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/camara-modo-noc.svg'
-      peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula-modo-noc.svg'
-      vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
-
-      vermas.addEventListener('mouseover', () => {
-         vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+hover-modo-noc.svg'
-      })
-      vermas.addEventListener('mouseout', () => {
-         vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
-      })
-
-      cierre.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close-modo-noct.svg'
-      seleccion23.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close-modo-noct.svg'
-      scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-md-noct.svg'
-      btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-modo-noc.svg'
-
-      scrollLeftImg.addEventListener('mouseover', () => {
-         scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-hover.svg'
-      })
-      scrollLeftImg.addEventListener('mouseout', () => {
-         scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-md-noct.svg'
-      })
-
-      siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-right-md-noct.svg'
-      siguiente1.addEventListener('mouseover', () => {
-         siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right-hover.svg'
-      })
-      siguiente1.addEventListener('mouseout', () => {
-         siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-right-md-noct.svg'
-      })
-
-      
-
-      btnCrear.addEventListener('mouseover', () => {
-         btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-modo-noc.svg'
-      })
-      btnCrear.addEventListener('mouseout', () => {
-         btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crar-gifo-modo-noc.svg'
-      })
-
-      switchThemeDesktop.innerHTML = 'Modo Diurno'
-      switchThemeDesktop.style.color = 'white'
-
-      switchThemeMob.innerHTML = 'Modo Diurno'
-      switchThemeMob.style.color = 'white'
-      menu.style.display = 'none'
-
-      setTheme('theme-dark');
-
    }
 }
 
-focusMethod = function getFocus() {
+/*focusMethod = function getFocus() {
    switchThemeDesktop.focus();
    switchThemeMob.focus();
-}
+}*/
 
 // function to set a given theme/color-scheme
 function setTheme(themeName) {
    localStorage.setItem('theme', themeName);
    document.documentElement.className = themeName;
-
 }
 /****Funcion para que aparezca el menu hamb */
 boton1.addEventListener('click', () => {
    if (menu.style.display === 'block') {
       menu.style.display = 'none'
       lupa.style.visibility = 'visible'
-      //boton1.style.visibility = 'visible'
-      //btn3.style.display = 'none'
    } else {
       menu.style.display = 'block';
       lupa.style.visibility = 'hidden'
-      //btn3.style.display = 'block'
-      //boton1.style.visibility = 'hidden'
    }
-})
-/*
-btn3.addEventListener('click', () => {
-if (menu.style.display === 'block') {
-   btn3.style.display = 'block'
-   
-   boton1.style.display = 'none'
-   
-} else {
-   menu.style.display = 'none'
-   boton1.style.display = 'block'
-   btn3.style.display
-    = 'none'
-}
 })
 
 /**Consumir gifs desde la  API */
@@ -357,7 +330,7 @@ const url_trending = 'https://api.giphy.com/v1/gifs/trending'
 const url_buscador = 'https://api.giphy.com/v1/gifs/search'
 const url_wordTrending = 'https://api.giphy.com/v1/trending/searches'
 const url_descarga = 'https://upload.giphy.com/v1/gifs'
-const URL_Autocompletar = 'https://api.giphy.com/v1/gifs/search/tags'//?api_key=umCoI8QE3nt72GLxXUntliERdZW5J6z9&limit=5&q=';
+const URL_Autocompletar = 'https://api.giphy.com/v1/gifs/search/tags'
 
 
 /*******TRENDING WORD AND phrases*******/

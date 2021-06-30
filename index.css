@@ -39,7 +39,7 @@
         cursor: pointer;
     }
     #menu {
-        visibility: visible;
+        /*visibility: visible;*/
         position: absolute;
         display: flex;
         justify-content: center;
@@ -48,6 +48,15 @@
         background-color: var(--gifos2);
         background: var(--menuHamb);
         display: none;
+    }
+    #switchThemeMob{
+        font-family: "Montserrat Alternates";
+        font-size: 1.25rem;
+        color: #ffffff;
+        text-align: center;
+        line-height: 3.75rem;
+        font-weight: bold;
+        cursor: pointer;
     }
     #boton1 {
         visibility: visible;
