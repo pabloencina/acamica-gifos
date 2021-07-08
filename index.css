@@ -1,7 +1,7 @@
 /*
 ********BUSQUEDA**********************/
 
-@media screen and (max-width: 23.4375rem) {
+@media screen and (max-width: 48rem) {
     body {
         background-color: var(--color-primary);
     }
@@ -569,7 +569,7 @@
 }
 /*************************************************************/
 
-@media screen and (min-width: 90rem) {
+@media screen and (min-width: 48rem) {
     body {
         background-color: var(--color-primary);
     }
@@ -1385,6 +1385,12 @@
         background: rgba(0, 0, 0, 0.2);
     }
 }
+#cronometroGifos{
+    display: none;
+    color: var(--gifos);
+    font-weight: bolder;
+}
+
 /******Modo Nocturno********/
 
 .theme-light {

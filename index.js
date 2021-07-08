@@ -158,6 +158,7 @@ let contAutocompletar = document.getElementById('contAutocompletar')
 
 let parr1 = document.getElementById('parr1')
 
+
 /**MODO NOCTURNO******************* */
 
 //// Immediately invoked function to set the theme on initial load
@@ -329,7 +330,7 @@ const api_key = 'boZGHaAmzirlZl5OiViZEx7vayQzDZoY'
 const url_trending = 'https://api.giphy.com/v1/gifs/trending'
 const url_buscador = 'https://api.giphy.com/v1/gifs/search'
 const url_wordTrending = 'https://api.giphy.com/v1/trending/searches'
-const url_descarga = 'https://upload.giphy.com/v1/gifs'
+//const url_descarga = 'https://upload.giphy.com/v1/gifs'
 const URL_Autocompletar = 'https://api.giphy.com/v1/gifs/search/tags'
 
 
@@ -409,7 +410,6 @@ buscador.addEventListener('keyup', async (autocompletar) => {
          let itemListaBuscar = document.getElementById('sugerenciaId' + gifJson.name)
 
          itemListaBuscar.addEventListener('click', () => {
-            console.log(gifJson.name)
             buscador.style.borderRadius = '1.6875rem'
             buscador.innerHTML = gifJson.name
             mascotas.innerHTML = gifJson.name
@@ -678,7 +678,6 @@ function asociarEventosFotosDesktop(gifElements, caller) {
 
       if (caller == 'busqueda') {
          exp.addEventListener('click', () => {
-            console.log(gifTitle)
             favcor.style.marginTop = '250px'
             favcor.style.marginLeft = '650px'
             close12.style.display = 'block'
@@ -711,7 +710,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
                divHover.style.display = 'block'
                favcor.style.display = 'block'
             })
-      
+
             divHover.addEventListener('mouseout', () => {
                divHover.style.display = 'block'
                favcor.style.display = 'block'
@@ -805,7 +804,6 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             contenedor2.style.opacity = '0'
 
             unlike.addEventListener('click', () => {
-               console.log('unlike')
 
                let keysString = localStorage.getItem('arrayK')
                let keys = keysString.split(",")
@@ -907,7 +905,6 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       let down = document.getElementById('down' + gifKey)
       let close12 = document.getElementById('close12' + gifKey)
       let gifTitle = document.getElementById('gifTitle' + gifKey)
-      console.log(gifTitle)
 
       gifElement.addEventListener('mouseover', () => {
          divHover.style.display = 'block'
@@ -1002,7 +999,6 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          //Guardar el sorce del gif con el gifkey correspondiente en el localStorage.
          localStorage.setItem(gifKey, gifSrc)
          let titleKey = gifKey + '.title'
-         console.log(gifTitle.innerHTML)
          localStorage.setItem(titleKey, gifTitle.innerHTML)
 
 
@@ -1075,7 +1071,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
             divHover.style.display = 'block'
             favcor.style.display = 'block'
          })
-   
+
 
          let otrosGifs = document.querySelectorAll('.fotoTrending')
          otrosGifs.forEach(gifElement => {
@@ -1126,7 +1122,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          principal7.style.display = principal7DisplayBeforeExpand
          principal3.style.display = 'block'
          principal3.style.marginLeft = '650px'
-         
+
 
          let otrosGifs = document.querySelectorAll('.fotoTrending')
          otrosGifs.forEach(gifElement => {
@@ -1329,7 +1325,6 @@ function asociarEventosFotosMobile(gifElements, caller) {
       like.style.marginLeft = '-20px'
 
       unlike.addEventListener('click', () => {
-         console.log('unlike')
 
          let keysString = localStorage.getItem('arrayK')
          let keys = keysString.split(",")
@@ -1379,7 +1374,6 @@ function asociarEventosFotosMobile(gifElements, caller) {
          //Guardar el sorce del gifcon el gifkey correspondiente en el localStorage.
          localStorage.setItem(gifKey, gifSrc)
          let titleKey = gifKey + '.title'
-         console.log(gifTitle.innerHTML)
          localStorage.setItem(titleKey, gifTitle.innerHTML)
 
       })
@@ -1398,29 +1392,27 @@ function asociarEventosFotosMobile(gifElements, caller) {
       down.addEventListener('mouseout', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
       })
+      /*
       down.addEventListener('click', () => {
-         console.log('click here')
-         descargar_gifs()
-         console.log(descargar_gifs())
-         console.log(url_descarga)
+         descargarGifs()
       })
+      */
    })
 }
-
-let descargar_gifs = async () => {
+/*
+let descargarGifs = async () => {
    try {
-
-      let url_upload = url_descarga + '?' + 'api_key=' + api_key + 'username=' + username + 'source_image_url=' + source_image_url + '&limit=' + limit + '&q=' + q;
-      let resultados = await fetch(url_upload)
+      console.log("ACA!!!")
+      let url_download = url_descarga + '?' + 'api_key=' + api_key + 'username=' + username + 'source_image_url=' + source_image_url + '&limit=' + limit + '&q=' + q;
+      let resultados = await fetch(url_download)
 
       let json = await resultados.json()
-      console.log(resultados)
-      console.log(url_upload)
-      mostrarGifsBusqueda(json)
+      //mostrarGifsBusqueda(json)
    } catch (error) {
+      console.log(error)
    }
 }
-
+*/
 function asociarEventosFotosTrendingMobile(gifElements) {
    //let favcor = document.getElementById('favcor')
    gifElements.forEach(gifElement => {
@@ -1544,7 +1536,6 @@ function asociarEventosFotosTrendingMobile(gifElements) {
       like.style.marginLeft = '-20px'
 
       unlike.addEventListener('click', () => {
-         console.log('gggggg')
          let keysString = localStorage.getItem('arrayK')
          let keys = keysString.split(",")
          let keysFiltered = keys.filter(key => {
@@ -1586,7 +1577,6 @@ function asociarEventosFotosTrendingMobile(gifElements) {
          //Guardar el sorce del gifcon el gifkey correspondiente en el localStorage.
          localStorage.setItem(gifKey, gifSrc)
          let titleKey = gifKey + '.title'
-         console.log(gifTitle.innerHTML)
          localStorage.setItem(titleKey, gifTitle.innerHTML)
 
       })
@@ -1704,7 +1694,6 @@ function mostrarFavoritos() {
           </div>
       </div>
       `
-      console.log(gifTitle)
    });
 
    let gifsFavoritos = document.querySelectorAll('.fotoFavorito')
@@ -1787,7 +1776,7 @@ let mostrarTrendingScroll = async () => {
 
       json.data.forEach(trending => {
 
-
+         console.log(trending.images.original.mp4)
          scroll.innerHTML += `
          <div class='foto4'>
             <img key=${trending.id} class='fotoTrending' src='${trending.images.fixed_height.url}'>
@@ -1873,23 +1862,24 @@ scrollRigth.addEventListener('click', () => {
 })
 /*Funcionalidad boton CREAR Gifs*****/
 
-btn4.addEventListener('click', () => {
+btnCrear.addEventListener('click', () => {
    if (creargifos.style.display === 'none') {
       creargifos.style.display = 'block';
       ocultar_todo.style.display = 'none'
+      principal12.style.display = 'none'
+      principal1.style.display = 'none'
    } else {
       ocultar_todo.style.display = 'block'
       creargifos.style.display = 'none'
-
+      principal12.style.display = 'block'
+      principal1.style.display = 'block'
    }
 })
 /**Funcionalidad seccion de CREAR GIFOS***** */
 let recorder = null
 let myGifs = []
-
-/*
 let pathSubirGif = `https://upload.giphy.com/v1/gifs?api_key=${api_key}`
- 
+
 window.onload = () => {
    let gifs = JSON.parse(localStorage.getItem('myGifs'));
    if (gifs) {
@@ -1897,7 +1887,7 @@ window.onload = () => {
    }
    download();
 }
-/*
+
 async function download() {
    const a = document.createElement("a");
    a.href = await descargarGif();
@@ -1906,19 +1896,19 @@ async function download() {
    a.click();
    document.body.removeChild(a);
 }
-/*
+
 async function descargarGif() {
    var source = 'https://api.giphy.com/v1/gifs/cRfP1TiNrxLDtRrkPl?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY';
    let response = await fetch(source);
    let info = await response.json();
- 
+
    return fetch(info.data.images.downsized_large.url).then((response) => {
       return response.blob();
    }).then(blob => {
       return URL.createObjectURL(blob);
    });
 }
-*/
+
 function comenzando(params) {
    comenzar.addEventListener('click', () => {
       cont_cuadrado.style.display = 'none'
@@ -1931,31 +1921,71 @@ function comenzando(params) {
    })
 }
 comenzando()
+let cronometroGifos = document.getElementById('cronometroGifos')
 
 grabar.addEventListener('click', () => {
+
+   iniciarReloj()
    record();
 })
 
-function finalizando(params) {
+function iniciarReloj() {
+   contador_s = 0;
+   contador_m = 0;
+   s = document.getElementById("segundos");
+   m = document.getElementById("minutos");
+
+   cronometro = setInterval(
+      function () {
+         if (contador_s == 60) {
+            contador_s = 0;
+
+            contador_m++;
+            if (contador_m < 10) {
+               m.innerHTML = "0" + contador_m;
+            } else {
+               m.innerHTML = contador_m;
+            }
+         }
+         contador_s++;
+         if (contador_s < 10) {
+            s.innerHTML = "0" + contador_s;
+         } else {
+            s.innerHTML = contador_s;
+         }
 
 
-   finalizar.addEventListener('click', () => {
-      recorder.stopRecording(async () => {
-         let blob = recorder.getBlob()
-         let uri = URL.createObjectURL(blob);
-         mostrarGif.src = uri;
-         let form = new FormData();
-         form.append('file', blob, 'myGif.gif');
-         createGif(form);
-      })
-      video.style.display = 'none'
-      finalizar.style.display = 'none'
-      subirgifo.style.display = 'block'
-      repCaptura.style.display = 'block'
-      btnUno.style.background = 'var(--color-primary)'
-   })
+      }
+      , 1000);
+   cronometroGifos.style.display = 'block'
 }
-finalizando()
+
+finalizar.addEventListener('click', () => {
+   recorder.stopRecording(async () => {
+      let blob = recorder.getBlob()
+      let uri = URL.createObjectURL(blob);
+      mostrarGif.src = uri;
+
+      
+      let form = new FormData();
+      form.append('file', blob, 'myGif.gif');
+      createGif(form);
+   })
+   video.style.display = 'none'
+   finalizar.style.display = 'none'
+   subirgifo.style.display = 'block'
+   repCaptura.style.display = 'block'
+   btnUno.style.background = 'var(--color-primary)'
+   cronometroGifos.style.display = 'none'
+   detenerse()
+})
+
+
+
+var cronometro;
+function detenerse() {
+   clearInterval(cronometro);
+}
 
 async function createGif(formData) {
    const response = await fetch(pathSubirGif, {
@@ -1963,7 +1993,7 @@ async function createGif(formData) {
       body: formData
    });
    const result = await response.json();
-
+   console.log(result)
    myGifs.push(result.data.id);
    localStorage.setItem('myGifs', JSON.stringify(myGifs));
 }
@@ -1983,7 +2013,6 @@ function begin() {
 }
 
 async function startStream() {
-
    stream = await navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
@@ -2013,7 +2042,6 @@ async function record() {
       console.log('stream is undefined')
       return;
    }
-
    recorder = RecordRTC(stream, {
       type: 'gif',
       frameRate: 1,
@@ -2030,23 +2058,16 @@ async function record() {
    recorder.startRecording();
 }
 
-function capturar(params) {
-
-   captura.addEventListener('click', () => {
-
-      cont_cuadrado.style.display = 'block'
-      comenzar.style.display = 'block'
-      repCaptura.style.display = 'none'
-      subirgifo.style.display = 'none'
-      video.style.display = 'none'
-      btnDos.style.background = 'var(--color-primary)'
-      btnDos.style.color = ''
-      finalizando()
-
+function repetirCaptura() {
+   repCaptura.addEventListener('click', () => {
+      console.log('repetircaptura')
+      creargifos.style.display = 'block';
+      ocultar_todo.style.display = 'none'
+      principal12.style.display = 'none'
+      principal1.style.display = 'none'
    })
-
 }
-capturar()
+repetirCaptura()
 
 /*************Imagenes Hover*********** */
 
@@ -2083,9 +2104,9 @@ btn1.addEventListener('click', () => {
       scroll.style.width = '78%'
       scroll.style.marginLeft = '120px'
       scrollLeft.style.marginLeft = '50px'
-     // scroll.style.height = '330px'
-     scrollRigth.style.marginTop = '115px'
-     scrollLeft.style.marginTop = '115px'
+      // scroll.style.height = '330px'
+      scrollRigth.style.marginTop = '115px'
+      scrollLeft.style.marginTop = '115px'
       scrollRigth.style.marginLeft = '0px'
       //contenedor1.style.marginLeft = '80px'
    }
@@ -2095,6 +2116,10 @@ btn1.addEventListener('click', () => {
    if (creargifos.style.display == 'block') {
       creargifos.style.display = 'none'
       ocultar_todo.style.display = 'block'
+      principal12.style.display = 'block'
+      principal1.style.display = 'block'
    }
 })
+
+
 
