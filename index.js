@@ -660,7 +660,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
          keys.push(gifKey)
          localStorage.setItem('arrayK', keys)
 
-         //Guardar el sorce del gifcon el gifkey correspondiente en el localStorage.
+         //Guardar el source del gif con el gifkey correspondiente en el localStorage.
          localStorage.setItem(gifKey, gifSrc)
          let titleKey = gifKey + '.title'
          localStorage.setItem(titleKey, gifTitle.innerHTML)
@@ -1953,23 +1953,18 @@ function iniciarReloj() {
          } else {
             s.innerHTML = contador_s;
          }
-
-
       }
       , 1000);
    cronometroGifos.style.display = 'block'
 }
 
+let blob
+
 finalizar.addEventListener('click', () => {
    recorder.stopRecording(async () => {
-      let blob = recorder.getBlob()
+      blob = recorder.getBlob()
       let uri = URL.createObjectURL(blob);
       mostrarGif.src = uri;
-
-      
-      let form = new FormData();
-      form.append('file', blob, 'myGif.gif');
-      createGif(form);
    })
    video.style.display = 'none'
    finalizar.style.display = 'none'
@@ -1980,14 +1975,13 @@ finalizar.addEventListener('click', () => {
    detenerse()
 })
 
+subirgifo.addEventListener ('click',() => {
+   subirGifos()
+})
 
-
-var cronometro;
-function detenerse() {
-   clearInterval(cronometro);
-}
-
-async function createGif(formData) {
+async function subirGifos(){
+   let form = new FormData();
+   form.append('file', blob, 'myGif.gif');
    const response = await fetch(pathSubirGif, {
       method: 'POST',
       body: formData
@@ -1996,6 +1990,11 @@ async function createGif(formData) {
    console.log(result)
    myGifs.push(result.data.id);
    localStorage.setItem('myGifs', JSON.stringify(myGifs));
+}
+
+var cronometro;
+function detenerse() {
+   clearInterval(cronometro);
 }
 
 let stream
