@@ -49,7 +49,7 @@
         background: var(--menuHamb);
         display: none;
     }
-    #switchThemeMob{
+    #switchThemeMob {
         font-family: "Montserrat Alternates";
         font-size: 1.25rem;
         color: #ffffff;
@@ -126,7 +126,7 @@
         justify-content: center;
         align-items: center;
     }
-    #inspiracion1{
+    #inspiracion1 {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -175,7 +175,7 @@
         border-radius: 1.6875rem;
         top: 0.625rem;
     }
-    #sugerencias{
+    #sugerencias {
         display: none;
         width: 74.5%;
         height: 250px;
@@ -213,7 +213,7 @@
     .itemListaBuscar:hover {
         width: 74.5%;
         cursor: pointer;
-        color: #5ed7c6; 
+        color: #5ed7c6;
     }
     #contenedorAutocomp {
         display: none;
@@ -234,7 +234,6 @@
         top: 0.1875rem;
     }
     #principal1 {
-       
         height: 9.6875rem;
         display: inline-flex;
         flex-wrap: wrap;
@@ -254,9 +253,9 @@
     .words {
         display: inline;
     }
-    .words:hover{
+    .words:hover {
         cursor: pointer;
-        color: #5ed7c6; 
+        color: #5ed7c6;
     }
     #wap {
         font-family: "Montserrat Alternates";
@@ -362,8 +361,8 @@
         height: 120px;
         margin-top: 0.9375rem;
     }
-    
-    .seleccion23{
+
+    .seleccion23 {
         color: var(--gifos);
     }
     /***FAVORITOS Mobile*****/
@@ -382,7 +381,7 @@
         width: 1.25rem;
         height: 1.25rem;
         margin-top: -50px;
-       /* display: none;*/
+        /* display: none;*/
     }
     #titulo1 {
         font-family: "Montserrat Alternates";
@@ -511,7 +510,7 @@
         flex-wrap: nowrap;
         position: relative;
     }
-    .fotoTrending{
+    .fotoTrending {
         width: 243px;
         height: 187px;
         margin: 0.9375rem;
@@ -519,7 +518,7 @@
     .sig {
         display: none;
     }
-    
+
     /**********************Footer****************/
     #cont44 {
         width: 100%;
@@ -712,7 +711,7 @@
     .itemListaBuscar:hover {
         width: 74.5%;
         cursor: pointer;
-        color: #5ed7c6; 
+        color: #5ed7c6;
     }
     #buscador1 {
         display: flex;
@@ -753,7 +752,7 @@
         /*justify-content: flex-start;*/
         height: 10.25rem;
     }
-    
+
     #trending {
         font-family: "Montserrat Alternates";
         font-size: 1.125rem;
@@ -764,9 +763,9 @@
     .words {
         display: inline;
     }
-    .words:hover{
+    .words:hover {
         cursor: pointer;
-        color: #5ed7c6; 
+        color: #5ed7c6;
     }
     #wap {
         font-family: "Montserrat Alternates";
@@ -1022,8 +1021,8 @@
         align-items: center;
         display: none;
     }
-    .seleccion23{
-        display: 'none';
+    .seleccion23 {
+        display: "none";
         position: absolute;
         color: var(--gifos);
     }
@@ -1072,7 +1071,6 @@
         display: inline-flex;
         justify-content: space-between;
         overflow: hidden;
-        
     }
     ::-webkit-scrollbar {
         display: none;
@@ -1151,7 +1149,7 @@
     .redes:hover {
         color: #572ee5;
     }
-    
+
     #parrafo3 {
         width: 25rem;
     }
@@ -1169,7 +1167,7 @@
     }
 
     #cont802 {
-        width: 43rem;
+        width: 688px;
         height: 24.375rem;
         border: 1px solid var(--gifos);
     }
@@ -1380,12 +1378,27 @@
     }
     #video {
         display: none;
-        width: 43rem;
+        width: 688px;
         height: 24.375rem;
         background: rgba(0, 0, 0, 0.2);
     }
 }
-#cronometroGifos{
+#mostrarGif {
+    width: 688px;
+    height: 24.375rem;
+    position: absolute;
+}
+#mostrarCamara{
+    /*display: none;*/
+    width: 688px;
+    height: 24.375rem;
+    /*background-color: #572ee5;
+    opacity: 0.7;*/
+    z-index: 10;
+    position: absolute;
+}
+
+#cronometroGifos {
     display: none;
     color: var(--gifos);
     font-weight: bolder;

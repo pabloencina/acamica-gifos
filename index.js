@@ -72,6 +72,8 @@ let video = document.getElementById('video')
 
 let mostrarGif = document.getElementById('mostrarGif')
 
+let mostrarCamara = document.getElementById('mostrarCamara')
+
 let grabar = document.getElementById('grabar')
 
 let cont_cuadrado = document.getElementById('cont_cuadrado')
@@ -1976,20 +1978,25 @@ finalizar.addEventListener('click', () => {
 })
 
 subirgifo.addEventListener ('click',() => {
-   subirGifos()
+   subirGifo()
 })
 
-async function subirGifos(){
+async function subirGifo(){
    let form = new FormData();
    form.append('file', blob, 'myGif.gif');
+   // hover subiendo...
+   mostrarCamara.style.opacity = 0.7
+   mostrarCamara.style.backgroundColor = '#0000FF'
    const response = await fetch(pathSubirGif, {
       method: 'POST',
-      body: formData
+      body: form
    });
    const result = await response.json();
    console.log(result)
    myGifs.push(result.data.id);
    localStorage.setItem('myGifs', JSON.stringify(myGifs));
+   //hover subido ok.
+   mostrarCamara.style.backgroundColor = '#572ee5'
 }
 
 var cronometro;
