@@ -164,6 +164,7 @@ let contenidoGifSubido = document.getElementById('contenidoGifSubido')
 let botonDescargaGifo = document.getElementById('botonDescargaGifo')
 let botonLinkGIfo = document.getElementById('botonLinkGIfo')
 
+
 /**MODO NOCTURNO******************* */
 
 //// Immediately invoked function to set the theme on initial load
@@ -1914,7 +1915,7 @@ async function descargarGif() {
    });
 }
 
-function comenzando(params) {
+function comenzando() {
    comenzar.addEventListener('click', () => {
       cont_cuadrado.style.display = 'none'
       acceso00.style.display = 'block'
@@ -1939,6 +1940,9 @@ function iniciarReloj() {
    contador_m = 0;
    s = document.getElementById("segundos");
    m = document.getElementById("minutos");
+   
+   s.innerHTML = "00"
+   m.innerHTML = "00"
 
    cronometro = setInterval(
       function () {
@@ -1973,6 +1977,7 @@ finalizar.addEventListener('click', () => {
    })
    video.style.display = 'none'
    finalizar.style.display = 'none'
+   mostrarGif.style.display = 'block'
    subirgifo.style.display = 'block'
    repCaptura.style.display = 'block'
    btnUno.style.background = 'var(--color-primary)'
@@ -2005,6 +2010,8 @@ function mostrarSubiendoGif() {
    contenidoSubiendoGifo.style.display = 'block'
    mostrarCamara.style.opacity = 0.6
    mostrarCamara.style.backgroundColor = '#572EE5'
+   subirgifo.style.display = 'none'
+   repCaptura.style.display = 'none'
 }
 
 function mostrarGifSubido() {
@@ -2012,6 +2019,8 @@ function mostrarGifSubido() {
    contenidoGifSubido.style.display = 'block'
    mostrarCamara.style.opacity = 0.6
    mostrarCamara.style.backgroundColor = '#572ee5'
+   subirgifo.style.display = 'none'
+   repCaptura.style.display = 'none'
 }
 
 botonDescargaGifo.addEventListener('mouseover', () => {
@@ -2021,7 +2030,7 @@ botonDescargaGifo.addEventListener('mouseout', () => {
    botonDescargaGifo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
 })
 botonDescargaGifo.addEventListener('click',()=>{
-
+   
 })
 
 
@@ -2034,6 +2043,7 @@ botonLinkGIfo.addEventListener('mouseout', () => {
 botonLinkGIfo.addEventListener('click',()=>{
 
 })
+
 
 var cronometro;
 function detenerse() {
@@ -2100,16 +2110,22 @@ async function record() {
    recorder.startRecording();
 }
 
-function repetirCaptura() {
+
    repCaptura.addEventListener('click', () => {
       console.log('repetircaptura')
       creargifos.style.display = 'block';
+      mostrarGif.style.display = 'block'
+      repCaptura.style.display = 'none'
+      grabar.style.display = 'block'
+      subirgifo.style.display = 'none'
+      video.style.display = 'block'
+      mostrarCamara.style.display = 'block'
       ocultar_todo.style.display = 'none'
       principal12.style.display = 'none'
       principal1.style.display = 'none'
+      
    })
-}
-repetirCaptura()
+
 
 
 

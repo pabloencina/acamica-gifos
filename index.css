@@ -1365,7 +1365,8 @@
         text-decoration-line: underline;
         text-decoration-color: #50e3c2;
     }
-    #repCaptura a:hover {
+    #repCaptura:hover {
+        cursor: pointer;
         color: #50e3c2;
     }
     #captura {
