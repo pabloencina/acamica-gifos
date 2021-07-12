@@ -159,7 +159,10 @@ let contenedor2 = document.getElementById('contenedor2')
 let contAutocompletar = document.getElementById('contAutocompletar')
 
 let parr1 = document.getElementById('parr1')
-
+let contenidoSubiendoGifo = document.getElementById('contenidoSubiendoGifo')
+let contenidoGifSubido = document.getElementById('contenidoGifSubido')
+let botonDescargaGifo = document.getElementById('botonDescargaGifo')
+let botonLinkGIfo = document.getElementById('botonLinkGIfo')
 
 /**MODO NOCTURNO******************* */
 
@@ -1984,9 +1987,9 @@ subirgifo.addEventListener ('click',() => {
 async function subirGifo(){
    let form = new FormData();
    form.append('file', blob, 'myGif.gif');
-   // hover subiendo...
-   mostrarCamara.style.opacity = 0.7
-   mostrarCamara.style.backgroundColor = '#0000FF'
+   // hover subiendo... 
+   mostrarSubiendoGif()
+
    const response = await fetch(pathSubirGif, {
       method: 'POST',
       body: form
@@ -1996,8 +1999,41 @@ async function subirGifo(){
    myGifs.push(result.data.id);
    localStorage.setItem('myGifs', JSON.stringify(myGifs));
    //hover subido ok.
+   mostrarGifSubido()
+}
+function mostrarSubiendoGif() {
+   contenidoSubiendoGifo.style.display = 'block'
+   mostrarCamara.style.opacity = 0.6
+   mostrarCamara.style.backgroundColor = '#572EE5'
+}
+
+function mostrarGifSubido() {
+   contenidoSubiendoGifo.style.display = 'none'
+   contenidoGifSubido.style.display = 'block'
+   mostrarCamara.style.opacity = 0.6
    mostrarCamara.style.backgroundColor = '#572ee5'
 }
+
+botonDescargaGifo.addEventListener('mouseover', () => {
+   botonDescargaGifo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
+})
+botonDescargaGifo.addEventListener('mouseout', () => {
+   botonDescargaGifo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
+})
+botonDescargaGifo.addEventListener('click',()=>{
+
+})
+
+
+botonLinkGIfo.addEventListener('mouseover', () => {
+   botonLinkGIfo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-link-hover.svg'
+})
+botonLinkGIfo.addEventListener('mouseout', () => {
+   botonLinkGIfo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-link-normal.svg'
+})
+botonLinkGIfo.addEventListener('click',()=>{
+
+})
 
 var cronometro;
 function detenerse() {
@@ -2074,6 +2110,8 @@ function repetirCaptura() {
    })
 }
 repetirCaptura()
+
+
 
 /*************Imagenes Hover*********** */
 

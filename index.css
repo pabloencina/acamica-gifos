@@ -1221,6 +1221,71 @@
         align-items: center;
         align-content: center;
     }
+    #contenidoSubiendoGifo {
+        display: none;
+        width: 100%;
+        position: absolute;
+        z-index: 10;
+        align-items: center;
+        align-content: center;
+    }
+    #SubiendoGifo {
+        font-family: "Roboto Condensed";
+        font-weight: bold;
+        font-size: 20px;
+        color: #ffffff;
+        text-align: center;
+        display: flex;
+        margin-left: 250px;
+    }
+    #imagenSubiendoGifo {
+        margin-left: 350px;
+        margin-top: 100px;
+    }
+
+    #contenidoGifSubido {
+        display: none;
+        width: 688px;
+        height: 390px;
+        position: absolute;
+        z-index: 10;
+        margin-top: -30px;
+    }
+    #contenedorImagenBotones {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        align-items: stretch;
+    }
+    #botonDescargaGifo {
+        padding: 5px;
+    }
+    #botonDescargaGifo:hover {
+        cursor: pointer;
+    }
+    #botonLinkGIfo {
+        padding: 5px;
+    }
+    #botonLinkGIfo:hover {
+        cursor: pointer;
+    }
+    #contenedorTexto {
+        width: 688px;
+        height: 390px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #gifoSubido {
+        font-family: "Roboto Condensed";
+        font-size: 20px;
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+    }
+
     #acceso00 {
         display: none;
     }
@@ -1388,7 +1453,7 @@
     height: 24.375rem;
     position: absolute;
 }
-#mostrarCamara{
+#mostrarCamara {
     /*display: none;*/
     width: 688px;
     height: 24.375rem;
