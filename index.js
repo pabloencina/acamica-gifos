@@ -11,6 +11,7 @@ let menu = document.getElementById('menu')
 let btn3 = document.getElementById('btn3')
 
 let misgif = document.getElementById('misgif')
+let misgifs1 = document.getElementById('misgifs1')
 
 let principal8 = document.getElementById('principal8')
 
@@ -163,7 +164,9 @@ let contenidoSubiendoGifo = document.getElementById('contenidoSubiendoGifo')
 let contenidoGifSubido = document.getElementById('contenidoGifSubido')
 let botonDescargaGifo = document.getElementById('botonDescargaGifo')
 let botonLinkGIfo = document.getElementById('botonLinkGIfo')
-
+let principal9 = document.getElementById('principal9')
+let imgSinGifos = document.getElementById('imgSinGifos')
+let parrafoGifos = document.getElementById('parrafoGifos')
 
 /**MODO NOCTURNO******************* */
 
@@ -1665,9 +1668,10 @@ function mostrarFavoritos() {
 
    keys.forEach(gifKey => {// el for each recorre cada gifKey
       let gifSrc = localStorage.getItem(gifKey)//con el gifkey se busca el gifsource correspondiente a ese gifkey.
+      console.log('gifsource ' + gifSrc)
       let titleKey = gifKey + '.title'
       let gifTitle = localStorage.getItem(titleKey)
-      localStorage.setItem(gifKey, gifSrc)
+      //localStorage.setItem(gifKey, gifSrc)
 
       principal6.innerHTML += `
       <div class='foto1'>
@@ -1883,18 +1887,18 @@ btnCrear.addEventListener('click', () => {
 })
 /**Funcionalidad seccion de CREAR GIFOS***** */
 let recorder = null
-let myGifs = []
+let myGifs
 let pathSubirGif = `https://upload.giphy.com/v1/gifs?api_key=${api_key}`
 
-window.onload = () => {
+/*window.onload = () => {
    let gifs = JSON.parse(localStorage.getItem('myGifs'));
    if (gifs) {
       myGifs = gifs;
    }
-   download();
+   //download();
 }
 
-async function download() {
+async function download(gifSrc, gifTitle) {
    const a = document.createElement("a");
    a.href = await descargarGif();
    a.download = "myImage.gif";
@@ -1914,7 +1918,7 @@ async function descargarGif() {
       return URL.createObjectURL(blob);
    });
 }
-
+*/
 function comenzando() {
    comenzar.addEventListener('click', () => {
       cont_cuadrado.style.display = 'none'
@@ -1940,7 +1944,7 @@ function iniciarReloj() {
    contador_m = 0;
    s = document.getElementById("segundos");
    m = document.getElementById("minutos");
-   
+
    s.innerHTML = "00"
    m.innerHTML = "00"
 
@@ -1985,11 +1989,11 @@ finalizar.addEventListener('click', () => {
    detenerse()
 })
 
-subirgifo.addEventListener ('click',() => {
+subirgifo.addEventListener('click', () => {
    subirGifo()
 })
 
-async function subirGifo(){
+async function subirGifo() {
    let form = new FormData();
    form.append('file', blob, 'myGif.gif');
    // hover subiendo... 
@@ -2001,11 +2005,12 @@ async function subirGifo(){
    });
    const result = await response.json();
    console.log(result)
-   myGifs.push(result.data.id);
-   localStorage.setItem('myGifs', JSON.stringify(myGifs));
-   //hover subido ok.
+    //hover subido ok.
+   guardarMiGif(result.data.id)
    mostrarGifSubido()
+   asociarEventosBotonesMiGif()
 }
+
 function mostrarSubiendoGif() {
    contenidoSubiendoGifo.style.display = 'block'
    mostrarCamara.style.opacity = 0.6
@@ -2023,14 +2028,49 @@ function mostrarGifSubido() {
    repCaptura.style.display = 'none'
 }
 
+function guardarMiGif(gifId){
+   //boton like.
+
+   //arrayKGifo.push(gifId);
+   //localStorage.setItem('myGifs', JSON.stringify(myGifs));
+
+      
+      // Buscar el array de gifKey en el localStorage.
+      // Agregar la gifKey nueva en el array.
+      //Guardar el array acutalizado en el localStorage.
+      let keysStringGifo = localStorage.getItem('arrayKGifo')
+      let keysGifo
+      if (keysStringGifo == null || keysStringGifo == "") {
+         keysGifo = []
+      } else {
+         keysGifo = keysStringGifo.split(",")
+      }
+
+      keysGifo.push(gifId)
+      localStorage.setItem('arrayKGifo', keysGifo)
+
+      //Guardar el source del gif con el gifkey correspondiente en el localStorage.
+      let gifSrc = 'https://media4.giphy.com/media/' + gifId + '/200.gif'
+      localStorage.setItem(gifId, gifSrc)
+      console.log(gifId)
+      console.log(gifSrc)
+}
+
+
+
+function asociarEventosBotonesMiGif() {
+//id de los botones link y descargar y asociarlos al evento onclick.
+   
+}
+
 botonDescargaGifo.addEventListener('mouseover', () => {
    botonDescargaGifo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
 })
 botonDescargaGifo.addEventListener('mouseout', () => {
    botonDescargaGifo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
 })
-botonDescargaGifo.addEventListener('click',()=>{
-   
+botonDescargaGifo.addEventListener('click', () => {
+
 })
 
 
@@ -2040,7 +2080,7 @@ botonLinkGIfo.addEventListener('mouseover', () => {
 botonLinkGIfo.addEventListener('mouseout', () => {
    botonLinkGIfo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-link-normal.svg'
 })
-botonLinkGIfo.addEventListener('click',()=>{
+botonLinkGIfo.addEventListener('click', () => {
 
 })
 
@@ -2111,24 +2151,105 @@ async function record() {
 }
 
 
-   repCaptura.addEventListener('click', () => {
-      console.log('repetircaptura')
-      creargifos.style.display = 'block';
-      mostrarGif.style.display = 'block'
-      repCaptura.style.display = 'none'
-      grabar.style.display = 'block'
-      subirgifo.style.display = 'none'
-      video.style.display = 'block'
-      mostrarCamara.style.display = 'block'
-      ocultar_todo.style.display = 'none'
-      principal12.style.display = 'none'
-      principal1.style.display = 'none'
+repCaptura.addEventListener('click', () => {
+   console.log('repetircaptura')
+   creargifos.style.display = 'block';
+   mostrarGif.style.display = 'block'
+   repCaptura.style.display = 'none'
+   grabar.style.display = 'block'
+   subirgifo.style.display = 'none'
+   video.style.display = 'block'
+   mostrarCamara.style.display = 'block'
+   ocultar_todo.style.display = 'none'
+   principal12.style.display = 'none'
+   principal1.style.display = 'none'
+
+})
+/*Seccion MIS GIFOS Modo Desktop */
+
+misgifs1.addEventListener('click', () => {
+
+   if (principal8.style.display === 'block') {
+      principal8.style.display = 'none'
+      menu.style.display = 'none'
+      principal4.style.display = 'block'
+      principal1.style.display = 'block'
+      principal5.style.display = 'block'
+   }
+   menu.style.display = 'none'
+   principal4.style.display = 'none'
+   principal1.style.display = 'none'
+   principal5.style.display = 'none'
+   principal3.style.display = 'none'
+   principal8.style.display = 'block'
+   principal12.style.marginTop = '50px'
+   mostrarMisGifos()
+})
+
+function mostrarMisGifos() {
+
+   principal9.innerHTML = '' // Limpiar la seccion para que no muestre el contenido anterior que tenia.
+
+   let keysStringGifo = localStorage.getItem('arrayKGifo')//busca en el localStorage un array de gifkey de los gif donde le fueron dando like.
+   if (keysStringGifo == null || keysStringGifo == "") {
+      keysGifo = []
+   } else {
+      keysGifo = keysStringGifo.split(",")
+   } // Convertir toda la cadena en arreglos de strings.
+
+   /***NO HAY GIFOS **********/
+   if (keysStringGifo === "") {
+      imgSinGifos.style.display = 'block'
+      parrafoGifos.style.display = 'block'
+      cont44.style.marginTop = '350px'
+      //principal12.style.display = 'none'
+   } else {
+      imgSinGifos.style.display = 'none'
+      parrafoGifos.style.display = 'none'
+   }
+
+   keysGifo.forEach(gifoKey => {// el for each recorre cada gifoKey
+      let gifoSrc = localStorage.getItem(gifoKey)//con el gifokey se busca el gifosource correspondiente a ese gifokey.
+      //let titleKeyGifo = gifoKey + '.title'
+      //let gifTitleGifo = localStorage.getItem(titleKeyGifo)
+
+      principal9.innerHTML += `
+      <div class='foto1'>
+          <img key='${gifoKey}' class='fotoFavorito' src='${gifoSrc}'>
+          <div id='${gifoKey}' class='divHover'>
       
-   })
+              <div id='favcor${gifoKey}' class="favcor">
 
+              <img id="close12${gifoKey}" class="seleccion23" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg">
+      
+                  <img id="down${gifoKey}" class="seleccion"
+                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
+      
+                  <img id="exp${gifoKey}" class="seleccion"
+                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
+      
+                  <img id="exp2${gifoKey}" class="seleccion"
+                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg" alt="expander">
+      
+      
+                  <img id="like${gifoKey}" class="seleccion"
+                      src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-trash-normal.svg">
+      
+              </div>
+          </div>
+      </div>
+      `
+   });
 
+   let gifsFavoritos = document.querySelectorAll('.fotoFavorito')
 
+   if (pantallaDesktop.matches) {
+      asociarEventosFotosDesktop(gifsFavoritos, 'favoritos')
 
+   } else {
+      asociarEventosFotosMobile(gifsFavoritos, 'favoritos')
+   }
+}
 /*************Imagenes Hover*********** */
 
 redesFace.addEventListener('mouseover', () => {
@@ -2183,3 +2304,15 @@ btn1.addEventListener('click', () => {
 
 
 
+/*
+gifSrc
+https://media4.giphy.com/media/{gifId}/200.gif
+
+https://media4.giphy.com/media/26gsvAm8UPaczzXz2/200.gif
+
+****
+Descargar y Link:
+https://media4.giphy.com/media/{gifId}/giphy.mp4
+
+https://media3.giphy.com/media/ToMjGpKLyQYTKmbbokM/giphy.mp4
+*/
