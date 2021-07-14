@@ -857,6 +857,14 @@
         z-index: 0;
         display: block;
     }
+    .fotosMisGifos{
+        width: 260px;
+        height: 12.5rem;
+        margin-top: 1.25rem;
+        margin-left: 1.875rem;
+        z-index: 0;
+        display: block;
+    }
 
     .divHover {
         width: 16.25rem;
