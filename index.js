@@ -168,6 +168,7 @@ let principal9 = document.getElementById('principal9')
 let imgSinGifos = document.getElementById('imgSinGifos')
 let parrafoGifos = document.getElementById('parrafoGifos')
 let btnDescartar = document.getElementById('btnDescartar')
+
 /**MODO NOCTURNO******************* */
 
 //// Immediately invoked function to set the theme on initial load
@@ -912,36 +913,6 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             principal12.style.opacity = '0'
             divHover.style.width = '0'
             contenedor2.style.opacity = '0'
-
-            btnDescartar.addEventListener('click', () => {
-
-               let keysString = localStorage.getItem('arrayK')
-               let keys = keysString.split(",")
-
-               let keysFiltered = keys.filter(key => {
-                  return key !== gifKey
-               })
-
-               localStorage.setItem('arrayK', keysFiltered)
-               mostrarFavoritos()
-               imagen1.style.display = 'block'
-               principal7.style.display = 'block'
-               contenedor2.style.opacity = '1'
-               titulo1.style.display = 'block'
-               cont44.style.opacity = '1'
-               nav.style.opacity = '1'
-               principal12.style.opacity = '1'
-            })
-
-            let otrosGifs = document.querySelectorAll('.fotosMisGifos')
-            otrosGifs.forEach(gifElement => {
-               if (gifElement.getAttribute('key') !== gifKey) {
-
-                  gifElement.style.display = 'none'
-
-               }
-            })
-
          })
          close12.addEventListener('click', () => {
             //gifElement.style.display = 'block'
@@ -992,7 +963,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
       down.addEventListener('mouseout', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
       })
-      
+
    })
 }
 
@@ -1005,6 +976,7 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
       let divHover = document.getElementById(gifoKey)
       let favcor = document.getElementById('favcor' + gifoKey)
       let btnDescartar = document.getElementById('btnDescartar' + gifoKey)
+      console.log(btnDescartar)
       let exp = document.getElementById('exp' + gifoKey)
       let close12 = document.getElementById('close12' + gifoKey)
       let down = document.getElementById('down' + gifoKey)
@@ -1026,40 +998,8 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
       btnDescartar.addEventListener('mouseout', () => {
          btnDescartar.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-trash-normal.svg'
       })
-      favcor.style.position = 'relative'
-      favcor.style.marginLeft = '140px'
-      
       close12.style.display = 'none'
-      
 
-      btnDescartar.addEventListener('click', () => {
-
-         let keysString = localStorage.getItem('arrayK')
-         let keys = keysString.split(",")
-
-         let keysFiltered = keys.filter(key => {
-            return key !== gifoKey
-         })
-
-         localStorage.setItem('arrayK', keysFiltered)
-         mostrarMisGifos()
-         imagen1.style.display = 'block'
-               principal7.style.display = 'block'
-               contenedor2.style.opacity = '1'
-               titulo1.style.display = 'block'
-               cont44.style.opacity = '1'
-               nav.style.opacity = '1'
-               principal12.style.opacity = '1'
-      })
-      let otrosGifs = document.querySelectorAll('.fotoFavorito')
-      otrosGifs.forEach(gifElement => {
-         if (gifElement.getAttribute('key') !== gifKey) {
-
-            gifElement.style.display = 'none'
-
-         }
-      })
-      
       exp.addEventListener('mouseover', () => {
          exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg'
       })
@@ -1092,36 +1032,27 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
          divHover.style.width = '0'
          contenedor2.style.opacity = '0'
 
-         btnDescartar.addEventListener('click', () => {
-
-            let keysStringGifo = localStorage.getItem('arrayKGifo')
-            let keysGifo = keysStringGifo.split(",")
-
-            let keysFiltered = keys.filter(keyGifo => {
-               return keyGifo !== keysGifo 
-            })
-
-            localStorage.setItem('arrayKGifo', keysFiltered)
-            mostrarMisGifos()
-            imagen1.style.display = 'block'
-            principal7.style.display = 'block'
-            contenedor2.style.opacity = '1'
-            titulo1.style.display = 'block'
-            cont44.style.opacity = '1'
-            nav.style.opacity = '1'
-            principal12.style.opacity = '1'
-         })
-
-         let otrosGifs = document.querySelectorAll('.fotosMisGifos')
-         otrosGifs.forEach(gifElement => {
-            if (gifElement.getAttribute('keyGifo') !== gifoKey) {
-
-               gifElement.style.display = 'none'
-
-            }
-         })
-
       })
+      btnDescartar.addEventListener('click', () => {
+         console.log('holisssssss')
+         let keysStringGifo = localStorage.getItem('arrayKGifo')
+         let keysGifo = keysStringGifo.split(",")
+
+         let keysFilteredGifo = keysGifo.filter(keyGifo => {
+            return keyGifo !== gifoKey
+         })
+
+         localStorage.setItem('arrayKGifo', keysFilteredGifo)
+         mostrarMisGifos()
+         /*imagen1.style.display = 'block'
+         principal7.style.display = 'block'
+         contenedor2.style.opacity = '1'
+         titulo1.style.display = 'block'
+         cont44.style.opacity = '1'
+         nav.style.opacity = '1'
+         principal12.style.opacity = '1'*/
+      })
+
       close12.addEventListener('click', () => {
          //gifElement.style.display = 'block'
          gifElement.style.width = '260px'
