@@ -865,6 +865,9 @@
         z-index: 0;
         display: block;
     }
+    .favcorGifos{
+        margin-top: 10px;
+    }
 
     .divHover {
         width: 16.25rem;

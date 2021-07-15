@@ -992,6 +992,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
       down.addEventListener('mouseout', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
       })
+      
    })
 }
 
@@ -1003,7 +1004,7 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
       let gifSrc = gifElement.getAttribute('src')
       let divHover = document.getElementById(gifoKey)
       let favcor = document.getElementById('favcor' + gifoKey)
-let btnDescartar = document.getElementById('btnDescartar' + gifoKey)
+      let btnDescartar = document.getElementById('btnDescartar' + gifoKey)
       let exp = document.getElementById('exp' + gifoKey)
       let close12 = document.getElementById('close12' + gifoKey)
       let down = document.getElementById('down' + gifoKey)
@@ -1018,7 +1019,13 @@ let btnDescartar = document.getElementById('btnDescartar' + gifoKey)
          favcor.style.display = 'none'
       })
 
-      
+      btnDescartar.addEventListener('mouseover', () => {
+         btnDescartar.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-trash-hover.svg'
+      })
+
+      btnDescartar.addEventListener('mouseout', () => {
+         btnDescartar.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-trash-normal.svg'
+      })
       favcor.style.position = 'relative'
       favcor.style.marginLeft = '140px'
       
@@ -2484,17 +2491,17 @@ function mostrarMisGifos() {
           <img key='${gifoKey}' class='fotosMisGifos' src='${gifoSrc}'>
           <div id='${gifoKey}' class='divHover'>
       
-              <div id='favcor${gifoKey}' class="favcor">
+              <div id='favcor${gifoKey}' class="favcorGifos">
 
-              <img id="close12${gifoKey}" class="seleccion23" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg">
+              <img id="close12${gifoKey}" class="seleccion23Gifos" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg">
       
-                  <img id="down${gifoKey}" class="seleccion"
+                  <img id="down${gifoKey}" class="seleccionGifos"
                       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg" alt="descarga">
       
-                  <img id="exp${gifoKey}" class="seleccion"
+                  <img id="exp${gifoKey}" class="seleccionGifos"
                       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg" alt="expander">
       
-                  <img id="btnDescartar${gifoKey}" class="seleccion"
+                  <img id="btnDescartar${gifoKey}" class="seleccionGifos"
                       src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-trash-normal.svg">
       
               </div>
