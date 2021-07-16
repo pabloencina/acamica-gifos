@@ -168,6 +168,7 @@ let principal9 = document.getElementById('principal9')
 let imgSinGifos = document.getElementById('imgSinGifos')
 let parrafoGifos = document.getElementById('parrafoGifos')
 let btnDescartar = document.getElementById('btnDescartar')
+let contenedor3 = document.getElementById('contenedor3')
 
 /**MODO NOCTURNO******************* */
 
@@ -1008,19 +1009,24 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
          exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
       })
 
-      console.log('mis gifos')
       exp.addEventListener('click', () => {
-         favcor.style.marginTop = '250px'
-         favcor.style.marginLeft = '650px'
+        // favcor.style.marginTop = '250px'
+         //favcor.style.marginLeft = '650px'
          close12.style.display = 'block'
          close12.style.position = 'absolute'
-         close12.style.marginTop = '-530px'
-         close12.style.marginLeft = '50px'
+         close12.style.marginTop = '-410px'
+         close12.style.marginLeft = '200px'
          gifElement.style.width = '695px'
          gifElement.style.height = '385px'
          exp.style.visibility = 'hidden'
          down.style.marginTop = '-30px'
          mascotas.style.opacity = '0'
+         contenedor3.style.display = 'none'
+         btnDescartar.style.marginTop = '-300px'
+         favcor.style.width = '120px'
+         favcor.style.height = '50px'
+         favcor.style.marginTop = '200px'
+         favcor.style.marginLeft = '600px'
          principal3.style.opacity = '0'
          principal1.style.opacity = '0'
          principal4.style.opacity = '0'
@@ -1069,6 +1075,7 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
          exp.style.position = 'absolute'
          gifos.style.opacity = '1'
          contenedor1.style.opacity = '1'
+         contenedor3.style.display = 'block'
          btnDescartar.style.marginLeft = '-37px'
          btnDescartar.style.marginTop = '-35px'
          down.style.marginTop = '-75px'
@@ -1955,6 +1962,7 @@ fav1.addEventListener('click', () => {
       principal4.style.display = 'block'
       principal1.style.display = 'block'
       principal5.style.display = 'block'
+     
    }
    menu.style.display = 'none'
    principal4.style.display = 'none'
@@ -1962,7 +1970,9 @@ fav1.addEventListener('click', () => {
    principal5.style.display = 'none'
    principal3.style.display = 'none'
    principal7.style.display = 'block'
-   principal12.style.marginTop = '50px'
+   principal12.style.display = 'block'
+   //principal12.style.marginTop = '50px'
+   principal8.style.display = 'none'
 
    mostrarFavoritos()
 })
@@ -2084,6 +2094,8 @@ btnCrear.addEventListener('click', () => {
       ocultar_todo.style.display = 'none'
       principal12.style.display = 'none'
       principal1.style.display = 'none'
+      principal8.style.display = 'none'
+      principal7.style.display = 'none'
    } else {
       ocultar_todo.style.display = 'block'
       creargifos.style.display = 'none'
@@ -2387,6 +2399,8 @@ misgifs1.addEventListener('click', () => {
    principal3.style.display = 'none'
    principal8.style.display = 'block'
    principal12.style.marginTop = '50px'
+   principal7.style.display = 'none'
+   creargifos.style.display = 'none'
    mostrarMisGifos()
 })
 
@@ -2500,9 +2514,30 @@ btn1.addEventListener('click', () => {
       ocultar_todo.style.display = 'block'
       principal12.style.display = 'block'
       principal1.style.display = 'block'
+      scroll.style.width = '78%'
+      scroll.style.marginLeft = '120px'
+      scrollLeft.style.marginLeft = '50px'
+      scrollRigth.style.marginTop = '115px'
+      scrollLeft.style.marginTop = '115px'
+      scrollRigth.style.marginLeft = '0px'
+      principal4.style.display = 'none'
    }
 })
-
+btn1.addEventListener('click', () => {
+   if (principal8.style.display == 'block') {
+      principal8.style.display = 'none'
+      ocultar_todo.style.display = 'block'
+      principal12.style.display = 'block'
+      principal1.style.display = 'block'
+      scroll.style.width = '78%'
+      scroll.style.marginLeft = '120px'
+      scrollLeft.style.marginLeft = '50px'
+      scrollRigth.style.marginTop = '115px'
+      scrollLeft.style.marginTop = '115px'
+      scrollRigth.style.marginLeft = '0px'
+      principal4.style.display = 'block'
+   }
+})
 
 
 /*
