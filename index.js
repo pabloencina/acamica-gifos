@@ -1124,13 +1124,18 @@ function asociarEventosFotosMisGifosMobile(gifElements) {
 
       gifElement.addEventListener('click', () => {
          if (gifElement.getAttribute('expanded') == '0') {
+            //favcor.style.marginTop = '280px'
+            favcor.style.marginLeft = '250px'
             gifElement.style.width = '375px'
             gifElement.style.height = '245px'
             favcor.style.display = 'block'
-            close12.style.marginLeft = '20px'
-            close12.style.marginTop = '-780px'
-            down.style.marginTop = '-90px'
-            down.style.marginLeft = '-60px'
+            close12.style.display = 'block'
+            //exp.style.display = 'none'
+            close12.style.marginLeft = '100px'
+            close12.style.marginTop = '-280px'
+            close12.style.position = 'absolute'
+            //down.style.marginTop = '-90px'
+            //down.style.marginLeft = '-60px'
             cont44.style.opacity = '0'
             principal4.style.display = 'none'
             principal1.style.display = 'none'
@@ -1140,7 +1145,8 @@ function asociarEventosFotosMisGifosMobile(gifElements) {
             principal3.style.display = 'none'
             mascotas.style.display = 'none'
             contenedor2.style.opacity = '0'
-            let otrosGifs = document.querySelectorAll('.misGifos')
+            contenedor3.style.opacity = '0'
+            let otrosGifs = document.querySelectorAll('.fotosMisGifos')
             otrosGifs.forEach(gifElement => {
                if (gifElement.getAttribute('key') !== gifoKey) {
                   gifElement.style.display = 'none'
