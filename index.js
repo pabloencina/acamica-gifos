@@ -1124,18 +1124,18 @@ function asociarEventosFotosMisGifosMobile(gifElements) {
 
       gifElement.addEventListener('click', () => {
          if (gifElement.getAttribute('expanded') == '0') {
-            //favcor.style.marginTop = '280px'
+            
             favcor.style.marginLeft = '250px'
             gifElement.style.width = '375px'
             gifElement.style.height = '245px'
             favcor.style.display = 'block'
             close12.style.display = 'block'
-            //exp.style.display = 'none'
+            close12.style.cursor = 'pointer'
+            btnDescartar.style.cursor = 'pointer'
+            down.style.cursor = 'pointer'
             close12.style.marginLeft = '100px'
             close12.style.marginTop = '-280px'
             close12.style.position = 'absolute'
-            //down.style.marginTop = '-90px'
-            //down.style.marginLeft = '-60px'
             cont44.style.opacity = '0'
             principal4.style.display = 'none'
             principal1.style.display = 'none'
@@ -1202,6 +1202,7 @@ function asociarEventosFotosMisGifosMobile(gifElements) {
             mascotas.style.display = 'block'
             contenedor1.style.marginLeft = '80px'
             contenedor2.style.opacity = '1'
+            contenedor3.style.opacity = '1'
 
          let otrosGifs = document.querySelectorAll('.fotosMisGifos')
          otrosGifs.forEach(gifElement => {
@@ -2557,6 +2558,7 @@ function mostrarMisGifos() {
    } else {
       imgSinGifos.style.display = 'none'
       parrafoGifos.style.display = 'none'
+      nav.style.opacity = '1'
    }
 
    keysGifo.forEach(gifoKey => {// el for each recorre cada gifoKey
@@ -2565,7 +2567,7 @@ function mostrarMisGifos() {
       //let gifTitleGifo = localStorage.getItem(titleKeyGifo)
 
       principal9.innerHTML += `
-      <div class='foto1'>
+      <div class='foto6'>
           <img key='${gifoKey}' class='fotosMisGifos' src='${gifoSrc}'>
           <div id='${gifoKey}' class='divHover'>
       

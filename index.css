@@ -104,7 +104,7 @@
         width: 90%;
         margin-left: 0.9375rem;
     }
-    #btn1:hover{
+    #btn1:hover {
         cursor: pointer;
     }
     #boton1 {
@@ -115,6 +115,9 @@
         width: 100%;
         display: flex;
         justify-content: end;
+    }
+    #btn2:hover{
+        cursor: pointer;
     }
     #principal_crear {
         display: none;
@@ -459,12 +462,12 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
     }
-    .fotos3 {
+    .fotos6{
         width: 156px;
         height: 120px;
         margin-top: 20px;
     }
-    #fotosMisGifos{
+    #fotosMisGifos {
         width: 156px;
         height: 120px;
         margin-top: 20px;
@@ -487,13 +490,13 @@
         line-height: 33px;
     }
     #imgSinGifos {
-       display: none;
-       width: 75px;
+        display: none;
+        width: 75px;
     }
-    .favcorGifos{
+    .favcorGifos {
         display: none;
     }
-    #favcor{
+    #favcor {
         display: none;
     }
 
@@ -558,8 +561,8 @@
         display: none;
     }
 
-/*Mis GIFOS MODO MOBILE*/
-   /* #principal8 {
+    /*Mis GIFOS MODO MOBILE*/
+    /* #principal8 {
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -659,7 +662,7 @@
         display: flex;
         justify-content: end;
     }
-    #btn1:hover{
+    #btn1:hover {
         cursor: pointer;
     }
     #menu ul li {
@@ -708,7 +711,7 @@
         display: flex;
         justify-content: start;
     }
-    #btn4:hover{
+    #btn4:hover {
         cursor: pointer;
     }
     /*************************/
@@ -928,7 +931,7 @@
         z-index: 0;
         display: block;
     }
-    .fotosMisGifos{
+    .fotosMisGifos {
         width: 260px;
         height: 12.5rem;
         margin-top: 1.25rem;
@@ -936,7 +939,10 @@
         z-index: 0;
         display: block;
     }
-    .favcorGifos{
+    .seleccionGifos:hover {
+        cursor: pointer;
+    }
+    .favcorGifos {
         margin-top: 10px;
         margin-left: 140px;
     }
@@ -1016,7 +1022,7 @@
     #imgSinFavoritos {
         display: none;
     }
-/*Seccion SIN GIFOS DESKTOP*/
+    /*Seccion SIN GIFOS DESKTOP*/
 
     #SinGifos {
         width: 100%;
@@ -1035,8 +1041,8 @@
         line-height: 33px;
     }
     #imgSinGifos {
-       display: none;
-       width: 150px;
+        display: none;
+        width: 150px;
     }
     /*Favoritos-Descarga-Expancion**********/
     .seleccion {
@@ -1509,7 +1515,7 @@
         margin-left: 20rem;
         font-weight: bold;
     }
-    #comenzar:hover{
+    #comenzar:hover {
         cursor: pointer;
     }
     #finalizar {
@@ -1544,7 +1550,7 @@
         margin-left: 20rem;
         font-weight: bold;
     }
-    
+
     #grabar {
         display: none;
         width: 7.9375rem;
@@ -1560,7 +1566,7 @@
         margin-left: 20rem;
         font-weight: bold;
     }
-    #grabar:hover{
+    #grabar:hover {
         cursor: pointer;
     }
     #video {
