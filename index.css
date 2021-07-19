@@ -490,9 +490,13 @@
        display: none;
        width: 75px;
     }
-    #favcorGifos{
+    .favcorGifos{
         display: none;
     }
+    #favcor{
+        display: none;
+    }
+
     /****************** Boton "Ver Más"****** */
     #principal3 {
         width: 100%;

@@ -1113,27 +1113,44 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
 }
 
 function asociarEventosFotosMisGifosMobile(gifElements) {
-   //let favcor = document.getElementById('favcor')
    gifElements.forEach(gifElement => {
-
       let gifoKey = gifElement.getAttribute('key')
       let gifSrc = gifElement.getAttribute('src')
-      let divHover = document.getElementById(gifoKey)
       let favcor = document.getElementById('favcor' + gifoKey)
       let btnDescartar = document.getElementById('btnDescartar' + gifoKey)
       console.log(btnDescartar)
-      let exp = document.getElementById('exp' + gifoKey)
       let close12 = document.getElementById('close12' + gifoKey)
       let down = document.getElementById('down' + gifoKey)
 
-      gifElement.addEventListener('mouseover', () => {
-         divHover.style.display = 'block'
-         favcor.style.display = 'block'
-      })
+      gifElement.addEventListener('click', () => {
+         if (gifElement.getAttribute('expanded') == '0') {
+            gifElement.style.width = '375px'
+            gifElement.style.height = '245px'
+            favcor.style.display = 'block'
+            close12.style.marginLeft = '20px'
+            close12.style.marginTop = '-780px'
+            down.style.marginTop = '-90px'
+            down.style.marginLeft = '-60px'
+            cont44.style.opacity = '0'
+            principal4.style.display = 'none'
+            principal1.style.display = 'none'
+            nav.style.opacity = '0.09'
+            gifElement.style.position = 'relative'
+            principal12.style.display = 'none'
+            principal3.style.display = 'none'
+            mascotas.style.display = 'none'
+            contenedor2.style.opacity = '0'
+            let otrosGifs = document.querySelectorAll('.misGifos')
+            otrosGifs.forEach(gifElement => {
+               if (gifElement.getAttribute('key') !== gifoKey) {
+                  gifElement.style.display = 'none'
+               }
+            })
+            gifElement.setAttribute('expanded', '1')
 
-      divHover.addEventListener('mouseout', () => {
-         divHover.style.display = 'none'
-         favcor.style.display = 'none'
+         } else {
+            gifElement.setAttribute('expanded', '0')
+         }
       })
 
       btnDescartar.addEventListener('mouseover', () => {
@@ -1145,44 +1162,6 @@ function asociarEventosFotosMisGifosMobile(gifElements) {
       })
       close12.style.display = 'none'
 
-      exp.addEventListener('mouseover', () => {
-         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg'
-      })
-
-      exp.addEventListener('mouseout', () => {
-         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
-      })
-
-      exp.addEventListener('click', () => {
-        // favcor.style.marginTop = '250px'
-         //favcor.style.marginLeft = '650px'
-         close12.style.display = 'block'
-         close12.style.position = 'absolute'
-         close12.style.marginTop = '-410px'
-         close12.style.marginLeft = '200px'
-         gifElement.style.width = '695px'
-         gifElement.style.height = '385px'
-         exp.style.visibility = 'hidden'
-         down.style.marginTop = '-30px'
-         mascotas.style.opacity = '0'
-         contenedor3.style.display = 'none'
-         btnDescartar.style.marginTop = '-300px'
-         favcor.style.width = '120px'
-         favcor.style.height = '50px'
-         favcor.style.marginTop = '200px'
-         favcor.style.marginLeft = '600px'
-         principal3.style.opacity = '0'
-         principal1.style.opacity = '0'
-         principal4.style.opacity = '0'
-         inspiracion1.style.opacity = '0'
-         buscador1.style.opacity = '0'
-         nav.style.opacity = '0'
-         cont44.style.opacity = '0'
-         principal12.style.opacity = '0'
-         divHover.style.width = '0'
-         contenedor2.style.opacity = '0'
-
-      })
       btnDescartar.addEventListener('click', () => {
          console.log('holisssssss')
          let keysStringGifo = localStorage.getItem('arrayKGifo')
@@ -1204,37 +1183,19 @@ function asociarEventosFotosMisGifosMobile(gifElements) {
       })
 
       close12.addEventListener('click', () => {
-         //gifElement.style.display = 'block'
-         gifElement.style.width = '260px'
-         gifElement.style.height = '200px'
-         divHover.style.width = '260px'
-         divHover.style.height = '200px'
-         close12.style.display = 'none'
-         favcor.style.marginTop = '25px'
-         favcor.style.marginLeft = '150px'
-         exp.style.marginLeft = '15px'
-         exp.style.marginTop = '-17px'
-         //exp.style.display = 'block'
-         exp.style.visibility = 'visible'
-         exp.style.position = 'absolute'
-         gifos.style.opacity = '1'
-         contenedor1.style.opacity = '1'
-         contenedor3.style.display = 'block'
-         btnDescartar.style.marginLeft = '-37px'
-         btnDescartar.style.marginTop = '-35px'
-         down.style.marginTop = '-75px'
-         principal1.style.opacity = '1'
-         principal4.style.opacity = '1'
-         inspiracion1.style.opacity = '1'
-         buscador1.style.opacity = '1'
-         nav.style.opacity = '1'
-         cont44.style.opacity = '1'
-         principal5.style.opacity = '1'
-         principal12.style.opacity = '1'
-         mascotas.style.opacity = '1'
-         principal3.style.opacity = '1'
-         principal2.style.opacity = '1'
-         contenedor2.style.opacity = '1'
+         gifElement.style.width = '156px'
+            gifElement.style.height = '120px'
+            favcor.style.display = 'none'
+            principal4.style.display = 'none'
+            principal1.style.display = 'none'
+            vermas.style.display = 'none'
+            nav.style.opacity = '1'
+            cont44.style.opacity = '1'
+            principal12.style.display = 'none'
+            principal3.style.display = 'block'
+            mascotas.style.display = 'block'
+            contenedor1.style.marginLeft = '80px'
+            contenedor2.style.opacity = '1'
 
          let otrosGifs = document.querySelectorAll('.fotosMisGifos')
          otrosGifs.forEach(gifElement => {
