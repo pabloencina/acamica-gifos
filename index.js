@@ -10,7 +10,7 @@ let menu = document.getElementById('menu')
 
 let btn3 = document.getElementById('btn3')
 
-let misgif = document.getElementById('misgif')
+let misgifsMobile = document.getElementById('misgifsMobile')
 let misgifs1 = document.getElementById('misgifs1')
 
 let principal8 = document.getElementById('principal8')
@@ -969,6 +969,150 @@ function asociarEventosFotosDesktop(gifElements, caller) {
 }
 
 function asociarEventosFotosMisGifosDesktop(gifElements) {
+   //let favcor = document.getElementById('favcor')
+   gifElements.forEach(gifElement => {
+
+      let gifoKey = gifElement.getAttribute('key')
+      let gifSrc = gifElement.getAttribute('src')
+      let divHover = document.getElementById(gifoKey)
+      let favcor = document.getElementById('favcor' + gifoKey)
+      let btnDescartar = document.getElementById('btnDescartar' + gifoKey)
+      console.log(btnDescartar)
+      let exp = document.getElementById('exp' + gifoKey)
+      let close12 = document.getElementById('close12' + gifoKey)
+      let down = document.getElementById('down' + gifoKey)
+
+      gifElement.addEventListener('mouseover', () => {
+         divHover.style.display = 'block'
+         favcor.style.display = 'block'
+      })
+
+      divHover.addEventListener('mouseout', () => {
+         divHover.style.display = 'none'
+         favcor.style.display = 'none'
+      })
+
+      btnDescartar.addEventListener('mouseover', () => {
+         btnDescartar.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-trash-hover.svg'
+      })
+
+      btnDescartar.addEventListener('mouseout', () => {
+         btnDescartar.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-trash-normal.svg'
+      })
+      close12.style.display = 'none'
+
+      exp.addEventListener('mouseover', () => {
+         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg'
+      })
+
+      exp.addEventListener('mouseout', () => {
+         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
+      })
+
+      exp.addEventListener('click', () => {
+        // favcor.style.marginTop = '250px'
+         //favcor.style.marginLeft = '650px'
+         close12.style.display = 'block'
+         close12.style.position = 'absolute'
+         close12.style.marginTop = '-410px'
+         close12.style.marginLeft = '200px'
+         gifElement.style.width = '695px'
+         gifElement.style.height = '385px'
+         exp.style.visibility = 'hidden'
+         down.style.marginTop = '-30px'
+         mascotas.style.opacity = '0'
+         contenedor3.style.display = 'none'
+         btnDescartar.style.marginTop = '-300px'
+         favcor.style.width = '120px'
+         favcor.style.height = '50px'
+         favcor.style.marginTop = '200px'
+         favcor.style.marginLeft = '600px'
+         principal3.style.opacity = '0'
+         principal1.style.opacity = '0'
+         principal4.style.opacity = '0'
+         inspiracion1.style.opacity = '0'
+         buscador1.style.opacity = '0'
+         nav.style.opacity = '0'
+         cont44.style.opacity = '0'
+         principal12.style.opacity = '0'
+         divHover.style.width = '0'
+         contenedor2.style.opacity = '0'
+
+      })
+      btnDescartar.addEventListener('click', () => {
+         console.log('holisssssss')
+         let keysStringGifo = localStorage.getItem('arrayKGifo')
+         let keysGifo = keysStringGifo.split(",")
+
+         let keysFilteredGifo = keysGifo.filter(keyGifo => {
+            return keyGifo !== gifoKey
+         })
+
+         localStorage.setItem('arrayKGifo', keysFilteredGifo)
+         mostrarMisGifos()
+         /*imagen1.style.display = 'block'
+         principal7.style.display = 'block'
+         contenedor2.style.opacity = '1'
+         titulo1.style.display = 'block'
+         cont44.style.opacity = '1'
+         nav.style.opacity = '1'
+         principal12.style.opacity = '1'*/
+      })
+
+      close12.addEventListener('click', () => {
+         //gifElement.style.display = 'block'
+         gifElement.style.width = '260px'
+         gifElement.style.height = '200px'
+         divHover.style.width = '260px'
+         divHover.style.height = '200px'
+         close12.style.display = 'none'
+         favcor.style.marginTop = '25px'
+         favcor.style.marginLeft = '150px'
+         exp.style.marginLeft = '15px'
+         exp.style.marginTop = '-17px'
+         //exp.style.display = 'block'
+         exp.style.visibility = 'visible'
+         exp.style.position = 'absolute'
+         gifos.style.opacity = '1'
+         contenedor1.style.opacity = '1'
+         contenedor3.style.display = 'block'
+         btnDescartar.style.marginLeft = '-37px'
+         btnDescartar.style.marginTop = '-35px'
+         down.style.marginTop = '-75px'
+         principal1.style.opacity = '1'
+         principal4.style.opacity = '1'
+         inspiracion1.style.opacity = '1'
+         buscador1.style.opacity = '1'
+         nav.style.opacity = '1'
+         cont44.style.opacity = '1'
+         principal5.style.opacity = '1'
+         principal12.style.opacity = '1'
+         mascotas.style.opacity = '1'
+         principal3.style.opacity = '1'
+         principal2.style.opacity = '1'
+         contenedor2.style.opacity = '1'
+
+         let otrosGifs = document.querySelectorAll('.fotosMisGifos')
+         otrosGifs.forEach(gifElement => {
+            if (gifElement.getAttribute('key') !== gifoKey) {
+
+               gifElement.style.display = 'block'
+
+            }
+         })
+      })
+
+      down.addEventListener('mouseover', () => {
+         down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
+      })
+
+      down.addEventListener('mouseout', () => {
+         down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
+      })
+   })
+}
+
+function asociarEventosFotosMisGifosMobile(gifElements) {
    //let favcor = document.getElementById('favcor')
    gifElements.forEach(gifElement => {
 
@@ -2404,6 +2548,28 @@ misgifs1.addEventListener('click', () => {
    mostrarMisGifos()
 })
 
+misgifsMobile.addEventListener('click', () => {
+
+   if (principal8.style.display === 'block') {
+      principal8.style.display = 'none'
+      menu.style.display = 'none'
+      principal4.style.display = 'block'
+      principal1.style.display = 'block'
+      principal5.style.display = 'block'
+   }
+   menu.style.display = 'none'
+   principal4.style.display = 'none'
+   principal1.style.display = 'none'
+   principal5.style.display = 'none'
+   principal3.style.display = 'none'
+   principal8.style.display = 'block'
+   principal12.style.marginTop = '50px'
+   principal7.style.display = 'none'
+   creargifos.style.display = 'none'
+   mostrarMisGifos()
+})
+
+
 function mostrarMisGifos() {
 
    principal9.innerHTML = '' // Limpiar la seccion para que no muestre el contenido anterior que tenia.
@@ -2462,7 +2628,7 @@ function mostrarMisGifos() {
       asociarEventosFotosMisGifosDesktop(misGifsSeccion)
 
    } else {
-      asociarEventosFotosMobile(misGifsSeccion, 'misGifos')
+      asociarEventosFotosMisGifosMobile(misGifsSeccion, 'misGifos')
    }
 }
 /*************Imagenes Hover*********** */
