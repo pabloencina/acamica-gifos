@@ -2338,6 +2338,10 @@ async function subirGifo() {
    //hover subido ok.
    guardarMiGif(result.data.id)
    mostrarGifSubido()
+   btnDos.style.backgroundColor = 'var(--color-primary)'
+   btnDos.style.color = 'var(--gifos)'
+   btnTres.style.backgroundColor = 'var(--gifos)'
+   btnTres.style.color = 'var(--color-primary)'
    //asociarEventosBotonesMiGif()
    //asociarEventosFotosDesktop()
 }
@@ -2553,7 +2557,7 @@ function mostrarMisGifos() {
    if (keysStringGifo === "") {
       imgSinGifos.style.display = 'block'
       parrafoGifos.style.display = 'block'
-      cont44.style.marginTop = '350px'
+      //cont44.style.marginTop = '350px'
       //principal12.style.display = 'none'
    } else {
       imgSinGifos.style.display = 'none'
