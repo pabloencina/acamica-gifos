@@ -525,7 +525,6 @@ function mostrarGifsBusqueda(json) {
 
       principal2.innerHTML += `
       <div class='foto1'>
-
          <img key='${gifJson.id}' class='fotoBusqueda' src='${gifJson.images.fixed_height.url}'>
       
          <div id='${gifJson.id}' class='divHover'>
@@ -963,7 +962,9 @@ function asociarEventosFotosDesktop(gifElements, caller) {
       down.addEventListener('mouseout', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
       })
-
+      down.addEventListener('click', () => {
+         descargarGif(gifKey, gifTitle.innerHTML)
+      })
    })
 }
 
@@ -1099,7 +1100,9 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
          })
 
       })
-
+      down.addEventListener('click', () => {
+         descargarGif(gifoKey, gifTitle.innerHTML)
+      })
       down.addEventListener('mouseover', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
       })
@@ -1215,6 +1218,9 @@ function asociarEventosFotosMisGifosMobile(gifElements) {
       })
       down.addEventListener('mouseout', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
+      })
+      down.addEventListener('click', () => {
+         descargarGif(gifoKey, gifTitle.innerHTML)
       })
    })
 }
@@ -1716,18 +1722,15 @@ function asociarEventosFotosMobile(gifElements, caller) {
          exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
 
       })
-
+      down.addEventListener('click', () => {
+         descargarGif(gifKey, gifTitle.innerHTML)
+      })
       down.addEventListener('mouseover', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
       })
       down.addEventListener('mouseout', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
       })
-      /*
-      down.addEventListener('click', () => {
-         descargarGifs()
-      })
-      */
    })
 }
 /*
@@ -1954,7 +1957,9 @@ function asociarEventosFotosTrendingMobile(gifElements) {
          exp2.style.visibility = 'hidden'
 
       })
-
+      down.addEventListener('click', () => {
+         descargarGif(gifKey, gifTitle.innerHTML)
+      })
       down.addEventListener('mouseover', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
       })
