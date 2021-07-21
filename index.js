@@ -388,6 +388,7 @@ let mostrarTrendingWord = async () => {
 }
 
 mostrarTrendingWord()
+
 buscador.addEventListener('keyup', async (autocompletar) => {
    let sugerencias = document.getElementById('sugerencias')
 
@@ -1770,7 +1771,7 @@ function asociarEventosFotosTrendingMobile(gifElements) {
             gifElement.style.width = '375px'
             gifElement.style.height = '245px'
             gifElement.style.marginTop = '100px'
-            gifElement.style.marginLeft = '0px'
+            //gifElement.style.marginLeft = '0px'
             favcor.style.display = 'block'
             favcor.style.marginTop = '500px'
             divHover.style.display = 'block'
@@ -2053,8 +2054,6 @@ fav.addEventListener('click', () => {
       principal4.style.display = 'block'
       principal1.style.display = 'block'
       principal5.style.display = 'block'
-
-
    }
    principal12.style.display = 'none'
    menu.style.display = 'none'
@@ -2086,6 +2085,13 @@ fav1.addEventListener('click', () => {
    principal12.style.display = 'block'
    //principal12.style.marginTop = '50px'
    principal8.style.display = 'none'
+   scroll.style.width = '78%'
+   scroll.style.marginLeft = '120px'
+   scrollLeft.style.marginLeft = '50px'
+   // scroll.style.height = '330px'
+   scrollRigth.style.marginTop = '115px'
+   scrollLeft.style.marginTop = '115px'
+   scrollRigth.style.marginLeft = '0px'
 
    mostrarFavoritos()
 })
@@ -2212,6 +2218,7 @@ btnCrear.addEventListener('click', () => {
       creargifos.style.display = 'none'
       principal12.style.display = 'block'
       principal1.style.display = 'block'
+      principal4.style.display = 'block'
    }
 })
 /**Funcionalidad seccion de CREAR GIFOS***** */
@@ -2230,9 +2237,9 @@ let pathSubirGif = `https://upload.giphy.com/v1/gifs?api_key=${api_key}`
 async function descargarGif(gifId, gifTitle) {
    const a = document.createElement("a");
    //a.href = await download(gifSrc);
-//   a.href = await download("https://api.giphy.com/v1/gifs/cRfP1TiNrxLDtRrkPl?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY");
-  let URL = "https://api.giphy.com/v1/gifs/" + gifId + '?api_key=' + api_key 
-  a.href = await download(URL)
+   //   a.href = await download("https://api.giphy.com/v1/gifs/cRfP1TiNrxLDtRrkPl?api_key=boZGHaAmzirlZl5OiViZEx7vayQzDZoY");
+   let URL = "https://api.giphy.com/v1/gifs/" + gifId + '?api_key=' + api_key
+   a.href = await download(URL)
    a.download = gifTitle + '.gif';
    document.body.appendChild(a);
    a.click();
@@ -2250,7 +2257,7 @@ async function download(gifSrc) {
    }).then(blob => {
       return URL.createObjectURL(blob);
    });
-   
+
 }
 
 function comenzando() {
@@ -2628,6 +2635,7 @@ redesInsta.addEventListener('mouseout', () => {
 })
 
 /**Volver a la Pagina principal */
+/*Seccion Favoritos desktop*/
 
 btn1.addEventListener('click', () => {
    if ((principal7.style.display == 'block')) {
@@ -2647,6 +2655,8 @@ btn1.addEventListener('click', () => {
    }
 })
 
+/**Volver a la Pagina principal */
+/*Seccion Crear Gifos desktop*/
 btn1.addEventListener('click', () => {
    if (creargifos.style.display == 'block') {
       creargifos.style.display = 'none'
@@ -2659,9 +2669,12 @@ btn1.addEventListener('click', () => {
       scrollRigth.style.marginTop = '115px'
       scrollLeft.style.marginTop = '115px'
       scrollRigth.style.marginLeft = '0px'
-      principal4.style.display = 'none'
+      principal4.style.display = 'block'
    }
 })
+
+/**Volver a la Pagina principal */
+/*Seccion Mis Gifos desktop*/
 btn1.addEventListener('click', () => {
    if (principal8.style.display == 'block') {
       principal8.style.display = 'none'
