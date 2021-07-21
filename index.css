@@ -1136,23 +1136,21 @@
     #principal3 {
         display: flex;
         justify-content: center;
-        height: 6.25rem;
         align-items: center;
+        background-color: var(--color-primary);
+        border: none;
+        width: 100%;
+        height: 150px;
+    }
+    #botonVerMas{
+        /*font-family: "Montserrat Alternates";*/
+        height: 6.25rem;
         display: none;
     }
     .seleccion23 {
         display: "none";
         position: absolute;
         color: var(--gifos);
-    }
-    #boton {
-        width: 7.5rem;
-        height: 3.125rem;
-    }
-    #boton {
-        /*display: none;*/
-        background-color: var(--color-primary);
-        border: none;
     }
     #vermas:hover {
         cursor: pointer;
@@ -1161,7 +1159,7 @@
     /******Trending Gifos DESKTOP*************/
     #principal12 {
         width: 100%;
-        height: 34.375rem;
+        height: 550px;
         display: flex;
         flex-direction: column;
         justify-content: start;
@@ -1174,6 +1172,10 @@
         color: var(--gifos);
         text-align: center;
         line-height: 1.875rem;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     #contenedor {
         font-family: "Montserrat Alternates";

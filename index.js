@@ -5,7 +5,7 @@ let boton1 = document.getElementById('boton1')
 let nav = document.getElementById('nav')
 
 let btn1 = document.getElementById('btn1')
-
+let botonVerMas = document.getElementById ('botonVerMas')
 let menu = document.getElementById('menu')
 
 let btn3 = document.getElementById('btn3')
@@ -40,8 +40,6 @@ let principal2 = document.getElementById('principal2')
 let lupa = document.getElementById('lupa')
 
 let cierre = document.getElementById('cierre')
-
-let boton = document.getElementById('boton')
 
 let offset = 0
 
@@ -108,7 +106,7 @@ let scrollLeft = document.getElementById('scrollLeft')
 
 let scrollRigth = document.getElementById('scrollRigth')
 
-let vermas = document.getElementById('vermas')
+//let botonVerMas = document.getElementById('botonVerMas')
 
 let redesFace = document.getElementById('redesFace')
 
@@ -204,13 +202,13 @@ function toggleTheme() {
       //lupa1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search-mod-noc.svg'
       camNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/camara-modo-noc.svg'
       peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula-modo-noc.svg'
-      vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
+      botonVerMas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
 
-      vermas.addEventListener('mouseover', () => {
-         vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+hover-modo-noc.svg'
+      botonVerMas.addEventListener('mouseover', () => {
+         botonVerMas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+hover-modo-noc.svg'
       })
-      vermas.addEventListener('mouseout', () => {
-         vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
+      botonVerMas.addEventListener('mouseout', () => {
+         botonVerMas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
       })
 
       cierre.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close-modo-noct.svg'
@@ -257,12 +255,12 @@ function toggleTheme() {
       camNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/camara.svg'
       peliculaNoc.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula.svg'
 
-      vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas.svg'
-      vermas.addEventListener('mouseover', () => {
-         vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas-hover.svg'
+      botonVerMas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas.svg'
+      botonVerMas.addEventListener('mouseover', () => {
+         botonVerMas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas-hover.svg'
       })
-      vermas.addEventListener('mouseout', () => {
-         vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas.svg'
+      botonVerMas.addEventListener('mouseout', () => {
+         botonVerMas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas.svg'
       })
 
       cierre.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg'
@@ -427,8 +425,8 @@ buscador.addEventListener('keyup', async (autocompletar) => {
             mascotas.innerHTML = gifJson.name
             buscador.style.opacity = '1'
             buscador.value = gifJson.name
-            principal3.style.display = 'block'
-            vermas.style.display = 'block'
+            botonVerMas.style.display = 'block'
+            botonVerMas.style.display = 'block'
             buscarGifs()
 
          })
@@ -475,7 +473,7 @@ cierre.addEventListener('click', () => {
    principal1.style.position = 'relative'
    cierre.style.display = 'none'
    lupa.style.display = 'block'
-   principal3.style.display = 'none'
+   botonVerMas.style.display = 'none'
    principal2.innerHTML = ''
    mascotas.innerHTML = ''
    buscador.value = ''
@@ -514,9 +512,9 @@ async function buscarGifs() {
       sinBusqueda.style.display = 'block'
    } else {
       mostrarGifsBusqueda(json)
-      principal3.style.display = 'block'
-      principal3.style.display = 'flex'
-      principal3.style.alignItems = 'center'
+      botonVerMas.style.display = 'block'
+      botonVerMas.style.display = 'flex'
+      botonVerMas.style.alignItems = 'center'
    }
 }
 
@@ -706,7 +704,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             unlike.style.marginTop = '-53px'
             down.style.marginTop = '-30px'
             mascotas.style.opacity = '0'
-            principal3.style.opacity = '0'
+            botonVerMas.style.opacity = '0'
             principal1.style.opacity = '0'
             principal4.style.opacity = '0'
             inspiracion1.style.opacity = '0'
@@ -769,7 +767,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             principal5.style.opacity = '1'
             principal12.style.opacity = '1'
             mascotas.style.opacity = '1'
-            principal3.style.opacity = '1'
+            botonVerMas.style.opacity = '1'
             principal2.style.opacity = '1'
             contenedor2.style.opacity = '1'
 
@@ -803,7 +801,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             unlike.style.marginTop = '-53px'
             down.style.marginTop = '-30px'
             mascotas.style.opacity = '0'
-            principal3.style.opacity = '0'
+            botonVerMas.style.opacity = '0'
             principal1.style.opacity = '0'
             principal4.style.opacity = '0'
             inspiracion1.style.opacity = '0'
@@ -876,7 +874,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             principal5.style.opacity = '1'
             principal12.style.opacity = '1'
             mascotas.style.opacity = '1'
-            principal3.style.opacity = '1'
+            botonVerMas.style.opacity = '1'
             principal2.style.opacity = '1'
             contenedor2.style.opacity = '1'
 
@@ -903,7 +901,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             exp.style.visibility = 'hidden'
             down.style.marginTop = '-30px'
             mascotas.style.opacity = '0'
-            principal3.style.opacity = '0'
+            botonVerMas.style.opacity = '0'
             principal1.style.opacity = '0'
             principal4.style.opacity = '0'
             inspiracion1.style.opacity = '0'
@@ -942,7 +940,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             principal5.style.opacity = '1'
             principal12.style.opacity = '1'
             mascotas.style.opacity = '1'
-            principal3.style.opacity = '1'
+            botonVerMas.style.opacity = '1'
             principal2.style.opacity = '1'
             contenedor2.style.opacity = '1'
 
@@ -1027,7 +1025,7 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
          favcor.style.height = '50px'
          favcor.style.marginTop = '200px'
          favcor.style.marginLeft = '600px'
-         principal3.style.opacity = '0'
+         botonVerMas.style.opacity = '0'
          principal1.style.opacity = '0'
          principal4.style.opacity = '0'
          inspiracion1.style.opacity = '0'
@@ -1087,7 +1085,7 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
          principal5.style.opacity = '1'
          principal12.style.opacity = '1'
          mascotas.style.opacity = '1'
-         principal3.style.opacity = '1'
+         botonVerMas.style.opacity = '1'
          principal2.style.opacity = '1'
          contenedor2.style.opacity = '1'
 
@@ -1143,7 +1141,7 @@ function asociarEventosFotosMisGifosMobile(gifElements) {
             nav.style.opacity = '0.09'
             gifElement.style.position = 'relative'
             principal12.style.display = 'none'
-            principal3.style.display = 'none'
+            botonVerMas.style.display = 'none'
             mascotas.style.display = 'none'
             contenedor2.style.opacity = '0'
             contenedor3.style.opacity = '0'
@@ -1194,11 +1192,11 @@ function asociarEventosFotosMisGifosMobile(gifElements) {
          favcor.style.display = 'none'
          principal4.style.display = 'none'
          principal1.style.display = 'none'
-         vermas.style.display = 'none'
+         botonVerMas.style.display = 'none'
          nav.style.opacity = '1'
          cont44.style.opacity = '1'
          principal12.style.display = 'none'
-         principal3.style.display = 'block'
+         botonVerMas.style.display = 'block'
          mascotas.style.display = 'block'
          contenedor1.style.marginLeft = '80px'
          contenedor2.style.opacity = '1'
@@ -1396,7 +1394,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          cont44.style.display = 'none'
          principal5.style.display = 'none'
          principal7.style.display = 'none'
-         principal3.style.display = 'none'
+         botonVerMas.style.display = 'none'
 
          gifElement.addEventListener('mouseover', () => {
             divHover.style.display = 'block'
@@ -1456,8 +1454,8 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          cont44.style.display = cont44DisplayBeforeExpand
          principal5.style.display = principal5DisplayBeforeExpand
          principal7.style.display = principal7DisplayBeforeExpand
-         principal3.style.display = 'block'
-         principal3.style.marginLeft = '650px'
+         botonVerMas.style.display = 'block'
+         botonVerMas.style.marginLeft = '650px'
 
 
          let otrosGifs = document.querySelectorAll('.fotoTrending')
@@ -1532,7 +1530,7 @@ function asociarEventosFotosMobile(gifElements, caller) {
                nav.style.opacity = '0.09'
                gifElement.style.position = 'relative'
                principal12.style.display = 'none'
-               principal3.style.display = 'none'
+               botonVerMas.style.display = 'none'
                mascotas.style.display = 'none'
 
                let otrosGifs = document.querySelectorAll('.fotoBusqueda')
@@ -1557,7 +1555,7 @@ function asociarEventosFotosMobile(gifElements, caller) {
             nav.style.opacity = '1'
             cont44.style.opacity = '1'
             principal12.style.display = 'block'
-            principal3.style.display = 'block'
+            botonVerMas.style.display = 'block'
             mascotas.style.display = 'block'
             contenedor1.style.marginLeft = '80px'
             let otrosGifs = document.querySelectorAll('.fotoBusqueda')
@@ -1593,7 +1591,7 @@ function asociarEventosFotosMobile(gifElements, caller) {
                nav.style.opacity = '0.09'
                gifElement.style.position = 'relative'
                principal12.style.display = 'none'
-               principal3.style.display = 'none'
+               botonVerMas.style.display = 'none'
                mascotas.style.display = 'none'
                contenedor2.style.opacity = '0'
                let otrosGifs = document.querySelectorAll('.fotoFavorito')
@@ -1614,11 +1612,11 @@ function asociarEventosFotosMobile(gifElements, caller) {
             favcor.style.display = 'none'
             principal4.style.display = 'none'
             principal1.style.display = 'none'
-            vermas.style.display = 'none'
+            botonVerMas.style.display = 'none'
             nav.style.opacity = '1'
             cont44.style.opacity = '1'
             principal12.style.display = 'none'
-            principal3.style.display = 'block'
+            botonVerMas.style.display = 'block'
             mascotas.style.display = 'block'
             contenedor1.style.marginLeft = '80px'
             contenedor2.style.opacity = '1'
@@ -1791,7 +1789,7 @@ function asociarEventosFotosTrendingMobile(gifElements) {
             principal4.style.display = 'none'
             principal1.style.display = 'none'
             nav.style.opacity = '0.09'
-            principal3.style.display = 'none'
+            botonVerMas.style.display = 'none'
             mascotas.style.display = 'none'
             cont44.style.opacity = '1'
             //principal6.style.display = 'none'
@@ -1824,11 +1822,11 @@ function asociarEventosFotosTrendingMobile(gifElements) {
             contenedor1.style.display = 'none'
             btn3.style.display = 'block'
             cont44.style.opacity = '1'
-            principal3.style.display = 'block'
+            botonVerMas.style.display = 'block'
             mascotas.style.display = 'block'
             gifos.style.display = 'block'
             contenedor1.style.display = 'block'
-            vermas.style.display = 'none'
+            botonVerMas.style.display = 'none'
             parr1.style.marginLeft = '0px'
 
             let otrosGifs = document.querySelectorAll('.fotoTrending')
@@ -2060,7 +2058,7 @@ fav.addEventListener('click', () => {
    principal4.style.display = 'none'
    principal1.style.display = 'none'
    principal5.style.display = 'none'
-   principal3.style.display = 'none'
+   botonVerMas.style.display = 'none'
    principal7.style.display = 'block'
    mostrarFavoritos()
 })
@@ -2080,10 +2078,10 @@ fav1.addEventListener('click', () => {
    principal4.style.display = 'none'
    principal1.style.display = 'none'
    principal5.style.display = 'none'
-   principal3.style.display = 'none'
    principal7.style.display = 'block'
    principal12.style.display = 'block'
-   //principal12.style.marginTop = '50px'
+   botonVerMas.style.display = 'block'
+   principal12.style.marginTop = '50px'
    principal8.style.display = 'none'
    scroll.style.width = '78%'
    scroll.style.marginLeft = '120px'
@@ -2097,7 +2095,7 @@ fav1.addEventListener('click', () => {
 })
 /******Funcionalidad Boton Ver Mas */
 
-principal3.addEventListener('click', () => {
+botonVerMas.addEventListener('click', () => {
    offset += 12;
    mostrarSiguientes(buscador.value, offset);
 })
@@ -2520,7 +2518,7 @@ misgifs1.addEventListener('click', () => {
    principal4.style.display = 'none'
    principal1.style.display = 'none'
    principal5.style.display = 'none'
-   principal3.style.display = 'none'
+   botonVerMas.style.display = 'none'
    principal8.style.display = 'block'
    principal12.style.marginTop = '50px'
    principal7.style.display = 'none'
@@ -2541,7 +2539,7 @@ misgifsMobile.addEventListener('click', () => {
    principal4.style.display = 'none'
    principal1.style.display = 'none'
    principal5.style.display = 'none'
-   principal3.style.display = 'none'
+   botonVerMas.style.display = 'none'
    principal8.style.display = 'block'
    principal12.style.marginTop = '50px'
    principal7.style.display = 'none'
