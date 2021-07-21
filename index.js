@@ -2635,61 +2635,92 @@ redesInsta.addEventListener('mouseout', () => {
 })
 
 /**Volver a la Pagina principal */
-/*Seccion Favoritos desktop*/
 
-btn1.addEventListener('click', () => {
-   if ((principal7.style.display == 'block')) {
-      principal7.style.display = 'none'
-      principal4.style.display = 'block'
-      principal1.style.display = 'block'
-      principal12.style.display = 'block'
-      cont44.style.marginTop = '0px'
-      scroll.style.width = '78%'
-      scroll.style.marginLeft = '120px'
-      scrollLeft.style.marginLeft = '50px'
-      // scroll.style.height = '330px'
-      scrollRigth.style.marginTop = '115px'
-      scrollLeft.style.marginTop = '115px'
-      scrollRigth.style.marginLeft = '0px'
-      //contenedor1.style.marginLeft = '80px'
-   }
-})
+if (pantallaDesktop.matches) {
+   /*Seccion Favoritos desktop*/
+   btn1.addEventListener('click', () => {
+      if ((principal7.style.display == 'block')) {
+         principal7.style.display = 'none'
+         principal4.style.display = 'block'
+         principal1.style.display = 'block'
+         principal1.style.width = '800px'
+         principal1.style.marginLeft = '300px'
+         principal1.style.height = '164px'
+         principal12.style.display = 'block'
+         cont44.style.marginTop = '0px'
+         scroll.style.width = '78%'
+         scroll.style.marginLeft = '120px'
+         scrollLeft.style.marginLeft = '50px'
+         // scroll.style.height = '330px'
+         scrollRigth.style.marginTop = '115px'
+         scrollLeft.style.marginTop = '115px'
+         scrollRigth.style.marginLeft = '0px'
+         //contenedor1.style.marginLeft = '80px'
+      }
+   })
+   /**Volver a la Pagina principal */
+   /*Seccion Crear Gifos desktop*/
+   btn1.addEventListener('click', () => {
+      if (creargifos.style.display == 'block' ) {
+         creargifos.style.display = 'none'
+         ocultar_todo.style.display = 'block'
+         principal12.style.display = 'block'
+         principal1.style.display = 'block'
+         scroll.style.width = '78%'
+         scroll.style.marginLeft = '120px'
+         scrollLeft.style.marginLeft = '50px'
+         scrollRigth.style.marginTop = '115px'
+         scrollLeft.style.marginTop = '115px'
+         scrollRigth.style.marginLeft = '0px'
+         principal4.style.display = 'block'
+         principal1.style.width = '800px'
+         principal1.style.marginLeft = '300px'
+      }
+   })
+   /**Volver a la Pagina principal */
+   /*Seccion Mis Gifos desktop*/
+   btn1.addEventListener('click', () => {
+      if (principal8.style.display == 'block') {
+         principal8.style.display = 'none'
+         ocultar_todo.style.display = 'block'
+         principal12.style.display = 'block'
+         principal1.style.display = 'block'
+         principal1.style.width = '800px'
+         principal1.style.marginLeft = '300px'
+         scroll.style.width = '78%'
+         scroll.style.marginLeft = '120px'
+         scrollLeft.style.marginLeft = '50px'
+         scrollRigth.style.marginTop = '115px'
+         scrollLeft.style.marginTop = '115px'
+         scrollRigth.style.marginLeft = '0px'
+         principal4.style.display = 'block'
+      }
+   })
+}else{
+   /*Seccion Favoritos mobile*/
+   btn1.addEventListener('click', () => {
+      if ((principal7.style.display == 'block')) {
+         principal7.style.display = 'none'
+         principal4.style.display = 'block'
+         principal1.style.display = 'block'
+         principal12.style.display = 'block'
+         cont44.style.marginTop = '0px'
+         contenedor1.style.marginLeft = '80px'
+      }
+   })
+   /**Volver a la Pagina principal */
+   /*Seccion Mis Gifos mobile*/
+   btn1.addEventListener('click', () => {
+      if (principal8.style.display == 'block') {
+         principal8.style.display = 'none'
+         ocultar_todo.style.display = 'block'
+         principal12.style.display = 'block'
+         principal1.style.display = 'block'
+         principal4.style.display = 'block'
+      }
+   })
+}
 
-/**Volver a la Pagina principal */
-/*Seccion Crear Gifos desktop*/
-btn1.addEventListener('click', () => {
-   if (creargifos.style.display == 'block') {
-      creargifos.style.display = 'none'
-      ocultar_todo.style.display = 'block'
-      principal12.style.display = 'block'
-      principal1.style.display = 'block'
-      scroll.style.width = '78%'
-      scroll.style.marginLeft = '120px'
-      scrollLeft.style.marginLeft = '50px'
-      scrollRigth.style.marginTop = '115px'
-      scrollLeft.style.marginTop = '115px'
-      scrollRigth.style.marginLeft = '0px'
-      principal4.style.display = 'block'
-   }
-})
-
-/**Volver a la Pagina principal */
-/*Seccion Mis Gifos desktop*/
-btn1.addEventListener('click', () => {
-   if (principal8.style.display == 'block') {
-      principal8.style.display = 'none'
-      ocultar_todo.style.display = 'block'
-      principal12.style.display = 'block'
-      principal1.style.display = 'block'
-      scroll.style.width = '78%'
-      scroll.style.marginLeft = '120px'
-      scrollLeft.style.marginLeft = '50px'
-      scrollRigth.style.marginTop = '115px'
-      scrollLeft.style.marginTop = '115px'
-      scrollRigth.style.marginLeft = '0px'
-      principal4.style.display = 'block'
-   }
-})
 
 
 /*
