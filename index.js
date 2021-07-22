@@ -2072,7 +2072,7 @@ fav1.addEventListener('click', () => {
       principal4.style.display = 'block'
       principal1.style.display = 'block'
       principal5.style.display = 'block'
-
+      botonVerMas.style.display = 'none'
    }
    menu.style.display = 'none'
    principal4.style.display = 'none'
@@ -2090,6 +2090,7 @@ fav1.addEventListener('click', () => {
    scrollRigth.style.marginTop = '115px'
    scrollLeft.style.marginTop = '115px'
    scrollRigth.style.marginLeft = '0px'
+   botonVerMas.style.display = 'block'
 
    mostrarFavoritos()
 })
@@ -2643,7 +2644,10 @@ if (pantallaDesktop.matches) {
          principal1.style.display = 'block'
          principal1.style.width = '800px'
          principal1.style.marginLeft = '300px'
-         principal1.style.height = '164px'
+         principal1.style.height = '264px'
+         principal1.style.display = 'flex'
+         principal1.style.justifyContent = 'center'
+         principal1.style.alignItems = 'center'
          principal12.style.display = 'block'
          cont44.style.marginTop = '0px'
          scroll.style.width = '78%'
@@ -2654,6 +2658,7 @@ if (pantallaDesktop.matches) {
          scrollLeft.style.marginTop = '115px'
          scrollRigth.style.marginLeft = '0px'
          //contenedor1.style.marginLeft = '80px'
+         botonVerMas.style.display = 'none'
       }
    })
    /**Volver a la Pagina principal */
@@ -2664,6 +2669,9 @@ if (pantallaDesktop.matches) {
          ocultar_todo.style.display = 'block'
          principal12.style.display = 'block'
          principal1.style.display = 'block'
+         principal1.style.display = 'flex'
+         principal1.style.justifyContent = 'center'
+         principal1.style.alignItems = 'center'
          scroll.style.width = '78%'
          scroll.style.marginLeft = '120px'
          scrollLeft.style.marginLeft = '50px'
@@ -2685,6 +2693,9 @@ if (pantallaDesktop.matches) {
          principal1.style.display = 'block'
          principal1.style.width = '800px'
          principal1.style.marginLeft = '300px'
+         principal1.style.display = 'flex'
+         principal1.style.justifyContent = 'center'
+         principal1.style.alignItems = 'center'
          scroll.style.width = '78%'
          scroll.style.marginLeft = '120px'
          scrollLeft.style.marginLeft = '50px'

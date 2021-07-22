@@ -240,7 +240,7 @@
         top: 0.1875rem;
     }
     #principal1 {
-        height: 9.6875rem;
+        height: 155px;
         display: inline-flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -832,8 +832,10 @@
     #principal1 {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         /*justify-content: flex-start;*/
-        height: 164px;
+        height: 264px;
     }
 
     #trending {
@@ -858,7 +860,7 @@
         line-height: 1.5625rem;
         display: inline;
         justify-content: center;
-        margin-left: 300px;
+        /*margin-left: 300px;*/
         width: 800px;
     }
     /** Sin Búsqueda**/
