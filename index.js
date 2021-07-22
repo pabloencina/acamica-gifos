@@ -467,19 +467,46 @@ function buscarDesdeApi() {
 buscarDesdeApi()
 
 /********Buscador CIERRE  y LUPA */
-cierre.addEventListener('click', () => {
+if (pantallaDesktop.matches) {
+   cierre.addEventListener('click', () => {
+      principal1.style.display = 'block'
+      principal1.style.position = 'relative'
+      principal1.style.width = '800px'
+      principal1.style.marginLeft = '300px'
+      principal1.style.height = '264px'
+      principal1.style.display = 'flex'
+      principal1.style.justifyContent = 'center'
+      principal1.style.alignItems = 'center'
+      cierre.style.display = 'none'
+      lupa.style.display = 'block'
+      botonVerMas.style.display = 'none'
+      principal2.innerHTML = ''
+      mascotas.innerHTML = ''
+      buscador.value = ''
+      wap.style.display = 'block'
+      sinBusqueda.style.display = 'none'
+   })
+}else{
+   cierre.addEventListener('click', () => {
+      principal1.style.display = 'block'
+      principal1.style.position = 'relative'
+      //principal1.style.width = '800px'
+      //principal1.style.marginLeft = '300px'
+      principal1.style.height = '200px'
+      principal1.style.display = 'flex'
+      principal1.style.justifyContent = 'center'
+      principal1.style.alignItems = 'center'
+      cierre.style.display = 'none'
+      lupa.style.display = 'block'
+      botonVerMas.style.display = 'none'
+      principal2.innerHTML = ''
+      mascotas.innerHTML = ''
+      buscador.value = ''
+      wap.style.display = 'block'
+      sinBusqueda.style.display = 'none'
+   })
+}
 
-   principal1.style.display = 'block'
-   principal1.style.position = 'relative'
-   cierre.style.display = 'none'
-   lupa.style.display = 'block'
-   botonVerMas.style.display = 'none'
-   principal2.innerHTML = ''
-   mascotas.innerHTML = ''
-   buscador.value = ''
-   wap.style.display = 'block'
-   sinBusqueda.style.display = 'none'
-})
 
 /**Lupa */
 lupa.addEventListener('click', () => {
