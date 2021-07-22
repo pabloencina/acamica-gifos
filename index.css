@@ -562,17 +562,20 @@
         display: flex;
     }
     #gifos {
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         font-family: "Montserrat Alternates";
         font-size: 1.5625rem;
         color: var(--gifos);
+        height: 100px;
         text-align: center;
         line-height: 1.875rem;
-        margin-top: 1.875rem;
+        /*margin-top: 1.875rem;*/
     }
     #contenedor1 {
         display: block;
-        width: 12.5rem;
+        width: 100%;
         height: 6.25rem;
     }
     #parr1 {
@@ -581,6 +584,7 @@
         color: var(--font-color);
         text-align: center;
         line-height: 23px;
+        width: 200px;
     }
     /********Scroll ********/
     #scroll {

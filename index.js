@@ -5,7 +5,7 @@ let boton1 = document.getElementById('boton1')
 let nav = document.getElementById('nav')
 
 let btn1 = document.getElementById('btn1')
-let botonVerMas = document.getElementById ('botonVerMas')
+let botonVerMas = document.getElementById('botonVerMas')
 let menu = document.getElementById('menu')
 
 let btn3 = document.getElementById('btn3')
@@ -486,7 +486,7 @@ if (pantallaDesktop.matches) {
       wap.style.display = 'block'
       sinBusqueda.style.display = 'none'
    })
-}else{
+} else {
    cierre.addEventListener('click', () => {
       principal1.style.display = 'block'
       principal1.style.position = 'relative'
@@ -2691,7 +2691,7 @@ if (pantallaDesktop.matches) {
    /**Volver a la Pagina principal */
    /*Seccion Crear Gifos desktop*/
    btn1.addEventListener('click', () => {
-      if (creargifos.style.display == 'block' ) {
+      if (creargifos.style.display == 'block') {
          creargifos.style.display = 'none'
          ocultar_todo.style.display = 'block'
          principal12.style.display = 'block'
@@ -2732,16 +2732,21 @@ if (pantallaDesktop.matches) {
          principal4.style.display = 'block'
       }
    })
-}else{
+} else {
    /*Seccion Favoritos mobile*/
    btn1.addEventListener('click', () => {
       if ((principal7.style.display == 'block')) {
          principal7.style.display = 'none'
          principal4.style.display = 'block'
          principal1.style.display = 'block'
+         principal1.style.display = 'flex'
+         principal1.style.justifyContent = 'center'
+         principal1.style.alignItems = 'center'
          principal12.style.display = 'block'
          cont44.style.marginTop = '0px'
-         contenedor1.style.marginLeft = '80px'
+         contenedor1.style.display = 'flex'
+         contenedor1.style.justifyContent = 'center'
+         contenedor1.style.alignItems = 'center'
       }
    })
    /**Volver a la Pagina principal */
@@ -2752,6 +2757,9 @@ if (pantallaDesktop.matches) {
          ocultar_todo.style.display = 'block'
          principal12.style.display = 'block'
          principal1.style.display = 'block'
+         principal1.style.display = 'flex'
+         principal1.style.justifyContent = 'center'
+         principal1.style.alignItems = 'center'
          principal4.style.display = 'block'
       }
    })
