@@ -288,6 +288,40 @@
     #sinBusqueda {
         display: none;
     }
+    #sinBusqueda {
+        width: 100%;
+        display: none;
+    }
+    #sinBusqueda01 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #resultados2 {
+        display: flex;
+        justify-content: center;
+    }
+    #resultados {
+        width: 9.375rem;
+        height: 9.375rem;
+    }
+    #lorem {
+        height: 8.125rem;
+        font-family: "Montserrat Alternates";
+        font-weight: bold;
+        font-size: 1.875rem;
+        color: #572ee5;
+        text-align: center;
+        line-height: 1.875rem;
+    }
+    #lorem01 {
+        font-family: "Montserrat Alternates";
+        font-weight: bold;
+        font-size: 22px;
+        color: #50e3c2;
+        text-align: center;
+        line-height: 25px;
+    }
     /*Imágenes********************/
     main {
         display: flex;
@@ -502,20 +536,22 @@
 
     /****************** Boton "Ver Más"****** */
     #principal3 {
-        width: 100%;
-        height: 9.375rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        display: none;
-    }
-    #boton {
-        width: 100px;
-        height: 6.25rem;
         background-color: var(--color-primary);
         border: none;
+        width: 100%;
+        height: 150px;
     }
-    #vermas:hover {
+    #botonVerMas{
+        height: 6.25rem;
+        display: none;
+        background-color:transparent;
+        border: transparent;
+    }
+    
+    #botonVerMas:hover {
         cursor: pointer;
     }
     /*******Trending GIFOS************** */
