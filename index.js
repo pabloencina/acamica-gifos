@@ -165,7 +165,7 @@ let imgSinGifos = document.getElementById('imgSinGifos')
 let parrafoGifos = document.getElementById('parrafoGifos')
 let btnDescartar = document.getElementById('btnDescartar')
 let contenedor3 = document.getElementById('contenedor3')
-
+let linkGifo = document.getElementById('linkGifo')
 /**MODO NOCTURNO******************* */
 
 //// Immediately invoked function to set the theme on initial load
@@ -2374,14 +2374,8 @@ function guardarMiGif(gifId) {
 
    //Guardar el source del gif con el gifkey correspondiente en el localStorage.
    let gifSrc = 'https://media4.giphy.com/media/' + gifId + '/200.gif'
+   linkGifo.href = gifSrc
    localStorage.setItem(gifId, gifSrc)
-}
-
-
-
-function asociarEventosBotonesMiGif() {
-   //id de los botones link y descargar y asociarlos al evento onclick.
-
 }
 
 botonDescargaGifo.addEventListener('mouseover', () => {
@@ -2401,9 +2395,7 @@ botonLinkGIfo.addEventListener('mouseover', () => {
 botonLinkGIfo.addEventListener('mouseout', () => {
    botonLinkGIfo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-link-normal.svg'
 })
-botonLinkGIfo.addEventListener('click', () => {
 
-})
 
 
 var cronometro;

@@ -1584,9 +1584,17 @@
         background-color: transparent;
         margin: 15px;
         margin-left: 320px;
+        margin-top: 50px;
         font-weight: bold;
     }
-
+#comienzo{
+    width:688px;
+    height: 80px;
+    margin-left: -125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
     #subirgifo {
         display: none;
         /*display: none;*/
@@ -1617,6 +1625,7 @@
         background-color: transparent;
         margin: 15px;
         margin-left: 20rem;
+        margin-top: 50px;
         font-weight: bold;
     }
     #grabar:hover {
