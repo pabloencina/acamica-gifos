@@ -990,7 +990,6 @@ function asociarEventosFotosDesktop(gifElements, caller) {
 }
 
 function asociarEventosFotosMisGifosDesktop(gifElements) {
-   //let favcor = document.getElementById('favcor')
    gifElements.forEach(gifElement => {
 
       let gifoKey = gifElement.getAttribute('key')
@@ -999,19 +998,17 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
       let favcor = document.getElementById('favcor' + gifoKey)
       let btnDescartar = document.getElementById('btnDescartar' + gifoKey)
       let exp = document.getElementById('exp' + gifoKey)
-      let close12 = document.getElementById('close12' + gifoKey)
       let down = document.getElementById('down' + gifoKey)
+      let close12 = document.getElementById('close12' + gifoKey)
 
       gifElement.addEventListener('mouseover', () => {
          divHover.style.display = 'block'
          favcor.style.display = 'block'
       })
-
       divHover.addEventListener('mouseout', () => {
          divHover.style.display = 'none'
          favcor.style.display = 'none'
       })
-
       btnDescartar.addEventListener('mouseover', () => {
          btnDescartar.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-trash-hover.svg'
       })
@@ -1030,8 +1027,6 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
       })
 
       exp.addEventListener('click', () => {
-         // favcor.style.marginTop = '250px'
-         //favcor.style.marginLeft = '650px'
          close12.style.display = 'block'
          close12.style.position = 'absolute'
          close12.style.marginTop = '-410px'
@@ -1058,6 +1053,12 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
          divHover.style.width = '0'
          contenedor2.style.opacity = '0'
 
+         let otrosGifs = document.querySelectorAll('.fotosMisGifos')
+      otrosGifs.forEach(gifElement => {
+         if (gifElement.getAttribute('key') !== gifoKey) {
+            gifElement.style.display = 'none'
+         }
+      })
       })
       btnDescartar.addEventListener('click', () => {
          let keysStringGifo = localStorage.getItem('arrayKGifo')
@@ -1077,7 +1078,18 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
          nav.style.opacity = '1'
          principal12.style.opacity = '1'*/
       })
+      
 
+      down.addEventListener('click', () => {
+         descargarGif(gifoKey, gifTitle.innerHTML)
+      })
+      down.addEventListener('mouseover', () => {
+         down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
+      })
+
+      down.addEventListener('mouseout', () => {
+         down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
+      })
       close12.addEventListener('click', () => {
          //gifElement.style.display = 'block'
          gifElement.style.width = '260px'
@@ -1114,22 +1126,9 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
          let otrosGifs = document.querySelectorAll('.fotosMisGifos')
          otrosGifs.forEach(gifElement => {
             if (gifElement.getAttribute('key') !== gifoKey) {
-
                gifElement.style.display = 'block'
-
             }
          })
-
-      })
-      down.addEventListener('click', () => {
-         descargarGif(gifoKey, gifTitle.innerHTML)
-      })
-      down.addEventListener('mouseover', () => {
-         down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
-      })
-
-      down.addEventListener('mouseout', () => {
-         down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
       })
    })
 }
@@ -2336,8 +2335,6 @@ async function subirGifo() {
    btnDos.style.color = 'var(--gifos)'
    btnTres.style.backgroundColor = 'var(--gifos)'
    btnTres.style.color = 'var(--color-primary)'
-   //asociarEventosBotonesMiGif()
-   //asociarEventosFotosDesktop()
 }
 
 function mostrarSubiendoGif() {
