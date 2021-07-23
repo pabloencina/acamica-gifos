@@ -357,6 +357,9 @@
         margin-top: 130px;
         margin-left: 124px;
     }
+    .favcorGifos{
+        width: 100px;
+    }
 
     .seleccion1 {
         margin-top: 0.625rem;
@@ -593,7 +596,6 @@
         text-align: center;
         line-height: 23px;
         width: 200px;
-        
     }
     /********Scroll ********/
     #scroll {
