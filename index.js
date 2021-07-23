@@ -1,184 +1,185 @@
 /******************Nombre de las variables**** */
-let boton1 = document.getElementById('boton1');
+const boton1 = document.getElementById('boton1');
 
-let nav = document.getElementById('nav');
+const nav = document.getElementById('nav');
 
-let btn1 = document.getElementById('btn1');
+const btn1 = document.getElementById('btn1');
 
-let botonVerMas = document.getElementById('botonVerMas');
+const botonVerMas = document.getElementById('botonVerMas');
 
-let vermas = document.getElementById('vermas');
+const vermas = document.getElementById('vermas');
 
-let menu = document.getElementById('menu');
+const menu = document.getElementById('menu');
 
-let btn3 = document.getElementById('btn3');
+const btn3 = document.getElementById('btn3');
 
-let misgifsMobile = document.getElementById('misgifsMobile');
+const misgifsMobile = document.getElementById('misgifsMobile');
 
-let misgifs1 = document.getElementById('misgifs1');
+const misgifs1 = document.getElementById('misgifs1');
 
-let principal8 = document.getElementById('principal8');
+const principal8 = document.getElementById('principal8');
 
-let fav = document.getElementById('fav');
+const fav = document.getElementById('fav');
 
-let principal7 = document.getElementById('principal7');
+const principal7 = document.getElementById('principal7');
 
-let principal4 = document.getElementById('principal4');
+const principal4 = document.getElementById('principal4');
 
-let principal12 = document.getElementById('principal12');
+const principal12 = document.getElementById('principal12');
 
-let principal1 = document.getElementById('principal1');
+const principal1 = document.getElementById('principal1');
 
-let ilustracion = document.getElementById('ilustracion');
+const ilustracion = document.getElementById('ilustracion');
 
-let inspiracion1 = document.getElementById('inspiracion1');
+const inspiracion1 = document.getElementById('inspiracion1');
 
-let mascotas = document.getElementById('mascotas');
+const mascotas = document.getElementById('mascotas');
 
-let principal5 = document.getElementById('principal5');
+const principal5 = document.getElementById('principal5');
 
-let principal3 = document.getElementById('principal3');
+const principal3 = document.getElementById('principal3');
 
-let principal2 = document.getElementById('principal2');
+const principal2 = document.getElementById('principal2');
 
-let lupa = document.getElementById('lupa');
+const lupa = document.getElementById('lupa');
 
-let cierre = document.getElementById('cierre');
+const cierre = document.getElementById('cierre');
 
-let offset = 0;
+const offset = 0;
 
-let limit = 12;
+const limit = 12;
 
-let busquedaActual = '';
+const busquedaActual = '';
 
-let buscador1 = document.getElementById('buscador1');
+const buscador1 = document.getElementById('buscador1');
 
-let buscador = document.getElementById('buscador');
+const buscador = document.getElementById('buscador');
 
-let scroll = document.getElementById('scroll');
+const scroll = document.getElementById('scroll');
 
-let mod = document.getElementById('mod');
+const mod = document.getElementById('mod');
 
-let btn4 = document.getElementById('btn4');
+const btn4 = document.getElementById('btn4');
 
-let creargifos = document.getElementById('creargifos');
+const creargifos = document.getElementById('creargifos');
 
-let ocultar_todo = document.getElementById('ocultar_todo');
+const ocultar_todo = document.getElementById('ocultar_todo');
 
-let comenzar = document.getElementById('comenzar');
+const comenzar = document.getElementById('comenzar');
 
-let finalizar = document.getElementById('finalizar');
+const finalizar = document.getElementById('finalizar');
 
-let subirgifo = document.getElementById('subirgifo');
+const subirgifo = document.getElementById('subirgifo');
 
-let video = document.getElementById('video');
+const video = document.getElementById('video');
 
-let mostrarGif = document.getElementById('mostrarGif');
+const mostrarGif = document.getElementById('mostrarGif');
 
-let mostrarCamara = document.getElementById('mostrarCamara');
+const mostrarCamara = document.getElementById('mostrarCamara');
 
-let grabar = document.getElementById('grabar');
+const grabar = document.getElementById('grabar');
 
-let cont_cuadrado = document.getElementById('cont_cuadrado');
+const cont_cuadrado = document.getElementById('cont_cuadrado');
 
-let acceso00 = document.getElementById('acceso00');
+const acceso00 = document.getElementById('acceso00');
 
-let btnUno = document.getElementById('btnUno');
+const btnUno = document.getElementById('btnUno');
 
-let btnDos = document.getElementById('btnDos');
+const btnDos = document.getElementById('btnDos');
 
-let btnTres = document.getElementById('btnTres');
+const btnTres = document.getElementById('btnTres');
 
-let cuadr = document.getElementsByClassName('cuadr');
+const cuadr = document.getElementsByClassName('cuadr');
 
-let cont802 = document.getElementById('cont802');
+const cont802 = document.getElementById('cont802');
 
-let repCaptura = document.getElementById('repCaptura');
+const repCaptura = document.getElementById('repCaptura');
 
-let captura = document.getElementById('captura');
+const captura = document.getElementById('captura');
 
-let icono = document.getElementById('icono');
+const icono = document.getElementById('icono');
 
-let switchThemeDesktop = document.getElementById('switchThemeDesktop');
+const switchThemeDesktop = document.getElementById('switchThemeDesktop');
 
-let switchThemeMob = document.getElementById('switchThemeMob');
+const switchThemeMob = document.getElementById('switchThemeMob');
 
-let camNoc = document.getElementById('camNoc');
+const camNoc = document.getElementById('camNoc');
 
-let peliculaNoc = document.getElementById('peliculaNoc');
+const peliculaNoc = document.getElementById('peliculaNoc');
 
-let scrollLeft = document.getElementById('scrollLeft');
+const scrollLeft = document.getElementById('scrollLeft');
 
-let scrollRigth = document.getElementById('scrollRigth');
-let redesFace = document.getElementById('redesFace');
+const scrollRigth = document.getElementById('scrollRigth');
 
-let redesTw = document.getElementById('redesTw');
+const redesFace = document.getElementById('redesFace');
 
-let redesInsta = document.getElementById('redesInsta');
+const redesTw = document.getElementById('redesTw');
 
-let siguiente1 = document.getElementById('siguiente1');
+const redesInsta = document.getElementById('redesInsta');
 
-let scrollLeftImg = document.getElementById('scrollLeftImg');
+const siguiente1 = document.getElementById('siguiente1');
 
-let btnCrear = document.getElementById('btnCrear');
+const scrollLeftImg = document.getElementById('scrollLeftImg');
 
-let sinBusqueda = document.getElementById('sinBusqueda');
+const btnCrear = document.getElementById('btnCrear');
 
-let gifFavoritos = [];
+const sinBusqueda = document.getElementById('sinBusqueda');
 
-let principal6 = document.getElementById('principal6');
+const gifFavoritos = [];
 
-let lupa1 = document.getElementById('lupa1');
+const principal6 = document.getElementById('principal6');
 
-let fotoTrending = document.getElementsByClassName('.fotoTrending');
+const lupa1 = document.getElementById('lupa1');
 
-let pantallaDesktop = window.matchMedia("(min-width: 1440px)");
+const fotoTrending = document.getElementsByClassName('.fotoTrending');
 
-let react = document.getElementById('react');
+const pantallaDesktop = window.matchMedia("(min-width: 1440px)");
 
-let wap = document.getElementById('wap');
+const react = document.getElementById('react');
 
-let gifUser = document.querySelector('#modal h4');
+const wap = document.getElementById('wap');
 
-let seleccion23 = document.getElementsByClassName('seleccion23');
+const gifUser = document.querySelector('#modal h4');
 
-let SinFavoritos = document.getElementById('SinFavoritos');
+const seleccion23 = document.getElementsByClassName('seleccion23');
 
-let favoritoOracion = document.getElementById('favoritoOracion');
+const SinFavoritos = document.getElementById('SinFavoritos');
 
-let imgSinFavoritos = document.getElementById('imgSinFavoritos');
+const favoritoOracion = document.getElementById('favoritoOracion');
 
-let gifos = document.getElementById('gifos');
+const imgSinFavoritos = document.getElementById('imgSinFavoritos');
 
-let contenedor1 = document.getElementById('contenedor1');
+const gifos = document.getElementById('gifos');
 
-let cont44 = document.getElementById('cont44');
+const contenedor1 = document.getElementById('contenedor1');
 
-let contenedor2 = document.getElementById('contenedor2');
+const cont44 = document.getElementById('cont44');
 
-let contAutocompletar = document.getElementById('contAutocompletar');
+const contenedor2 = document.getElementById('contenedor2');
 
-let parr1 = document.getElementById('parr1');
+const contAutocompletar = document.getElementById('contAutocompletar');
 
-let contenidoSubiendoGifo = document.getElementById('contenidoSubiendoGifo');
+const parr1 = document.getElementById('parr1');
 
-let contenidoGifSubido = document.getElementById('contenidoGifSubido');
+const contenidoSubiendoGifo = document.getElementById('contenidoSubiendoGifo');
 
-let botonDescargaGifo = document.getElementById('botonDescargaGifo');
+const contenidoGifSubido = document.getElementById('contenidoGifSubido');
 
-let botonLinkGIfo = document.getElementById('botonLinkGIfo');
+const botonDescargaGifo = document.getElementById('botonDescargaGifo');
 
-let principal9 = document.getElementById('principal9');
+const botonLinkGIfo = document.getElementById('botonLinkGIfo');
 
-let imgSinGifos = document.getElementById('imgSinGifos');
+const principal9 = document.getElementById('principal9');
 
-let parrafoGifos = document.getElementById('parrafoGifos');
+const imgSinGifos = document.getElementById('imgSinGifos');
 
-let btnDescartar = document.getElementById('btnDescartar');
+const parrafoGifos = document.getElementById('parrafoGifos');
 
-let contenedor3 = document.getElementById('contenedor3');
+const btnDescartar = document.getElementById('btnDescartar');
 
-let linkGifo = document.getElementById('linkGifo');
+const contenedor3 = document.getElementById('contenedor3');
+
+const linkGifo = document.getElementById('linkGifo');
 
 switchThemeDesktop.addEventListener('click', () => {
    toggleTheme()
@@ -333,7 +334,7 @@ const URL_Autocompletar = 'https://api.giphy.com/v1/gifs/search/tags'
 /*******TRENDING WORD AND phrases*******/
 let mostrarTrendingWord = async () => {
    const wap = document.getElementById('wap')
-   let words = document.getElementsByClassName('words')
+   const words = document.getElementsByClassName('words')
    try {
       let result = await fetch(url_wordTrending + '?api_key=' + api_key)
       let js = await result.json()
@@ -1215,6 +1216,8 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       let close12 = document.getElementById('close12' + gifKey)
       let gifTitle = document.getElementById('gifTitle' + gifKey)
 
+      scroll.style.overflow = 'hidden'
+
       gifElement.addEventListener('mouseover', () => {
          divHover.style.display = 'block'
          favcor.style.display = 'block'
@@ -2000,6 +2003,7 @@ fav1.addEventListener('click', () => {
    scrollRigth.style.marginTop = '115px'
    scrollLeft.style.marginTop = '115px'
    scrollRigth.style.marginLeft = '0px'
+   creargifos.style.display = 'none'
    mostrarFavoritos()
 })
 /******Funcionalidad Boton Ver Mas */
