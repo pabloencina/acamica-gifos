@@ -2128,7 +2128,6 @@ function comenzando() {
       btnUno.style.color = 'var(--color-primary)'
       comenzar.style.display = 'none'
       begin();
-
    })
 }
 
@@ -2209,6 +2208,10 @@ async function subirGifo() {
    const result = await response.json();
 
    guardarMiGif(result.data.id)
+
+   botonDescargaGifo.addEventListener('click', () => {
+      descargarGif(result.data.id, 'myGif.gif')
+   })
    mostrarGifSubido()
 
    btnDos.style.backgroundColor = 'var(--color-primary)'
@@ -2232,7 +2235,6 @@ function mostrarGifSubido() {
    mostrarCamara.style.backgroundColor = '#572ee5'
    subirgifo.style.display = 'none'
    repCaptura.style.display = 'none'
-
 }
 
 function guardarMiGif(gifId) {
@@ -2288,7 +2290,6 @@ function begin() {
    if ('mediaDevices' in navigator && navigator.mediaDevices.getUserMedia) {
       startStream();
    }
-
 }
 
 async function startStream() {
