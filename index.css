@@ -344,7 +344,6 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
     }
-
     .seleccion {
         margin-top: -6.25rem;
         margin-left: 0.3125rem;
@@ -378,6 +377,7 @@
         color: var(--gifos);
         text-align: center;
         line-height: 40px;
+        height: 100px;
     }
     .gifTitle {
         font-family: "Montserrat Alternates";
@@ -955,7 +955,7 @@
         justify-content: center;
         flex-direction: column;
     }
-    #TituloDelGif {
+    #TituloDelGif{
         font-family: "Montserrat Alternates";
         font-size: 1.5625rem;
         color: var(--gifos);

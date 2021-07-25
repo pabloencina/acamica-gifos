@@ -410,7 +410,6 @@ buscador.addEventListener('keyup', async (autocompletar) => {
             botonVerMas.style.display = 'block'
             botonVerMas.style.display = 'block'
             buscarGifs()
-
          })
       });
    }
@@ -1485,7 +1484,6 @@ function asociarEventosFotosMobile(gifElements, caller) {
             }
 
          })
-
          close12.addEventListener('click', () => {
             gifElement.style.width = '156px'
             gifElement.style.height = '120px'
@@ -1497,6 +1495,7 @@ function asociarEventosFotosMobile(gifElements, caller) {
             principal12.style.display = 'block'
             botonVerMas.style.display = 'block'
             TituloDelGif.style.display = 'block'
+            principal1.style.display = 'none'
             let otrosGifs = document.querySelectorAll('.fotoBusqueda')
             otrosGifs.forEach(gifElement => {
                gifElement.style.display = 'block'
