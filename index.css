@@ -372,7 +372,7 @@
         margin-left: 15rem;
         margin-top: -16.875rem;
     }
-    #mascotas {
+    #TituloDelGif {
         font-family: "Montserrat Alternates";
         font-size: 1.5625rem;
         color: var(--gifos);
@@ -949,22 +949,19 @@
         text-align: center;
         line-height: 25px;
     }
-    /****Mascotas DESKTOP********/
+    /****TituloDelGif DESKTOP********/
     #principal5 {
         display: flex;
         justify-content: center;
         flex-direction: column;
     }
-    /*
-    #principal5 {
-        display: none;
-    }*/
-    #mascotas {
+    #TituloDelGif {
         font-family: "Montserrat Alternates";
         font-size: 1.5625rem;
         color: var(--gifos);
         text-align: center;
         line-height: 2.5rem;
+        height: 100px;
     }
 
     .fotoBusqueda {
