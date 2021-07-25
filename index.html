@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="theme-light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto 2 - GIFOS</title>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -14,235 +15,274 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="index.css">
 
 </head>
 
 <body>
-    <nav>
+
+    <nav id="nav">
         <div id="btn1">
-            <img id="icono" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/logo-mobile.svg" alt="Icono">
+            <img id="icono" alt="Icono" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/logo-desktop.svg">
+
         </div>
 
         <div id="btn2">
-            <button id="but"></button> <img id="boton1"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/burger.svg" alt="Botón">
-            <div id="btn3">
-                <img src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg" alt="">
-            </div>
+            <img id="boton1" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/burger.svg" alt="Botón">
+
+        </div>
+        <div id="btn3">
+            <img id="boton2" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg" alt="Cierre">
+        </div>
+
+        <div id="menus">
+            <ul id="clickear">
+                <li id="switchThemeDesktop" class="lista10">
+                    <p>Modo Nocturno</p>
+                </li>
+
+                <li id="fav1" class="lista10">
+                    <p>Favoritos</p>
+                </li>
+
+                <li id="misgifs1" class="lista10">
+                    <p>Mis GIFOS</p>
+                </li>
+
+            </ul>
         </div>
         <div id="btn4">
-            <img src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-crear-gifo.svg" alt="">
+            <img id="btnCrear" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-crear-gifo.svg"
+                alt="">
         </div>
     </nav>
     <div id="menu">
         <ul>
-            <li class="lista"><a href="">Modo Nocturno</a></li>
-            <hr>
-            <li class="lista"><a href="">Favoritos</a></li>
-            <hr>
-            <li class="lista"><a href="">Mis GIFOS</a></li>
-            <hr>
+            <li id="switchThemeMob" class="lista">
+                <p>Modo Nocturno</p>
+
+            </li>
+
+            <li id="fav" class="lista">
+                <p>Favoritos</p>
+
+            </li>
+
+            <li id="misgifsMobile" class="lista">
+                <p>Mis GIFOS</p>
+
+            </li>
+
         </ul>
     </div>
-    <div id="menus">
-        <ul id="clickear">
-            <li class="lista10"><a href="">Modo Nocturno</a></li>
+    <main id="creargifos">
+        <div id="contenedor800">
+            <div id="cont801">
+                <img id="camNoc" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/camara.svg"
+                    alt="Crear gif">
+                <img src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/element-luz-camara.svg"
+                    alt="Crear gifo">
+            </div>
 
-            <li class="lista10"><a href="">Favoritos</a></li>
+            <div id="cont802">
+                <div id="mostrarCamara">
+                    <video autoplay id="video"></video>
+                </div>
+                <!--<img id="mostrarGif" class="contenedorGif" alt="Mostrar Gif" src="">-->
+                <div id="bloques">
 
-            <li class="lista10"><a href="">Mis GIFOS</a></li>
+                </div>
+                <div id="cont_cuadrado">
+                    <p id="aqui">Aqui podrás <br>
+                        crear tus propios <span id="palabra-gifo">GIFOS</span>
+                    </p>
 
-        </ul>
+                    <p id="crea">¡Crea tu GIFO en sólo 3 pasos! <br>
+                        (sólo necesitas una cámara para grabar un video)</p>
+                </div>
+                <div id="contenidoSubiendoGifo">
+                    <img id="imagenSubiendoGifo" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/loader.svg"
+                        alt="">
+                    <p id="SubiendoGifo">Estamos subiendo tu GIFO</p>
+                </div>
+
+                <div id="contenidoGifSubido">
+                    <div id="contenedorImagenBotones">
+                        <img id="botonDescargaGifo"
+                            src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg"
+                            alt="Contenido del Gif Subido">
+                        <a id="linkGifo" href="" target="_blank"><img id="botonLinkGIfo"
+                                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-link-normal.svg"
+                                alt="botonLinkGIfo"></a>
+                    </div>
+                    <div id="contenedorTexto">
+                        <img id="imgExito" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/check.svg"
+                            alt="imgExito">
+                        <p id="gifoSubido">GIFO subido con éxito</p>
+                    </div>
+                </div>
+                <div id="acceso00">
+                    <div id="acceso">
+                        <p id="acceso1">¿Nos das acceso <br> a tu cámara?</p>
+                        <p id="acceso3">El acceso a tu cámara será sólo <br> por el tiempo en el que estes creando el
+                            GIFO.</p>
+                    </div>
+                </div>
+                <div id="bloques1">
+
+                </div>
+            </div>
+
+        </div>
+        <div id="botones123">
+            <button id="btnUno" class="btn123">1</button>
+            <button id="btnDos" class="btn123">2</button>
+            <button id='btnTres' class="btn123">3</button>
+            <div>
+                <p id="repCaptura">REPETIR CAPTURA</p>
+                <div onload="carga()" id="cronometroGifos">
+                    <p>
+                        <span id="hora">00</span>:<span id="minutos">00</span>:<span id="segundos">00</span>
+                    </p>
+                </div>
+            </div>
+            <div id="rollos">
+                <img id="peliculaNoc" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/pelicula.svg" alt="">
+            </div>
+        </div>
+
+        <div id="linea">
+            <div id="comienzo">
+                <button id="comenzar">COMENZAR</button>
+                <button id="grabar">GRABAR</button>
+                <button id="finalizar">FINALIZAR</button>
+                <button id="subirgifo">SUBIR GIFO</button>
+
+            </div>
+        </div>
+
+    </main>
+    <div id="ocultar_todo">
+        <section id="principal4">
+            <div id="inspiracion1">
+                <div id="inspiracion">
+                    <h1 class="blanco" id="inspirate">Inspirate, busca, guarda, y crea los mejores <span id="palabra">
+                            GIFOS</span></h1>
+                </div>
+                <div id="ilustracion">
+                    <img id="ilustr" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/ilustra_header.svg"
+                        alt="Ilustración1">
+                </div>
+            </div>
+            <div id="buscador1" class="autocompletar">
+                <input name="buscador" placeholder="Busca GIFOS y más" id="buscador">
+
+                <img id="cierre" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close.svg" alt="cierre">
+                <img id="lupa" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-search.svg" alt="lupa">
+                <div id="sugerencias" class="autocompletar"></div>
+            </div>
+        </section>
     </div>
-    <main id="principal 4">
-        <div id="inspiracion">
-            <h1 id="inspirate">Inspírate, buscá, guardá, y creá los mejores <span id="palabra"> GIFOS</span></h1>
-        </div>
-        <div id="ilustracion">
-            <img id="ilustr" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/ilustra_header.svg"
-                alt="Ilustración1">
-        </div>
-    </main>
-    <div id="buscador1">
-        <input id="buscador">
 
+    <section id="principal1">
+        <h1 class="blanco" id="trending">Trending:</h1>
+        <div id="wap"></div>
+    </section>
 
+    <div id="sinBusqueda">
+        <div id="sinBusqueda01">
+            <h1 id="TituloGifSinBusqueda" class="TituloDelGif"></h1>
+            <div id="resultados2">
+                <img id="resultados"
+                    src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-busqueda-sin-resultado.svg" alt="">
+            </div>
+            <p id="lorem01">Intente con otra búsqueda.</p>
+        </div>
     </div>
-    <br><br><br>
-    <main id="principal1">
-        <h1 id="trending">Trending:</h1>
-        <div>
-            <p id="react">Reactions, Entertainment, Sports, Stickers, Artists </p>
+
+    <div>
+        <h1 id="TituloGifBusqueda" class="TituloDelGif"></h1>
+    </div>
+    
+    <section id="principal5">
+
+        <div id="principal2">
+
         </div>
-    </main>
-
-    <main id="principal5">
-        <h1 id="mascotas">Mascotas</h1>
-        <main id="principal2">
-            <img class="fotos"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/2b53c755fcd0fca65cbcc2f85f28453e525574e5.png"
-                alt="imágen 1">
-            <img class="fotos"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/d44faf44becb6f2820b9f6009d619581a91fdf7c.png"
-                alt="imágen 2">
-            <img class="fotos"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/ce53ad0dcef0b6c5a15ba686dc7296b568024d63.png"
-                alt="Imágen 3">
-            <img class="fotos"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/82557e14fba9407abf25ffade61a60c814294554.png"
-                alt="Imágen 4">
-            <img class="fotos"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/03d5f83a7024b035e2450b4816426cd11a56c34d.png"
-                alt="Imágen 5">
-            <img class="fotos"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/64da32bcc6808f07f3dda14fc45605426ec0bd3c.png"
-                alt="Imágen 6">
-            <img class="fotos"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/749d2810de63de285f24391549fbf9953146536e.png"
-                alt="Imágen 7">
-            <img class="fotos"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/caaca9ad8cc39b661badaadd6fadf856e61de237.png"
-                alt="Imágen 8">
-            <img class="fotos"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/17c614b4108b7b7af43ecbdc2a187bce1d9246bc.png"
-                alt="Imágen 9">
-            <img class="fotos"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/d3a170a29add4b117582a940a4fbe06c3b680752.png"
-                alt="Imágen 10">
-            <img class="fotos"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/6af1d1dfe489d0c0d962660714d4531791e194e4.png"
-                alt="Imágen 11">
-            <img class="fotos"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/960198734e241cdf7ec161490e55afac18b7e6ac.png"
-                alt="Imágen 12">
-        </main>
-    </main>
-
-    <main id="principal7">
+    </section>
+    <section id="principal7">
         <div id="contenedor2">
             <img id="imagen1" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-favoritos.svg"
                 alt="Corazón">
             <h1 id="titulo1">Favoritos</h1>
+            <div id="SinFavoritos">
+                <img id="imgSinFavoritos"
+                    src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav-sin-contenido.svg"
+                    alt="Fav SinContenido">
+                <p id="favoritoOracion">"¡Guarda tu primer GIFO en favoritos para que se muestre aqui!"</p>
+            </div>
         </div>
-        <div id="principal6">
-            <img class="fotos2"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/47808b78a7bb00e19ffd795d9add3e07d3cfdc29.png"
-                alt="Fav 1">
-            <img class="fotos2"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/924724645ac03be031e790b2808cbf134ffae8c7.png"
-                alt="Fav 2">
-            <img class="fotos2"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/f802d1491683b31365f5a24f31c90c4c890afe6d.png"
-                alt="Fav 3">
-            <img class="fotos2"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/f3f9411c360c243c5d2ff297d6fc684afd064b2a.png"
-                alt="Fav 4">
-            <img class="fotos2"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/03d5f83a7024b035e2450b4816426cd11a56c34d.png"
-                alt="Fav 5">
-            <img class="fotos2"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/64da32bcc6808f07f3dda14fc45605426ec0bd3c.png"
-                alt="Fav 6">
-            <img class="fotos2"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/749d2810de63de285f24391549fbf9953146536e.png"
-                alt="Fav 7">
-            <img class="fotos2"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/feb999a5d60d11a59b8e76330415bd5898d183f3.png"
-                alt="Fav 8">
-            <img class="fotos2"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/d3a170a29add4b117582a940a4fbe06c3b680752.png"
-                alt="Fav 9">
-            <img class="fotos2"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/960198734e241cdf7ec161490e55afac18b7e6ac.png"
-                alt="Fav 10">
-            <img class="fotos2"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/a89ac104638d206029569a1653bfcfcd8fe1c709.png"
-                alt="Fav 11">
-            <img class="fotos2"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/c24209ce3f103d33e14846555429cbc967925182.png"
-                alt="Fav 12">
-        </div>
-    </main>
+        <div id="principal6"></div>
+    </section>
 
-    <main id="principal8">
+    <section id="principal8">
+        <h1 id="titulo2">Mis GIFOS</h1>
         <div id="contenedor3">
             <img id="imagen2" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-mis-gifos.svg" alt="">
-            <h1 id="titulo2">Mis GIFOS</h1>
         </div>
-        <div id="principal9">
-
-            <img class="fotos3"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/9ee61e0e5e45eacc59af86d7d72727980fd835e3.png"
-                alt="Gifo 1">
-            <img class="fotos3"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/bfd7fb0b90ff826038e3ca1cbe36e604e92d18e7.png"
-                alt="Gifo 2">
-            <img class="fotos3"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/1b4d56327893b90d9e951dcb0da35f8d939c5e87.png"
-                alt="Gifo 3">
-            <img class="fotos3"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/bdefc92f2b6e0484e1fce7eea4adecc2bc49d340.png"
-                alt="Gifo 4">
-            <img class="fotos3"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/1ac05d7f5732f6e059a7e137e093c2f2106b9e25.png"
-                alt="Gifo 5">
-            <img class="fotos3"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/679dc1daf871b52b4d495eddfefd0613d001ad94.png"
-                alt="Gifo 6">
-            <img class="fotos3"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/fce902ea7f4bc9dd4d0e1f1a23f7f0dcb72d3186.png"
-                alt="Gifo 7">
-            <img class="fotos3"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/fcdc2d6ba8fd2fa42b87e1d0b3d9dc48428e7ec3.png"
-                alt="Gifo 8">
-
+        <div id="SinGifos">
+            <img id="imgSinGifos" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-mis-gifos.svg"
+                alt="Mis Gifos SinContenido">
+            <p id="parrafoGifos">"¡Animate a crear tu primer GIFO!"</p>
         </div>
-    </main>
-    <main id="principal3">
-        <button id="boton"><img id="vermas" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas.svg"
-                alt="Ver Más"></button>
-    </main>
+        <div id="principal9"></div>
+    </section>
 
-    <main id="principal4">
-        <h1 id="gifos">Trending GIFOS</h1>
+    <section id="principal3">
+        <button id="botonVerMas"><img id="vermas"
+                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver-mas.svg" alt="Ver Más"></button>
+    </section>
+
+    <section id="principal12">
+        <h1 class="blanco" id="gifos">Trending GIFOS</h1>
         <div id="contenedor1">
-            <p id="parr1">Mirá los últimos GIFOS de nuestra comunidad.</p>
+            <p class="blanco" id="parr1">Mirá los últimos GIFOS de nuestra comunidad.</p>
         </div>
-        <div id="scroll">
-            <img class="gif" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-md-noct.svg"
-                alt="">
-            <img class="img10"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/a89ac104638d206029569a1653bfcfcd8fe1c709.png"
-                alt="Imágen GatitoMoto">
-            <img class="img10"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/b2568a7b97e415701a64002822e94f3c28dd730e.png"
-                alt="Imágen Actor">
-            <img class="img10"
-                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/GIFOS-UI-Desktop+Mobile-Update.sketch_FILES/images/f802d1491683b31365f5a24f31c90c4c890afe6d.png"
-                alt="Mujer cantando">
-            <img class="gif" src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right-hover.svg"
-                alt="">
-        </div>
-    </main>
-    <footer>
+
+        <button id="scrollLeft" class="sig">
+            <img class="sig" id="scrollLeftImg"
+                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left.svg" alt="">
+        </button>
+
+        <div id="scroll"></div>
+
+        <button id="scrollRigth" class="sig">
+            <img class="sig" id="siguiente1"
+                src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right.svg" alt="">
+        </button>
+
+    </section>
+
+    <footer id="cont44">
         <div id="contenedor4">
-            <p id="parr2">Compartir en:</p>
+            <p class="blanco" id="parr2">Compartir en:</p>
         </div>
         <div id="red">
-            <a href="https://www.facebook.com/ar/" target="_blank"><img class="redes"
-                    src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_facebook.svg" alt="Facebook"></a>
-            <a href="https://www.telegram-plane.com/ar/" target="_blank"><img class="redes"
-                    src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-twitter.svg" alt="Twitter"></a>
-            <a href="https://www.instagram.com/ar/" target="_blank"><img class="redes"
-                    src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_instagram.svg" alt="Instagram"></a>
+            <a href="https://www.facebook.com/ar/" target="_blank">
+                <img class="redes" id="redesFace"
+                    src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_facebook.svg" alt="Facebook">
+            </a>
+            <a href="https://www.telegram-plane.com/ar/" target="_blank">
+                <img class="redes" id="redesTw"
+                    src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-twitter.svg" alt="Twitter">
+            </a>
+            <a href="https://www.instagram.com/ar/" target="_blank">
+                <img class="redes" id="redesInsta"
+                    src="Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon_instagram.svg" alt="Instagram">
+            </a>
         </div>
-        <div id="parrafo3">
-            <p id="parr3"> &copy; GIFOS 2020 All Rigths Reserved.</p>
-        </div>
+        <p class="blanco" id="parr3"> &copy; GIFOS 2020 All Rigths Reserved.</p>
     </footer>
 
     <script src="./index.js"></script>
-</body>
-
-</html>
+</body></html>
