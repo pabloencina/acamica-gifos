@@ -19,6 +19,9 @@
     main {
         text-align: center;
     }
+    section{
+        text-align: center;
+    }
     /***********Menú Hamburguesa******************************/
     #btn4 {
         visibility: hidden;
@@ -244,7 +247,7 @@
         height: 155px;
         /*display: inline-flex;*/
         display: flex;
-        /*flex-wrap: wrap;*/
+        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
     }
@@ -371,7 +374,7 @@
         margin-left: 15rem;
         margin-top: -16.875rem;
     }
-    #TituloDelGif {
+    .TituloDelGif {
         font-family: "Montserrat Alternates";
         font-size: 1.5625rem;
         color: var(--gifos);
@@ -569,6 +572,7 @@
         width: 100%;
         height: 26.875rem;
         display: flex;
+        flex-wrap: wrap;
     }
     #gifos {
         display: flex;
@@ -955,7 +959,7 @@
         justify-content: center;
         flex-direction: column;
     }
-    #TituloDelGif{
+    .TituloDelGif{
         font-family: "Montserrat Alternates";
         font-size: 1.5625rem;
         color: var(--gifos);
