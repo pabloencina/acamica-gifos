@@ -511,7 +511,7 @@ async function buscarGifs() {
    principal2.innerHTML = ``
    let resultado = await fetch(urls)
    let json = await resultado.json()
-
+   TituloGifBusqueda.style.display = 'block'
    TituloGifBusqueda.innerHTML = buscador.value
    //TituloGifSinBusqueda.innerHTML = buscador.value
    //TituloGifBusqueda.style.textTransform = 'capitalize'
@@ -1973,6 +1973,8 @@ fav.addEventListener('click', () => {
       principal4.style.display = 'block'
       principal1.style.display = 'block'
       principal5.style.display = 'block'
+      TituloGifBusqueda.style.display = 'block'
+      sinBusqueda.style.display = 'block'
    }
    principal12.style.display = 'none'
    menu.style.display = 'none'
@@ -1981,6 +1983,8 @@ fav.addEventListener('click', () => {
    principal5.style.display = 'none'
    botonVerMas.style.display = 'none'
    principal7.style.display = 'block'
+   TituloGifBusqueda.style.display = 'none'
+   sinBusqueda.style.display = 'none'
    mostrarFavoritos()
 })
 
@@ -1993,6 +1997,8 @@ fav1.addEventListener('click', () => {
       principal4.style.display = 'block'
       principal1.style.display = 'block'
       principal5.style.display = 'block'
+      TituloGifBusqueda.style.display = 'block'
+      sinBusqueda.style.display = 'block'
    }
    menu.style.display = 'none'
    principal4.style.display = 'none'
@@ -2009,6 +2015,9 @@ fav1.addEventListener('click', () => {
    scrollLeft.style.marginTop = '115px'
    scrollRigth.style.marginLeft = '0px'
    creargifos.style.display = 'none'
+   TituloGifBusqueda.style.display = 'none'
+   sinBusqueda.style.display = 'none'
+   botonVerMas.style.display = 'none'
    mostrarFavoritos()
 })
 /******Funcionalidad Boton Ver Mas */
@@ -2369,6 +2378,8 @@ misgifs1.addEventListener('click', () => {
       principal4.style.display = 'block'
       principal1.style.display = 'block'
       principal5.style.display = 'block'
+      TituloGifBusqueda.style.display = 'block'
+      sinBusqueda.style.display = 'block'
    }
    menu.style.display = 'none'
    principal4.style.display = 'none'
@@ -2379,6 +2390,8 @@ misgifs1.addEventListener('click', () => {
    principal12.style.marginTop = '50px'
    principal7.style.display = 'none'
    creargifos.style.display = 'none'
+   TituloGifBusqueda.style.display = 'none'
+   sinBusqueda.style.display = 'none'
    mostrarMisGifos()
 })
 
@@ -2390,8 +2403,9 @@ misgifsMobile.addEventListener('click', () => {
       principal4.style.display = 'block'
       principal1.style.display = 'block'
       principal5.style.display = 'block'
+      TituloGifBusqueda.style.display = 'block'
+      sinBusqueda.style.display = 'block'
    }
-
    menu.style.display = 'none'
    principal4.style.display = 'none'
    principal1.style.display = 'none'
@@ -2401,6 +2415,8 @@ misgifsMobile.addEventListener('click', () => {
    principal12.style.display = 'none'
    principal7.style.display = 'none'
    creargifos.style.display = 'none'
+   TituloGifBusqueda.style.display = 'none'
+   sinBusqueda.style.display = 'none'
    mostrarMisGifos()
 
 })
