@@ -1237,7 +1237,6 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       like.addEventListener('click', () => {
          unlike.style.display = 'block';
          like.style.display = 'none';
-
          // Buscar el array de gifKey en el localStorage.
          // Agregar la gifKey nueva en el array.
          //Guardar el array acutalizado en el localStorage.
