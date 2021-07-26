@@ -998,7 +998,7 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
          mostrarMisGifos();
       });
       down.addEventListener('click', () => {
-         descargarGif(gifoKey, gifTitle.innerHTML);
+         descargarGif(gifoKey, 'myGif');
       });
       down.addEventListener('mouseover', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg';
@@ -1151,7 +1151,7 @@ function asociarEventosFotosMisGifosMobile(gifElements) {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg';
       });
       down.addEventListener('click', () => {
-         descargarGif(gifoKey, gifTitle.innerHTML);
+         descargarGif(gifoKey, 'myGif');
       });
    });
 }
