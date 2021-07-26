@@ -593,7 +593,7 @@
         width: 12.5rem;
     }
     /********Scroll ********/
-    #scroll {
+    #seccionScroll {
         display: flex;
         flex-wrap: nowrap;
         position: relative;
@@ -799,6 +799,8 @@
         margin-top: 1.25rem;
     }
     .itemListaBuscar {
+        font-size: 20px;
+        font-family: "Roboto Condensed";
         margin-left: 4.375rem;
         color: var(--font-color);
         margin-top: -1.25rem;
@@ -1193,7 +1195,7 @@
         text-align: center;
     }
 
-    #scroll {
+    #seccionScroll {
         position: relative;
         width: 78%;
         height: 20.625rem;

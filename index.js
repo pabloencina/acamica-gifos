@@ -21,6 +21,8 @@ const principal8 = document.getElementById('principal8');
 
 const fav = document.getElementById('fav');
 
+const fav1 = document.getElementById('fav1');
+
 const principal7 = document.getElementById('principal7');
 
 const principal4 = document.getElementById('principal4');
@@ -29,8 +31,6 @@ const principal12 = document.getElementById('principal12');
 
 const principal1 = document.getElementById('principal1');
 
-const ilustracion = document.getElementById('ilustracion');
-
 const inspiracion1 = document.getElementById('inspiracion1');
 
 const TituloGifBusqueda = document.getElementById('TituloGifBusqueda');
@@ -38,8 +38,6 @@ const TituloGifBusqueda = document.getElementById('TituloGifBusqueda');
 const TituloGifSinBusqueda = document.getElementById('TituloGifSinBusqueda');
 
 const principal5 = document.getElementById('principal5');
-
-const principal3 = document.getElementById('principal3');
 
 const principal2 = document.getElementById('principal2');
 
@@ -51,15 +49,11 @@ let offset = 0;
 
 const limit = 12;
 
-const busquedaActual = '';
-
 const buscador1 = document.getElementById('buscador1');
 
 const buscador = document.getElementById('buscador');
 
-const scroll = document.getElementById('scroll');
-
-const mod = document.getElementById('mod');
+const seccionScroll = document.getElementById('seccionScroll');
 
 const btn4 = document.getElementById('btn4');
 
@@ -91,13 +85,7 @@ const btnDos = document.getElementById('btnDos');
 
 const btnTres = document.getElementById('btnTres');
 
-const cuadr = document.getElementsByClassName('cuadr');
-
-const cont802 = document.getElementById('cont802');
-
 const repCaptura = document.getElementById('repCaptura');
-
-const captura = document.getElementById('captura');
 
 const icono = document.getElementById('icono');
 
@@ -127,25 +115,13 @@ const btnCrear = document.getElementById('btnCrear');
 
 const sinBusqueda = document.getElementById('sinBusqueda');
 
-const gifFavoritos = [];
-
 const principal6 = document.getElementById('principal6');
-
-const lupa1 = document.getElementById('lupa1');
-
-const fotoTrending = document.getElementsByClassName('.fotoTrending');
 
 const pantallaDesktop = window.matchMedia("(min-width: 1440px)");
 
-const react = document.getElementById('react');
-
 const wap = document.getElementById('wap');
 
-const gifUser = document.querySelector('#modal h4');
-
 const seleccion23 = document.getElementsByClassName('seleccion23');
-
-const SinFavoritos = document.getElementById('SinFavoritos');
 
 const favoritoOracion = document.getElementById('favoritoOracion');
 
@@ -158,8 +134,6 @@ const contenedor1 = document.getElementById('contenedor1');
 const cont44 = document.getElementById('cont44');
 
 const contenedor2 = document.getElementById('contenedor2');
-
-const contAutocompletar = document.getElementById('contAutocompletar');
 
 const parr1 = document.getElementById('parr1');
 
@@ -183,12 +157,14 @@ const contenedor3 = document.getElementById('contenedor3');
 
 const linkGifo = document.getElementById('linkGifo');
 
+const sugerencias = document.getElementById('sugerencias');
+
 switchThemeDesktop.addEventListener('click', () => {
-   toggleTheme()
+   toggleTheme();
 });
 
 switchThemeMob.addEventListener('click', () => {
-   toggleTheme()
+   toggleTheme();
 });
 
 function toggleTheme() {
@@ -202,10 +178,10 @@ function toggleTheme() {
       vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg';
 
       vermas.addEventListener('mouseover', () => {
-         vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+hover-modo-noc.svg'
+         vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+hover-modo-noc.svg';
       });
       vermas.addEventListener('mouseout', () => {
-         vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg'
+         vermas.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-ver+-modo-noc.svg';
       });
 
       cierre.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/close-modo-noct.svg';
@@ -220,7 +196,7 @@ function toggleTheme() {
          scrollLeftImg.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-left-md-noct.svg';
       });
 
-      siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-right-md-noct.svg'
+      siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/button-slider-right-md-noct.svg';
       siguiente1.addEventListener('mouseover', () => {
          siguiente1.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/Button-Slider-right-hover.svg';
       });
@@ -229,8 +205,8 @@ function toggleTheme() {
       });
 
       btnCrear.addEventListener('mouseover', () => {
-         btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-modo-noc.svg'
-      })
+         btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crear-gifo-modo-noc.svg';
+      });
       btnCrear.addEventListener('mouseout', () => {
          btnCrear.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/CTA-crar-gifo-modo-noc.svg';
       });
@@ -306,8 +282,8 @@ function toggleTheme() {
       menu.style.display = 'none';
 
       setTheme('theme-light');
-   };
-};
+   }
+}
 
 // function to set a given theme/color-scheme
 function setTheme(themeName) {
@@ -322,7 +298,7 @@ boton1.addEventListener('click', () => {
    } else {
       menu.style.display = 'block';
       lupa.style.visibility = 'hidden';
-   };
+   }
 });
 
 /**Consumir gifs desde la  API */
@@ -336,23 +312,22 @@ const URL_Autocompletar = 'https://api.giphy.com/v1/gifs/search/tags';
 /*******TRENDING WORD AND phrases*******/
 let mostrarTrendingWord = async () => {
    const wap = document.getElementById('wap');
-   const words = document.getElementsByClassName('words');
    try {
-      let result = await fetch(url_wordTrending + '?api_key=' + api_key)
+      let result = await fetch(url_wordTrending + '?api_key=' + api_key);
       let js = await result.json();
       let count = 0;
       js.data.forEach(word => {
          let pointMark;
          if (count < js.data.length - 1) {
-            pointMark = ', '
+            pointMark = ', ';
          } else {
-            pointMark = '.'
-         };
+            pointMark = '.';
+         }
 
          wap.innerHTML +=
             `
          <div id= "wordElement-${word.replaceAll(" ", "-")}" class="words" >${word + pointMark}</div>
-         `
+         `;
          count += 1;
       });
 
@@ -368,12 +343,11 @@ let mostrarTrendingWord = async () => {
       });
    } catch (error) {
       console.log(error);
-   };
+   }
 };
 mostrarTrendingWord();
 
 buscador.addEventListener('keyup', async (autocompletar) => {
-   let sugerencias = document.getElementById('sugerencias');
 
    if (autocompletar.key) {
       let limit = 5;
@@ -403,7 +377,7 @@ buscador.addEventListener('keyup', async (autocompletar) => {
          let itemListaBuscar = document.getElementById('sugerenciaId' + gifJson.name);
 
          itemListaBuscar.addEventListener('click', () => {
-            buscador.style.borderRadius = '1.6875rem'
+            buscador.style.borderRadius = '1.6875rem';
             buscador.innerHTML = gifJson.name;
             TituloGifBusqueda.innerHTML = gifJson.name;
             TituloGifSinBusqueda.innerHTML = gifJson.name;
@@ -414,7 +388,7 @@ buscador.addEventListener('keyup', async (autocompletar) => {
             buscarGifs();
          });
       });
-   };
+   }
 });
 
 /**Mostrar los siguiente 12 *************/
@@ -428,7 +402,7 @@ let mostrarSiguientes = async (q, offset) => {
       mostrarGifsBusqueda(json);
    } catch (error) {
       console.log(error);
-   };
+   }
 };
 
 /**Buscador desde la API */
@@ -436,7 +410,6 @@ function buscarDesdeApi() {
    buscador.addEventListener('keypress', async (e) => {
 
       if (e.key === 'Enter') {
-         trending.style.display = 'none';
          wap.style.display = 'none';
          sugerencias.style.opacity = '0';
          buscarGifs();
@@ -445,9 +418,9 @@ function buscarDesdeApi() {
          buscador.style.borderTopRightRadius = '1.6875rem';
          buscador.style.borderBottomLeftRadius = '0rem';
          buscador.style.borderBottomRightRadius = '0rem';
-      };
+      }
    });
-};
+}
 buscarDesdeApi();
 
 /********Buscador CIERRE  y LUPA */
@@ -489,7 +462,7 @@ if (pantallaDesktop.matches) {
       wap.style.display = 'block';
       sinBusqueda.style.display = 'none';
    });
-};
+}
 
 /**Lupa */
 lupa.addEventListener('click', () => {
@@ -511,8 +484,6 @@ async function buscarGifs() {
    let json = await resultado.json();
    TituloGifBusqueda.style.display = 'block';
    TituloGifBusqueda.innerHTML = buscador.value;
-   //TituloGifSinBusqueda.innerHTML = buscador.value
-   //TituloGifBusqueda.style.textTransform = 'capitalize'
    TituloGifSinBusqueda.style.textTransform = 'capitalize';
    principal12.style.marginTop = '-20px';
 
@@ -524,8 +495,8 @@ async function buscarGifs() {
       botonVerMas.style.display = 'block';
       botonVerMas.style.display = 'flex';
       botonVerMas.style.alignItems = 'center';
-   };
-};
+   }
+}
 
 function mostrarGifsBusqueda(json) {
 
@@ -561,18 +532,19 @@ function mostrarGifsBusqueda(json) {
             </div>
          </div>
       </div>
-      `
+      `;
    });
 
-   let gifsBusqueda = document.querySelectorAll('.fotoBusqueda')
+   let gifsBusqueda = document.querySelectorAll('.fotoBusqueda');
    if (pantallaDesktop.matches) {
       asociarEventosFotosDesktop(gifsBusqueda, 'busqueda');
    } else {
       asociarEventosFotosMobile(gifsBusqueda, 'busqueda');
-   };
-};
+   }
+}
 
 function asociarEventosFotosDesktop(gifElements, caller) {
+
    gifElements.forEach(gifElement => {
 
       let gifKey = gifElement.getAttribute('key');
@@ -600,13 +572,13 @@ function asociarEventosFotosDesktop(gifElements, caller) {
       //Traer el array de keys
       //Usar el metodo includes() de la clase array para saber si el gifkey esta incluido.
       //si esta incluido mostrar el unlike y ocultar el like. Si no ocltar el unlike y mostrar el like.
-      let keysString = localStorage.getItem('arrayK')
+      let keysString = localStorage.getItem('arrayK');
       let keys;
       if (keysString == null || keysString == "") {
          keys = [];
       } else {
          keys = keysString.split(",");
-      };
+      }
 
       if (keys.includes(gifKey)) {
          unlike.style.display = 'block';
@@ -614,7 +586,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
       } else {
          unlike.style.display = 'none';
          like.style.display = 'block';
-      };
+      }
 
       unlike.style.background = 'white';
       unlike.style.borderRadius = '5px';
@@ -634,14 +606,14 @@ function asociarEventosFotosDesktop(gifElements, caller) {
 
       unlike.addEventListener('click', () => {
 
-         let keysString = localStorage.getItem('arrayK')
+         let keysString = localStorage.getItem('arrayK');
          let keys = keysString.split(",");
 
          let keysFiltered = keys.filter(key => {
             return key !== gifKey;
          });
 
-         localStorage.setItem('arrayK', keysFiltered)
+         localStorage.setItem('arrayK', keysFiltered);
          mostrarFavoritos();
       });
 
@@ -650,38 +622,37 @@ function asociarEventosFotosDesktop(gifElements, caller) {
       });
 
       like.addEventListener('mouseout', () => {
-         like.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg'
+         like.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-fav.svg';
       });
 
       like.addEventListener('click', () => {
 
-         unlike.style.display = 'block'
-         like.style.display = 'none'
+         unlike.style.display = 'block';
+         like.style.display = 'none';
 
-         let keysString = localStorage.getItem('arrayK')
-         let keys
+         let keysString = localStorage.getItem('arrayK');
+         let keys;
          if (keysString == null || keysString == "") {
-            keys = []
+            keys = [];
          } else {
-            keys = keysString.split(",")
+            keys = keysString.split(",");
          }
 
-         keys.push(gifKey)
-         localStorage.setItem('arrayK', keys)
+         keys.push(gifKey);
+         localStorage.setItem('arrayK', keys);
 
          //Guardar el source del gif con el gifkey correspondiente en el localStorage.
-         localStorage.setItem(gifKey, gifSrc)
-         let titleKey = gifKey + '.title'
-         localStorage.setItem(titleKey, gifTitle.innerHTML)
-
-      })
+         localStorage.setItem(gifKey, gifSrc);
+         let titleKey = gifKey + '.title';
+         localStorage.setItem(titleKey, gifTitle.innerHTML);
+      });
 
       exp.addEventListener('mouseover', () => {
-         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg'
-      })
+         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-hover.svg';
+      });
 
       exp.addEventListener('mouseout', () => {
-         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg'
+         exp.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-max-normal.svg';
       });
 
       if (caller == 'busqueda') {
@@ -724,12 +695,12 @@ function asociarEventosFotosDesktop(gifElements, caller) {
                favcor.style.display = 'block';
             });
 
-            let otrosGifs = document.querySelectorAll('.fotoBusqueda')
+            let otrosGifs = document.querySelectorAll('.fotoBusqueda');
             otrosGifs.forEach(gifElement => {
                if (gifElement.getAttribute('key') !== gifKey) {
 
                   gifElement.style.display = 'none';
-               };
+               }
             });
          });
          close12.addEventListener('click', () => {
@@ -765,11 +736,11 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             principal2.style.opacity = '1';
             contenedor2.style.opacity = '1';
 
-            let otrosGifs = document.querySelectorAll('.fotoBusqueda')
+            let otrosGifs = document.querySelectorAll('.fotoBusqueda');
             otrosGifs.forEach(gifElement => {
                if (gifElement.getAttribute('key') !== gifKey) {
                   gifElement.style.display = 'block';
-               };
+               }
             });
          });
 
@@ -810,22 +781,20 @@ function asociarEventosFotosDesktop(gifElements, caller) {
                   return key !== gifKey;
                });
 
-               localStorage.setItem('arrayK', keysFiltered)
+               localStorage.setItem('arrayK', keysFiltered);
                mostrarFavoritos();
-               imagen1.style.display = 'block';
                principal7.style.display = 'block';
                contenedor2.style.opacity = '1';
-               titulo1.style.display = 'block';
                cont44.style.opacity = '1';
                nav.style.opacity = '1';
                principal12.style.opacity = '1';
             });
 
-            let otrosGifs = document.querySelectorAll('.fotoFavorito')
+            let otrosGifs = document.querySelectorAll('.fotoFavorito');
             otrosGifs.forEach(gifElement => {
                if (gifElement.getAttribute('key') !== gifKey) {
                   gifElement.style.display = 'none';
-               };
+               }
             });
          });
 
@@ -866,7 +835,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             otrosGifs.forEach(gifElement => {
                if (gifElement.getAttribute('key') !== gifKey) {
                   gifElement.style.display = 'block';
-               };
+               }
             });
          });
 
@@ -893,7 +862,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             principal12.style.opacity = '0';
             divHover.style.width = '0';
             contenedor2.style.opacity = '0';
-         })
+         });
          close12.addEventListener('click', () => {
             gifElement.style.width = '16.25rem';
             gifElement.style.height = '12.5rem';
@@ -928,10 +897,10 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             otrosGifs.forEach(gifElement => {
                if (gifElement.getAttribute('key') !== gifKey) {
                   gifElement.style.display = 'block';
-               };
+               }
             });
          });
-      };
+      }
 
       down.addEventListener('mouseover', () => {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg';
@@ -940,22 +909,23 @@ function asociarEventosFotosDesktop(gifElements, caller) {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg';
       });
       down.addEventListener('click', () => {
-         descargarGif(gifKey, gifTitle.innerHTML)
+         descargarGif(gifKey, gifTitle.innerHTML);
       });
    });
-};
+}
 
 function asociarEventosFotosMisGifosDesktop(gifElements) {
+
    gifElements.forEach(gifElement => {
 
       let gifoKey = gifElement.getAttribute('key');
-      let gifSrc = gifElement.getAttribute('src');
       let divHover = document.getElementById(gifoKey);
       let favcor = document.getElementById('favcor' + gifoKey);
       let btnDescartar = document.getElementById('btnDescartar' + gifoKey);
       let exp = document.getElementById('exp' + gifoKey);
       let down = document.getElementById('down' + gifoKey);
       let close12 = document.getElementById('close12' + gifoKey);
+      let gifTitle = document.getElementById('gifTitle' + gifoKey);
 
       gifElement.addEventListener('mouseover', () => {
          divHover.style.display = 'block';
@@ -1009,11 +979,11 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
          divHover.style.width = '0';
          contenedor2.style.opacity = '0';
 
-         let otrosGifs = document.querySelectorAll('.fotosMisGifos')
+         let otrosGifs = document.querySelectorAll('.fotosMisGifos');
          otrosGifs.forEach(gifElement => {
             if (gifElement.getAttribute('key') !== gifoKey) {
                gifElement.style.display = 'none';
-            };
+            }
          });
       });
       btnDescartar.addEventListener('click', () => {
@@ -1024,7 +994,7 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
             return keyGifo !== gifoKey;
          });
 
-         localStorage.setItem('arrayKGifo', keysFilteredGifo)
+         localStorage.setItem('arrayKGifo', keysFilteredGifo);
          mostrarMisGifos();
       });
       down.addEventListener('click', () => {
@@ -1072,21 +1042,23 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
          otrosGifs.forEach(gifElement => {
             if (gifElement.getAttribute('key') !== gifoKey) {
                gifElement.style.display = 'block';
-            };
+            }
          });
       });
    });
-};
+}
 
 function asociarEventosFotosMisGifosMobile(gifElements) {
+
    gifElements.forEach(gifElement => {
+   
       let gifoKey = gifElement.getAttribute('key');
-      let gifSrc = gifElement.getAttribute('src');
       let favcor = document.getElementById('favcor' + gifoKey);
       let btnDescartar = document.getElementById('btnDescartar' + gifoKey);
       let close12 = document.getElementById('close12' + gifoKey);
       let down = document.getElementById('down' + gifoKey);
       let exp = document.getElementById('exp' + gifoKey);
+      let gifTitle = document.getElementById('gifTitle' + gifoKey);
 
       gifElement.style.width = '9.75rem';
       gifElement.style.height = '7.5rem';
@@ -1116,17 +1088,16 @@ function asociarEventosFotosMisGifosMobile(gifElements) {
             contenedor2.style.opacity = '0';
             contenedor3.style.opacity = '0';
 
-            let otrosGifs = document.querySelectorAll('.fotosMisGifos')
+            let otrosGifs = document.querySelectorAll('.fotosMisGifos');
             otrosGifs.forEach(gifElement => {
                if (gifElement.getAttribute('key') !== gifoKey) {
                   gifElement.style.display = 'none';
-               };
+               }
             });
             gifElement.setAttribute('expanded', '1');
-
          } else {
             gifElement.setAttribute('expanded', '0');
-         };
+         }
       });
 
       btnDescartar.addEventListener('mouseover', () => {
@@ -1146,7 +1117,7 @@ function asociarEventosFotosMisGifosMobile(gifElements) {
             return keyGifo !== gifoKey;
          });
 
-         localStorage.setItem('arrayKGifo', keysFilteredGifo)
+         localStorage.setItem('arrayKGifo', keysFilteredGifo);
          mostrarMisGifos();
       });
 
@@ -1169,7 +1140,7 @@ function asociarEventosFotosMisGifosMobile(gifElements) {
          otrosGifs.forEach(gifElement => {
             if (gifElement.getAttribute('key') !== gifoKey) {
                gifElement.style.display = 'block';
-            };
+            }
          });
       });
 
@@ -1183,7 +1154,7 @@ function asociarEventosFotosMisGifosMobile(gifElements) {
          descargarGif(gifoKey, gifTitle.innerHTML);
       });
    });
-};
+}
 
 function asociarEventosFotosTrendingDesktop(gifElements) {
    gifElements.forEach(gifElement => {
@@ -1199,7 +1170,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       let close12 = document.getElementById('close12' + gifKey);
       let gifTitle = document.getElementById('gifTitle' + gifKey);
 
-      scroll.style.overflow = 'hidden';
+      seccionScroll.style.overflow = 'hidden';
 
       gifElement.addEventListener('mouseover', () => {
          divHover.style.display = 'block';
@@ -1210,7 +1181,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          divHover.style.display = 'none';
          favcor.style.display = 'none';
       });
-      
+
       //Traer el array de keys
       //Usar el metodo includes() de la clase array para saber si el gifkey esta incluido.
       //si esta incluido mostrar el unlike y ocultar el like. Si no ocltar el unlike y mostrar el like.
@@ -1220,7 +1191,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          keys = [];
       } else {
          keys = keysString.split(",");
-      };
+      }
 
       if (keys.includes(gifKey)) {
          unlike.style.display = 'block';
@@ -1228,7 +1199,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
       } else {
          unlike.style.display = 'none';
          like.style.display = 'block';
-      };
+      }
       unlike.style.background = 'white';
       unlike.style.borderRadius = '5px';
       unlike.style.marginLeft = '-2.3125rem';
@@ -1276,7 +1247,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
             keys = [];
          } else {
             keys = keysString.split(",");
-         };
+         }
 
          keys.push(gifKey);
          localStorage.setItem('arrayK', keys);
@@ -1311,7 +1282,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          favcor.style.display = 'inline';
          divHover.style.width = '0px';
          gifElement.style.zIndex = '1';
-         scroll.style.height = '100%';
+         seccionScroll.style.height = '100%';
          gifElement.style.width = '43.4375rem';
          gifElement.style.height = '22.8125rem';
          exp.style.opacity = '0';
@@ -1350,8 +1321,8 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
             if (gifElement.getAttribute('key') !== gifKey) {
 
                gifElement.style.display = 'none';
-               scroll.style.width = '55%';
-            };
+               seccionScroll.style.width = '55%';
+            }
          });
       });
 
@@ -1387,8 +1358,8 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          otrosGifs.forEach(gifElement => {
             if (gifElement.getAttribute('key') !== gifKey) {
                gifElement.style.display = 'block';
-               scroll.style.width = '78%';
-            };
+               seccionScroll.style.width = '78%';
+            }
          });
       });
       down.addEventListener('click', () => {
@@ -1402,7 +1373,7 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg';
       });
    });
-};
+}
 
 function asociarEventosFotosMobile(gifElements, caller) {
    gifElements.forEach(gifElement => {
@@ -1452,12 +1423,12 @@ function asociarEventosFotosMobile(gifElements, caller) {
                otrosGifs.forEach(gifElement => {
                   if (gifElement.getAttribute('key') !== gifKey) {
                      gifElement.style.display = 'none';
-                  };
+                  }
                });
                gifElement.setAttribute('expanded', '1');
             } else {
                gifElement.setAttribute('expanded', '0');
-            };
+            }
          });
          close12.addEventListener('click', () => {
             gifElement.style.width = '9.75rem';
@@ -1513,13 +1484,13 @@ function asociarEventosFotosMobile(gifElements, caller) {
                otrosGifs.forEach(gifElement => {
                   if (gifElement.getAttribute('key') !== gifKey) {
                      gifElement.style.display = 'none';
-                  };
+                  }
                });
                gifElement.setAttribute('expanded', '1');
 
             } else {
                gifElement.setAttribute('expanded', '0');
-            };
+            }
          });
          close12.addEventListener('click', () => {
             gifElement.style.width = '9.75rem';
@@ -1540,7 +1511,7 @@ function asociarEventosFotosMobile(gifElements, caller) {
                gifElement.style.display = 'block';
             });
          });
-      };
+      }
 
       //Traer el array de keys
       //Usar el metodo includes() de la clase array para saber si el gifkey esta incluido.
@@ -1550,8 +1521,8 @@ function asociarEventosFotosMobile(gifElements, caller) {
       if (keysString == null || keysString == "") {
          keys = [];
       } else {
-         keys = keysString.split(",")
-      };
+         keys = keysString.split(",");
+      }
 
       if (keys.includes(gifKey)) {
          unlike.style.display = 'block';
@@ -1559,7 +1530,7 @@ function asociarEventosFotosMobile(gifElements, caller) {
       } else {
          unlike.style.display = 'none';
          like.style.display = 'block';
-      };
+      }
       unlike.style.background = 'white';
       unlike.style.borderRadius = '5px';
       unlike.style.marginLeft = '-37px';
@@ -1583,10 +1554,8 @@ function asociarEventosFotosMobile(gifElements, caller) {
 
          localStorage.setItem('arrayK', keysFiltered);
          mostrarFavoritos();
-         imagen1.style.display = 'block';
          principal7.style.display = 'block';
          contenedor2.style.opacity = '1';
-         titulo1.style.display = 'block';
          cont44.style.opacity = '1';
          nav.style.opacity = '1';
          favcor.style.display = 'none';
@@ -1614,7 +1583,7 @@ function asociarEventosFotosMobile(gifElements, caller) {
             keys = [];
          } else {
             keys = keysString.split(",");
-         };
+         }
 
          keys.push(gifKey);
          localStorage.setItem('arrayK', keys);
@@ -1641,10 +1610,10 @@ function asociarEventosFotosMobile(gifElements, caller) {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg';
       });
    });
-};
+}
 
 function asociarEventosFotosTrendingMobile(gifElements) {
-  
+
    gifElements.forEach(gifElement => {
       let gifKey = gifElement.getAttribute('key');
       let gifSrc = gifElement.getAttribute('src');
@@ -1683,7 +1652,7 @@ function asociarEventosFotosTrendingMobile(gifElements) {
             botonVerMas.style.display = 'none';
             TituloGifBusqueda.style.display = 'none';
             cont44.style.opacity = '1';
-            scroll.style.overflow = 'visible';
+            seccionScroll.style.overflow = 'visible';
 
             let otrosGifs = document.querySelectorAll('.fotoTrending');
             otrosGifs.forEach(gifElement => {
@@ -1695,10 +1664,10 @@ function asociarEventosFotosTrendingMobile(gifElements) {
                   btn3.style.display = 'none';
                   cont44.style.opacity = '0';
                   favcor.style.display = 'block';
-               };
+               }
             });
             gifElement.setAttribute('expanded', '1');
-         };
+         }
          close12.addEventListener('click', () => {
             gifElement.style.width = '15.1875rem';
             gifElement.style.height = '11.6875rem';
@@ -1744,7 +1713,7 @@ function asociarEventosFotosTrendingMobile(gifElements) {
       } else {
          unlike.style.display = 'none';
          like.style.display = 'block';
-      };
+      }
       unlike.style.background = 'white';
       unlike.style.borderRadius = '0.3125rem';
       unlike.style.marginLeft = '-2.3125rem';
@@ -1765,7 +1734,7 @@ function asociarEventosFotosTrendingMobile(gifElements) {
             return key !== gifKey;
          });
 
-         localStorage.setItem('arrayK', keysFiltered)
+         localStorage.setItem('arrayK', keysFiltered);
          mostrarFavoritos();
       });
 
@@ -1789,7 +1758,7 @@ function asociarEventosFotosTrendingMobile(gifElements) {
             keys = [];
          } else {
             keys = keysString.split(",");
-         };
+         }
 
          keys.push(gifKey);
          localStorage.setItem('arrayK', keys);
@@ -1823,7 +1792,7 @@ function asociarEventosFotosTrendingMobile(gifElements) {
             gifElement.style.height = '12.5rem';
             favcor.style.marginTop = '12.5rem';
             favcor.style.marginLeft = '-8.75rem';
-         };
+         }
       });
       exp2.addEventListener('click', () => {
          favcor.style.marginTop = '20px';
@@ -1848,27 +1817,27 @@ function asociarEventosFotosTrendingMobile(gifElements) {
          down.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg';
       });
    });
-};
+}
 
 function mostrarFavoritos() {
-   principal6.innerHTML = '' // Limpiar la seccion para que no muestre el contenido anterior que tenia.
-
+   principal6.innerHTML = ''; // Limpiar la seccion para que no muestre el contenido anterior que tenia.
+   let keys;
    let keysString = localStorage.getItem('arrayK');//busca en el localStorage un array de gifkey de los gif donde le fueron dando like.
-   if (keysString == null || keysString == "") {
+   if (keysString == null || keysString == ""){
       keys = [];
    } else {
       keys = keysString.split(",");
-   }; // Convertir toda la cadena en arreglos de strings.
+   } // Convertir toda la cadena en arreglos de strings.
 
    /***NO HAY FAVORITOS **********/
-   if (keysString === "") {
+   if (keys.length == 0) {
       imgSinFavoritos.style.display = 'block';
       favoritoOracion.style.display = 'block';
       cont44.style.marginTop = '21.875rem';
    } else {
       imgSinFavoritos.style.display = 'none';
       favoritoOracion.style.display = 'none';
-   };
+   }
 
    keys.forEach(gifKey => {// el for each recorre cada gifKey
       let gifSrc = localStorage.getItem(gifKey);//con el gifkey se busca el gifsource correspondiente a ese gifkey.
@@ -1905,7 +1874,7 @@ function mostrarFavoritos() {
               </div>
           </div>
       </div>
-      `
+      `;
    });
 
    let gifsFavoritos = document.querySelectorAll('.fotoFavorito');
@@ -1915,8 +1884,8 @@ function mostrarFavoritos() {
 
    } else {
       asociarEventosFotosMobile(gifsFavoritos, 'favoritos');
-   };
-};
+   }
+}
 
 /***********Pagina de favoritos ********/
 //mostrar seccion favoritos en modo mobile
@@ -1930,7 +1899,7 @@ fav.addEventListener('click', () => {
       principal5.style.display = 'block';
       TituloGifBusqueda.style.display = 'block';
       sinBusqueda.style.display = 'block';
-   };
+   }
    principal12.style.display = 'none';
    menu.style.display = 'none';
    principal4.style.display = 'none';
@@ -1945,6 +1914,7 @@ fav.addEventListener('click', () => {
 
 //Mostrar seccion favoritos en modo desktop
 fav1.addEventListener('click', () => {
+
    if (principal7.style.display === 'block') {
       principal7.style.display = 'none';
       menu.style.display = 'none';
@@ -1953,7 +1923,8 @@ fav1.addEventListener('click', () => {
       principal5.style.display = 'block';
       TituloGifBusqueda.style.display = 'block';
       sinBusqueda.style.display = 'block';
-   };
+   }
+
    menu.style.display = 'none';
    principal4.style.display = 'none';
    principal1.style.display = 'none';
@@ -1962,8 +1933,8 @@ fav1.addEventListener('click', () => {
    principal12.style.display = 'block';
    principal12.style.marginTop = '50px';
    principal8.style.display = 'none';
-   scroll.style.width = '78%';
-   scroll.style.marginLeft = '7.5rem';
+   seccionScroll.style.width = '78%';
+   seccionScroll.style.marginLeft = '7.5rem';
    scrollLeft.style.marginLeft = '50px';
    scrollRigth.style.marginTop = '7.1875rem';
    scrollLeft.style.marginTop = '7.1875rem';
@@ -1972,7 +1943,9 @@ fav1.addEventListener('click', () => {
    TituloGifBusqueda.style.display = 'none';
    sinBusqueda.style.display = 'none';
    botonVerMas.style.display = 'none';
+
    mostrarFavoritos();
+
 });
 
 /******Funcionalidad Boton Ver Mas */
@@ -1982,7 +1955,7 @@ botonVerMas.addEventListener('click', () => {
 });
 
 /**Creación del carrusell */
-scroll.style.overflow = 'scroll';
+seccionScroll.style.overflow = 'scroll';
 
 let mostrarTrendingScroll = async () => {
    try {
@@ -1991,7 +1964,7 @@ let mostrarTrendingScroll = async () => {
       let json = await resultado.json();
 
       json.data.forEach(trending => {
-         scroll.innerHTML += `
+         seccionScroll.innerHTML += `
          <div class='foto4'>
             <img key=${trending.id} class='fotoTrending' src='${trending.images.fixed_height.url}'>
          
@@ -2018,11 +1991,11 @@ let mostrarTrendingScroll = async () => {
 
             </div>
          </div>
-         `
+         `;
       });
    } catch (error) {
-      console.log(error)
-   };
+      console.log(error);
+   }
 
    let gifsScrolls = document.querySelectorAll('.fotoTrending');
 
@@ -2030,16 +2003,16 @@ let mostrarTrendingScroll = async () => {
       asociarEventosFotosTrendingDesktop(gifsScrolls);
    } else {
       asociarEventosFotosTrendingMobile(gifsScrolls);
-   };
+   }
 };
 mostrarTrendingScroll();
 
 /***Scroll*********** */
 scrollLeft.addEventListener('click', () => {
-   scroll.scrollBy(-380, 0);
+   seccionScroll.scrollBy(-380, 0);
 });
 scrollRigth.addEventListener('click', () => {
-   scroll.scrollBy(380, 0);
+   seccionScroll.scrollBy(380, 0);
 });
 
 /*Funcionalidad boton CREAR Gifs*****/
@@ -2057,23 +2030,22 @@ btnCrear.addEventListener('click', () => {
       principal12.style.display = 'block';
       principal1.style.display = 'block';
       principal4.style.display = 'block';
-   };
+   }
 });
 
 /**Funcionalidad seccion de CREAR GIFOS***** */
 let recorder = null;
-let myGifs;
 let pathSubirGif = `https://upload.giphy.com/v1/gifs?api_key=${api_key}`;
 
 async function descargarGif(gifId, gifTitle) {
    const a = document.createElement("a");
-   let URL = "https://api.giphy.com/v1/gifs/" + gifId + '?api_key=' + api_key
-   a.href = await download(URL)
+   let URL = "https://api.giphy.com/v1/gifs/" + gifId + '?api_key=' + api_key;
+   a.href = await download(URL);
    a.download = gifTitle + '.gif';
    document.body.appendChild(a);
    a.click();
    document.body.removeChild(a);
-};
+}
 
 async function download(gifSrc) {
    let response = await fetch(gifSrc);
@@ -2083,7 +2055,7 @@ async function download(gifSrc) {
    }).then(blob => {
       return URL.createObjectURL(blob);
    });
-};
+}
 
 function comenzando() {
    comenzar.addEventListener('click', () => {
@@ -2094,7 +2066,7 @@ function comenzando() {
       comenzar.style.display = 'none';
       begin();
    });
-};
+}
 
 comenzando();
 
@@ -2106,10 +2078,10 @@ grabar.addEventListener('click', () => {
 });
 
 function iniciarReloj() {
-   contador_s = 0;
-   contador_m = 0;
-   s = document.getElementById("segundos");
-   m = document.getElementById("minutos");
+   let contador_s = 0;
+   let contador_m = 0;
+   let s = document.getElementById("segundos");
+   let m = document.getElementById("minutos");
 
    s.innerHTML = "00";
    m.innerHTML = "00";
@@ -2124,18 +2096,18 @@ function iniciarReloj() {
                m.innerHTML = "0" + contador_m;
             } else {
                m.innerHTML = contador_m;
-            };
-         };
+            }
+         }
          contador_s++;
          if (contador_s < 10) {
             s.innerHTML = "0" + contador_s;
          } else {
             s.innerHTML = contador_s;
-         };
-      }
-      , 1000);
-   cronometroGifos.style.display = 'block'
-};
+         }
+      },
+      1000);
+   cronometroGifos.style.display = 'block';
+}
 
 let blob;
 
@@ -2144,7 +2116,7 @@ finalizar.addEventListener('click', () => {
       blob = recorder.getBlob();
       let uri = URL.createObjectURL(blob);
       mostrarGif.src = uri;
-   })
+   });
    video.style.display = 'none';
    finalizar.style.display = 'none';
    mostrarGif.style.display = 'block';
@@ -2171,12 +2143,12 @@ async function subirGifo() {
 
    const result = await response.json();
 
-   guardarMiGif(result.data.id)
+   guardarMiGif(result.data.id);
 
    botonDescargaGifo.addEventListener('click', () => {
-      descargarGif(result.data.id, 'myGif.gif')
+      descargarGif(result.data.id, 'myGif.gif');
    });
-   mostrarGifSubido()
+   mostrarGifSubido();
 
    btnDos.style.backgroundColor = 'var(--color-primary)';
    btnDos.style.color = 'var(--gifos)';
@@ -2190,7 +2162,7 @@ function mostrarSubiendoGif() {
    mostrarCamara.style.backgroundColor = '#572EE5';
    subirgifo.style.display = 'none';
    repCaptura.style.display = 'none';
-};
+}
 
 function mostrarGifSubido() {
    contenidoSubiendoGifo.style.display = 'none';
@@ -2199,7 +2171,7 @@ function mostrarGifSubido() {
    mostrarCamara.style.backgroundColor = '#572ee5';
    subirgifo.style.display = 'none';
    repCaptura.style.display = 'none';
-};
+}
 
 function guardarMiGif(gifId) {
    // Buscar el array de gifKey en el localStorage.
@@ -2211,37 +2183,37 @@ function guardarMiGif(gifId) {
       keysGifo = [];
    } else {
       keysGifo = keysStringGifo.split(",");
-   };
+   }
 
    keysGifo.push(gifId);
-   localStorage.setItem('arrayKGifo', keysGifo)
+   localStorage.setItem('arrayKGifo', keysGifo);
 
    //Guardar el source del gif con el gifkey correspondiente en el localStorage.
-   let gifSrc = 'https://media4.giphy.com/media/' + gifId + '/200.gif'
-   linkGifo.href = gifSrc
-   localStorage.setItem(gifId, gifSrc)
-};
+   let gifSrc = 'https://media4.giphy.com/media/' + gifId + '/200.gif';
+   linkGifo.href = gifSrc;
+   localStorage.setItem(gifId, gifSrc);
+}
 
 botonDescargaGifo.addEventListener('mouseover', () => {
-   botonDescargaGifo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg'
+   botonDescargaGifo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download-hover.svg';
 });
 
 botonDescargaGifo.addEventListener('mouseout', () => {
-   botonDescargaGifo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg'
+   botonDescargaGifo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-download.svg';
 });
 
 botonLinkGIfo.addEventListener('mouseover', () => {
-   botonLinkGIfo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-link-hover.svg'
+   botonLinkGIfo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-link-hover.svg';
 });
 
 botonLinkGIfo.addEventListener('mouseout', () => {
-   botonLinkGIfo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-link-normal.svg'
+   botonLinkGIfo.src = './Prototipos-Gifos/GIFOS-UI-Desktop+Mobile-Update/assets/icon-link-normal.svg';
 });
 
 var cronometro;
 function detenerse() {
    clearInterval(cronometro);
-};
+}
 
 let stream;
 let streamStarted = false;
@@ -2250,11 +2222,11 @@ function begin() {
    if (streamStarted) {
       video.play();
       return;
-   };
+   }
    if ('mediaDevices' in navigator && navigator.mediaDevices.getUserMedia) {
       startStream();
-   };
-};
+   }
+}
 
 async function startStream() {
    stream = await navigator.mediaDevices.getUserMedia({
@@ -2266,7 +2238,7 @@ async function startStream() {
    video.srcObject = stream;
    streamStarted = true;
    showVideo();
-};
+}
 
 function showVideo() {
    video.style.display = 'block';
@@ -2276,14 +2248,14 @@ function showVideo() {
    btnUno.style.background = 'var(--color-primary)';
    btnUno.style.color = '';
    grabar.style.display = 'block';
-};
+}
 
 async function record() {
 
    if (stream === undefined) {
-      console.log('stream is undefined')
+      console.log('stream is undefined');
       return;
-   };
+   }
    recorder = RecordRTC(stream, {
       type: 'gif',
       frameRate: 1,
@@ -2295,10 +2267,10 @@ async function record() {
          console.log('Started');
       }
    });
-   grabar.style.display = 'none'
-   finalizar.style.display = 'block'
+   grabar.style.display = 'none';
+   finalizar.style.display = 'block';
    recorder.startRecording();
-};
+}
 
 repCaptura.addEventListener('click', () => {
    creargifos.style.display = 'block';
@@ -2324,7 +2296,7 @@ misgifs1.addEventListener('click', () => {
       TituloGifBusqueda.style.display = 'block';
       sinBusqueda.style.display = 'block';
    }
-   menu.style.display = 'none'
+   menu.style.display = 'none';
    principal4.style.display = 'none';
    principal1.style.display = 'none';
    principal5.style.display = 'none';
@@ -2347,7 +2319,7 @@ misgifsMobile.addEventListener('click', () => {
       principal5.style.display = 'block';
       TituloGifBusqueda.style.display = 'block';
       sinBusqueda.style.display = 'block';
-   };
+   }
    menu.style.display = 'none';
    principal4.style.display = 'none';
    principal1.style.display = 'none';
@@ -2360,20 +2332,21 @@ misgifsMobile.addEventListener('click', () => {
    TituloGifBusqueda.style.display = 'none';
    sinBusqueda.style.display = 'none';
    mostrarMisGifos();
-})
+});
 
 function mostrarMisGifos() {
-   principal9.innerHTML = '' // Limpiar la seccion para que no muestre el contenido anterior que tenia.
+   principal9.innerHTML = ''; // Limpiar la seccion para que no muestre el contenido anterior que tenia.
 
-   let keysStringGifo = localStorage.getItem('arrayKGifo')//busca en el localStorage un array de gifkey de los gif donde le fueron dando like.
+   let keysStringGifo = localStorage.getItem('arrayKGifo');//busca en el localStorage un array de gifkey de los gif donde le fueron dando like.
+   let keysGifo;
    if (keysStringGifo == null || keysStringGifo == "") {
-      keysGifo = []
+      keysGifo = [];
    } else {
-      keysGifo = keysStringGifo.split(",")
+      keysGifo = keysStringGifo.split(",");
    } // Convertir toda la cadena en arreglos de strings.
 
    /***NO HAY GIFOS **********/
-   if (keysStringGifo === "") {
+   if (keysGifo.length == 0) {
       imgSinGifos.style.display = 'block';
       parrafoGifos.style.display = 'block';
    } else {
@@ -2382,7 +2355,7 @@ function mostrarMisGifos() {
       nav.style.opacity = '1';
    }
    keysGifo.forEach(gifoKey => {// el for each recorre cada gifoKey
-      let gifoSrc = localStorage.getItem(gifoKey)//con el gifokey se busca el gifosource correspondiente a ese gifokey.
+      let gifoSrc = localStorage.getItem(gifoKey);//con el gifokey se busca el gifosource correspondiente a ese gifokey.
 
       principal9.innerHTML += `
       <div class='foto6'>
@@ -2404,17 +2377,17 @@ function mostrarMisGifos() {
               </div>
           </div>
       </div>
-      `
+      `;
    });
 
-   let misGifsSeccion = document.querySelectorAll('.fotosMisGifos')
+   let misGifsSeccion = document.querySelectorAll('.fotosMisGifos');
 
    if (pantallaDesktop.matches) {
       asociarEventosFotosMisGifosDesktop(misGifsSeccion);
    } else {
       asociarEventosFotosMisGifosMobile(misGifsSeccion, 'misGifos');
-   };
-};
+   }
+}
 /*************Imagenes Hover*********** */
 
 redesFace.addEventListener('mouseover', () => {
@@ -2457,14 +2430,14 @@ if (pantallaDesktop.matches) {
          principal1.style.alignItems = 'center';
          principal12.style.display = 'block';
          cont44.style.marginTop = '0px';
-         scroll.style.width = '78%';
-         scroll.style.marginLeft = '120px';
+         seccionScroll.style.width = '78%';
+         seccionScroll.style.marginLeft = '120px';
          scrollLeft.style.marginLeft = '50px';
          scrollRigth.style.marginTop = '7.1875rem';
          scrollLeft.style.marginTop = '7.1875rem';
          scrollRigth.style.marginLeft = '0px';
          botonVerMas.style.display = 'none';
-      };
+      }
    });
    /**Volver a la Pagina principal */
    /*Seccion Crear Gifos desktop*/
@@ -2477,8 +2450,8 @@ if (pantallaDesktop.matches) {
          principal1.style.display = 'flex';
          principal1.style.justifyContent = 'center';
          principal1.style.alignItems = 'center';
-         scroll.style.width = '78%';
-         scroll.style.marginLeft = '7.5rem';
+         seccionScroll.style.width = '78%';
+         seccionScroll.style.marginLeft = '7.5rem';
          scrollLeft.style.marginLeft = '50px';
          scrollRigth.style.marginTop = '7.1875rem';
          scrollLeft.style.marginTop = '7.1875rem';
@@ -2486,7 +2459,7 @@ if (pantallaDesktop.matches) {
          principal4.style.display = 'block';
          principal1.style.width = '50rem';
          principal1.style.marginLeft = '18.75rem';
-      };
+      }
    });
    /**Volver a la Pagina principal */
    /*Seccion Mis Gifos desktop*/
@@ -2501,14 +2474,14 @@ if (pantallaDesktop.matches) {
          principal1.style.display = 'flex';
          principal1.style.justifyContent = 'center';
          principal1.style.alignItems = 'center';
-         scroll.style.width = '78%';
-         scroll.style.marginLeft = '7.5rem';
+         seccionScroll.style.width = '78%';
+         seccionScroll.style.marginLeft = '7.5rem';
          scrollLeft.style.marginLeft = '50px';
          scrollRigth.style.marginTop = '115px';
          scrollLeft.style.marginTop = '115px';
          scrollRigth.style.marginLeft = '0px';
          principal4.style.display = 'block';
-      };
+      }
    });
 } else {
    /*Seccion Favoritos mobile*/
@@ -2525,7 +2498,7 @@ if (pantallaDesktop.matches) {
          contenedor1.style.display = 'flex';
          contenedor1.style.justifyContent = 'center';
          contenedor1.style.alignItems = 'center';
-      };
+      }
    });
    /**Volver a la Pagina principal */
    /*Seccion Mis Gifos mobile*/
@@ -2539,6 +2512,6 @@ if (pantallaDesktop.matches) {
          principal1.style.justifyContent = 'center';
          principal1.style.alignItems = 'center';
          principal4.style.display = 'block';
-      };
+      }
    });
 }
