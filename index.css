@@ -129,7 +129,7 @@
     /********Imagen principal y Buscador**************/
     #principal4 {
         width: 100%;
-        height: 350px;
+        height: 21.875rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -187,7 +187,7 @@
     #sugerencias {
         display: none;
         width: 74.5%;
-        height: 250px;
+        height: 15.625rem;
         z-index: 10;
         background: var(--color-primary);
         border: 0.0625rem solid var(--gifos);
@@ -197,27 +197,27 @@
         border-bottom-right-radius: 1.6875rem;
         border-bottom-left-radius: 1.6875rem;
         position: absolute;
-        margin-top: 42px;
-        margin-left: -18px;
+        margin-top: 2.625rem;
+        margin-left: -1.125rem;
         opacity: 1;
     }
 
     #lupa1 {
         color: var(--color-primary);
         position: relative;
-        left: -120px;
-        margin-top: 20px;
+        left: -7.5rem;
+        margin-top: 1.25rem;
     }
     .itemListaBuscar {
         cursor: pointer;
         font-family: "Roboto Condensed";
-        margin-left: 40px;
+        margin-left: 2.5rem;
         color: var(--font-color);
-        margin-top: -30px;
+        margin-top: -1.875rem;
         display: flex;
         justify-content: start;
         align-items: center;
-        height: 25px;
+        height: 1.5625rem;
     }
     .itemListaBuscar:hover {
         width: 74.5%;
@@ -244,7 +244,7 @@
     }
     #principal1 {
         width: 100%;
-        height: 155px;
+        height: 9.6875rem;
         /*display: inline-flex;*/
         display: flex;
         flex-wrap: wrap;
@@ -257,9 +257,9 @@
         height: 1.5625rem;
         font-family: "Montserrat Alternates", sans-serif;
         color: var(--gifos);
-        font-size: 16px;
+        font-size: 1rem;
         text-align: center;
-        line-height: 25px;
+        line-height: 1.5625rem;
     }
     .words {
         display: inline;
@@ -274,7 +274,7 @@
         /*justify-content: center;
         align-items: center;*/
         font-family: "Montserrat Alternates";
-        font-size: 12px;
+        font-size: 0.75rem;
         color: var(--gifos);
         text-align: center;
         line-height: 1.5625rem;
@@ -287,10 +287,10 @@
         width: 14.0625rem;
         height: 9.375rem;
         font-family: "Montserrat Alternates", sans-serif;
-        font-size: 12px;
+        font-size: 0.75rem;
         color: var(--gifos);
         text-align: center;
-        line-height: 25px;
+        line-height: 1.5625rem;
     }
     /***********Sin Busqueda/**/
     /****************/
@@ -326,10 +326,10 @@
     #lorem01 {
         font-family: "Montserrat Alternates";
         font-weight: bold;
-        font-size: 22px;
+        font-size: 1.375rem;
         color: #50e3c2;
         text-align: center;
-        line-height: 25px;
+        line-height: 1.5625rem;
     }
     /*Imágenes********************/
     main {
@@ -356,11 +356,11 @@
         display: none;
         position: absolute;
         z-index: 10;
-        margin-top: 130px;
-        margin-left: 124px;
+        margin-top: 8.125rem;
+        margin-left: 7.75rem;
     }
     .favcorGifos{
-        width: 100px;
+        width: 6.25rem;
     }
 
     .seleccion1 {
@@ -379,38 +379,31 @@
         font-size: 1.5625rem;
         color: var(--gifos);
         text-align: center;
-        line-height: 40px;
-        height: 100px;
+        line-height: 2.5rem;
+        height: 6.25rem;
     }
     .gifTitle {
         font-family: "Montserrat Alternates";
         position: absolute;
-        margin-left: -200px;
-        margin-top: -40px;
+        margin-left: -12.5rem;
+        margin-top: -2.5rem;
         width: 100%;
-        font-size: 12px;
+        font-size: 0.75rem;
         color: var(--font-color);
         text-align: center;
         font-weight: bold;
     }
-    /*.divHover {
-        display: none;
-        position: relative;
-        width: 100%;
-        height: 50px;
-        margin-top: 70px;
-        z-index: 10;
-    }*/
+    
     .fotoBusqueda {
         /*position: absolute;*/
-        width: 156px;
-        height: 120px;
+        width: 9.75rem;
+        height: 7.5rem;
         margin-top: 0.9375rem;
     }
     .fotoFavorito {
         /*position: absolute;*/
-        width: 156px;
-        height: 120px;
+        width: 9.75rem;
+        height: 7.5rem;
         margin-top: 0.9375rem;
     }
 
@@ -425,38 +418,36 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 450px;
+        height: 28.125rem;
         justify-content: center;
         align-items: center;
     }
     #imagen1 {
-        width: 20px;
-        height: 20px;
-        margin-top: -50px;
-        /* display: none;*/
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-top: -3.125rem;
     }
     #titulo1 {
         font-family: "Montserrat Alternates";
-        font-size: 25px;
+        font-size: 1.5625rem;
         color: var(--gifos);
         text-align: center;
-        line-height: 30px;
-        /*display: none;*/
+        line-height: 1.875rem;
     }
     #principal6 {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        margin-top: -250px;
+        margin-top: -15.625rem;
     }
     .fotos2 {
-        width: 156px;
-        height: 120px;
-        margin-top: 1.25rem;
+        width: 9.75rem;
+        height: 7.5rem;
+        margin-top: 20px;
     }
     #SinFavoritos {
         width: 100%;
-        margin-top: 150px;
+        margin-top: 9.375rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -467,14 +458,14 @@
         display: none;
         font-family: "Montserrat Alternates";
         font-weight: bold;
-        font-size: 14px;
+        font-size: 0.875rem;
         color: #50e3c2;
         text-align: center;
-        line-height: 33px;
+        line-height: 2.0625rem;
     }
     #imgSinFavoritos {
         display: none;
-        width: 80px;
+        width: 5rem;
     }
     /*******MIS GIFOS Mobile************/
 
@@ -498,7 +489,7 @@
     }
     #titulo2 {
         font-family: "Montserrat Alternates";
-        font-size: 20px;
+        font-size: 1.25rem;
         color: var(--gifos);
         text-align: center;
         line-height: 1.875rem;
@@ -509,18 +500,18 @@
         justify-content: space-evenly;
     }
     .fotos6{
-        width: 156px;
-        height: 120px;
-        margin-top: 20px;
+        width: 9.75rem;
+        height: 7.5rem;
+        margin-top: 1.25rem;
     }
     #fotosMisGifos {
-        width: 156px;
-        height: 120px;
-        margin-top: 20px;
+        width: 9.75rem;
+        height: 7.5rem;
+        margin-top: 1.25rem;
     }
     #SinGifos {
         width: 100%;
-        height: 300px;
+        height: 18.75rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -530,14 +521,14 @@
         display: none;
         font-family: "Montserrat Alternates";
         font-weight: bold;
-        font-size: 16px;
+        font-size: 1rem;
         color: #50e3c2;
         text-align: center;
-        line-height: 33px;
+        line-height: 2.0625rem;
     }
     #imgSinGifos {
         display: none;
-        width: 75px;
+        width: 4.6875rem;
     }
     .favcorGifos {
         display: none;
@@ -554,7 +545,7 @@
         background-color: var(--color-primary);
         border: none;
         width: 100%;
-        height: 150px;
+        height: 9.375rem;
     }
     #botonVerMas{
         height: 6.25rem;
@@ -581,7 +572,7 @@
         font-family: "Montserrat Alternates";
         font-size: 1.5625rem;
         color: var(--gifos);
-        height: 100px;
+        height: 6.25rem;
         text-align: center;
         line-height: 1.875rem;
         width: 100%;
@@ -599,7 +590,7 @@
         color: var(--font-color);
         text-align: center;
         line-height: 23px;
-        width: 200px;
+        width: 12.5rem;
     }
     /********Scroll ********/
     #scroll {
@@ -608,49 +599,15 @@
         position: relative;
     }
     .fotoTrending {
-        width: 243px;
-        height: 187px;
+        width: 15.1875rem;
+        height: 11.6875rem;
         margin: 0.9375rem;
     }
     .sig {
         display: none;
     }
 
-    /*Mis GIFOS MODO MOBILE*/
-    /* #principal8 {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        display: none;
-    }
-    #contenedor3 {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100px;
-        justify-content: flex-end;
-        align-items: center;
-    }
-    #titulo2 {
-        font-family: "Montserrat Alternates";
-        font-size: 25px;
-        color: var(--gifos);
-        text-align: center;
-        line-height: 30px;
-    }
-    #imagen2 {
-        width: 1.25rem;
-        height: 1.25rem;
-    }
-    #principal9 {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        margin-top: -250px;
-    }
-    #fotosMisGifos{
-
-    }*/
+    
     /**********************Footer****************/
     #cont44 {
         width: 100%;
@@ -773,7 +730,7 @@
 
     #principal4 {
         width: 100%;
-        height: 450px;
+        height: 28.125rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -818,7 +775,7 @@
     #sugerencias {
         display: none;
         width: 41.5%;
-        height: 350px;
+        height: 21.875rem;
         z-index: 10;
         background: var(--color-primary);
         border: 0.0625rem solid var(--gifos);
@@ -838,13 +795,13 @@
     #lupa1 {
         color: var(--color-primary);
         position: relative;
-        left: 30px;
-        margin-top: 20px;
+        left: 1.875rem;
+        margin-top: 1.25rem;
     }
     .itemListaBuscar {
-        margin-left: 70px;
+        margin-left: 4.375rem;
         color: var(--font-color);
-        margin-top: -20px;
+        margin-top: -1.25rem;
     }
     .itemListaBuscar:hover {
         width: 74.5%;
@@ -889,8 +846,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        /*justify-content: flex-start;*/
-        height: 264px;
+        height: 16.5rem;
     }
 
     #trending {
@@ -915,8 +871,7 @@
         line-height: 1.5625rem;
         display: inline;
         justify-content: center;
-        /*margin-left: 300px;*/
-        width: 800px;
+        width: 50rem;
     }
     /** Sin Búsqueda**/
     #sinBusqueda {
@@ -965,11 +920,11 @@
         color: var(--gifos);
         text-align: center;
         line-height: 2.5rem;
-        height: 100px;
+        height: 6.25rem;
     }
 
     .fotoBusqueda {
-        width: 260px;
+        width: 16.25rem;
         height: 12.5rem;
         margin-top: 1.25rem;
         margin-left: 1.875rem;
@@ -978,7 +933,7 @@
     }
 
     .fotoFavorito {
-        width: 260px;
+        width: 16.25rem;
         height: 12.5rem;
         margin-top: 1.25rem;
         margin-left: 1.875rem;
@@ -986,7 +941,7 @@
         display: block;
     }
     .fotosMisGifos {
-        width: 260px;
+        width: 16.25rem;
         height: 12.5rem;
         margin-top: 1.25rem;
         margin-left: 1.875rem;
@@ -997,8 +952,8 @@
         cursor: pointer;
     }
     .favcorGifos {
-        margin-top: 10px;
-        margin-left: 140px;
+        margin-top: 0.625rem;
+        margin-left: 8.75rem;
     }
 
     .divHover {
@@ -1134,17 +1089,17 @@
         margin-left: 8.75rem;
         position: absolute;
         font-family: "Roboto Condensed";
-        font-size: 16px;
+        font-size: 1rem;
         color: #ffffff;
         background-color: #50e3c2;
     }
     .gifTitle {
         margin-top: 5.25rem;
-        margin-left: -100px;
+        margin-left: -6.25rem;
         /*z-index: auto;*/
         position: absolute;
         font-family: "Montserrat Alternates";
-        font-size: 16px;
+        font-size: 1rem;
         color: var(--font-color);
         font-weight: bold;
         text-align: center;
@@ -1194,7 +1149,7 @@
         background-color: var(--color-primary);
         border: none;
         width: 100%;
-        height: 150px;
+        height: 9.375rem;
     }
     #botonVerMas{
         /*font-family: "Montserrat Alternates";*/
@@ -1213,7 +1168,7 @@
     /******Trending Gifos DESKTOP*************/
     #principal12 {
         width: 100%;
-        height: 550px;
+        height: 34.375rem;
         display: flex;
         flex-direction: column;
         justify-content: start;
@@ -1226,7 +1181,7 @@
         color: var(--gifos);
         text-align: center;
         line-height: 1.875rem;
-        height: 100px;
+        height: 6.25rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1241,7 +1196,7 @@
     #scroll {
         position: relative;
         width: 78%;
-        height: 330px;
+        height: 20.625rem;
         align-items: center;
         display: inline-flex;
         justify-content: space-between;
@@ -1251,17 +1206,17 @@
         display: none;
     }
     .fotoTrending {
-        width: 360px;
-        height: 275px;
+        width: 22.5rem;
+        height: 17.1875rem;
         margin-left: 1.25rem;
         margin-top: 0px;
     }
 
     .foto4 > .divHover {
-        width: 360px;
-        height: 275px;
-        margin-left: 20px;
-        margin-top: -280px;
+        width: 22.5rem;
+        height: 17.1875rem;
+        margin-left: 1.25rem;
+        margin-top: -17.5rem;
         background-color: #572ee5;
         opacity: 0.7;
         display: none;
@@ -1272,13 +1227,13 @@
     #scrollLeft {
         position: absolute;
         height: 3.125rem;
-        margin-right: 1200px;
+        margin-right: 75rem;
         margin-top: 14.375rem;
     }
     #scrollRigth {
         position: absolute;
-       margin-left: 1140px;
-        margin-top: 230px;
+       margin-left: 71.25rem;
+        margin-top: 14.375rem;
     }
     button {
         width: 3.125rem;
@@ -1288,10 +1243,10 @@
     }
     #parr1 {
         font-family: "Roboto Condensed", sans-serif;
-        font-size: 20px;
+        font-size: 1.25rem;
         color: var(--font-color);
         text-align: center;
-        line-height: 23px;
+        line-height: 1.4375rem;
     }
     /********Footer Desktop**************/
     footer {
@@ -1342,7 +1297,7 @@
     }
 
     #cont802 {
-        width: 688px;
+        width: 43rem;
         height: 24.375rem;
         border: 1px solid var(--gifos);
     }
@@ -1363,7 +1318,7 @@
     #bloques {
         margin: 1.25rem;
         display: flex;
-        width: 680px;
+        width: 42.5rem;
         justify-content: center;
     }
     #bloques1 {
@@ -1411,17 +1366,17 @@
         color: #ffffff;
         text-align: center;
         display: flex;
-        margin-left: 250px;
+        margin-left: 15.625rem;
     }
     #imagenSubiendoGifo {
-        margin-left: 350px;
-        margin-top: 100px;
+        margin-left: 21.875rem;
+        margin-top: 6.25rem;
     }
 
     #contenidoGifSubido {
         display: none;
-        width: 688px;
-        height: 390px;
+        width: 43rem;
+        height: 24.375rem;
         position: absolute;
         z-index: 10;
         margin-top: -30px;
@@ -1445,8 +1400,8 @@
         cursor: pointer;
     }
     #contenedorTexto {
-        width: 688px;
-        height: 390px;
+        width: 43rem;
+        height: 24.375rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1585,14 +1540,14 @@
         letter-spacing: 0;
         text-align: center;
         background-color: transparent;
-        margin: 15px;
-        margin-left: 320px;
-        margin-top: 50px;
+        margin: 0.9375rem;
+        margin-left: 20rem;
+        margin-top: 3.125rem;
         font-weight: bold;
     }
 #comienzo{
-    width:688px;
-    height: 80px;
+    width:43rem;
+    height: 5rem;
     margin-left: -125px;
     display: flex;
     justify-content: center;
@@ -1636,22 +1591,19 @@
     }
     #video {
         display: none;
-        width: 688px;
+        width: 43rem;
         height: 24.375rem;
         background: rgba(0, 0, 0, 0.2);
     }
 }
 #mostrarGif {
-    width: 688px;
+    width: 43rem;
     height: 24.375rem;
     position: absolute;
 }
 #mostrarCamara {
-    /*display: none;*/
-    width: 688px;
+    width: 43rem;
     height: 24.375rem;
-    /*background-color: #572ee5;
-    opacity: 0.7;*/
     z-index: 10;
     position: absolute;
 }
