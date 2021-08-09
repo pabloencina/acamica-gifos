@@ -159,6 +159,10 @@ const linkGifo = document.getElementById('linkGifo');
 
 const sugerencias = document.getElementById('sugerencias');
 
+const titulo2 = document.getElementById('titulo2')
+
+const imagen2  = document.getElementById('imagen2')
+
 switchThemeDesktop.addEventListener('click', () => {
    toggleTheme();
 });
@@ -864,6 +868,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             exp.style.visibility = 'hidden';
             down.style.marginTop = '-1.875rem';
             TituloGifBusqueda.style.opacity = '0';
+            titulo2.style.opacity = '0'
             botonVerMas.style.opacity = '0';
             principal1.style.opacity = '0';
             principal4.style.opacity = '0';
@@ -904,6 +909,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             botonVerMas.style.opacity = '1';
             principal2.style.opacity = '1';
             contenedor2.style.opacity = '1';
+            imagen2.style.justifyContent = 'center'
 
             let otrosGifs = document.querySelectorAll('.fotosMisGifos');
             otrosGifs.forEach(gifElement => {
@@ -990,6 +996,7 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
          principal12.style.opacity = '0';
          divHover.style.width = '0';
          contenedor2.style.opacity = '0';
+         titulo2.style.opacity = '0'
 
          let otrosGifs = document.querySelectorAll('.fotosMisGifos');
          otrosGifs.forEach(gifElement => {
@@ -1049,6 +1056,8 @@ function asociarEventosFotosMisGifosDesktop(gifElements) {
          botonVerMas.style.opacity = '1';
          principal2.style.opacity = '1';
          contenedor2.style.opacity = '1';
+         titulo2.style.opacity = '1'
+         imagen2.style.marginLeft = '650px'
 
          let otrosGifs = document.querySelectorAll('.fotosMisGifos');
          otrosGifs.forEach(gifElement => {
