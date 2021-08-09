@@ -774,7 +774,7 @@
     }
     #sugerencias {
         display: none;
-        width: 41.5%;
+        width: 44.5%;
         height: 21.875rem;
         z-index: 10;
         background: var(--color-primary);

@@ -1332,8 +1332,8 @@ function asociarEventosFotosTrendingDesktop(gifElements) {
          });
 
          divHover.addEventListener('mouseout', () => {
-            divHover.style.display = 'block';
-            favcor.style.display = 'block';
+            divHover.style.display = 'none';
+            favcor.style.display = 'none';
          });
 
          let otrosGifs = document.querySelectorAll('.fotoTrending');
