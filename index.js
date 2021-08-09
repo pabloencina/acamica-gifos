@@ -117,7 +117,7 @@ const sinBusqueda = document.getElementById('sinBusqueda');
 
 const principal6 = document.getElementById('principal6');
 
-const pantallaDesktop = window.matchMedia("(min-width: 1440px)");
+const pantallaDesktop = window.matchMedia("(min-width: 768px)");
 
 const wap = document.getElementById('wap');
 

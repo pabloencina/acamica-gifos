@@ -1,7 +1,7 @@
 /*
 ********BUSQUEDA**********************/
 
-@media screen and (max-width: 48rem) {
+@media screen and (max-width: 768px) {
     body {
         background-color: var(--color-primary);
     }
@@ -657,7 +657,7 @@
 }
 /*************************************************************/
 
-@media screen and (min-width: 48rem) {
+@media screen and (min-width: 768px) {
     body {
         background-color: var(--color-primary);
     }
