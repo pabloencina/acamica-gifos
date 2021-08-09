@@ -682,7 +682,8 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             nav.style.opacity = '0';
             cont44.style.opacity = '0';
             principal12.style.opacity = '0';
-            divHover.style.width = '0';
+            divHover.style.display = 'none';
+            divHover.style.width = '0px'
             contenedor2.style.opacity = '0';
 
             gifElement.addEventListener('mouseover', () => {
@@ -706,6 +707,7 @@ function asociarEventosFotosDesktop(gifElements, caller) {
          close12.addEventListener('click', () => {
             gifElement.style.width = '16.25rem';
             gifElement.style.height = '12.5rem';
+            //divHover.style.display = 'block'
             divHover.style.width = '16.25rem';
             divHover.style.height = '12.5rem';
             close12.style.display = 'none';
@@ -735,6 +737,16 @@ function asociarEventosFotosDesktop(gifElements, caller) {
             botonVerMas.style.opacity = '1';
             principal2.style.opacity = '1';
             contenedor2.style.opacity = '1';
+
+            gifElement.addEventListener('mouseover', () => {
+               divHover.style.display = 'block';
+               favcor.style.display = 'block';
+            });
+      
+            divHover.addEventListener('mouseout', () => {
+               divHover.style.display = 'none';
+               favcor.style.display = 'none';
+            });
 
             let otrosGifs = document.querySelectorAll('.fotoBusqueda');
             otrosGifs.forEach(gifElement => {
